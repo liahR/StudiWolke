@@ -1,0 +1,32 @@
+/* Favicon */
+#favicon {
+    width: 32px;
+    height: 32px;
+  }
+
+/* CSS-Regeln für das Mond-Icon */
+.dark-mode-toggle {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+  }
+  
+  .dark-mode-toggle i {
+    color: #222;
+    font-size: 20px;
+  }
+
+/* H1 Überschriften */
+
+h1 {
+    font-family: "Baloo 2", sans-serif;
+    color: #18A0FB;
+  }

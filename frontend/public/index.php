@@ -2,16 +2,14 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <link rel="icon" href="favicon.ico" />
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" id="favicon">
+    <link rel="stylesheet" type="text/css" href="allgemein.css">
+    <!-- Verknüpfen der CSS-Datei für den Dark-Mode -->
+    <link rel="stylesheet" type="text/css" href="darkmode.css">
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#000000" />
-    <meta
-      name="description"
-      content="Web site created using create-react-app"
-    />
    <!--keine Ahnung ob wir das brauchen, deswegen noch drin-->
     <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
-    
     <title>Start</title>
   </head>
   <body>
@@ -120,11 +118,20 @@
         die();
     }?>
       <footer>
-    <img src="Logo StudiWolke.png" alt="StudiWolke Logo">
     <ul>
         <li><a href="impressum.html">IMPRESSUM</a></li>
         <li><a href="datenschutz.html">DATENSCHUTZ</a></li>
         <li><a href="logout.php">Abmelden</a></li>
+        <!-- HTML-Code für das Mond-Icon -->
+        <div class="dark-mode-toggle">
+        <i class="fas fa-moon"></i>
+        </div>
+       <?php // JavaScript-Code zum Umschalten des Dark-Mode
+       var darkModeToggle = document.querySelector('.dark-mode-toggle');
+       var body = document.querySelector('body');
+       darkModeToggle.addEventListener('click', function() {
+       body.classList.toggle('dark-mode');
+      });?>
     </ul>
     <hr/>
 </footer>

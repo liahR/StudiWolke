@@ -1,0 +1,33 @@
+/* Dark Mode */
+body.dark-mode {
+    background-color: #1a1a1a;
+    color: #18A0FB;
+  }
+  
+  .dark-mode .header {
+    background-color: #222;
+    color: #18A0FB;
+  }
+  
+  .dark-mode a {
+    color: #18A0FB;
+  }
+  
+  .dark-mode h1{
+      color: #18A0FB
+  }
+  .dark-mode h2,
+  .dark-mode h3,
+  .dark-mode h4,
+  .dark-mode h5,
+  .dark-mode h6 {
+    color: #fff;
+  }
+  
+  .dark-mode .button {
+    background-color: #18A0FB;
+    color: #222;
+  }
+  
+ 
+  

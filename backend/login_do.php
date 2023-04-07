@@ -10,15 +10,15 @@ dbname=u-lr090', 'lr090', 'eetho6Choh',
 
 
 
-$Nutzername=htmlspecialchars ($_POST ["nutzername"]);
-$passwort=htmlspecialchars ($_POST ["passwort"]);
+$Nutzername=htmlspecialchars ($_POST ["Nutzername"]);
+$Passwort=htmlspecialchars ($_POST ["Passwort"]);
 
 $statement = $pdo->prepare ('SELECT * FROM Benutzer WHERE Nutzername=:Nutzername');
 $statement->bindParam(':Nutzername',$Nutzername);
 
 $statement->execute();
 if ($row = $statement->fetch()){
-    if (password_verify($passwort, $row["passwort"]))
+    if (password_verify($Passwort, $row["Passwort"]))
     {
         $_SESSION["id"] = $row["id"];
         header("Location: index.php");

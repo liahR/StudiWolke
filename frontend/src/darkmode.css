@@ -5,8 +5,8 @@ body.dark-mode {
   }
   
   .dark-mode .header {
-    background-color: #222;
-    color: #18A0FB;
+    background-color: #18A0FB;
+    color: #222;
   }
   
   .dark-mode a {

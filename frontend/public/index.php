@@ -20,6 +20,10 @@
         header("Location: login.php");
 		exit;
     ?>
+    <!-- HTML-Code für das Logo -->
+    <div class="logo">
+      <img src="Logo StudiWolke.png" alt="Logo">
+    </div>
       <header>
         <nav>
           <ul>

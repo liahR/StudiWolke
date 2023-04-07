@@ -20,7 +20,7 @@ $statement->execute();
 if ($row = $statement->fetch()){
     if (password_verify($Passwort, $row["Passwort"]))
     {
-        $_SESSION["id"] = $row["id"];
+        $_SESSION["BenutzerId"] = $row["BenutzerId"];
         header("Location: index.php");
     }
     else

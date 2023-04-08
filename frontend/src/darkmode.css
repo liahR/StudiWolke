@@ -29,5 +29,13 @@ body.dark-mode {
     color: #222;
   }
   
+ /* Dark Mode, der eig. auf jede Seite sollte.
  
+ 
+ <?php // JavaScript-Code zum Umschalten des Dark-Mode
+       var darkModeToggle = document.querySelector('.dark-mode-toggle');
+       var body = document.querySelector('body');
+       darkModeToggle.addEventListener('click', function() {
+       body.classList.toggle('dark-mode');
+      });?>
   

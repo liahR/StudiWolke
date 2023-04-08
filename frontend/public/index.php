@@ -116,12 +116,6 @@ if ($statement->execute()) {
         <div class="dark-mode-toggle">
         <i class="fas fa-moon"></i>
         </div>
-      <?php // JavaScript-Code zum Umschalten des Dark-Mode
-       var darkModeToggle = document.querySelector('.dark-mode-toggle');
-       var body = document.querySelector('body');
-       darkModeToggle.addEventListener('click', function() {
-       body.classList.toggle('dark-mode');
-      });?>
     </ul>
     <hr/>
 </footer>

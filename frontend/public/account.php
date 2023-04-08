@@ -26,10 +26,10 @@
 	// Verbindung zur Datenbank schließen
 	$pdo = null;
 	?>
-	
+	}
 	<h1>Hallo, <?php echo $Benutzer['Vorname']; ?>!</h1>
 	
-	<form action="account_do.php" method="post" enctype="multipart/form-data">
+	<form action="../../backend/account_do.php" method="post" enctype="multipart/form-data">
 		<label for="Profilbild">Profilbild:</label><br>
 		<input type="file" name="Profilbild" id="Profilbild"><br>
 		

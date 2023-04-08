@@ -3,9 +3,9 @@
 <head>
     <meta charset="utf-8"/>
     <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" id="favicon">
-    <link rel="stylesheet" type="text/css" href="allgemein.css">
+    <link rel="stylesheet" type="text/css" href="../src/allgemein.css">
     <!-- Verknüpfen der CSS-Datei für den Dark-Mode -->
-    <link rel="stylesheet" type="text/css" href="darkmode.css">
+    <link rel="stylesheet" type="text/css" href="../src/darkmode.css">
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <meta name="theme-color" content="#000000"/>
     <!--keine Ahnung ob wir das brauchen, deswegen noch drin-->

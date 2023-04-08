@@ -111,7 +111,7 @@ if ($statement->execute()) {
     <ul>
         <li><a href="impressum.html">IMPRESSUM</a></li>
         <li><a href="datenschutz.html">DATENSCHUTZ</a></li>
-        <li><a href="logout.php">Abmelden</a></li>
+        <li><a href="../../backend/logout.php">Abmelden</a></li>
         <!-- HTML-Code für das Mond-Icon -->
         <div class="dark-mode-toggle">
         <i class="fas fa-moon"></i>

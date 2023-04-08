@@ -34,7 +34,7 @@ $row = $stmt->fetch(PDO::FETCH_ASSOC);
 echo "<h1>" . $row['Vorname'] . "'s Wolke!</h1>";
 
 // SQL-Abfrage zum Abrufen der Ordner
-$statement = $pdo->prepare("SELECT OrdnerId, Ordnername FROM Ordner");
+$statement = $pdo->prepare("SELECT OrdnerId, Ordnername original FROM Ordner");
 
 if ($statement->execute()) {
     $rows = $statement->fetchAll(PDO::FETCH_ASSOC);
@@ -42,7 +42,7 @@ if ($statement->execute()) {
     // Sortierungsfunktion
     function sortByName($a, $b)
     {
-        return strcmp($a['Ordnername'], $b['Ordnername']);
+        return strcmp($a['Ordnername original'], $b['Ordnername original']);
     }
 
     // Standard-Sortierreihenfolge (nach ID)

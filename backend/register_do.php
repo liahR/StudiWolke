@@ -1,7 +1,3 @@
-<?php
-$pdo = new PDO('mysql:: host=mars.iuk.hdm-stuttgart.de; dbname=u-lr090', 'lr090', 'eetho6Choh', array('charset' => 'utf8'));
-?>
-
 <!DOCTYPE html>
 <html lang="de">
 <head>
@@ -15,37 +11,53 @@ $pdo = new PDO('mysql:: host=mars.iuk.hdm-stuttgart.de; dbname=u-lr090', 'lr090'
 
 <?php
 
+
+//Isset zur Überprüfung, ob alle Felder ausgefüllt wurden.
+
+if(!isset($_POST["Vorname"]) | !isset($_POST["Nachname"]) | !isset($_POST["Email"]| !isset($_POST["Nutzername"]| !isset($_POST["Passwort"])){
+    die("Formular-Fehler! Hast du alle Felder ausgefüllt?");}
+
+//Verbindung zur Datenbank
+    $pdo = new PDO('mysql:: host=mars.iuk.hdm-stuttgart.de; dbname=u-lr090', 'lr090', 'eetho6Choh', array('charset' => 'utf8'));
+
 //zur Sicherheit 
-$id=htmlspecialchars ($_POST ["id"]);
 $Vorname=htmlspecialchars ($_POST ["Vorname"]);
 $Nachname=htmlspecialchars ($_POST ["Nachname"]);
 $Email=htmlspecialchars ($_POST ["Email"]);
 $Nutzername=htmlspecialchars ($_POST ["Nutzername"]);
-$passwort=htmlspecialchars ($_POST ["Passwort"]);
+$Passwort=htmlspecialchars ($_POST ["Passwort"]);
+$Profilbild=htmlspecialchars ($_POST ["Profilbild"]);
+
+// Passwort hashen
 $hashp= password_hash("$passwort", PASSWORD_BCRYPT);
 
 
-$statement = $pdo->prepare("INSERT INTO Benutzer (BenutzerId, Vorname, Nachname, Email, Nutzername, Passwort) VALUES (:BenutzerId, :Vorname, :Nachname, :Email, :Nutzername, :Passwort)");
+$statement = $pdo->prepare("INSERT INTO Benutzer (BenutzerId, Vorname, Nachname, Email, Nutzername, Passwort, Profilbild) 
+VALUES (:BenutzerId, :Vorname, :Nachname, :Email, :Nutzername, :Passwort, :Profilbild)");
 
-$statement->bindParam(':BenutzerId', $id);
 $statement->bindParam(':Vorname', $Vorname);
 $statement->bindParam(':Nachname', $Nachname);
 $statement->bindParam(':Email', $Email);
 $statement->bindParam(':Nutzername', $Nutzername);
 $statement->bindParam(':Passwort', $hashp);
+$statement->bindParam(':Profilbild', $Profilbild);
 
+// Bei erfolgreicher Ausführung, wird Info darüber ausgegeben.
 if($statement->execute())
 {
-    echo "Du wurdest erfolgreich angemeldet";
+    echo "Willkommen! Du wurdest erfolgreich angemeldet";
 }
+
+// Wenn nicht, wird eine Info und eine Fehlermeldung ausgegeben.
 else
 {
     echo "Fehler bei der Anmeldung aufgetreten";
     echo $statement->errorInfo()[2];
 }
 ?>
-<p>
-    <a href="index.php">Zur Startseite</a>
-</p>
+<!--Link zurück zum Login-->
+
+<hr>
+<a href="login.html">Zurück zum Login</a>
 </body>
 </html>

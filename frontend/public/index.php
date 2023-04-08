@@ -34,7 +34,7 @@ $row = $stmt->fetch(PDO::FETCH_ASSOC);
 echo "<h1>" . $row['Vorname'] . "'s Wolke!</h1>";
 
 // SQL-Abfrage zum Abrufen der Ordner
-$statement = $pdo->prepare("SELECT OrdnerId, Ordnername original FROM Ordner");
+$statement = $pdo->prepare("SELECT OrdnerId, Ordnername_original FROM Ordner");
 
 if ($statement->execute()) {
     $rows = $statement->fetchAll(PDO::FETCH_ASSOC);
@@ -42,7 +42,7 @@ if ($statement->execute()) {
     // Sortierungsfunktion
     function sortByName($a, $b)
     {
-        return strcmp($a['Ordnername original'], $b['Ordnername original']);
+        return strcmp($a['Ordnername_original'], $b['Ordnername_original']);
     }
 
     // Standard-Sortierreihenfolge (nach ID)
@@ -61,7 +61,7 @@ if ($statement->execute()) {
     foreach ($rows as $row) {
         echo '<li>';
         echo '<img src="cloud-ordner.png" alt="Ordner-Icon">';
-        echo '<h2>' . $row['Ordnername original'] . '</h2>';
+        echo '<h2>' . $row['Ordnername_original'] . '</h2>';
         echo '<a href="delete_ordner_do.php=' . $row['OrdnerId'] . '">Löschen</a><br>';
         echo '</li>';
     }

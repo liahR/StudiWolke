@@ -13,6 +13,22 @@
     <title>Start</title>
 </head>
 <body>
+<header>
+    <img src="Logo StudiWolke.png" alt= "Das Logo von StudiWolke">
+    <div>
+    <!-- HTML-Code für das Mond-Icon, Dark Mode, muss noch gefixt werden 
+        <div class="dark-mode-toggle">
+        <i class="fas fa-moon"></i> -->
+    </div>
+    <nav>
+        <ul>
+            <li><a href="index.php">START></a></li>
+            <li><a href="support.php">SUPPORT></a></li>
+            <li><a href="index.php">START></a></li> 
+        </ul>
+    </nav>
+</header> 
+<main>
 <?php
 session_start();
 // Prüfen, ob Benutzer nicht eingeloggt ist -- BITTE NOCH AKTIVIEREN
@@ -99,7 +115,7 @@ if ($statement->execute()) {
     echo '</script>';
 }
     
-    //Sollte es niocht geklappt haben, wird eine Fehler Info ausgegeben.
+    //Sollte es nicht geklappt haben, wird eine Fehler Info ausgegeben.
     
     else {
         echo 'Datenbank-Fehler:';
@@ -107,15 +123,14 @@ if ($statement->execute()) {
         echo $statement->queryString;
         die();
     }
-    ?>  <footer>
+    ?>  
+    </main>
+    <footer>
     <ul>
         <li><a href="impressum.html">IMPRESSUM</a></li>
         <li><a href="datenschutz.html">DATENSCHUTZ</a></li>
-        <li><a href="../../backend/logout.php">Abmelden</a></li>
-        <!-- HTML-Code für das Mond-Icon -->
-        <div class="dark-mode-toggle">
-        <i class="fas fa-moon"></i>
-        </div>
+        <li><a href= "agbs.html">AGBs</a></li>
+        <li><a href="../../backend/logout.php">LOGOUT</a></li>
     </ul>
     <hr/>
 </footer>

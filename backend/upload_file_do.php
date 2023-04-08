@@ -68,12 +68,12 @@ for ($i=0; $i<20; $i++){
 }
 $string.="."$filetyp;
 
-if (!move_uploaded_file($_FILES["files"]["tmp_name"], "/home/lr090/public_html/blog/Bilder/".$string)){
+if (!move_uploaded_file($_FILES["files"]["tmp_name"], "/home/lr090/public_html/StudiWolke/frontend/dateien/".$string)){
     die ("Fehler bei der Übertragung");
 }
 
 
-$statement = $pdo->prepare("INSERT INTO Dateien (titel, post, bild) VALUES (:titel, :post, :bild)");
+$statement = $pdo->prepare("INSERT INTO Dateien (DateiId, BenutzerId, OrdnerId) VALUES (:titel, :post, :bild)");
 
 $statement->bindParam(':titel', $titel);
 $statement->bindParam(':post', $post);

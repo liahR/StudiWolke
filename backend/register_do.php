@@ -11,16 +11,8 @@
 
 <?php
 
-
-//Isset zur Überprüfung, ob alle Felder ausgefüllt wurden.
-
-if(!isset(($_POST["Vorname"]) | !isset($_POST["Nachname"]) | !isset($_POST["Email"]| !isset($_POST["Nutzername"]| !isset($_POST["Passwort"])){
-    die("Formular-Fehler! Hast du alle Felder ausgefüllt?");}
-
-//Verbindung zur Datenbank
-    $pdo = new PDO('mysql:: host=mars.iuk.hdm-stuttgart.de; dbname=u-lr090', 'lr090', 'eetho6Choh', array('charset' => 'utf8'));
-
 //zur Sicherheit 
+
 $Vorname=htmlspecialchars ($_POST ["Vorname"]);
 $Nachname=htmlspecialchars ($_POST ["Nachname"]);
 $Email=htmlspecialchars ($_POST ["Email"]);
@@ -28,12 +20,17 @@ $Nutzername=htmlspecialchars ($_POST ["Nutzername"]);
 $Passwort=htmlspecialchars ($_POST ["Passwort"]);
 $Profilbild=htmlspecialchars ($_POST ["Profilbild"]);
 
+
 // Passwort hashen
 $hashp= password_hash("$passwort", PASSWORD_BCRYPT);
 
 
-$statement = $pdo->prepare("INSERT INTO Benutzer (BenutzerId, Vorname, Nachname, Email, Nutzername, Passwort, Profilbild) 
-VALUES (:BenutzerId, :Vorname, :Nachname, :Email, :Nutzername, :Passwort, :Profilbild)");
+//Verbindung zur Datenbank
+    $pdo = new PDO('mysql:: host=mars.iuk.hdm-stuttgart.de; dbname=u-lr090', 'lr090', 'eetho6Choh', array('charset' => 'utf8'));
+
+
+$statement = $pdo->prepare("INSERT INTO Benutzer (Vorname, Nachname, Email, Nutzername, Passwort, Profilbild) 
+VALUES (:Vorname, :Nachname, :Email, :Nutzername, :Passwort, :Profilbild)");
 
 $statement->bindParam(':Vorname', $Vorname);
 $statement->bindParam(':Nachname', $Nachname);

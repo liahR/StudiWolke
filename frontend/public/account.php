@@ -8,11 +8,11 @@
 	<?php
 	session_start();
 	// Prüfen, ob Benutzer eingeloggt ist
-	if(!isset($_SESSION['BenutzerId'])) {
+	//if(!isset($_SESSION['BenutzerId'])) {
 		// Benutzer ist nicht eingeloggt, Weiterleitung zur Login-Seite
-		header("Location: login.php");
-		exit();
-	}
+	//	header("Location: login.html");
+	//	exit();
+	//}
 	// Verbindung zur Datenbank herstellen
 	$pdo = new PDO('mysql:: host=mars.iuk.hdm-stuttgart.de; dbname=u-lr090', 'lr090', 'eetho6Choh', array('charset'=>'utf8'));
 	if ($pdo->connect_error) {

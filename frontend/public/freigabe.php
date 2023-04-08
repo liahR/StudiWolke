@@ -11,7 +11,7 @@
     // Überprüfen Sie, ob das Formular eingereicht wurde
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         // Extrahieren Sie die Informationen aus dem Formular
-        $OrdnerId = $_POST['OrdnerId'];
+        $DateiId = $_POST['DateiId'];
         $BenutzerId = $_POST['BenutzerId'];
         $permission = $_POST['Berechtigungsart'];
 

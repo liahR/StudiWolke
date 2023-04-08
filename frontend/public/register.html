@@ -11,7 +11,7 @@
 <body>
 <h1>Anmelden</h1>
 
-<form action ="../../backend/register_do.php" method ="post">
+<form action ="../../backend/register_do.php" method ="post" enctype="multipart/form-data">
     
     <p>
         Vorname <br>
@@ -35,7 +35,7 @@
     </p>
     <p>
         Profilbild hochladen <br>
-        <input type="file" name="Profilbild"required>
+        <input type="file" name="Profilbild" required>
     </p>
     <button type="submit">Jetzt anmelden</button>
 </body>

@@ -18,7 +18,6 @@ $Nachname=htmlspecialchars ($_POST ["Nachname"]);
 $Email=htmlspecialchars ($_POST ["Email"]);
 $Nutzername=htmlspecialchars ($_POST ["Nutzername"]);
 $Passwort=htmlspecialchars ($_POST ["Passwort"]);
-$Profilbild=htmlspecialchars ($_POST ["Profilbild"]);
 
 
 // Passwort hashen
@@ -69,7 +68,7 @@ $statement->bindParam(':Nachname', $Nachname);
 $statement->bindParam(':Email', $Email);
 $statement->bindParam(':Nutzername', $Nutzername);
 $statement->bindParam(':Passwort', $hashp);
-$statement->bindParam(':Profilbild', $Profilbild);
+$statement->bindParam(':Profilbild', $string);
 
 // Bei erfolgreicher Ausführung, wird Info darüber ausgegeben.
 if($statement->execute())

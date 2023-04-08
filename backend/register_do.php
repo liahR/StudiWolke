@@ -37,7 +37,7 @@ if (strtolower($type) !="jpg") {
     die ("nur .jpg erlaubt");
 }
 
-if ($_FILES["bild"]["size"]>800000){
+if ($_FILES["Profilbild"]["size"]>800000){
     die ("Datei ist zu groß");
 }
 

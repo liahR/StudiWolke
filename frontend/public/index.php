@@ -26,15 +26,15 @@ if ($pdo->connect_error) {
     die("Verbindung fehlgeschlagen: " . $pdo->connect_error);
 }
 // SQL-Abfrage zum Abrufen des Vornamens des Benutzers
-$stmt = $pdo->prepare("SELECT Vorname FROM Benutzer WHERE Nutzername=:username");
-$stmt->bindValue(':username', $_SESSION['username']);
+$stmt = $pdo->prepare("SELECT Vorname FROM Benutzer WHERE Nutzername=:Nutzername");
+$stmt->bindValue(':Nutzername', $_SESSION['Nutzername']);
 $stmt->execute();
 $row = $stmt->fetch(PDO::FETCH_ASSOC);
 // Vornamen ausgeben
 echo "<h1>" . $row['Vorname'] . "'s Wolke!</h1>";
 
 // SQL-Abfrage zum Abrufen der Ordner
-$statement = $pdo->prepare("SELECT id, Ordnername FROM Ordner");
+$statement = $pdo->prepare("SELECT OrdnerId, Ordnername FROM Ordner");
 
 if ($statement->execute()) {
     $rows = $statement->fetchAll(PDO::FETCH_ASSOC);
@@ -47,7 +47,7 @@ if ($statement->execute()) {
 
     // Standard-Sortierreihenfolge (nach ID)
     usort($rows, function ($a, $b) {
-        return $a['id'] - $b['id'];
+        return $a['OrdnerId'] - $b['OrdnerId'];
     });
 
     // Button zum Sortieren nach Namen

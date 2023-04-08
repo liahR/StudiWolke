@@ -26,7 +26,7 @@
 	// Verbindung zur Datenbank schließen
 	$pdo = null;
 	?>
-	}
+	
 	<h1>Hallo, <?php echo $Benutzer['Vorname']; ?>!</h1>
 	
 	<form action="../../backend/account_do.php" method="post" enctype="multipart/form-data">

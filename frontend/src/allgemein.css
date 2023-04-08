@@ -33,7 +33,7 @@ h4,
 h5,
 h6,
 p {
-    font-family: "Baloo 2", sans-serif;
+    font-family: "Baloo 2", cursive;
     color: #18A0FB;
   }
 
@@ -48,14 +48,9 @@ p {
   }
 
 /* Logo */
-.logo {
-    position: absolute;
-    top: 0;
-    right: 0;
-    margin: 20px;
-  }
-  
-  .logo img {
-    max-height: 80px;
-    max-width: 200px;
-  }
+
+.studiwolke_logo {
+  position: fixed;
+  height: 100px;
+  width: 500px;
+}

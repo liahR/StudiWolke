@@ -1,3 +1,29 @@
+<?php
+session_start();
+$pdo = new PDO('mysql:: host=mars.iuk.hdm-stuttgart.de; dbname=u-lr090', 'lr090', 'eetho6Choh', array('charset'=>'utf8'));
+
+
+if (isset($_GET['OrdnerId'])) {
+    $ordner_id = $_GET['OrdnerId'];
+
+    // Hole den Ordnernamen
+    $statement = $db->prepare('SELECT Ordnername original FROM Ordner WHERE id = :id');
+    $statement->bindParam(':id', $ordner_id);
+    $statement->execute();
+    $ordner = $statement->fetch(PDO::FETCH_ASSOC);
+
+    // Hole die Dateien des Ordners
+    $statement = $db->prepare('SELECT * FROM Dateien WHERE OrdnerId = :OrdnerId ORDER BY Dateiname original');
+    $statement->bindParam(':OrdnerId', $OrdnerId);
+    $statement->execute();
+    $dateien = $statement->fetchAll(PDO::FETCH_ASSOC);
+} else {
+    $_SESSION['error'] = 'Es ist ein Fehler aufgetreten. Bitte versuche es erneut.';
+    header('Location: index.php');
+    exit();
+}
+?>
+
 <!DOCTYPE html>
 <html lang="de">
 <head>

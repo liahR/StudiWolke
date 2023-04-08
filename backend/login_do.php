@@ -20,13 +20,13 @@ $statement->execute();
 if ($row = $statement->fetch()){
     if (password_verify($Passwort, $row["Passwort"]))
     {
-        $_SESSION["BenutzerId"] = $row["BenutzerId"];
-        header("Location: index.php");
+        $_SESSION["id"] = $row["id"];
+        header("Location: ../frontend/public/index.php");
     }
     else
     {
         echo "Passwort oder Login falsch";
-        echo "<p><a href= 'login.html'>Erneut versuchen</a></p>";
+        echo "<p><a href= '../frontend/public/login.html'> Erneut versuchen</a></p>";
     }}
 else
 {

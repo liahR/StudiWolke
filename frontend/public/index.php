@@ -62,7 +62,7 @@ if ($statement->execute()) {
         echo '<li>';
         echo '<img src="cloud-ordner.png" alt="Ordner-Icon">';
         echo '<h2>' . $row['Ordnername'] . '</h2>';
-        echo '<a href="delete_ordner_do.php?id=' . $row['id'] . '">Löschen</a><br>';
+        echo '<a href="delete_ordner_do.php=' . $row['OrdnerId'] . '">Löschen</a><br>';
         echo '</li>';
     }
     echo '</ul>';
@@ -106,7 +106,7 @@ if ($statement->execute()) {
         echo $statement->errorInfo() [2];
         echo $statement->queryString;
         die();
-    }?>
+    }
       <footer>
     <ul>
         <li><a href="impressum.html">IMPRESSUM</a></li>
@@ -116,7 +116,7 @@ if ($statement->execute()) {
         <div class="dark-mode-toggle">
         <i class="fas fa-moon"></i>
         </div>
-       <?php // JavaScript-Code zum Umschalten des Dark-Mode
+      // JavaScript-Code zum Umschalten des Dark-Mode
        var darkModeToggle = document.querySelector('.dark-mode-toggle');
        var body = document.querySelector('body');
        darkModeToggle.addEventListener('click', function() {

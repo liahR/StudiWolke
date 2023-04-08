@@ -11,7 +11,7 @@
 
 <?php
 
-//zur Sicherheit 
+//zur Sicherheit Eingaben
 
 $Vorname=htmlspecialchars ($_POST ["Vorname"]);
 $Nachname=htmlspecialchars ($_POST ["Nachname"]);
@@ -23,6 +23,38 @@ $Profilbild=htmlspecialchars ($_POST ["Profilbild"]);
 
 // Passwort hashen
 $hashp= password_hash("$passwort", PASSWORD_BCRYPT);
+
+//zur Sicherheit Bild 
+
+if(empty($_FILES["Profilbild"])){
+    die("Achtung! Leere Datei");
+}
+if(empty($_FILES["Profilbild"]["name"])) {
+    die("Auchtung! Leere Datei");
+}
+
+$type = pathinfo($_FILES ["Profilbild"]["name"], PATHINFO_EXTENSION);
+if (strtolower($type) !="jpg") {
+    die ("nur .jpg erlaubt");
+}
+
+if ($_FILES["bild"]["size"]>800000){
+    die ("Datei ist zu groß");
+}
+
+$s='1234567890ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+$s.="abcdefghijklmnopqrstuvwxyz";
+$string='';
+for ($i=0; $i<20; $i++){
+    $index=rand(0, strlen($s)-1);
+    $string.=$s[$index];
+}
+$string.=".jpg";
+
+if (!move_uploaded_file($_FILES["Profilbild"]["tmp_name"], "/home/lr090/public_html/StudiWolke/frontend/profilbilder/".$string)){
+    die ("Fehler bei der Übertragung");
+}
+
 
 
 //Verbindung zur Datenbank

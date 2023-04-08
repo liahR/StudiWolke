@@ -14,7 +14,7 @@
 
 //Isset zur Überprüfung, ob alle Felder ausgefüllt wurden.
 
-if(!isset($_POST["Vorname"]) | !isset($_POST["Nachname"]) | !isset($_POST["Email"]| !isset($_POST["Nutzername"]| !isset($_POST["Passwort"])){
+if(!isset(($_POST["Vorname"]) | !isset($_POST["Nachname"]) | !isset($_POST["Email"]| !isset($_POST["Nutzername"]| !isset($_POST["Passwort"])){
     die("Formular-Fehler! Hast du alle Felder ausgefüllt?");}
 
 //Verbindung zur Datenbank

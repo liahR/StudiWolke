@@ -17,7 +17,7 @@
 session_start();
 // Prüfen, ob Benutzer nicht eingeloggt ist
 if (!isset($_SESSION['BenutzerId'])) {
-    header("Location: login.php");
+    header("Location: login.html");
     exit;
 }
 // Verbindung zur Datenbank herstellen

@@ -70,7 +70,7 @@ if ($statement->execute()) {
     // JavaScript-Code zum Sortieren und Suchen der Liste
     echo '<script>';
     echo 'function sortByName() {';
-    echo '  var list = document.getElementById("ordner-liste; 
+    echo '  var list = document.getElementById("ordner-liste'; 
     echo '  var items = list.getElementsByTagName("li");';
     echo '  var arr = Array.prototype.slice.call(items);';
     echo '  arr.sort(function(a, b) {';

@@ -8,11 +8,11 @@
 	<?php
 	session_start();
 	// Prüfen, ob Benutzer eingeloggt ist
-	if(!isset($_SESSION['BenutzerId'])) {
+	//if(!isset($_SESSION['BenutzerId'])) {
 		// Benutzer ist nicht eingeloggt, Weiterleitung zur Login-Seite
-		header("Location: login.php");
-		exit();
-	}
+	//	header("Location: login.html");
+	//	exit();
+	//}
 	// Verbindung zur Datenbank herstellen
 	$pdo = new PDO('mysql:: host=mars.iuk.hdm-stuttgart.de; dbname=u-lr090', 'lr090', 'eetho6Choh', array('charset'=>'utf8'));
 	if ($pdo->connect_error) {
@@ -26,7 +26,18 @@
 	// Verbindung zur Datenbank schließen
 	$pdo = null;
 	?>
-	
+
+<header>
+    <img src="Logo StudiWolke.png" alt= "Das Logo von StudiWolke">
+    <nav>
+        <ul>
+            <li><a href="index.php">START></a></li>
+            <li><a href="support.php">SUPPORT></a></li>
+            <li><a href="index.php">START></a></li> 
+        </ul>
+    </nav>
+</header> 
+<main>
 	<h1>Hallo, <?php echo $Benutzer['Vorname']; ?>!</h1>
 	
 	<form action="../../backend/account_do.php" method="post" enctype="multipart/form-data">
@@ -50,6 +61,23 @@
 		
 		<input type="submit" name="submit" value="Speichern">
 	</form>
-	
+</main>	
 </body>
+<footer>
+    <div>
+        <img src="Logo StudiWolke.png">
+    </div>
+    <hr/>
+    <small>&copy; 2023 StudiWolke GmbH & Co. KG</small>
+    <hr/>
+    <nav>
+        <ul>
+            <li><a href= "impressum.html">IMPRESSUM</a></li>
+            <li><a href= "datenschutz.html">DATENSCHUTZ</a></li>
+            <li><a href= "agbs.html">AGBs</a></li>
+            <li><a href="../../backend/logout.php">LOGOUT</a></li>
+    
+        </ul>
+    </nav>			
+</footer>
 </html>

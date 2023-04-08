@@ -1,0 +1,31 @@
+<?php
+$pdo = new PDO('mysql:: host=mars.iuk.hdm-stuttgart.de; dbname=u-lr090', 'lr090', 'eetho6Choh', array('charset' => 'utf8'));
+?>
+
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Neuen Ordner erstellen</title>
+</head>
+<body>
+
+<?php
+session_start();
+if(!isset($_SESSION["login"])){
+    header("Location: login.html");
+}
+?>
+<div class="formular">
+<form action="create_ordner_do.php" method="post" enctype="multipart/form-data">
+    <label for="new_folder_name">Neuen Ordner erstellen:</label>
+    <input type="text" id="new_folder_name" name="new_folder_name" required>
+    <button type="submit" name="submit">Ordner erstellen</button>
+</form>
+</div>
+</body>
+?>
+</html>

@@ -77,7 +77,7 @@ if ($statement->execute()) {
     foreach ($rows as $row) {
         echo '<li>';
         echo '<img src="cloud-ordner.png" alt="Ordner-Icon">';
-        echo '<h2>' . $row['Ordnername_original'] . '</h2>';
+        echo '<h2><a href="in_Ordner.php?ordner_id=' . $row['OrdnerId'] . '">' . $row['Ordnername_original'] . '</a></h2>';
         echo '<a href="delete_ordner_do.php=' . $row['OrdnerId'] . '">Löschen</a><br>';
         echo '</li>';
     }

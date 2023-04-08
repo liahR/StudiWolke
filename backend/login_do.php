@@ -25,7 +25,7 @@ if ($row = $statement->fetch()){
     }
     else
     {
-        echo "Passwort oder Login falsch";
+        echo "Passwort oder Nutzername falsch";
         echo "<p><a href= '../frontend/public/login.html'> Erneut versuchen</a></p>";
     }}
 else

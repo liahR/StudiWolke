@@ -21,7 +21,7 @@ session_start();
 //    exit;
 //}
 // Verbindung zur Datenbank herstellen
-$pdo = new PDO('mysql:host=mars.iuk.hdm-stuttgart.de; dbname=u-lr090', 'lr090', 'eetho6Choh', array('charset' => 'utf8'));
+$pdo = new PDO('mysql:: host=mars.iuk.hdm-stuttgart.de; dbname=u-lr090', 'lr090', 'eetho6Choh', array('charset' => 'utf8'));
 if ($pdo->connect_error) {
     die("Verbindung fehlgeschlagen: " . $pdo->connect_error);
 }

@@ -27,6 +27,14 @@
 	</script>
 </head>
 <body>
+	
+<header>
+<?php
+   include "header.php";
+   ?>
+</header>
+<main>
+
 	<h1>Support</h1>
 	<!-- Häufig gestellte Fragen -->
     <h2>Häufig gestellte Fragen:</h2>
@@ -49,8 +57,7 @@
 		<label for="Frage">Stellen Sie Ihre Frage:</label><br>
 		<textarea name="Frage" id="Frage" rows="5" cols="40"></textarea><br>
 		<input type="submit" name="submit" value="Frage stellen">
-	</form>
-	
+	</form>	
 	<?php
 	// Prüfen, ob das Formular abgeschickt wurde
 	if (isset($_POST['submit'])) {
@@ -75,6 +82,7 @@
 		// Verbindung zur Datenbank schließen
 		$pdo->close();
 	}
-	?>	
+	?>
+</main>	
 </body>
 </html>

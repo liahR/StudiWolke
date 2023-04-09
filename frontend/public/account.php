@@ -28,14 +28,9 @@
 	?>
 
 <header>
-    <img src="Logo StudiWolke.png" alt= "Das Logo von StudiWolke">
-    <nav>
-        <ul>
-            <li><a href="index.php">START></a></li>
-            <li><a href="support.php">SUPPORT></a></li>
-            <li><a href="index.php">START></a></li> 
-        </ul>
-    </nav>
+<?php
+   include "header.php";
+   ?>
 </header> 
 <main>
 	<h1>Hallo, <?php echo $Benutzer['Vorname']; ?>!</h1>

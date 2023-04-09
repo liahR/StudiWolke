@@ -14,19 +14,9 @@
 </head>
 <body>
 <header>
-    <img src="Logo StudiWolke.png" alt= "Das Logo von StudiWolke">
-    <div>
-    <!-- HTML-Code für das Mond-Icon, Dark Mode, muss noch gefixt werden 
-        <div class="dark-mode-toggle">
-        <i class="fas fa-moon"></i> -->
-    </div>
-    <nav>
-        <ul>
-            <li><a href="index.php">START></a></li>
-            <li><a href="support.php">SUPPORT></a></li>
-            <li><a href="index.php">START></a></li> 
-        </ul>
-    </nav>
+<?php
+   include "header.php";
+   ?>
 </header> 
 <main>
 <?php

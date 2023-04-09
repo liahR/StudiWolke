@@ -7,27 +7,27 @@
     <title>upload file</title>
 </head>
 <body>
+<!--Dateien hochladen-->
+<button onclick="openFileShare()">Datei hochladen</button>
 
-<button onclick="openForm()">Datei hochladen</button>
-
-<div id="Forms" style="display:none;">
-    <form onsubmit="return Required()" id="UploadFile" action="upload_file_do" method="post" enctype="multipart/form-data" >
+<div id="Share" style="display:none;">
+    <form onsubmit="return RequiredFileShare()" id="UploadFile" action="upload_file_do" method="post" enctype="multipart/form-data" >
         Datei auswählen: <br>
         <input type="file" name="File" required><br>
         <input type="text" name="Dateiname" placeholder="Dateiname" required>
         <input type="submit" value="Datei hochladen" name="submit">
-        <button type="button" onclick="closeForm()">Abbrechen</button>
+        <button type="button" onclick="closeFileShare()">Abbrechen</button>
 </form>
 </div> 
 
 <script>
-    function openForm () {
-        document.getElementById("Forms").style.display ="block";
+    function openFileShare () {
+        document.getElementById("Share").style.display ="block";
     }
-    function closeForm () {
-        document.getElementById("Forms").style.display ="none";
+    function closeFileShare () {
+        document.getElementById("Share").style.display ="none";
     }
-    function Required() {
+    function RequiredFileShare() {
         const file = document.getElementByName("File").value;
         const dateiname = document.getElementByName("Dateiname").value;
         if (file =="" || dateiname =="") {
@@ -40,6 +40,38 @@
     }
     
 </script> 
-     
+
+<!--Teilen-->
+<button onclick="openTeilen()">Teilen</button>
+<div id="Teilen" style="display:none;">
+    <form onsubmit="return RequiredTeilen()" id="UploadFile" action="upload_file_do" method="post" enctype="multipart/form-data" >
+        Datei auswählen: <br>
+        <input type="file" name="File" value="" required><br>
+        <input type="text" name="GeteiltePersonen" placeholder="Teilen mit" required>
+        <input type="submit" value="Teilen" name="submit">
+        <button type="button" onclick="closeTeilen()">Abbrechen</button>
+</form>
+</div> 
+
+<script>
+    function openTeilen () {
+        document.getElementById("Teilen").style.display ="block";
+    }
+    function closeTeilen () {
+        document.getElementById("Teilen").style.display ="none";
+    }
+    function RequiredTeilen() {
+        const file = document.getElementByName("File").value;
+        const dateiname = document.getElementByName("GeteiltePersonen").value;
+        if (file =="" || dateiname =="") {
+            alert("Alle Felder ausfüllen");
+            return false;
+        } else {
+            closeForm();
+            return true;
+        }
+    }
+    
+</script>
 </body>
 </html>

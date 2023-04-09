@@ -35,16 +35,16 @@ $pdo = new PDO('mysql:: host=mars.iuk.hdm-stuttgart.de; dbname=u-lr090', 'lr090'
 
 
 if (isset($_GET['OrdnerId'])) {
-    $ordner_id = $_GET['OrdnerId'];
+    $OrdnerId = $_GET['OrdnerId'];
 
     // Hole den Ordnernamen
-    $statement = $db->prepare('SELECT Ordnername original FROM Ordner WHERE id = :id');
-    $statement->bindParam(':id', $ordner_id);
+    $statement = $db->prepare('SELECT Ordnername_original FROM Ordner WHERE OrdnerId = :OrdnerId');
+    $statement->bindParam(':OrdnerId', $OrdnerId);
     $statement->execute();
     $ordner = $statement->fetch(PDO::FETCH_ASSOC);
 
     // Hole die Dateien des Ordners
-    $statement = $db->prepare('SELECT * FROM Dateien WHERE OrdnerId = :OrdnerId ORDER BY Dateiname original');
+    $statement = $db->prepare('SELECT * FROM Dateien WHERE OrdnerId = :OrdnerId ORDER BY Dateiname_original');
     $statement->bindParam(':OrdnerId', $OrdnerId);
     $statement->execute();
     $dateien = $statement->fetchAll(PDO::FETCH_ASSOC);
@@ -115,30 +115,11 @@ if ($statement->execute()) {
     }
     ?> 
 ?>
-    <h1><?php echo $Ordner['Ordnername original']; ?></h1>
+<h1><?php echo $Ordner['Ordnername_original']; ?></h1>
 
-    <table>
-        <thead>
-            <tr>
-                <th>Dateiname</th>
-                <th>Größe</th>
-                <th>Aktionen</th>
-            </tr>
-        </thead>
-        <tbody>
-            <?php foreach ($dateien as $datei) { ?>
-                <tr>
-                    <td><?php echo $datei['dateiname']; ?></td>
-                    <td><?php echo $datei['groesse']; ?></td>
-                    <td>
-                        <a href="delete_file_do.php=<?php echo $Datei['id']; ?>&OrdnerId=<?php echo $OrdnerId; ?>">Löschen</a>
-                    </td>
-                </tr>
-            <?php } ?>
-        </tbody>
-    </table>
 
-    <a href="upload.php<?php echo $OrdnerId; ?>">Datei hochladen</a>
+
+<a href="upload.php<?php echo $OrdnerId; ?>">Datei hochladen</a>
 </main>
 </body>
 </html>

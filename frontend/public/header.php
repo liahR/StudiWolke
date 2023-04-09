@@ -15,7 +15,11 @@
                 <li><a href="support.php">SUPPORT</a></li>
                 <li><a href="account.php">PROFIL</a></li> 
                 <li><img src="<?php echo $profilbild_pfad ?>" alt="Profilbild">
-                <!-- Dark-Mode hinzufügen -->
+                <div>
+                <!-- HTML-Code für das Mond-Icon, Dark Mode, muss noch gefixt werden 
+                <div class="dark-mode-toggle">
+                <i class="fas fa-moon"></i> -->
+                </div>
             </ul>
         </nav>
 </header> 

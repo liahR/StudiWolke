@@ -14,19 +14,9 @@
 </head>
 <body>
 <header>
-    <img src="Logo StudiWolke.png" alt= "Das Logo von StudiWolke">
-    <div>
-    <!-- HTML-Code für das Mond-Icon, Dark Mode, muss noch gefixt werden 
-        <div class="dark-mode-toggle">
-        <i class="fas fa-moon"></i> -->
-    </div>
-    <nav>
-        <ul>
-            <li><a href="index.php">START></a></li>
-            <li><a href="support.php">SUPPORT></a></li>
-            <li><a href="account.php">PROFIL></a></li> 
-        </ul>
-    </nav>
+   <?php
+   include "header.php";
+   ?>
 </header> 
 <main>
 <?php
@@ -35,16 +25,16 @@ $pdo = new PDO('mysql:: host=mars.iuk.hdm-stuttgart.de; dbname=u-lr090', 'lr090'
 
 
 if (isset($_GET['OrdnerId'])) {
-    $OrdnerId = $_GET['OrdnerId'];
+    $ordner_id = $_GET['OrdnerId'];
 
     // Hole den Ordnernamen
-    $statement = $db->prepare('SELECT Ordnername_original FROM Ordner WHERE OrdnerId = :OrdnerId');
-    $statement->bindParam(':OrdnerId', $OrdnerId);
+    $statement = $db->prepare('SELECT Ordnername original FROM Ordner WHERE id = :id');
+    $statement->bindParam(':id', $ordner_id);
     $statement->execute();
     $ordner = $statement->fetch(PDO::FETCH_ASSOC);
 
     // Hole die Dateien des Ordners
-    $statement = $db->prepare('SELECT * FROM Dateien WHERE OrdnerId = :OrdnerId ORDER BY Dateiname_original');
+    $statement = $db->prepare('SELECT * FROM Dateien WHERE OrdnerId = :OrdnerId ORDER BY Dateiname original');
     $statement->bindParam(':OrdnerId', $OrdnerId);
     $statement->execute();
     $dateien = $statement->fetchAll(PDO::FETCH_ASSOC);
@@ -115,12 +105,30 @@ if ($statement->execute()) {
     }
     ?> 
 ?>
-<h1><?php echo $Ordner['Ordnername_original']; ?></h1>
+    <h1><?php echo $Ordner['Ordnername original']; ?></h1>
 
+    <table>
+        <thead>
+            <tr>
+                <th>Dateiname</th>
+                <th>Größe</th>
+                <th>Aktionen</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php foreach ($dateien as $datei) { ?>
+                <tr>
+                    <td><?php echo $datei['dateiname']; ?></td>
+                    <td><?php echo $datei['groesse']; ?></td>
+                    <td>
+                        <a href="delete_file_do.php=<?php echo $Datei['id']; ?>&OrdnerId=<?php echo $OrdnerId; ?>">Löschen</a>
+                    </td>
+                </tr>
+            <?php } ?>
+        </tbody>
+    </table>
 
-
-<a href="upload.php<?php echo $OrdnerId; ?>">Datei hochladen</a>
+    <a href="upload.php<?php echo $OrdnerId; ?>">Datei hochladen</a>
 </main>
-<?php include("footer.php")?>
 </body>
 </html>

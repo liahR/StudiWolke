@@ -10,7 +10,7 @@
     <meta name="theme-color" content="#000000"/>
     <!--keine Ahnung ob wir das brauchen, deswegen noch drin-->
     <link rel="manifest" href="%PUBLIC_URL%/manifest.json"/>
-    <title>Start</title>
+    <title> Geteilte Dateien</title>
 </head>
 <body>
 <header>
@@ -24,56 +24,41 @@
         <ul>
             <li><a href="index.php">START></a></li>
             <li><a href="support.php">SUPPORT></a></li>
-            <li><a href="index.php">START></a></li> 
+            <li><a href="account.php">PROFIL></a></li> 
         </ul>
     </nav>
 </header> 
 <main>
 <?php
 session_start();
-// Prüfen, ob Benutzer nicht eingeloggt ist -- BITTE NOCH AKTIVIEREN
-//if (!isset($_SESSION['BenutzerId'])) {
-//    header("Location: login.html");
-//    exit;
-//}
+$pdo = new PDO('mysql:: host=mars.iuk.hdm-stuttgart.de; dbname=u-lr090', 'lr090', 'eetho6Choh', array('charset'=>'utf8'));
 
 
-// Verbindung zur Datenbank herstellen
-$pdo = new PDO('mysql:: host=mars.iuk.hdm-stuttgart.de; dbname=u-lr090', 'lr090', 'eetho6Choh', array('charset' => 'utf8'));
-if ($pdo->connect_error) {
-    die("Verbindung fehlgeschlagen: " . $pdo->connect_error);
+if (isset($_GET['BenutzerId'])) {
+    $ordner_id = $_GET['BenutzerId'];
+
+    // Hole die freigegebenen Dateien
+    $statement = $db->prepare('SELECT Dateiname_original, Dateipfad FROM Teilen WHERE BenutzerId = :BenutzerId ');
+    $statement->bindParam(':BenutzerId', $BeenutzerId);
+    $statement->execute();
+    $Teilen = $statement->fetchAll(PDO::FETCH_ASSOC);
+} else {
+    $_SESSION['error'] = 'Es ist ein Fehler aufgetreten. Bitte versuche es erneut.';
+    header('Location: index.php');
+    exit();
 }
-
-
-// SQL-Abfrage zum Abrufen des Vornamens des Benutzers
-$stmt = $pdo->prepare("SELECT Vorname FROM Benutzer WHERE Nutzername=:Nutzername");
-$stmt->bindValue(':Nutzername', $_SESSION['Nutzername']);
-$stmt->execute();
-$row = $stmt->fetch(PDO::FETCH_ASSOC);
-
-
-// Vornamen ausgeben
-echo "<h1>" . $row['Vorname'] . "'s Wolke!</h1>";
-
-// Geteilte Dateien Ordner fix
-echo <img src="cloud-ordner.png" alt="Ordner-Icon">;
-echo '<h2><a href="in_geteilte_Ordner.php"> Geteilte Dateien </a></h2>';
-
-// SQL-Abfrage zum Abrufen der Ordner
-$statement = $pdo->prepare("SELECT OrdnerId, Ordnername_original FROM Ordner");
-
 if ($statement->execute()) {
     $rows = $statement->fetchAll(PDO::FETCH_ASSOC);
 
     // Sortierungsfunktion
     function sortByName($a, $b)
     {
-        return strcmp($a['Ordnername_original'], $b['Ordnername_original']);
+        return strcmp($a['Dateiname_original'], $b['Dateiname_original']);
     }
 
     // Standard-Sortierreihenfolge (nach ID)
     usort($rows, function ($a, $b) {
-        return $a['OrdnerId'] - $b['OrdnerId'];
+        return $a['DateiId'] - $b['DateiId'];
     });
 
     // Button zum Sortieren nach Namen
@@ -82,21 +67,10 @@ if ($statement->execute()) {
     // Suchfeld
     echo '<input type="text" id="search-input" oninput="searchFolders()" placeholder="Suche nach Dateien...">';
 
-    // Liste der Ordner
-    echo '<ul id="ordner-liste">';
-    foreach ($rows as $row) {
-        echo '<li>';
-        echo '<img src="cloud-ordner.png" alt="Ordner-Icon">';
-        echo '<h2><a href="in_Ordner.php=' . $row['OrdnerId'] . '">' . $row['Ordnername_original'] . '</a></h2>';
-        echo '<a href="delete_ordner_do.php=' . $row['OrdnerId'] . '">Löschen</a><br>';
-        echo '</li>';
-    }
-    echo '</ul>';
-
     // JavaScript-Code zum Sortieren und Suchen der Liste
     echo '<script>';
     echo 'function sortByName() {';
-    echo '  var list = document.getElementById("ordner-liste'; 
+    echo '  var list = document.getElementById("dateien-liste'; 
     echo '  var items = list.getElementsByTagName("li");';
     echo '  var arr = Array.prototype.slice.call(items);';
     echo '  arr.sort(function(a, b) {';
@@ -111,7 +85,7 @@ if ($statement->execute()) {
     echo 'function searchFolders() {';
     echo '  var input = document.getElementById("search-input");';
     echo '  var filter = input.value.toUpperCase();';
-    echo '  var list = document.getElementById("ordner-liste");';
+    echo '  var list = document.getElementById("dateien-liste");';
     echo '  var items = list.getElementsByTagName("li");';
     echo '  for (var i = 0; i < items.length; i++) {';
     echo '    var name = items[i].getElementsByTagName("h2")[0].textContent;';
@@ -133,15 +107,8 @@ if ($statement->execute()) {
         echo $statement->queryString;
         die();
     }
-    ?>  
-    </main>
-    <footer>
-    <ul>
-        <li><a href="impressum.html">IMPRESSUM</a></li>
-        <li><a href="datenschutz.html">DATENSCHUTZ</a></li>
-        <li><a href= "agbs.html">AGBs</a></li>
-        <li><a href="../../backend/logout.php">LOGOUT</a></li>
-    </ul>
-    <hr/>
-</footer>
+    ?> 
+?>
+</main>
+</body>
 </html>

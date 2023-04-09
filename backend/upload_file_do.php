@@ -76,7 +76,7 @@ for ($i=0; $i<20; $i++){
 $string.="."$filetyp;
 
 //auf Server schieben
-if (!move_uploaded_file($_FILES["Files"]["tmp_name"], "/home/lr090/public_html/StudiWolke/frontend/dateien/".$string)){
+if (!move_uploaded_file($_FILES["File"]["tmp_name"], "/home/lr090/public_html/StudiWolke/frontend/dateien/".$string)){
     die ("Fehler bei der Übertragung");
 }
 

@@ -7,12 +7,39 @@
     <title>upload file</title>
 </head>
 <body>
-<form action="upload_file_do" method="post" enctype="multipart/form-data">
-    Datei auswählen: <br>
-    <input type="file" name="File" required><br>
-    <input type="text" name="Dateiname" placeholder="Dateiname" reuired>
-    <input type="submit" value="Datei hochladen" name="submit">
 
-</form>        
+<button onclick="openForm()">Datei hochladen</button>
+
+<div id="Forms" style="display:none;">
+    <form onsubmit="return Required()" id="UploadFile" action="upload_file_do" method="post" enctype="multipart/form-data" >
+        Datei auswählen: <br>
+        <input type="file" name="File" required><br>
+        <input type="text" name="Dateiname" placeholder="Dateiname" required>
+        <input type="submit" value="Datei hochladen" name="submit">
+        <button type="button" onclick="closeForm()">Abbrechen</button>
+</form>
+</div> 
+
+<script>
+    function openForm () {
+        document.getElementById("Forms").style.display ="block";
+    }
+    function closeForm () {
+        document.getElementById("Forms").style.display ="none";
+    }
+    function Required() {
+        const file = document.getElementByName("File").value;
+        const dateiname = document.getElementByName("Dateiname").value;
+        if (file =="" || dateiname =="") {
+            alert("Alle Felder ausfüllen");
+            return false;
+        } else {
+            closeForm();
+            return true;
+        }
+    }
+    
+</script> 
+     
 </body>
 </html>

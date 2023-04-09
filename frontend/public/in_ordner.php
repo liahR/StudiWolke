@@ -53,6 +53,8 @@ if (isset($_GET['OrdnerId'])) {
     header('Location: index.php');
     exit();
 }
+
+//neues If für Sortieren
 if ($statement->execute()) {
     $rows = $statement->fetchAll(PDO::FETCH_ASSOC);
 
@@ -117,9 +119,16 @@ if ($statement->execute()) {
 ?>
 <h1><?php echo $Ordner['Ordnername_original']; ?></h1>
 
+<!--Upload File Button anzeigen mit ausführung -->
+<div id="upload">
+<iframe src="upload_file.html"></iframe>
+</div>
+
+<!--Dateien ausgeben die im Ordner sind -->
 
 
-<a href="upload.php<?php echo $OrdnerId; ?>">Datei hochladen</a>
+
+
 </main>
 </body>
 </html>

@@ -135,13 +135,5 @@ if ($statement->execute()) {
     }
     ?>  
     </main>
-    <footer>
-    <ul>
-        <li><a href="impressum.html">IMPRESSUM</a></li>
-        <li><a href="datenschutz.html">DATENSCHUTZ</a></li>
-        <li><a href= "agbs.html">AGBs</a></li>
-        <li><a href="../../backend/logout.php">LOGOUT</a></li>
-    </ul>
-    <hr/>
-</footer>
+    <?php include("footer.php")?>
 </html>

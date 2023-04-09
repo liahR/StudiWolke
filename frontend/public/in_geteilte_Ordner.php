@@ -110,5 +110,7 @@ if ($statement->execute()) {
     ?> 
 ?>
 </main>
+<?php include("footer.php")?>
+
 </body>
 </html>

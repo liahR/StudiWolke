@@ -121,5 +121,6 @@ if ($statement->execute()) {
 
 <a href="upload.php<?php echo $OrdnerId; ?>">Datei hochladen</a>
 </main>
+<?php include("footer.php")?>
 </body>
 </html>

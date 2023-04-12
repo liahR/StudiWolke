@@ -10,17 +10,21 @@ dbname=u-lr090', 'lr090', 'eetho6Choh',
 
 
 
-$Nutzername=htmlspecialchars ($_POST ["Nutzername"]);
-$Passwort=htmlspecialchars ($_POST ["Passwort"]);
+$nutzername=htmlspecialchars ($_POST ["nutzername"]);
+$passwort=$_POST ["passwort"];
 
-$statement = $pdo->prepare ('SELECT * FROM Benutzer WHERE Nutzername=:Nutzername');
-$statement->bindParam(':Nutzername',$Nutzername);
+echo $nutzername.$passwort;
 
-$statement->execute();
-if ($row = $statement->fetch()){
-    if (password_verify($Passwort, $row["Passwort"]))
+$statement = $pdo->prepare ('SELECT * FROM benutzer WHERE nutzername=:nutzername');
+$statement->bindParam(':nutzername',$nutzername);
+
+if ($statement->execute()) {
+if ($row = $statement->fetch()){ 
+    echo "*1";
+    echo $row["passwort"];
+    if (password_verify ($passwort, $row["passwort"]))
     {
-        $_SESSION["BenutzerId"] = $row["BenutzerId"];
+        $_SESSION["benutzerId"] = $row["benutzerId"];
         header("Location: ../frontend/public/index.php");
     }
     else
@@ -31,5 +35,8 @@ if ($row = $statement->fetch()){
 else
 {
     echo "something went wrong";
+}}
+else {
+    echo "Fehler";
 }
 

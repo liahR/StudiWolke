@@ -78,37 +78,36 @@ if ($statement->execute()) {
     }
     echo '</ul>';
 
-    // JavaScript-Code zum Sortieren und Suchen der Liste
-    echo '<script>';
-    echo 'function sortByName() {;
-    echo  var list = document.getElementById("ordner-liste"); 
-    echo  ' var items = list.getElementsByTagName("li");
-    echo    var arr = Array.prototype.slice.call(items);
-    echo '  arr.sort(function(a, b) {';
-    echo '    var aName = a.getElementsByTagName("h2")[0].textContent;';
-    echo '    var bName = b.getElementsByTagName("h2")[0].textContent;';
-    echo '    return aName.localeCompare(bName);';
-    echo '  });';
-    echo '  for (var i = 0; i < arr.length; i++) {';
-    echo '    list.appendChild(arr[i]);';
-    echo '  }';
-    echo '}';
-    echo 'function searchFolders() {';
-    echo '  var input = document.getElementById("search-input");';
-    echo '  var filter = input.value.toUpperCase();';
-    echo '  var list = document.getElementById("ordner-liste");';
-    echo '  var items = list.getElementsByTagName("li");';
-    echo '  for (var i = 0; i < items.length; i++) {';
-    echo '    var name = items[i].getElementsByTagName("h2")[0].textContent;';
-    echo '    if (name.toUpperCase().indexOf(filter) > -1) {';
-    echo '      items[i].style.display = "";';
-    echo '    } else {';
-    echo '      items[i].style.display = "none";';
-    echo '    }';
-    echo '  }';
-    echo '}';
-    echo '</script>';
-}
+  // JavaScript-Code zum Sortieren und Suchen der Liste
+        echo '<script>';
+        echo 'function sortByName() {';
+        echo '  var list = document.getElementById("ordner-liste");'; 
+        echo '  var items = list.getElementsByTagName("li");';
+        echo '  var arr = Array.prototype.slice.call(items);';
+        echo '  arr.sort(function(a, b) {';
+        echo '    var aName = a.getElementsByTagName("h2")[0].textContent;';
+        echo '    var bName = b.getElementsByTagName("h2")[0].textContent;';
+        echo '    return aName.localeCompare(bName);';
+        echo '  });';
+        echo '  for (var i = 0; i < arr.length; i++) {';
+        echo '    list.appendChild(arr[i]);';
+        echo '  }';
+        echo '}';
+        echo 'function searchFolders() {';
+        echo '  var input = document.getElementById("search-input");';
+        echo '  var filter = input.value.toUpperCase();';
+        echo '  var list = document.getElementById("ordner-liste");';
+        echo '  var items = list.getElementsByTagName("li");';
+        echo '  for (var i = 0; i < items.length; i++) {';
+        echo '    var name = items[i].getElementsByTagName("h2")[0].textContent;';
+        echo '    if (name.toUpperCase().indexOf(filter) > -1) {';
+        echo '      items[i].style.display = "";';
+        echo '    } else {';
+        echo '      items[i].style.display = "none";';
+        echo '    }';
+        echo '  }';
+        echo '}';
+        echo '</script>';
     
     //Sollte es nicht geklappt haben, wird eine Fehler Info ausgegeben.
     

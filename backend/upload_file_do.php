@@ -38,25 +38,10 @@ if(empty($_FILES["File"]["name"])) {
 //Dateityp abfrage png, jpg, jpeg, mp4, mov, mp3, wav, zip, doc, docx, txt, pdf, ppt, pptx, xls, xlsx, gif 
 
 $type = pathinfo($_FILES ["File"]["name"], PATHINFO_EXTENSION);
-if (strtolower($type) !="jpg") {
-   elseif (strtolower($type) !="jpeg") {
-        elseif (strtolower($type) !="png") {
-            elseif (strtolower($type) !="mp3") {
-                elseif (strtolower($type) !="mp4") {
-                    elseif (strtolower($type) !="mov") {
-                        elseif (strtolower($type) !="wav") {
-                            elseif (strtolower($type) !="zip") {
-                                elseif (strtolower($type) !="doc") {
-                                    elseif (strtolower($type) !="docx") {
-                                        elseif (strtolower($type) !="txt") {
-                                            elseif (strtolower($type) !="pdf") {
-                                                elseif (strtolower($type) !="ppt") {
-                                                    elseif (strtolower($type) !="pptx") {
-                                                        elseif (strtolower($type) !="xls") {
-                                                            elseif (strtolower($type) !="xlsx") {
-                                                                elseif (strtolower($type) !="gif") {
-                                                                    die ("Dateityp nicht erlaubt")
-                                                                }}}}}}}}}}}}}}}}}
+$erlaubteaealer = array ("jpg", "jpeg", "png", "mp3", "mp4", "mov", "wav", "zip", "doc", "docx", "txt", "pdf", "ppt", "pptx", "xls", "xlsx", "gif") 
+if (!in_array(strtolower($typ), $erlaubteaealer)) {
+    die ("Dateityp nicht erlaubt, nur jpg, jpeg, png, mp3, mp4, mov, wav, zip, doc, docx, txt, pdf, ppt, pptx, xls, xlsx, gif");
+}
 
 
 //Dateigröße abfragen 

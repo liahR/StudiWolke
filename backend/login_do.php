@@ -20,8 +20,6 @@ $statement->bindParam(':nutzername',$nutzername);
 
 if ($statement->execute()) {
 if ($row = $statement->fetch()){ 
-    echo "*1";
-    echo $row["passwort"];
     if (password_verify ($passwort, $row["passwort"]))
     {
         $_SESSION["benutzerId"] = $row["benutzerId"];

@@ -14,40 +14,35 @@
 </head>
 <body>
 <header>
-<?php
-   include "header.php";
-   ?>
-</header> 
-<main>
-<?php
-session_start();
-// Prüfen, ob Benutzer nicht eingeloggt ist -- BITTE NOCH AKTIVIEREN
-//if (!isset($_SESSION['BenutzerId'])) {
-//    header("Location: login.html");
-//    exit;
-//}
+<body>
+    <header>
+        <?php include "header.php"; ?>
+    </header>
+    <main>
+        <?php
+        session_start();
+        // Prüfen, ob Benutzer nicht eingeloggt ist
+        if (!isset($_SESSION['BenutzerId'])) {
+            header("Location: login.html");
+            exit;
+        }
 
+        // Verbindung zur Datenbank herstellen
+        $pdo = new PDO('mysql:host=mars.iuk.hdm-stuttgart.de;dbname=u-lr090', 'lr090', 'eetho6Choh', array('charset' => 'utf8'));
+        $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-// Verbindung zur Datenbank herstellen
-$pdo = new PDO('mysql:: host=mars.iuk.hdm-stuttgart.de; dbname=u-lr090', 'lr090', 'eetho6Choh', array('charset' => 'utf8'));
-if ($pdo->connect_error) {
-    die("Verbindung fehlgeschlagen: " . $pdo->connect_error);
-}
+        // SQL-Abfrage zum Abrufen des Vornamens des Benutzers
+        $stmt = $pdo->prepare("SELECT Vorname FROM Benutzer WHERE Nutzername=:Nutzername");
+        $stmt->bindValue(':Nutzername', $_SESSION['Nutzername']);
+        $stmt->execute();
+        $row = $stmt->fetch(PDO::FETCH_ASSOC);
 
+        // Vornamen ausgeben
+        echo "<h1>" . $row['Vorname'] . "'s Wolke!</h1>";
 
-// SQL-Abfrage zum Abrufen des Vornamens des Benutzers
-$stmt = $pdo->prepare("SELECT Vorname FROM Benutzer WHERE Nutzername=:Nutzername");
-$stmt->bindValue(':Nutzername', $_SESSION['Nutzername']);
-$stmt->execute();
-$row = $stmt->fetch(PDO::FETCH_ASSOC);
-
-
-// Vornamen ausgeben
-echo "<h1>" . $row['Vorname'] . "'s Wolke!</h1>";
-
-// Geteilte Dateien Ordner fix
-echo ?><img src="cloud-ordner.png" alt="Ordner-Icon"><?php;
-echo '<h2><a href="in_geteilte_Ordner.php"> Geteilte Dateien </a></h2>';
+        // Geteilte Dateien Ordner fix
+        echo '<img src="cloud-ordner.png" alt="Ordner-Icon">';
+        echo '<h2><a href="in_geteilte_Ordner.php"> Geteilte Dateien </a></h2>';
 
 // SQL-Abfrage zum Abrufen der Ordner
 $statement = $pdo->prepare("SELECT OrdnerId, Ordnername_original FROM Ordner");
@@ -85,10 +80,10 @@ if ($statement->execute()) {
 
     // JavaScript-Code zum Sortieren und Suchen der Liste
     echo '<script>';
-    echo 'function sortByName() {';
-    echo '  var list = document.getElementById("ordner-liste'; 
-    echo '  var items = list.getElementsByTagName("li");';
-    echo '  var arr = Array.prototype.slice.call(items);';
+    echo 'function sortByName() {;
+    echo  var list = document.getElementById("ordner-liste"); 
+    echo  ' var items = list.getElementsByTagName("li");
+    echo    var arr = Array.prototype.slice.call(items);
     echo '  arr.sort(function(a, b) {';
     echo '    var aName = a.getElementsByTagName("h2")[0].textContent;';
     echo '    var bName = b.getElementsByTagName("h2")[0].textContent;';

@@ -46,8 +46,8 @@ $row = $stmt->fetch(PDO::FETCH_ASSOC);
 echo "<h1>" . $row['Vorname'] . "'s Wolke!</h1>";
 
 // Geteilte Dateien Ordner fix
-echo <img src="cloud-ordner.png" alt="Ordner-Icon">;
-echo <h2><a href="in_geteilte_Ordner.php"> Geteilte Dateien </a></h2>;
+echo ?><img src="cloud-ordner.png" alt="Ordner-Icon"><?php;
+echo '<h2><a href="in_geteilte_Ordner.php"> Geteilte Dateien </a></h2>';
 
 // SQL-Abfrage zum Abrufen der Ordner
 $statement = $pdo->prepare("SELECT OrdnerId, Ordnername_original FROM Ordner");

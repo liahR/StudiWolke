@@ -43,6 +43,8 @@ if (isset($_GET['OrdnerId'])) {
     header('Location: index.php');
     exit();
 }
+
+//neues If für Sortieren
 if ($statement->execute()) {
     $rows = $statement->fetchAll(PDO::FETCH_ASSOC);
 

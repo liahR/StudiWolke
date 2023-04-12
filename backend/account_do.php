@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-if (!isset($_SESSION['BenutzerId'])) {
+if (!isset($_SESSION['benutzerId'])) {
     header("Location: login.php");
     exit;
 }
@@ -11,25 +11,25 @@ if (isset($_POST['submit'])) {
     $pdo=new PDO('mysql:: host=mars.iuk.hdm-stuttgart.de; dbname=u-lr090', 'lr090','eetho6Choh', array('charset'=>'utf8'));
 
     // Profilbild hochladen und Pfad speichern
-    if (!empty($_FILES['Profilbild']['name'])) {
+    if (!empty($_FILES['profilbild']['name'])) {
         $target_dir = "uploads/";
-        $target_file = $target_dir . basename($_FILES["Profilbild"]["name"]);
-        move_uploaded_file($_FILES["Profilbild"]["tmp_name"], $target_file);
-        $Profilbild = $target_file;
+        $target_file = $target_dir . basename($_FILES["profilbild"]["name"]);
+        move_uploaded_file($_FILES["profilbild"]["tmp_name"], $target_file);
+        $profilbild = $target_file;
     } else {
-        $Profilbild = "";
+        $profilbild = "";
     }
 
     // Update der Benutzerdaten
-    $query = "UPDATE Benutzer SET Vorname=:Vorname, Nachname=:Nachname, Email=:Email, Nutzername=:Nutzername, Passwort=:Passwort, Profilbild=:Profilbild WHERE BenutzerId=:BenutzerId";
+    $query = "UPDATE benutzer SET vorname=:vorname, nachname=:nachname, email=:email, nutzername=:nutzername, passwort=:passwort, profilbild=:profilbild WHERE benutzerId=:benutzerId";
     $stmt = $pdo->prepare($query);
-    $stmt->bindValue(':Vorname', $_POST['Vorname']);
-    $stmt->bindValue(':Nachname', $_POST['Nachname']);
-    $stmt->bindValue(':Email', $_POST['Email']);
-    $stmt->bindValue(':Nutzername', $_POST['Nutzername']);
-    $stmt->bindValue(':Passwort', password_hash($_POST['Passwort'], PASSWORD_DEFAULT));
-    $stmt->bindValue(':Profilbild', $Profilbild);
-    $stmt->bindValue(':BenutzerId', $_SESSION['BenutzerId']);
+    $stmt->bindValue(':vorname', $_POST['vorname']);
+    $stmt->bindValue(':nachname', $_POST['nachname']);
+    $stmt->bindValue(':email', $_POST['email']);
+    $stmt->bindValue(':nutzername', $_POST['nutzername']);
+    $stmt->bindValue(':passwort', password_hash($_POST['passwort'], PASSWORD_DEFAULT));
+    $stmt->bindValue(':profilbild', $profilbild);
+    $stmt->bindValue(':benutzerId', $_SESSION['benutzerId']);
     $stmt->execute();
 
     // Datenbankverbindung schließen

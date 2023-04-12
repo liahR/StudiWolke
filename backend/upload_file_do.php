@@ -38,7 +38,7 @@ if(empty($_FILES["File"]["name"])) {
 //Dateityp abfrage png, jpg, jpeg, mp4, mov, mp3, wav, zip, doc, docx, txt, pdf, ppt, pptx, xls, xlsx, gif 
 
 $type = pathinfo($_FILES ["File"]["name"], PATHINFO_EXTENSION);
-$erlaubteaealer = array ("jpg", "jpeg", "png", "mp3", "mp4", "mov", "wav", "zip", "doc", "docx", "txt", "pdf", "ppt", "pptx", "xls", "xlsx", "gif") 
+$erlaubteaealer = array ("jpg", "jpeg", "png", "mp3", "mp4", "mov", "wav", "zip", "doc", "docx", "txt", "pdf", "ppt", "pptx", "xls", "xlsx", "gif"); 
 if (!in_array(strtolower($typ), $erlaubteaealer)) {
     die ("Dateityp nicht erlaubt, nur jpg, jpeg, png, mp3, mp4, mov, wav, zip, doc, docx, txt, pdf, ppt, pptx, xls, xlsx, gif");
 }
@@ -58,7 +58,7 @@ for ($i=0; $i<20; $i++){
     $index=rand(0, strlen($s)-1);
     $string.=$s[$index];
 }
-$string.="."$filetyp;
+$string.=".".$filetyp;
 
 //auf Server schieben
 if (!move_uploaded_file($_FILES["File"]["tmp_name"], "/home/lr090/public_html/StudiWolke/frontend/dateien/".$string)){
@@ -70,24 +70,24 @@ if (!move_uploaded_file($_FILES["File"]["tmp_name"], "/home/lr090/public_html/St
 $dateipfad = "/home/lr090/public_html/StudiWolke/frontend/dateien/".$string
 
 //weitere Daten übergeben $BenutzerId, $filetype, $Erstelldatum, $Änderungsdatum
-$BenutzerId = $_SESSION["BenutzerId"];
-$OrdnerId = $_SESSION["OrdnerId"];
-$Dateiname_original = $_FILES["Files"] ["name"];
-$Erstelldatum = date("Y-m-d");
-$Aenderungsdatum = date("Y-m-d");
+$benutzerId = $_SESSION["benutzerId"];
+$ordnerId = $_SESSION["ordnerId"];
+$dateiname_original = $_FILES["Files"] ["name"];
+$erstelldatum = date("Y-m-d");
+$aenderungsdatum = date("Y-m-d");
 
 //in DB einfügen 
-$statement = $pdo->prepare("INSERT INTO Dateien (BenutzerId, OrdnerId, Dateipfad, Dateiname_original, Dateiname_zufall, Dateityp, Erstelldatum, 
-Aenderungsdatum) VALUES (:BenutzerId, :OrdnerId, :Dateipfad, :Dateiname_original, :Dateiname_zufall, :Dateityp, :Erstelldatum, :Aenderungsdatum)");
+$statement = $pdo->prepare("INSERT INTO dateien (benutzerId, ordnerId, dateipfad, dateiname_original, dateiname_zufall, dateityp, erstelldatum, 
+aenderungsdatum) VALUES (:benutzerId, :ordnerId, :dateipfad, :dateiname_original, :dateiname_zufall, :dateityp, :erstelldatum, :aenderungsdatum)");
 
-$statement->bindParam(':BenutzerId', $BenutzerId);
-$statement->bindParam(':OrdnerId', $OrdnerId);
-$statement->bindParam(':Dateipfad', $dateipfad);
-$statement->bindParam(':Dateiname_original', $Dateiname_original);
-$statement->bindParam(':Dateiname_zufall', $string);
-$statement->bindParam(':Dateityp', $filetype);
-$statement->bindParam(':Erstelldatum', $Erstelldatum);
-$statement->bindParam(':Aenderungsdatum', $Aenderungsdatum);
+$statement->bindParam(':benutzerId', $benutzerId);
+$statement->bindParam(':ordnerId', $ordnerId);
+$statement->bindParam(':dateipfad', $dateipfad);
+$statement->bindParam(':dateiname_original', $dateiname_original);
+$statement->bindParam(':dateiname_zufall', $string);
+$statement->bindParam(':dateityp', $filetype);
+$statement->bindParam(':Erstelldatum', $erstelldatum);
+$statement->bindParam(':Aenderungsdatum', $aenderungsdatum);
 
 if($statement->execute())
 {

@@ -108,15 +108,6 @@ if ($statement->execute()) {
         echo '  }';
         echo '}';
         echo '</script>';
-    
-    //Sollte es nicht geklappt haben, wird eine Fehler Info ausgegeben.
-    
-    else {
-        echo 'Datenbank-Fehler:';
-        echo $statement->errorInfo() [2];
-        echo $statement->queryString;
-        die();
-    }
     ?>  
     </main>
     <?php include("footer.php")?>

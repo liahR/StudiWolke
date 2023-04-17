@@ -1,0 +1,10 @@
+###   Datenbankzugangsdaten   ###
+
+Datenbankname      : u-lr090
+Datenbanklogin     : lr090
+Datenbankpasswort  : eetho6Choh
+
+Sie koennen Ihre mySQL-Datenbank ueber die Web-Oberflaeche Adminer
+unter:
+  https://mars.iuk.hdm-stuttgart.de/adminer/
+verwalten.

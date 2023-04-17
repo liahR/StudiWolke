@@ -111,9 +111,5 @@ if ($statement->execute()) {
     ?>  
     </main>
     <?php include("footer.php")?>
-<<<<<<< HEAD:public_html/StudiWolke/frontend/public/index.php
-</html>
-=======
 </body>
 </html>
->>>>>>> 6e4cc9d828c6c4d3a0b813be0832d57084ffc85c:frontend/public/index.php

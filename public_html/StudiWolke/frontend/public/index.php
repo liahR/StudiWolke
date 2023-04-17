@@ -32,20 +32,20 @@
         $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
         // SQL-Abfrage zum Abrufen des Vornamens des Benutzers
-        $stmt = $pdo->prepare("SELECT Vorname FROM Benutzer WHERE Nutzername=:Nutzername");
-        $stmt->bindValue(':Nutzername', $_SESSION['Nutzername']);
+        $stmt = $pdo->prepare("SELECT vorname FROM benutzer WHERE nutzername=:nutzername");
+        $stmt->bindValue(':nutzername', $_SESSION['nutzername']);
         $stmt->execute();
         $row = $stmt->fetch(PDO::FETCH_ASSOC);
 
         // Vornamen ausgeben
-        echo "<h1>" . $row['Vorname'] . "'s Wolke!</h1>";
+        echo "<h1>" . $row['vorname'] . "'s Wolke!</h1>";
 
         // Geteilte Dateien Ordner fix
         echo '<img src="cloud-ordner.png" alt="Ordner-Icon">';
         echo '<h2><a href="in_geteilte_Ordner.php"> Geteilte Dateien </a></h2>';
 
 // SQL-Abfrage zum Abrufen der Ordner
-$statement = $pdo->prepare("SELECT OrdnerId, Ordnername_original FROM Ordner");
+$statement = $pdo->prepare("SELECT ordnerId, ordnername_original FROM ordner");
 
 if ($statement->execute()) {
     $rows = $statement->fetchAll(PDO::FETCH_ASSOC);
@@ -53,12 +53,12 @@ if ($statement->execute()) {
     // Sortierungsfunktion
     function sortByName($a, $b)
     {
-        return strcmp($a['Ordnername_original'], $b['Ordnername_original']);
+        return strcmp($a['ordnername_original'], $b['ordnername_original']);
     }
 
     // Standard-Sortierreihenfolge (nach ID)
     usort($rows, function ($a, $b) {
-        return $a['OrdnerId'] - $b['OrdnerId'];
+        return $a['ordnerId'] - $b['ordnerId'];
     });
 
     // Button zum Sortieren nach Namen
@@ -72,8 +72,8 @@ if ($statement->execute()) {
     foreach ($rows as $row) {
         echo '<li>';
         echo '<img src="cloud-ordner.png" alt="Ordner-Icon">';
-        echo '<h2><a href="in_Ordner.php=' . $row['OrdnerId'] . '">' . $row['Ordnername_original'] . '</a></h2>';
-        echo '<a href="delete_ordner_do.php=' . $row['OrdnerId'] . '">Löschen</a><br>';
+        echo '<h2><a href="in_Ordner.php=' . $row['ordnerId'] . '">' . $row['ordnername_original'] . '</a></h2>';
+        echo '<a href="delete_ordner_do.php=' . $row['ordnerId'] . '">Löschen</a><br>';
         echo '</li>';
     }
     echo '</ul>';
@@ -111,4 +111,9 @@ if ($statement->execute()) {
     ?>  
     </main>
     <?php include("footer.php")?>
+<<<<<<< HEAD:public_html/StudiWolke/frontend/public/index.php
 </html>
+=======
+</body>
+</html>
+>>>>>>> 6e4cc9d828c6c4d3a0b813be0832d57084ffc85c:frontend/public/index.php

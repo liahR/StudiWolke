@@ -59,7 +59,9 @@ if ($statement->execute()) {
     });
 
      // Suchfeld
-     echo '<input type="text" id="search-input" oninput="searchFolders()" placeholder="Suche nach Dateien...">';
+     echo '<input type="text" id="search-input" oninput="searchFolders()" placeholder="Suche nach Dateien...">'; 
+
+     '<br>'
 
     // Button zum Sortieren nach Namen
     echo '<button onclick="sortByName()">Nach Namen sortieren</button>';

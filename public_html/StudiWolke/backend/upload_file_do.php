@@ -1,13 +1,13 @@
 <?php
 session_start();
-if (!isset($_SESSION["BenutzerId"]))
+if (!isset($_SESSION["benutzer_id"]))
 {
     die ("Keine Autorisierung vorhanden");
 }
 else {
-    if (isset($_GET["OrdnerId"])) {
-        $OrdnerId = $_GET["OrdnerId"];
-        $_SESSION["OrdnerId"] = $OrdnerId;
+    if (isset($_GET["ordner_id"])) {
+        $ordner_id = $_GET["ordner_id"];
+        $_SESSION["ordner_id"] = $ordner_id;
     }
 }
 

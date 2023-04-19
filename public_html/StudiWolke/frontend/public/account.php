@@ -26,12 +26,6 @@
 	// Verbindung zur Datenbank schließen
 	$pdo = null;
 	?>
-
-<header>
-<?php
-   include "header.php";
-   ?>
-</header> 
 <main>
 	<h1>Hallo, <?php echo $benutzer['vorname']; ?>!</h1>
 	
@@ -57,6 +51,5 @@
 		<input type="submit" name="submit" value="Speichern">
 	</form>
 </main>	
-<?php include("footer.php")?>
 </body>
 </html>

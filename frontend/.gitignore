@@ -21,3 +21,17 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+#Ignorieren von bestimmten Dateien 
+.settings/ 
+.vscode/sftp.json
+.vscode/* 
+**/sftp.json
+**/.vscode     
+
+**/.DS_Store 
+**/.bash_logout
+**/.bashrc
+*/.my.cnf
+**/.profile
+*//mysql-zugangsdaten.txt

@@ -1,0 +1,5 @@
+AuthName "HdM LDAP Authentifizierung notwendig"
+AuthType Basic
+AuthBasicProvider ldap
+AuthLDAPUrl "ldaps://ldap.hdm-stuttgart.de/ou=userlist,dc=hdm-stuttgart,dc=de?uid"
+Require valid-user

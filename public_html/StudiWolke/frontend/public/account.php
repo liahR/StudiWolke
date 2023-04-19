@@ -30,7 +30,7 @@
 	<h1>Hallo, <?php echo $benutzer['vorname']; ?>!</h1>
 	
 	<form action="../../backend/account_do.php" method="post" enctype="multipart/form-data">
-		<label for="profilbild">Profilbild:</label><br>
+		<label for="profilbild">Profilbild ändern:</label><br>
 		<input type="file" name="profilbild" id="profilbild"><br>
 		
 		<label for="vorname">Vorname:</label><br>

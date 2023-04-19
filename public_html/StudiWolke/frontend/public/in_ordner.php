@@ -34,18 +34,18 @@ session_start();
 $pdo = new PDO('mysql:: host=mars.iuk.hdm-stuttgart.de; dbname=u-lr090', 'lr090', 'eetho6Choh', array('charset'=>'utf8'));
 
 
-if (isset($_GET['OrdnerId'])) {
-    $OrdnerId = $_GET['OrdnerId'];
+if (isset($_GET['ordner_id'])) {
+    $OrdnerId = $_GET['ordner_id'];
 
     // Hole den Ordnernamen
-    $statement = $db->prepare('SELECT Ordnername_original FROM Ordner WHERE OrdnerId = :OrdnerId');
-    $statement->bindParam(':OrdnerId', $OrdnerId);
+    $statement = $db->prepare('SELECT ordnername_original FROM ordner WHERE ordner_id = :ordner_id');
+    $statement->bindParam(':ordner_id', $ordner_id);
     $statement->execute();
     $ordner = $statement->fetch(PDO::FETCH_ASSOC);
 
     // Hole die Dateien des Ordners
-    $statement = $db->prepare('SELECT * FROM Dateien WHERE OrdnerId = :OrdnerId ORDER BY Dateiname_original');
-    $statement->bindParam(':OrdnerId', $OrdnerId);
+    $statement = $db->prepare('SELECT * FROM dateien WHERE ordner_id = :ordner_id ORDER BY dateiname_original');
+    $statement->bindParam(':ordner_id', $ordner_id);
     $statement->execute();
     $dateien = $statement->fetchAll(PDO::FETCH_ASSOC);
 } else {
@@ -61,12 +61,12 @@ if ($statement->execute()) {
     // Sortierungsfunktion
     function sortByName($a, $b)
     {
-        return strcmp($a['Dateiname_original'], $b['Dateiname_original']);
+        return strcmp($a['dateiname_original'], $b['dateiname_original']);
     }
 
     // Standard-Sortierreihenfolge (nach ID)
     usort($rows, function ($a, $b) {
-        return $a['DateiId'] - $b['DateiId'];
+        return $a['datei_id'] - $b['datei_id'];
     });
 
     // Button zum Sortieren nach Namen
@@ -117,7 +117,7 @@ if ($statement->execute()) {
     }
     ?> 
 ?>
-<h1><?php echo $Ordner['Ordnername_original']; ?></h1>
+<h1><?php echo $ordner['ordnername_original']; ?></h1>
 
 <!--Upload File Button anzeigen mit ausführung -->
 <div id="upload">

@@ -10,14 +10,14 @@
 session_start();
 $pdo = new PDO('mysql:: host=mars.iuk.hdm-stuttgart.de; dbname=u-lr090', 'lr090', 'eetho6Choh', array('charset'=>'utf8'));
 
-if (isset($_GET['Profilbild'])) {
-    $BenutzerID = $_GET['Profilbild'];
+if (isset($_GET['profilbild'])) {
+    $benutzer_id = $_GET['profilbild'];
 
     // Hole das Profilbild
-    $statement = $db->prepare('SELECT Profilbild FROM Benutzer WHERE BenutzerId = :BenutzerId');
-    $statement->bindParam(':BenutzerId', $BenutzerId);
+    $statement = $db->prepare('SELECT profilbild FROM benutzer WHERE benutzer_id = :benutzer_id');
+    $statement->bindParam(':benutzer_id', $benutzer_id);
     $statement->execute();
-    $Benutzer = $statement->fetch(PDO::FETCH_ASSOC);
+    $benutzer = $statement->fetch(PDO::FETCH_ASSOC);
 
 } else {
     $_SESSION['error'] = 'Es ist ein Fehler aufgetreten. Bitte versuche es erneut.';

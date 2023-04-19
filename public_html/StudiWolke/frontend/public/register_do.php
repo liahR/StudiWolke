@@ -13,11 +13,11 @@
 
 //zur Sicherheit Eingaben
 
-$Vorname=htmlspecialchars ($_POST ["Vorname"]);
-$Nachname=htmlspecialchars ($_POST ["Nachname"]);
-$Email=htmlspecialchars ($_POST ["Email"]);
-$Nutzername=htmlspecialchars ($_POST ["Nutzername"]);
-$Passwort=htmlspecialchars ($_POST ["Passwort"]);
+$vorname=htmlspecialchars ($_POST ["vorname"]);
+$nachname=htmlspecialchars ($_POST ["nachname"]);
+$email=htmlspecialchars ($_POST ["email"]);
+$nutzername=htmlspecialchars ($_POST ["nutzername"]);
+$passwort=htmlspecialchars ($_POST ["passwort"]);
 
 
 // Passwort hashen
@@ -25,19 +25,19 @@ $hashp= password_hash("$passwort", PASSWORD_BCRYPT);
 
 //zur Sicherheit Bild 
 
-if(empty($_FILES["Profilbild"])){
+if(empty($_FILES["profilbild"])){
     die("Achtung! Leere Datei");
 }
-if(empty($_FILES["Profilbild"]["name"])) {
-    die("Auchtung! Leere Datei");
+if(empty($_FILES["profilbild"]["name"])) {
+    die("Achtung! Leere Datei");
 }
 
-$type = pathinfo($_FILES ["Profilbild"]["name"], PATHINFO_EXTENSION);
+$type = pathinfo($_FILES ["profilbild"]["name"], PATHINFO_EXTENSION);
 if (strtolower($type) !="jpg") {
     die ("nur .jpg erlaubt");
 }
 
-if ($_FILES["Profilbild"]["size"]>800000){
+if ($_FILES["profilbild"]["size"]>800000){
     die ("Datei ist zu groß");
 }
 
@@ -50,7 +50,7 @@ for ($i=0; $i<20; $i++){
 }
 $string.=".jpg";
 
-if (!move_uploaded_file($_FILES["Profilbild"]["tmp_name"], "/home/lr090/public_html/StudiWolke/frontend/profilbilder/".$string)){
+if (!move_uploaded_file($_FILES["profilbild"]["tmp_name"], "/home/lr090/public_html/StudiWolke/frontend/profilbilder/".$string)){
     die ("Fehler bei der Übertragung");
 }
 
@@ -60,15 +60,15 @@ if (!move_uploaded_file($_FILES["Profilbild"]["tmp_name"], "/home/lr090/public_h
     $pdo = new PDO('mysql:: host=mars.iuk.hdm-stuttgart.de; dbname=u-lr090', 'lr090', 'eetho6Choh', array('charset' => 'utf8'));
 
 
-$statement = $pdo->prepare("INSERT INTO Benutzer (Vorname, Nachname, Email, Nutzername, Passwort, Profilbild) 
-VALUES (:Vorname, :Nachname, :Email, :Nutzername, :Passwort, :Profilbild)");
+$statement = $pdo->prepare("INSERT INTO benutzer (vorname, nachname, email, nutzername, passwort, profilbild) 
+VALUES (:vorname, :nachname, :email, :nutzername, :passwort, :profilbild)");
 
-$statement->bindParam(':Vorname', $Vorname);
-$statement->bindParam(':Nachname', $Nachname);
-$statement->bindParam(':Email', $Email);
-$statement->bindParam(':Nutzername', $Nutzername);
-$statement->bindParam(':Passwort', $hashp);
-$statement->bindParam(':Profilbild', $string);
+$statement->bindParam(':vorname', $vorname);
+$statement->bindParam(':nachname', $nachname);
+$statement->bindParam(':email', $email);
+$statement->bindParam(':nutzername', $nutzername);
+$statement->bindParam(':passwort', $hashp);
+$statement->bindParam(':profilbild', $string);
 
 // Bei erfolgreicher Ausführung, wird Info darüber ausgegeben.
 if($statement->execute())

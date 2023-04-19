@@ -24,14 +24,14 @@ session_start();
 $pdo = new PDO('mysql:: host=mars.iuk.hdm-stuttgart.de; dbname=u-lr090', 'lr090', 'eetho6Choh', array('charset'=>'utf8'));
 
 
-if (isset($_GET['BenutzerId'])) {
-    $ordner_id = $_GET['BenutzerId'];
+if (isset($_GET['benutzer_id'])) {
+    $ordner_id = $_GET['benutzer_id'];
 
     // Hole die freigegebenen Dateien
-    $statement = $db->prepare('SELECT Dateiname_original, Dateipfad FROM Teilen WHERE BenutzerId = :BenutzerId ');
-    $statement->bindParam(':BenutzerId', $BeenutzerId);
+    $statement = $db->prepare('SELECT dateiname_original, dateipfad FROM teilen WHERE benutzer_id = :benutzer_id ');
+    $statement->bindParam(':benutzer_id', $benutzer_id);
     $statement->execute();
-    $Teilen = $statement->fetchAll(PDO::FETCH_ASSOC);
+    $teilen = $statement->fetchAll(PDO::FETCH_ASSOC);
 } else {
     $_SESSION['error'] = 'Es ist ein Fehler aufgetreten. Bitte versuche es erneut.';
     header('Location: index.php');
@@ -43,12 +43,12 @@ if ($statement->execute()) {
     // Sortierungsfunktion
     function sortByName($a, $b)
     {
-        return strcmp($a['Dateiname_original'], $b['Dateiname_original']);
+        return strcmp($a['dateiname_original'], $b['dateiname_original']);
     }
 
     // Standard-Sortierreihenfolge (nach ID)
     usort($rows, function ($a, $b) {
-        return $a['DateiId'] - $b['DateiId'];
+        return $a['datei_id'] - $b['datei_id'];
     });
 
     // Button zum Sortieren nach Namen

@@ -71,8 +71,8 @@
 		}
 		
 		// Frage in die Datenbank einfügen
-		$Frage = $_POST['Frage'];
-		$query = "INSERT INTO Fragen (Frage) VALUES ('{$Frage}')";
+		$frage = $_POST['frage'];
+		$query = "INSERT INTO fragen (frage) VALUES ('{$frage}')";
 		if ($pdo->query($query) === TRUE) {
 			echo "<p>Vielen Dank, deine Frage wurde erfolgreich gespeichert.</p>";
 		} else {

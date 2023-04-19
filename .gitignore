@@ -125,3 +125,17 @@ dist
 .yarn/build-state.yml
 .yarn/install-state.gz
 .pnp.*
+
+# Ignorieren von bestimmten Dateitypen
+.settings/ 
+.vscode/sftp.json
+.vscode/* 
+**/sftp.json
+**/.vscode     
+
+**/.DS_Store 
+**/.bash_logout
+**/.bashrc
+*/.my.cnf
+**/.profile
+**/mysql-zugangsdaten.txt

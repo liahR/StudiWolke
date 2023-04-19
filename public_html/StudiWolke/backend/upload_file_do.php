@@ -2,9 +2,10 @@
 session_start();
 if (!isset($_SESSION["benutzer_id"]))
 {
-    die ("Keine Autorisierung vorhanden");
+    header("Location: ../frontend/public/login.html");
 }
 else {
+    $benutzer_id = $_SESSION["benutzer_id"];
     if (isset($_GET["ordner_id"])) {
         $ordner_id = $_GET["ordner_id"];
         $_SESSION["ordner_id"] = $ordner_id;
@@ -39,7 +40,7 @@ if(empty($_FILES["File"]["name"])) {
 
 $type = pathinfo($_FILES ["File"]["name"], PATHINFO_EXTENSION);
 $erlaubteaealer = array ("jpg", "jpeg", "png", "mp3", "mp4", "mov", "wav", "zip", "doc", "docx", "txt", "pdf", "ppt", "pptx", "xls", "xlsx", "gif"); 
-if (!in_array(strtolower($typ), $erlaubteaealer)) {
+if (!in_array(strtolower($type), $erlaubteaealer)) {
     die ("Dateityp nicht erlaubt, nur jpg, jpeg, png, mp3, mp4, mov, wav, zip, doc, docx, txt, pdf, ppt, pptx, xls, xlsx, gif");
 }
 
@@ -50,7 +51,7 @@ if ($_FILES["File"]["size"]>5000000000){
 }
 
 //zufälliger Name generieren
-$filetyp = pathinfo ($_FILES["File"]["name"]);
+$filename = pathinfo ($_FILES["File"]["name"]);
 $s='1234567890ABCDEFGHIJKLMNOPQRSTUVWXYZ';
 $s.="abcdefghijklmnopqrstuvwxyz";
 $string='';
@@ -58,8 +59,8 @@ for ($i=0; $i<20; $i++){
     $index=rand(0, strlen($s)-1);
     $string.=$s[$index];
 }
-$string.=".".$filetyp;
-
+$string.=".".$type;
+echo $string;
 
 //stimmt Pfad???
 //auf Server schieben
@@ -70,14 +71,13 @@ if (!move_uploaded_file($_FILES["File"]["tmp_name"], "http://mars.iuk.hdm-stuttg
 // Links müssen absolut sein mit http.mars.iuk,...... MIME Type digga 
 
 //Pfad von der Datei
-$dateipfad = "http://mars.iuk.hdm-stuttgart.de/home/~lr090/public_html/StudiWolke/frontend/dateien/".$string
+$dateipfad = "http://mars.iuk.hdm-stuttgart.de/home/~lr090/public_html/StudiWolke/frontend/dateien/".$string;
 
 //weitere Daten übergeben $benutzer_id, $filetype, $Erstelldatum, $Änderungsdatum
-$benutzer_id = $_SESSION["benutzer_id"];
-$ordner_id = $_SESSION["ordner_id"];
-$dateiname_original = $_FILES["Files"] ["name"];
+
+$dateiname_original=htmlspecialchars ($_POST ["Dateiname"]);
 $erstelldatum = date("Y-m-d");
-$aenderungsdatum = date("Y-m-d");
+$aenderungsdatum = $erstelldatum;
 
 //in DB einfügen 
 $statement = $pdo->prepare("INSERT INTO dateien (benutzer_id, ordner_id, dateipfad, dateiname_original, dateiname_zufall, dateityp, erstelldatum, 

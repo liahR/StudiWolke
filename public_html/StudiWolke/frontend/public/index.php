@@ -76,7 +76,7 @@ if ($statement->execute()) {
         echo '</li>';
     }
     echo '</ul>';
-
+?>
   // JavaScript-Code zum Sortieren und Suchen der Liste
         <script>
         function sortByName() {
@@ -109,8 +109,7 @@ if ($statement->execute()) {
         }
         }
         }
-        </script>
-    ?>  
+        </script>; 
     </main>
     <?php include("footer.php")?>
 </body>

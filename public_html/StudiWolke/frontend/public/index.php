@@ -19,14 +19,15 @@
         if (!isset($_SESSION['benutzer_id'])) {
             header("Location: login.html");
             exit;
-        }
+        };
+?>
 <header>
 <body>
     <header>
         <?php include "header.php"; ?>
     </header>
     <main>
-        // Verbindung zur Datenbank herstellen
+    <?php    // Verbindung zur Datenbank herstellen
         $pdo = new PDO('mysql:host=mars.iuk.hdm-stuttgart.de;dbname=u-lr090', 'lr090', 'eetho6Choh', array('charset' => 'utf8'));
 
         // SQL-Abfrage zum Abrufen des Vornamens des Benutzers
@@ -100,7 +101,7 @@ if ($statement->execute()) {
         var items = list.getElementsByTagName("li");
              for (var i = 0; i < items.length; i++) {
         var name = items[i].getElementsByTagName("h2")[0].textContent;
-        
+
         if (name.toUpperCase().indexOf(filter) > -1) {
             items[i].style.display = "";
         } else {

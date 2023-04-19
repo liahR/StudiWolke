@@ -64,14 +64,14 @@ echo $string;
 
 //stimmt Pfad???
 //auf Server schieben
-if (!move_uploaded_file($_FILES["File"]["tmp_name"], "http://mars.iuk.hdm-stuttgart.de/home/~lr090/public_html/StudiWolke/frontend/dateien/".$string)){
+if (!move_uploaded_file($_FILES["File"]["tmp_name"], "/home/lr090/public_html/StudiWolke/frontend/dateien/".$string)){
     die ("Fehler bei der Übertragung");
 }
 
 // Links müssen absolut sein mit http.mars.iuk,...... MIME Type digga 
 
 //Pfad von der Datei
-$dateipfad = "http://mars.iuk.hdm-stuttgart.de/home/~lr090/public_html/StudiWolke/frontend/dateien/".$string;
+$dateipfad = "home/lr090/public_html/StudiWolke/frontend/dateien/".$string;
 
 //weitere Daten übergeben $benutzer_id, $filetype, $Erstelldatum, $Änderungsdatum
 

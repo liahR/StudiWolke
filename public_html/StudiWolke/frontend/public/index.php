@@ -22,11 +22,11 @@
         };
 ?>
     <header>
-        <?php include "header.php"; ?>
+
     </header>
     <main>
     <?php    // Verbindung zur Datenbank herstellen
-        $pdo = new PDO('mysql:host=mars.iuk.hdm-stuttgart.de;dbname=u-lr090', 'lr090', 'eetho6Choh', array('charset' => 'utf8'));
+        $pdo = new PDO('mysql:: host=mars.iuk.hdm-stuttgart.de;dbname=u-lr090', 'lr090', 'eetho6Choh', array('charset' => 'utf8'));
 
         // SQL-Abfrage zum Abrufen des Vornamens des Benutzers
         $stmt = $pdo->prepare("SELECT vorname FROM benutzer WHERE benutzer_id=:benutzer_id");
@@ -35,7 +35,7 @@
         $row = $stmt->fetch(PDO::FETCH_ASSOC);
 
         // Vornamen ausgeben um zu willkommen
-        echo "<h1>" . $row['vorname'] . "'s Wolke!'</h1>";
+        echo "<h1>" . $row['vorname'] . "'s Wolke!</h1>";
 
         // Geteilte Dateien Ordner fix
         echo '<img src="cloud-ordner.png" alt="Ordner-Icon">';
@@ -69,11 +69,11 @@ if ($statement->execute()) {
     foreach ($rows as $row) {
         echo '<li>';
         echo '<img src="cloud-ordner.png" alt="Ordner-Icon">';
-        echo '<h2><a href="in_Ordner.php=' . $row['ordner_id'] . '">' . $row['ordnername_original'] . '</a></h2>';
+        echo '<h2><a href="in_Ordner.php?id=' . $row['ordner_id'] . '">' . $row['ordnername_original'] . '</a></h2>';
         echo '<a href="delete_ordner_do.php=' . $row['ordner_id'] . '">Löschen</a><br>';
         echo '</li>';
     }
-    echo '</ul>';
+    echo '</ul>';}
 ?>
   // JavaScript-Code zum Sortieren und Suchen der Liste
         <script>
@@ -107,8 +107,8 @@ if ($statement->execute()) {
         }
         }
         }
-        </script>; 
+        </script>
     </main>
-    <?php include("footer.php")?>
+
 </body>
 </html>

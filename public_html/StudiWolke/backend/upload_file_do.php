@@ -73,7 +73,7 @@ if (!move_uploaded_file($_FILES["File"]["tmp_name"], "http://mars.iuk.hdm-stuttg
 $dateipfad = "http://mars.iuk.hdm-stuttgart.de/home/~lr090/public_html/StudiWolke/frontend/dateien/".$string
 
 //weitere Daten übergeben $BenutzerId, $filetype, $Erstelldatum, $Änderungsdatum
-$benutzer_id = $_SESSION["benutzer_id"];
+$benutzer_id = $_SESSION['benutzer_id'];
 $ordner_id = $_SESSION["ordner_id"];
 $dateiname_original = $_FILES["Files"] ["name"];
 $erstelldatum = date("Y-m-d");

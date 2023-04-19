@@ -22,7 +22,7 @@ if ($statement->execute()) {
 if ($row = $statement->fetch()){ 
     if (password_verify ($passwort, $row["passwort"]))
     {
-        $_SESSION["benutzerId"] = $row["benutzerId"];
+        $_SESSION["benutzer_id"] = $row["benutzer_id"];
         header("Location: ../frontend/public/index.php");
     }
     else

@@ -1,13 +1,13 @@
 <?php
 session_start();
-if (!isset($_SESSION["BenutzerId"]))
+if (!isset($_SESSION["benutzer_id"]))
 {
     die ("Keine Autorisierung vorhanden");
 }
 else {
-    if (isset($_GET["OrdnerId"])) {
-        $OrdnerId = $_GET["OrdnerId"];
-        $_SESSION["OrdnerId"] = $OrdnerId;
+    if (isset($_GET["ordner_id"])) {
+        $ordner_id = $_GET["ordner_id"];
+        $_SESSION["ordner_id"] = $ordner_id;
     }
 }
 
@@ -73,7 +73,7 @@ if (!move_uploaded_file($_FILES["File"]["tmp_name"], "http://mars.iuk.hdm-stuttg
 $dateipfad = "http://mars.iuk.hdm-stuttgart.de/home/~lr090/public_html/StudiWolke/frontend/dateien/".$string
 
 //weitere Daten übergeben $BenutzerId, $filetype, $Erstelldatum, $Änderungsdatum
-$benutzer_id = $_SESSION["benutzer_id"];
+$benutzer_id = $_SESSION['benutzer_id'];
 $ordner_id = $_SESSION["ordner_id"];
 $dateiname_original = $_FILES["Files"] ["name"];
 $erstelldatum = date("Y-m-d");

@@ -8,21 +8,21 @@
 	<?php
 	session_start();
 	// Prüfen, ob Benutzer eingeloggt ist
-	//if(!isset($_SESSION['BenutzerId'])) {
+	if(!isset($_SESSION['benutzer_id'])) {
 		// Benutzer ist nicht eingeloggt, Weiterleitung zur Login-Seite
-	//	header("Location: login.html");
-	//	exit();
-	//}
+	header("Location: login.html");
+		exit();
+	}
 	// Verbindung zur Datenbank herstellen
 	$pdo = new PDO('mysql:: host=mars.iuk.hdm-stuttgart.de; dbname=u-lr090', 'lr090', 'eetho6Choh', array('charset'=>'utf8'));
 	if ($pdo->connect_error) {
 		die("Verbindung fehlgeschlagen: " . $pdo->connect_error);
 	}
 	// SQL-Abfrage zum Abrufen der Benutzerdaten
-	$stmt = $pdo->prepare("SELECT * FROM Benutzer WHERE BenutzerId=:BenutzerId");
-	$stmt->bindValue(':BenutzerId', $_SESSION['BenutzerId']);
+	$stmt = $pdo->prepare("SELECT * FROM benutzer WHERE benutzer_id=:benutzer_id");
+	$stmt->bindValue(':benutzer_id', $_SESSION['benutzer_id']);
 	$stmt->execute();
-	$Benutzer = $stmt->fetch(PDO::FETCH_ASSOC);
+	$benutzer = $stmt->fetch(PDO::FETCH_ASSOC);
 	// Verbindung zur Datenbank schließen
 	$pdo = null;
 	?>
@@ -33,26 +33,26 @@
    ?>
 </header> 
 <main>
-	<h1>Hallo, <?php echo $Benutzer['Vorname']; ?>!</h1>
+	<h1>Hallo, <?php echo $benutzer['vorname']; ?>!</h1>
 	
 	<form action="../../backend/account_do.php" method="post" enctype="multipart/form-data">
-		<label for="Profilbild">Profilbild:</label><br>
-		<input type="file" name="Profilbild" id="Profilbild"><br>
+		<label for="profilbild">Profilbild:</label><br>
+		<input type="file" name="profilbild" id="profilbild"><br>
 		
-		<label for="Vorname">Vorname:</label><br>
-		<input type="text" name="Vorname" id="Vorname" placeholder="<?php echo $Benutzer['Vorname']; ?>" value="<?php echo isset($_POST['Vorname']) ? $_POST['Vorname'] : ''; ?>"><br>
+		<label for="vorname">Vorname:</label><br>
+		<input type="text" name="vorname" id="vorname" placeholder="<?php echo $Benutzer['vorname']; ?>" value="<?php echo isset($_POST['vorname']) ? $_POST['vorname'] : ''; ?>"><br>
 		
-		<label for="Nachname">Nachname:</label><br>
-		<input type="text" name="Nachname" id="Nachname" placeholder="<?php echo $Benutzer['Nachname']; ?>" value="<?php echo isset($_POST['Nachname']) ? $_POST['Nachname'] : ''; ?>"><br>
+		<label for="nachname">Nachname:</label><br>
+		<input type="text" name="nachname" id="nachname" placeholder="<?php echo $Benutzer['nachname']; ?>" value="<?php echo isset($_POST['nachname']) ? $_POST['nachname'] : ''; ?>"><br>
 		
-		<label for="Email">Email:</label><br>
-		<input type="email" name="Email" id="Email" placeholder="<?php echo $Benutzer['Email']; ?>" value="<?php echo isset($_POST['Email']) ? $_POST['Email'] : ''; ?>"><br>
+		<label for="email">Email:</label><br>
+		<input type="email" name="email" id="email" placeholder="<?php echo $Benutzer['email']; ?>" value="<?php echo isset($_POST['email']) ? $_POST['email'] : ''; ?>"><br>
 		
-		<label for="Nutzername">Nutzername:</label><br>
-		<input type="text" name="Nutzername" id="Nutzername" placeholder="<?php echo $Benutzer['Nutzername']; ?>" value="<?php echo isset($_POST['Nutzername']) ? $_POST['Nutzername'] : ''; ?>"><br>
+		<label for="nutzername">Nutzername:</label><br>
+		<input type="text" name="nutzername" id="nutzername" placeholder="<?php echo $Benutzer['nutzername']; ?>" value="<?php echo isset($_POST['nutzername']) ? $_POST['nutzername'] : ''; ?>"><br>
 		
-		<label for="Passwort">Passwort:</label><br>
-		<input type="password" name="Passwort" id="Passwort"><br>
+		<label for="passwort">Passwort:</label><br>
+		<input type="password" name="passwort" id="passwort"><br>
 		
 		<input type="submit" name="submit" value="Speichern">
 	</form>

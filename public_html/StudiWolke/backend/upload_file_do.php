@@ -60,28 +60,31 @@ for ($i=0; $i<20; $i++){
 }
 $string.=".".$filetyp;
 
+
+//stimmt Pfad???
 //auf Server schieben
-if (!move_uploaded_file($_FILES["File"]["tmp_name"], "/home/lr090/public_html/StudiWolke/frontend/dateien/".$string)){
+if (!move_uploaded_file($_FILES["File"]["tmp_name"], "http://mars.iuk.hdm-stuttgart.de/home/~lr090/public_html/StudiWolke/frontend/dateien/".$string)){
     die ("Fehler bei der Übertragung");
 }
 
+// Links müssen absolut sein mit http.mars.iuk,...... MIME Type digga 
 
 //Pfad von der Datei
-$dateipfad = "/home/lr090/public_html/StudiWolke/frontend/dateien/".$string
+$dateipfad = "http://mars.iuk.hdm-stuttgart.de/home/~lr090/public_html/StudiWolke/frontend/dateien/".$string
 
 //weitere Daten übergeben $BenutzerId, $filetype, $Erstelldatum, $Änderungsdatum
-$benutzerId = $_SESSION["benutzerId"];
-$ordnerId = $_SESSION["ordnerId"];
+$benutzer_id = $_SESSION["benutzer_id"];
+$ordner_id = $_SESSION["ordner_id"];
 $dateiname_original = $_FILES["Files"] ["name"];
 $erstelldatum = date("Y-m-d");
 $aenderungsdatum = date("Y-m-d");
 
 //in DB einfügen 
-$statement = $pdo->prepare("INSERT INTO dateien (benutzerId, ordnerId, dateipfad, dateiname_original, dateiname_zufall, dateityp, erstelldatum, 
-aenderungsdatum) VALUES (:benutzerId, :ordnerId, :dateipfad, :dateiname_original, :dateiname_zufall, :dateityp, :erstelldatum, :aenderungsdatum)");
+$statement = $pdo->prepare("INSERT INTO dateien (benutzer_id, ordner_id, dateipfad, dateiname_original, dateiname_zufall, dateityp, erstelldatum, 
+aenderungsdatum) VALUES (:benutzer_id, :ordner_id, :dateipfad, :dateiname_original, :dateiname_zufall, :dateityp, :erstelldatum, :aenderungsdatum)");
 
-$statement->bindParam(':benutzerId', $benutzerId);
-$statement->bindParam(':ordnerId', $ordnerId);
+$statement->bindParam(':benutzer_id', $benutzer_id);
+$statement->bindParam(':ordner_id', $ordner_id);
 $statement->bindParam(':dateipfad', $dateipfad);
 $statement->bindParam(':dateiname_original', $dateiname_original);
 $statement->bindParam(':dateiname_zufall', $string);

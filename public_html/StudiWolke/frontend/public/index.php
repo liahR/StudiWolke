@@ -118,7 +118,7 @@ if ($statement->execute()) {
     <div id="Folder" style="display:none;">
         <form onsubmit="return RequiredCreateFolder()" id="CreateFolder" action="../../backend/create_ordner_do.php" method="post">
             Ordner erstellen: <br>
-            <input type="text" name="Ordnername" placeholder="Ordnername" required>
+            <input type="text" name="ordnername" placeholder="Ordnername" required>
             <input type="submit" value="Ordner erstellen" name="submit">
             <button type="button" onclick="closeCreateFolder()">Abbrechen</button>
         </form>

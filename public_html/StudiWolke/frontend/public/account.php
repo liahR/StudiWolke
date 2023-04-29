@@ -5,7 +5,8 @@
 	<title>Dein Konto</title>
 </head>
 <body>
-	<?php
+<header>
+    <?php
 	session_start();
 	// Prüfen, ob Benutzer eingeloggt ist
 	if(!isset($_SESSION['benutzer_id'])) {
@@ -13,11 +14,32 @@
 	header("Location: login.html");
 		exit();
 	}
-	// Verbindung zur Datenbank herstellen
+        // Verbindung zur Datenbank herstellen
 	$pdo = new PDO('mysql:: host=mars.iuk.hdm-stuttgart.de; dbname=u-lr090', 'lr090', 'eetho6Choh', array('charset'=>'utf8'));
 	if ($pdo->connect_error) {
 		die("Verbindung fehlgeschlagen: " . $pdo->connect_error);
 	}
+     // SQL-Abfrage zum Abrufen des Profilbilds des Benutzers
+     $stmt = $pdo->prepare("SELECT profilbild FROM benutzer WHERE benutzer_id=:benutzer_id");
+     $stmt->bindValue(':benutzer_id', $_SESSION['benutzer_id']);
+     $stmt->execute();
+     $row = $stmt->fetch(PDO::FETCH_ASSOC);
+    ?>
+		<div class="logo">
+			<a href="index.php"><img src="Logo StudiWolke.png"></a>
+		</div>
+		<nav>
+			<ul>
+				<li><a href="index.php">Start</a></li>
+				<li><a href="hilfe.php">Support</a></li>
+			</ul>
+		</nav>
+		<div class="account">
+			<a href="account.php"><img src="<?php echo $benutzer['profilbild']; ?>" alt="Profilbild"></a>
+		</div>
+</header>
+<main>
+	<?php
 	// SQL-Abfrage zum Abrufen der Benutzerdaten
 	$stmt = $pdo->prepare("SELECT * FROM benutzer WHERE benutzer_id=:benutzer_id");
 	$stmt->bindValue(':benutzer_id', $_SESSION['benutzer_id']);
@@ -26,7 +48,6 @@
 	// Verbindung zur Datenbank schließen
 	$pdo = null;
 	?>
-<main>
 	<h1>Hallo, <?php echo $benutzer['vorname']; ?>!</h1>
 	
 	<form action="../../backend/account_do.php" method="post" enctype="multipart/form-data">

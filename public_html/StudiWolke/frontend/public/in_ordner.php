@@ -29,20 +29,31 @@ else {
 }
 ?>
 <header>
-    <img src="Logo StudiWolke.png" alt= "Das Logo von StudiWolke">
-    <div>
-    <!-- HTML-Code für das Mond-Icon, Dark Mode, muss noch gefixt werden 
-        <div class="dark-mode-toggle">
-        <i class="fas fa-moon"></i> -->
-    </div>
-    <nav>
-        <ul>
-            <li><a href="index.php">START</a></li>
-            <li><a href="support.php">SUPPORT</a></li>
-            <li><a href="account.php">PROFIL</a></li> 
-        </ul>
-    </nav>
-</header> 
+    <?php
+        // Verbindung zur Datenbank herstellen
+	$pdo = new PDO('mysql:: host=mars.iuk.hdm-stuttgart.de; dbname=u-lr090', 'lr090', 'eetho6Choh', array('charset'=>'utf8'));
+	if ($pdo->connect_error) {
+		die("Verbindung fehlgeschlagen: " . $pdo->connect_error);
+	}
+     // SQL-Abfrage zum Abrufen des Profilbilds des Benutzers
+     $stmt = $pdo->prepare("SELECT profilbild FROM benutzer WHERE benutzer_id=:benutzer_id");
+     $stmt->bindValue(':benutzer_id', $_SESSION['benutzer_id']);
+     $stmt->execute();
+     $row = $stmt->fetch(PDO::FETCH_ASSOC);
+    ?>
+		<div class="logo">
+			<a href="index.php"><img src="Logo StudiWolke.png"></a>
+		</div>
+		<nav>
+			<ul>
+				<li><a href="index.php">Start</a></li>
+				<li><a href="hilfe.php">Support</a></li>
+			</ul>
+		</nav>
+		<div class="account">
+			<a href="account.php"><img src="<?php echo $benutzer['profilbild']; ?>" alt="Profilbild"></a>
+		</div>
+	</header>
 <main>
 <?php
     $pdo = new PDO('mysql:: host=mars.iuk.hdm-stuttgart.de; dbname=u-lr090', 'lr090', 'eetho6Choh', array('charset'=>'utf8'));

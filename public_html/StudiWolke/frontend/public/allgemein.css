@@ -11,7 +11,7 @@ header {
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
-	background: linear-gradient(to right, #FF69B4, #18A0FB);
+  background: linear-gradient(to right, #fff, #FF69B4, #18A0FB);
 	color: #fff;
 	padding: 10px;
 }

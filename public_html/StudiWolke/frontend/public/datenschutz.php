@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" type="text/css" href="allgemein.css">
-    <title>Impressum</title>
+    <title>Datenschutz</title>
 </head>
 <body>
     <header>

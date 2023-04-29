@@ -174,7 +174,6 @@ if ($statement->execute()) {
         </script>
 
 
-<<<<<<< HEAD
     </main>
  <footer>
     <hr>
@@ -194,9 +193,7 @@ if ($statement->execute()) {
     <small>&copy; 2023 StudiWolke GmbH & Co. KG</small>
     <hr>
 </footer>
-=======
 </main>
 
->>>>>>> 725af826316631dbe38a807129e10d62053ce1ef
 </body>
 </html>

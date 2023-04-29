@@ -31,13 +31,47 @@
         $stmt->execute();
         $row = $stmt->fetch(PDO::FETCH_ASSOC);
 
-        // Vornamen ausgeben um zu willkommen
-        echo "<h1>" . $row['vorname'] . "'s Wolke!</h1>";
+   ?>
 
-        // Geteilte Dateien Ordner fix
-        echo '<img src="cloud-ordner.png" alt="Ordner-Icon">';
-        echo '<h2><a href="in_geteilte_Ordner.php"> Geteilte Dateien </a></h2>';
+    <!-- Vornamen ausgeben um zu willkommen -->
+    <h1><?php echo $row['vorname']; ?> 's Wolke! </h1>
 
+    <!-- Ordner erstellen -->
+    <button onclick="openCreateFolder()">Ordner erstellen</button>
+
+    <div id="Folder" style="display:none;">
+        <form onsubmit="return RequiredCreateFolder()" id="CreateFolder" action="../../backend/create_ordner_do.php" method="post">
+            Ordner erstellen: <br>
+            <input type="text" name="ordnername" placeholder="Ordnername" required>
+            <input type="submit" value="Ordner erstellen" name="submit">
+            <button type="button" onclick="closeCreateFolder()">Abbrechen</button>
+        </form>
+    <script>
+        function openCreateFolder () {
+            document.getElementById("Folder").style.display ="block";
+        }
+        function closeCreateFolder () {
+            document.getElementById("Folder").style.display ="none";
+        } 
+        function RequiredCreateFolder() {
+            const ordnername = document.getElementByName("Ordnername").value;
+            if (ordnername =="") {
+                alert("Alle Felder ausfüllen");
+                return false;
+            } else {
+                closeForm();
+                return true;
+            }
+        }
+
+    </script> 
+    </div> 
+
+    <!-- Geteilte Dateien Ordner fix -->
+    <img src="cloud-ordner.png" alt="Ordner-Icon">
+    <h2><a href="in_geteilte_Ordner.php"> Geteilte Dateien </a></h2>
+
+<?php        
 // SQL-Abfrage zum Abrufen der Ordner
 $statement = $pdo->prepare("SELECT ordner_id, ordnername_original FROM ordner");
 
@@ -109,36 +143,7 @@ if ($statement->execute()) {
         }
         </script>
 
-    <!-- Ordner erstellen -->
-    <button onclick="openCreateFolder()">Ordner erstellen</button>
 
-    <div id="Folder" style="display:none;">
-        <form onsubmit="return RequiredCreateFolder()" id="CreateFolder" action="../../backend/create_ordner_do.php" method="post">
-            Ordner erstellen: <br>
-            <input type="text" name="ordnername" placeholder="Ordnername" required>
-            <input type="submit" value="Ordner erstellen" name="submit">
-            <button type="button" onclick="closeCreateFolder()">Abbrechen</button>
-        </form>
-    <script>
-        function openCreateFolder () {
-            document.getElementById("Folder").style.display ="block";
-        }
-        function closeCreateFolder () {
-            document.getElementById("Folder").style.display ="none";
-        }
-        function RequiredCreateFolder() {
-            const ordnername = document.getElementByName("Ordnername").value;
-            if (ordnername =="") {
-                alert("Alle Felder ausfüllen");
-                return false;
-            } else {
-                closeForm();
-                return true;
-            }
-        }
-    
-</script> 
-</div> 
     </main>
 
 </body>

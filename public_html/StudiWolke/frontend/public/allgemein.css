@@ -11,13 +11,13 @@ header {
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
-	background-color: #333;
+	background: linear-gradient(to right, #FF69B4, #18A0FB);
 	color: #fff;
 	padding: 10px;
 }
 
 .logo img {
-	height: 50px;
+	height: 70px;
   width: auto;
 }
 
@@ -45,7 +45,7 @@ nav a {
 /* Überschriften + Texte */
 
 h1 {
-    font-family: "Baloo 2", cursive;
+    font-family: "Arial", Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     color: #18A0FB;
   }
 

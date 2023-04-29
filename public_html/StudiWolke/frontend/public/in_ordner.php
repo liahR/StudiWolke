@@ -170,11 +170,10 @@ if ($statement->execute()) {
 
 </main>
 <footer>
-
-</footer>
-    <hr/>
-    <small>&copy; 2023 StudiWolke GmbH & Co. KG</small>
-    <hr/>
+    <hr>
+    <div class="logo">
+			<a href="index.php"><img src="Logo StudiWolke.png"></a>
+		</div>
     <nav>
         <ul>
             <li><a href= "impressum.html">IMPRESSUM</a></li>
@@ -184,5 +183,9 @@ if ($statement->execute()) {
     
         </ul>
     </nav>	
+    <hr>
+    <small>&copy; 2023 StudiWolke GmbH & Co. KG</small>
+    <hr>
+</footer>
 </body>
 </html>

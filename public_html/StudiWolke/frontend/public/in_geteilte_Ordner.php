@@ -121,7 +121,23 @@ if ($statement->execute()) {
     ?> 
 ?>
 </main>
-<?php include("footer.php")?>
-
+<footer>
+    <hr>
+    <div class="logo">
+			<a href="index.php"><img src="Logo StudiWolke.png"></a>
+		</div>
+    <nav>
+        <ul>
+            <li><a href= "impressum.html">IMPRESSUM</a></li>
+            <li><a href= "datenschutz.html">DATENSCHUTZ</a></li>
+            <li><a href= "agbs.html">AGBs</a></li>
+            <li><a href="../../backend/logout.php">LOGOUT</a></li>
+    
+        </ul>
+    </nav>	
+    <hr>
+    <small>&copy; 2023 StudiWolke GmbH & Co. KG</small>
+    <hr>
+</footer>
 </body>
 </html>

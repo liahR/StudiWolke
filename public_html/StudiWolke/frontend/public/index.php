@@ -174,7 +174,6 @@ if ($statement->execute()) {
         </script>
 
 
-<<<<<<< HEAD
     </main>
  <footer>
     <hr>
@@ -183,9 +182,9 @@ if ($statement->execute()) {
 		</div>
     <nav>
         <ul>
-            <li><a href= "impressum.html">IMPRESSUM</a></li>
-            <li><a href= "datenschutz.html">DATENSCHUTZ</a></li>
-            <li><a href= "agbs.html">AGBs</a></li>
+        <li><a href= "impressum.php">IMPRESSUM</a></li>
+            <li><a href= "datenschutz.php">DATENSCHUTZ</a></li>
+            <li><a href= "agbs.php">AGBs</a></li>
             <li><a href="../../backend/logout.php">LOGOUT</a></li>
     
         </ul>
@@ -194,9 +193,7 @@ if ($statement->execute()) {
     <small>&copy; 2023 StudiWolke GmbH & Co. KG</small>
     <hr>
 </footer>
-=======
 </main>
 
->>>>>>> 725af826316631dbe38a807129e10d62053ce1ef
 </body>
 </html>

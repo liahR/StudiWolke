@@ -185,9 +185,9 @@ echo '<ul id="ordner-liste">';
 		</div>
     <nav>
         <ul>
-            <li><a href= "impressum.html">IMPRESSUM</a></li>
-            <li><a href= "datenschutz.html">DATENSCHUTZ</a></li>
-            <li><a href= "agbs.html">AGBs</a></li>
+            <li><a href= "impressum.php">IMPRESSUM</a></li>
+            <li><a href= "datenschutz.php">DATENSCHUTZ</a></li>
+            <li><a href= "agbs.php">AGBs</a></li>
             <li><a href="../../backend/logout.php">LOGOUT</a></li>
     
         </ul>

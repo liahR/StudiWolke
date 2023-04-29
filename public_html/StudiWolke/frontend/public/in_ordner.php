@@ -1,3 +1,18 @@
+<?php
+    session_start();
+    // Prüfen ob Benutzer nicht eingeloggt ist + ordner id setzen 
+    if (!isset($_SESSION["benutzer_id"]))
+{
+    header("Location: login.html");
+}
+else {
+    $benutzer_id = $_SESSION["benutzer_id"];
+}
+
+$pdo = new PDO('mysql:: host=mars.iuk.hdm-stuttgart.de; dbname=u-lr090', 'lr090', 'eetho6Choh', array('charset'=>'utf8'));
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,24 +28,9 @@
     <title><?php echo $Ordner['Ordnername original']; ?></title>
 </head>
 <body>
-<?php
-    session_start();
-    // Prüfen ob Benutzer nicht eingeloggt ist + ordner id setzen 
-    if (!isset($_SESSION["benutzer_id"]))
-{
-    header("Location: login.html");
-}
-else {
-    $benutzer_id = $_SESSION["benutzer_id"];
-}
-?>
+
 <header>
     <?php
-        // Verbindung zur Datenbank herstellen
-	$pdo = new PDO('mysql:: host=mars.iuk.hdm-stuttgart.de; dbname=u-lr090', 'lr090', 'eetho6Choh', array('charset'=>'utf8'));
-	if ($pdo->connect_error) {
-		die("Verbindung fehlgeschlagen: " . $pdo->connect_error);
-	}
      // SQL-Abfrage zum Abrufen des Profilbilds des Benutzers
      $stmt = $pdo->prepare("SELECT profilbild FROM benutzer WHERE benutzer_id=:benutzer_id");
      $stmt->bindValue(':benutzer_id', $_SESSION['benutzer_id']);
@@ -52,20 +52,56 @@ else {
 	</header>
 <main>
 <?php
-    $pdo = new PDO('mysql:: host=mars.iuk.hdm-stuttgart.de; dbname=u-lr090', 'lr090', 'eetho6Choh', array('charset'=>'utf8'));
-
 
     // Hole den Ordnernamen
     $statement = $pdo->prepare('SELECT ordnername_original FROM ordner WHERE ordner_id = :ordner_id');
-    $statement->bindParam(':ordner_id', $ordner_id);
+    $statement->bindParam(':ordner_id', $_GET ["id"]);
     $statement->execute();
     $ordner = $statement->fetch(PDO::FETCH_ASSOC);
+?>
 
+    <!-- Ordnername ausgeben -->
+    <h1><?php echo $ordner['ordnername_original']; ?></h1>
 
-//neues If für Sortieren
-if ($statement->execute()) {
-    $rows = $statement->fetchAll(PDO::FETCH_ASSOC);
-}
+    <!--Upload File Button anzeigen mit ausführung -->
+    <button onclick="openFileShare()">Datei hochladen</button>
+
+    <div id="Share" style="display:none;">
+        <form onsubmit="return RequiredFileShare()" id="UploadFile" action="../../backend/upload_file_do.php" method="post" enctype="multipart/form-data" >
+            Datei auswählen: <br>
+            <input type ="hidden" name= "ordner_id" value="<?php echo $_GET["id"]?> ">
+            <input type="file" name="File" required><br>
+            <input type="text" name="Dateiname" placeholder="Dateiname" required>
+            <input type="submit" value="Datei hochladen" name="submit">
+            <button type="button" onclick="closeFileShare()">Abbrechen</button>
+    </form>
+    </div> 
+
+    <script>
+        function openFileShare () {
+            document.getElementById("Share").style.display ="block";
+        }
+        function closeFileShare () {
+            document.getElementById("Share").style.display ="none";
+        }
+        function RequiredFileShare() {
+            const file = document.getElementByName("File").value;
+            const dateiname = document.getElementByName("Dateiname").value;
+            if (file =="" || dateiname =="") {
+                alert("Alle Felder ausfüllen");
+                return false;
+            } else {
+                closeForm();
+                return true;
+            }
+        }
+    </script> 
+
+<?php
+    //neues If für Sortieren
+    if ($statement->execute()) {
+        $rows = $statement->fetchAll(PDO::FETCH_ASSOC);
+    }
 
     // Sortierungsfunktion
     function sortByName($a, $b)
@@ -84,7 +120,7 @@ if ($statement->execute()) {
     // Suchfeld
     echo '<input type="text" id="search-input" oninput="searchFolders()" placeholder="Suche nach Dateien...">';
 
-    ?>
+?>
 
     <!-- JavaScript-Code zum Sortieren und Suchen der Liste -->
     <script>
@@ -119,55 +155,28 @@ if ($statement->execute()) {
         }
         }
         </script>
-    
 
 
-<h1><?php echo $ordner['ordnername_original']; ?></h1>
-
-<!--Upload File Button anzeigen mit ausführung -->
-<button onclick="openFileShare()">Datei hochladen</button>
-
-<div id="Share" style="display:none;">
-    <form onsubmit="return RequiredFileShare()" id="UploadFile" action="../../backend/upload_file_do.php" method="post" enctype="multipart/form-data" >
-        Datei auswählen: <br>
-        <input type ="hidden" name= "ordner_id" value="<?php echo $_GET["id"]?> ">
-        <input type="file" name="File" required><br>
-        <input type="text" name="Dateiname" placeholder="Dateiname" required>
-        <input type="submit" value="Datei hochladen" name="submit">
-        <button type="button" onclick="closeFileShare()">Abbrechen</button>
-</form>
-</div> 
-
-<script>
-    function openFileShare () {
-        document.getElementById("Share").style.display ="block";
-    }
-    function closeFileShare () {
-        document.getElementById("Share").style.display ="none";
-    }
-    function RequiredFileShare() {
-        const file = document.getElementByName("File").value;
-        const dateiname = document.getElementByName("Dateiname").value;
-        if (file =="" || dateiname =="") {
-            alert("Alle Felder ausfüllen");
-            return false;
-        } else {
-            closeForm();
-            return true;
-        }
-    }
-    
-</script> 
-
-
-<!--Dateien ausgeben die im Ordner sind // Hole die Dateien des Ordners-->
+<!--Hole die Dateien des Ordners-->
 <?php
     $statement = $pdo->prepare('SELECT * FROM dateien WHERE ordner_id = :ordner_id ORDER BY dateiname_original');
     $statement->bindParam(':ordner_id', $ordner_id);
     $statement->execute();
     $dateien = $statement->fetchAll(PDO::FETCH_ASSOC);
-?>
 
+
+// dateien ausgeben die im Ordner sind  
+
+echo '<ul id="ordner-liste">';
+    foreach ($rows as $row) {
+        echo '<li>';
+        echo '<h2><a href="in_ordner.php?id=' . $row['datei_id'] . '">' . $row['dateiname_original'] . '</a></h2>';
+        echo '<a href="delete_file_do.php=' . $row['datei_id'] . '">Löschen</a><br>';
+        echo '</li>';
+    }
+    echo '</ul>';
+
+?>
 </main>
 <footer>
     <hr>

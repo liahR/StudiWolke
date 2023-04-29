@@ -1,3 +1,16 @@
+<?php
+    session_start();
+    // Prüfen, ob Benutzer nicht eingeloggt ist
+    if (!isset($_SESSION['benutzer_id'])) {
+        header("Location: login.html");
+        exit;
+    };
+
+    $pdo = new PDO('mysql:: host=mars.iuk.hdm-stuttgart.de;dbname=u-lr090', 'lr090', 'eetho6Choh', array('charset' => 'utf8'));
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,21 +26,9 @@
     <title>Start</title>
 </head>
 <body>
-<?php
-        session_start();
-        // Prüfen, ob Benutzer nicht eingeloggt ist
-        if (!isset($_SESSION['benutzer_id'])) {
-            header("Location: login.html");
-            exit;
-        };
-?>
-    <header>
+
+<header>
     <?php
-        // Verbindung zur Datenbank herstellen
-	$pdo = new PDO('mysql:: host=mars.iuk.hdm-stuttgart.de; dbname=u-lr090', 'lr090', 'eetho6Choh', array('charset'=>'utf8'));
-	if ($pdo->connect_error) {
-		die("Verbindung fehlgeschlagen: " . $pdo->connect_error);
-	}
      // SQL-Abfrage zum Abrufen des Profilbilds des Benutzers
      $stmt = $pdo->prepare("SELECT profilbild FROM benutzer WHERE benutzer_id=:benutzer_id");
      $stmt->bindValue(':benutzer_id', $_SESSION['benutzer_id']);
@@ -46,10 +47,9 @@
 		<div class="account">
 			<a href="account.php"><img src="<?php echo $benutzer['profilbild']; ?>" alt="Profilbild"></a>
 		</div>
-	</header>
-    <main>
-    <?php    // Verbindung zur Datenbank herstellen
-        $pdo = new PDO('mysql:: host=mars.iuk.hdm-stuttgart.de;dbname=u-lr090', 'lr090', 'eetho6Choh', array('charset' => 'utf8'));
+</header>
+<main>
+    <?php  
 
         // SQL-Abfrage zum Abrufen des Vornamens des Benutzers
         $stmt = $pdo->prepare("SELECT vorname FROM benutzer WHERE benutzer_id=:benutzer_id");
@@ -174,6 +174,7 @@ if ($statement->execute()) {
         </script>
 
 
+<<<<<<< HEAD
     </main>
  <footer>
     <hr>
@@ -193,5 +194,9 @@ if ($statement->execute()) {
     <small>&copy; 2023 StudiWolke GmbH & Co. KG</small>
     <hr>
 </footer>
+=======
+</main>
+
+>>>>>>> 725af826316631dbe38a807129e10d62053ce1ef
 </body>
 </html>

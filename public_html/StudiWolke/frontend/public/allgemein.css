@@ -5,12 +5,7 @@
   }
 
 /* Allgemeine Stilvorgaben */
-body {
-	margin: 0;
-	padding: 0;
-	font-family: Arial, sans-serif;
-}
-  
+
 /* Header-Elemente */
 header {
 	display: flex;
@@ -23,6 +18,7 @@ header {
 
 .logo img {
 	height: 50px;
+  width: auto;
 }
 
 nav ul {
@@ -46,56 +42,27 @@ nav a {
 	border-radius: 50%;
 }  
 
-/* CSS-Regeln für das Mond-Icon */
-.dark-mode-toggle {
-    position: fixed;
-    bottom: 20px;
-    left: 20px;
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    background-color: #fff;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-  }
-  
-  .dark-mode-toggle i {
-    color: #222;
-    font-size: 20px;
-  }
-
 /* Überschriften + Texte */
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-p {
+h1 {
     font-family: "Baloo 2", cursive;
     color: #18A0FB;
   }
 
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  p {
+      font-family: "Arial";
+      color: #18A0FB;
+    }
+  
   .button {
     background-color: #18A0FB;
     color: #ffffff;
   }
-
-  .header {
-    background-color: #18A0FB;
-    color: #ffffff;
-  }
-
-/* Logo */
-
-.studiwolke_logo {
-  position: fixed;
-  height: 100px;
-  width: 500px;
-}
 
  /*CSS Regeln Anzeigen des Profilbilds */
 

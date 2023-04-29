@@ -13,6 +13,21 @@
     <title><?php echo $Ordner['Ordnername original']; ?></title>
 </head>
 <body>
+<?php
+    session_start();
+    // Prüfen ob Benutzer nicht eingeloggt ist + ordner id setzen 
+    if (!isset($_SESSION["benutzer_id"]))
+{
+    header("Location: login.html");
+}
+else {
+    $benutzer_id = $_SESSION["benutzer_id"];
+    if (isset($_GET["ordner_id"])) {
+        $ordner_id = $_GET["ordner_id"];
+        $_SESSION["ordner_id"] = $ordner_id;
+    }
+}
+?>
 <header>
     <img src="Logo StudiWolke.png" alt= "Das Logo von StudiWolke">
     <div>
@@ -30,33 +45,20 @@
 </header> 
 <main>
 <?php
-session_start();
-$pdo = new PDO('mysql:: host=mars.iuk.hdm-stuttgart.de; dbname=u-lr090', 'lr090', 'eetho6Choh', array('charset'=>'utf8'));
+    $pdo = new PDO('mysql:: host=mars.iuk.hdm-stuttgart.de; dbname=u-lr090', 'lr090', 'eetho6Choh', array('charset'=>'utf8'));
 
-
-if (isset($_GET['ordner_id'])) {
-    $OrdnerId = $_GET['ordner_id'];
 
     // Hole den Ordnernamen
-    $statement = $db->prepare('SELECT ordnername_original FROM ordner WHERE ordner_id = :ordner_id');
+    $statement = $pdo->prepare('SELECT ordnername_original FROM ordner WHERE ordner_id = :ordner_id');
     $statement->bindParam(':ordner_id', $ordner_id);
     $statement->execute();
     $ordner = $statement->fetch(PDO::FETCH_ASSOC);
 
-    // Hole die Dateien des Ordners
-    $statement = $db->prepare('SELECT * FROM dateien WHERE ordner_id = :ordner_id ORDER BY dateiname_original');
-    $statement->bindParam(':ordner_id', $ordner_id);
-    $statement->execute();
-    $dateien = $statement->fetchAll(PDO::FETCH_ASSOC);
-} else {
-    $_SESSION['error'] = 'Es ist ein Fehler aufgetreten. Bitte versuche es erneut.';
-    header('Location: index.php');
-    exit();
-}
 
 //neues If für Sortieren
 if ($statement->execute()) {
     $rows = $statement->fetchAll(PDO::FETCH_ASSOC);
+}
 
     // Sortierungsfunktion
     function sortByName($a, $b)
@@ -75,61 +77,107 @@ if ($statement->execute()) {
     // Suchfeld
     echo '<input type="text" id="search-input" oninput="searchFolders()" placeholder="Suche nach Dateien...">';
 
-    // JavaScript-Code zum Sortieren und Suchen der Liste
-    echo '<script>';
-    echo 'function sortByName() {';
-    echo '  var list = document.getElementById("dateien-liste'; 
-    echo '  var items = list.getElementsByTagName("li");';
-    echo '  var arr = Array.prototype.slice.call(items);';
-    echo '  arr.sort(function(a, b) {';
-    echo '    var aName = a.getElementsByTagName("h2")[0].textContent;';
-    echo '    var bName = b.getElementsByTagName("h2")[0].textContent;';
-    echo '    return aName.localeCompare(bName);';
-    echo '  });';
-    echo '  for (var i = 0; i < arr.length; i++) {';
-    echo '    list.appendChild(arr[i]);';
-    echo '  }';
-    echo '}';
-    echo 'function searchFolders() {';
-    echo '  var input = document.getElementById("search-input");';
-    echo '  var filter = input.value.toUpperCase();';
-    echo '  var list = document.getElementById("dateien-liste");';
-    echo '  var items = list.getElementsByTagName("li");';
-    echo '  for (var i = 0; i < items.length; i++) {';
-    echo '    var name = items[i].getElementsByTagName("h2")[0].textContent;';
-    echo '    if (name.toUpperCase().indexOf(filter) > -1) {';
-    echo '      items[i].style.display = "";';
-    echo '    } else {';
-    echo '      items[i].style.display = "none";';
-    echo '    }';
-    echo '  }';
-    echo '}';
-    echo '</script>';
-}
+    ?>
+
+    <!-- JavaScript-Code zum Sortieren und Suchen der Liste -->
+    <script>
+        function sortByName() {
+        var list = document.getElementById("ordner-liste");
+        var items = list.getElementsByTagName("li");
+        var arr = Array.prototype.slice.call(items);
+
+        arr.sort(function(a, b) {
+        var aName = a.getElementsByTagName("h2")[0].textContent;
+        var bName = b.getElementsByTagName("h2")[0].textContent;
+        return aName.localeCompare(bName);
+        });
+        for (var i = 0; i < arr.length; i++) {
+        list.appendChild(arr[i]);
+        }
+        }
+
+        function searchFolders() {
+        var input = document.getElementById("search-input");
+        var filter = input.value.toUpperCase()
+        var list = document.getElementById("ordner-liste");
+        var items = list.getElementsByTagName("li");
+             for (var i = 0; i < items.length; i++) {
+        var name = items[i].getElementsByTagName("h2")[0].textContent;
+
+        if (name.toUpperCase().indexOf(filter) > -1) {
+            items[i].style.display = "";
+        } else {
+            items[i].style.display = "none";
+        }
+        }
+        }
+        </script>
     
-    //Sollte es nicht geklappt haben, wird eine Fehler Info ausgegeben.
-    
-    else {
-        echo 'Datenbank-Fehler:';
-        echo $statement->errorInfo() [2];
-        echo $statement->queryString;
-        die();
-    }
-    ?> 
-?>
+
+
 <h1><?php echo $ordner['ordnername_original']; ?></h1>
 
 <!--Upload File Button anzeigen mit ausführung -->
-<div id="upload">
-<iframe src="upload_file.html"></iframe>
-</div>
+<button onclick="openFileShare()">Datei hochladen</button>
 
-<!--Dateien ausgeben die im Ordner sind -->
+<div id="Share" style="display:none;">
+    <form onsubmit="return RequiredFileShare()" id="UploadFile" action="../../backend/upload_file_do.php" method="post" enctype="multipart/form-data" >
+        Datei auswählen: <br>
+        <input type="file" name="File" required><br>
+        <input type="text" name="Dateiname" placeholder="Dateiname" required>
+        <input type="submit" value="Datei hochladen" name="submit">
+        <button type="button" onclick="closeFileShare()">Abbrechen</button>
+</form>
+</div> 
+
+<script>
+    function openFileShare () {
+        document.getElementById("Share").style.display ="block";
+    }
+    function closeFileShare () {
+        document.getElementById("Share").style.display ="none";
+    }
+    function RequiredFileShare() {
+        const file = document.getElementByName("File").value;
+        const dateiname = document.getElementByName("Dateiname").value;
+        if (file =="" || dateiname =="") {
+            alert("Alle Felder ausfüllen");
+            return false;
+        } else {
+            closeForm();
+            return true;
+        }
+    }
+    
+</script> 
 
 
-
+<!--Dateien ausgeben die im Ordner sind // Hole die Dateien des Ordners-->
+<?php
+    $statement = $pdo->prepare('SELECT * FROM dateien WHERE ordner_id = :ordner_id ORDER BY dateiname_original');
+    $statement->bindParam(':ordner_id', $ordner_id);
+    $statement->execute();
+    $dateien = $statement->fetchAll(PDO::FETCH_ASSOC);
+?>
 
 </main>
-<?php include("footer.php")?>
+<footer>
+
+</footer>
+<div>
+        <img src="Logo StudiWolke.png">
+    </div>
+    <hr/>
+    <small>&copy; 2023 StudiWolke GmbH & Co. KG</small>
+    <hr/>
+    <nav>
+        <ul>
+            <li><a href= "impressum.html">IMPRESSUM</a></li>
+            <li><a href= "datenschutz.html">DATENSCHUTZ</a></li>
+            <li><a href= "agbs.html">AGBs</a></li>
+            <li><a href="../../backend/logout.php">LOGOUT</a></li>
+    
+        </ul>
+    </nav>	
 </body>
 </html>

@@ -57,16 +57,17 @@ if ($statement->execute()) {
     usort($rows, function ($a, $b) {
         return $a['ordner_id'] - $b['ordner_id'];
     });
+    ?>
+    <!-- Suchfeld -->
+    <input type="text" id="search-input" oninput="searchFolders()" placeholder="Suche nach Dateien...">
 
-     // Suchfeld
-     echo '<input type="text" id="search-input" oninput="searchFolders()" placeholder="Suche nach Dateien...">'; 
+    <br>
 
-     '<br>'
+    <!-- Button zum Sortieren nach Namen -->
+    <button onclick="sortByName()">Nach Namen sortieren</button>
 
-    // Button zum Sortieren nach Namen
-    echo '<button onclick="sortByName()">Nach Namen sortieren</button>';
-
-    // Liste der Ordner
+    <!-- Liste der Ordner -->
+    <?php
     echo '<ul id="ordner-liste">';
     foreach ($rows as $row) {
         echo '<li>';
@@ -77,7 +78,7 @@ if ($statement->execute()) {
     }
     echo '</ul>';}
 ?>
-  // JavaScript-Code zum Sortieren und Suchen der Liste
+  <!-- JavaScript-Code zum Sortieren und Suchen der Liste -->
         <script>
         function sortByName() {
         var list = document.getElementById("ordner-liste");
@@ -110,6 +111,37 @@ if ($statement->execute()) {
         }
         }
         </script>
+
+    <!-- Ordner erstellen -->
+    <button onclick="openCreateFolder()">Ordner erstellen</button>
+
+    <div id="Folder" style="display:none;">
+        <form onsubmit="return RequiredCreateFolder()" id="CreateFolder" action="../../backend/create_ordner_do.php" method="post">
+            Ordner erstellen: <br>
+            <input type="text" name="Ordnername" placeholder="Ordnername" required>
+            <input type="submit" value="Ordner erstellen" name="submit">
+            <button type="button" onclick="closeCreateFolder()">Abbrechen</button>
+        </form>
+    <script>
+        function openCreateFolder () {
+            document.getElementById("Folder").style.display ="block";
+        }
+        function closeCreateFolder () {
+            document.getElementById("Folder").style.display ="none";
+        }
+        function RequiredCreateFolder() {
+            const ordnername = document.getElementByName("Ordnername").value;
+            if (ordnername =="") {
+                alert("Alle Felder ausfüllen");
+                return false;
+            } else {
+                closeForm();
+                return true;
+            }
+        }
+    
+</script> 
+</div> 
     </main>
 
 </body>

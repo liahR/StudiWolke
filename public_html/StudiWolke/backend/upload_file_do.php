@@ -71,7 +71,7 @@ if (!move_uploaded_file($_FILES["File"]["tmp_name"], "/home/lr090/public_html/St
 // Links müssen absolut sein mit http.mars.iuk,...... MIME Type digga 
 
 //Pfad von der Datei
-$dateipfad = "home/lr090/public_html/StudiWolke/frontend/dateien/".$string;
+$dateipfad = "/home/lr090/public_html/StudiWolke/frontend/dateien/".$string;
 
 //weitere Daten übergeben $benutzer_id, $filetype, $Erstelldatum, $Änderungsdatum
 
@@ -88,9 +88,9 @@ $statement->bindParam(':ordner_id', $ordner_id);
 $statement->bindParam(':dateipfad', $dateipfad);
 $statement->bindParam(':dateiname_original', $dateiname_original);
 $statement->bindParam(':dateiname_zufall', $string);
-$statement->bindParam(':dateityp', $filetype);
-$statement->bindParam(':Erstelldatum', $erstelldatum);
-$statement->bindParam(':Aenderungsdatum', $aenderungsdatum);
+$statement->bindParam(':dateityp', $type);
+$statement->bindParam(':erstelldatum', $erstelldatum);
+$statement->bindParam(':aenderungsdatum', $aenderungsdatum);
 
 if($statement->execute())
 {
@@ -98,7 +98,8 @@ if($statement->execute())
 }
 else
 {
-    echo "Fehler bei der Ausführung aufgetreten";
+    $errorInfo = $statement->errorInfo();
+    echo "Fehler bei der Ausführung aufgetreten". $errorInfo[2];
 }
 ?>
 <p>

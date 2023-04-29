@@ -50,7 +50,7 @@
 		<input type="text" name="nutzername" id="nutzername" value="<?php echo $benutzer['nutzername']; ?>"><br>
 		
 		<label for="passwort">Passwort ändern:</label><br>
-		<input type="password" name="passwort" id="passwort"><br>
+		<input type="password" name="passwort" placeholder="********" id="passwort"><br>
 		
 		<input type="submit" name="submit" value="Speichern">
 	</form>

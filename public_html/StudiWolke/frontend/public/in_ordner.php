@@ -172,9 +172,6 @@ if ($statement->execute()) {
 <footer>
 
 </footer>
-<div>
-        <img src="Logo StudiWolke.png">
-    </div>
     <hr/>
     <small>&copy; 2023 StudiWolke GmbH & Co. KG</small>
     <hr/>

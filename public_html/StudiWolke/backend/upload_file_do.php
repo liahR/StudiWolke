@@ -6,10 +6,6 @@ if (!isset($_SESSION["benutzer_id"]))
 }
 else {
     $benutzer_id = $_SESSION["benutzer_id"];
-    if (isset($_GET["ordner_id"])) {
-        $ordner_id = $_GET["ordner_id"];
-        $_SESSION["ordner_id"] = $ordner_id;
-    }
 }
 
 $pdo = new PDO('mysql:: host=mars.iuk.hdm-stuttgart.de; dbname=u-lr090', 'lr090', 'eetho6Choh',array('charset' => 'utf8'));
@@ -58,7 +54,6 @@ for ($i=0; $i<20; $i++){
     $string.=$s[$index];
 }
 $string.=".".$type;
-echo $string;
 
 //stimmt Pfad???
 //auf Server schieben
@@ -73,9 +68,12 @@ $dateipfad = "/home/lr090/public_html/StudiWolke/frontend/dateien/".$string;
 
 //weitere Daten übergeben $benutzer_id, $filetype, $Erstelldatum, $Änderungsdatum
 
+$ordner_id = htmlspecialchars ($_POST ["ordner_id"]);
 $dateiname_original=htmlspecialchars ($_POST ["Dateiname"]);
 $erstelldatum = date("Y-m-d");
 $aenderungsdatum = $erstelldatum;
+
+echo "Das ist die ID vom Ordner". $ordner_id;
 
 //in DB einfügen 
 $statement = $pdo->prepare("INSERT INTO dateien (benutzer_id, ordner_id, dateipfad, dateiname_original, dateiname_zufall, dateityp, erstelldatum, 
@@ -98,6 +96,7 @@ else
 {
     $errorInfo = $statement->errorInfo();
     echo "Fehler bei der Ausführung aufgetreten". $errorInfo[2];
+    echo $ordner_id;
 }
 ?>
 <p>

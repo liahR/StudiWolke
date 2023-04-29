@@ -22,10 +22,6 @@
 }
 else {
     $benutzer_id = $_SESSION["benutzer_id"];
-    if (isset($_GET["ordner_id"])) {
-        $ordner_id = $_GET["ordner_id"];
-        $_SESSION["ordner_id"] = $ordner_id;
-    }
 }
 ?>
 <header>
@@ -134,6 +130,7 @@ if ($statement->execute()) {
 <div id="Share" style="display:none;">
     <form onsubmit="return RequiredFileShare()" id="UploadFile" action="../../backend/upload_file_do.php" method="post" enctype="multipart/form-data" >
         Datei auswählen: <br>
+        <input type ="hidden" name= "ordner_id" value="<?php echo $_GET["id"]?> ">
         <input type="file" name="File" required><br>
         <input type="text" name="Dateiname" placeholder="Dateiname" required>
         <input type="submit" value="Datei hochladen" name="submit">

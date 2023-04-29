@@ -27,12 +27,6 @@
 	</script>
 </head>
 <body>
-	
-<header>
-<?php
-   include "header.php";
-   ?>
-</header>
 <main>
 
 	<h1>Support</h1>
@@ -55,7 +49,7 @@
 	<!-- Formular zum Stellen von Fragen -->
 	<form method="post">
 		<label for="Frage">Stellen Sie Ihre Frage:</label><br>
-		<textarea name="Frage" id="Frage" rows="5" cols="40"></textarea><br>
+		<textarea name="frage" id="Frage" rows="5" cols="40"></textarea><br>
 		<input type="submit" name="submit" value="Frage stellen">
 	</form>	
 	<?php
@@ -74,9 +68,9 @@
 		$frage = $_POST['frage'];
 		$query = "INSERT INTO fragen (frage) VALUES ('{$frage}')";
 		if ($pdo->query($query) === TRUE) {
-			echo "<p>Vielen Dank, deine Frage wurde erfolgreich gespeichert.</p>";
+			echo "<p>Vielen Dank, deine Frage wurde erfolgreich gesendet.</p>";
 		} else {
-			echo "<p>Beim Speichern deiner Frage ist ein Fehler aufgetreten: " . $pdo->error . "</p>";
+			echo "<p>Beim Speichern deiner Frage ist ein Fehler aufgetreten :( Probiere es nochmal! " . $pdo->error . "</p>";
 		}
 		
 		// Verbindung zur Datenbank schließen

@@ -37,9 +37,9 @@ else {
     </div>
     <nav>
         <ul>
-            <li><a href="index.php">START></a></li>
-            <li><a href="support.php">SUPPORT></a></li>
-            <li><a href="account.php">PROFIL></a></li> 
+            <li><a href="index.php">START</a></li>
+            <li><a href="support.php">SUPPORT</a></li>
+            <li><a href="account.php">PROFIL</a></li> 
         </ul>
     </nav>
 </header> 

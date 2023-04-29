@@ -110,7 +110,7 @@ footer {
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
-  background: lightgray;
+  background: linear-gradient(to right, #fff, #FF69B4, #18A0FB);
 	color: black;
 	padding: 10px;
 }

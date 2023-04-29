@@ -9,18 +9,26 @@ if (!isset($_SESSION["benutzer_id"]))
 $pdo = new PDO('mysql:: host=mars.iuk.hdm-stuttgart.de; dbname=u-lr090', 'lr090', 'eetho6Choh',array('charset' => 'utf8'));
 
 $ordnername=htmlspecialchars ($_POST ["ordnername"]);
+$erstelldatum = date("Y-m-d");
+
+$statement = $pdo->prepare("INSERT INTO ordner (ordnername_original, erstelldatum) 
+VALUES (:ordnername_original, :erstelldatum)");
+
+$statement->bindParam(':ordnername_original', $ordnername);
+$statement->bindParam(':erstelldatum', $erstelldatum);
 
 
-//zufälliger Name generieren
-$filename = pathinfo ($_FILES["File"]["name"]);
-$s='1234567890ABCDEFGHIJKLMNOPQRSTUVWXYZ';
-$s.="abcdefghijklmnopqrstuvwxyz";
-$string='';
-for ($i=0; $i<20; $i++){
-    $index=rand(0, strlen($s)-1);
-    $string.=$s[$index];
+// Bei erfolgreicher Ausführung, wird Info darüber ausgegeben.
+if($statement->execute())
+{
+    echo "Ordner erstellt!";
 }
-$string.=".".$type;
-echo $string;
+
+// Wenn nicht, wird eine Info und eine Fehlermeldung ausgegeben.
+else
+{
+    echo "Fehler ist aufgetreten";
+    echo $statement->errorInfo()[2];
+}
 
 ?>

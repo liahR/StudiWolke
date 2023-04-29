@@ -170,8 +170,8 @@ $pdo = new PDO('mysql:: host=mars.iuk.hdm-stuttgart.de; dbname=u-lr090', 'lr090'
 echo '<ul id="ordner-liste">';
     foreach ($rows as $row) {
         echo '<li>';
-        echo '<h2><a href="in_ordner.php?id=' . $row['ordner_id'] . '">' . $row['ordnername_original'] . '</a></h2>';
-        echo '<a href="delete_ordner_do.php=' . $row['ordner_id'] . '">Löschen</a><br>';
+        echo '<h2><a href="in_ordner.php?id=' . $row['datei_id'] . '">' . $row['dateiname_original'] . '</a></h2>';
+        echo '<a href="delete_file_do.php=' . $row['datei_id'] . '">Löschen</a><br>';
         echo '</li>';
     }
     echo '</ul>';

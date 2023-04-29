@@ -3,18 +3,6 @@
 <head>
     <link rel="stylesheet" type="text/css" href="allgemein.css">	
     <title>Support</title>
-    <style>
-		.faq {
-			margin-bottom: 20px;
-		}
-		.faq h3 {
-			margin: 0;
-			cursor: pointer;
-		}
-		.faq p {
-			display: none;
-		}
-	</style>
 	<script>
 		function toggleAnswer(event) {
 			var answer = event.target.nextElementSibling;

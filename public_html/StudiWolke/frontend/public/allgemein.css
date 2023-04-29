@@ -55,6 +55,8 @@ p {
   width: 500px;
 }
 
+ /*CSS Regeln Anzeigen des Profilbilds */
+
 .profilbild-container {
   display: inline-block;
   position: relative;
@@ -75,4 +77,15 @@ p {
   height: 100%;
   opacity: 0;
   cursor: pointer;
+}
+ /*CSS Regeln für die Support Seite */
+.faq {
+  margin-bottom: 20px;
+}
+.faq h3 {
+  margin: 0;
+  cursor: pointer;
+}
+.faq p {
+  display: none;
 }

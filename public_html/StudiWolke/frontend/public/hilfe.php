@@ -59,10 +59,7 @@
 			echo "<p>Vielen Dank, deine Frage wurde erfolgreich gesendet.</p>";
 		} else {
 			echo "<p>Beim Speichern deiner Frage ist ein Fehler aufgetreten :( Probiere es nochmal! " . $pdo->error . "</p>";
-		}
-		
-		// Verbindung zur Datenbank schließen
-		$pdo->close();
+		}	
 	}
 	?>
 </main>	

@@ -34,8 +34,13 @@ $pdo = new PDO('mysql:: host=mars.iuk.hdm-stuttgart.de; dbname=u-lr090', 'lr090'
      // SQL-Abfrage zum Abrufen des Profilbilds des Benutzers
      $stmt = $pdo->prepare("SELECT profilbild FROM benutzer WHERE benutzer_id=:benutzer_id");
      $stmt->bindValue(':benutzer_id', $_SESSION['benutzer_id']);
-     $stmt->execute();
-     $row = $stmt->fetch(PDO::FETCH_ASSOC);
+     if ($stmt->execute()) {
+        while ($row=$stmt->fetch()) {
+            if (!empty($row["profilbild"])) {
+                echo '<div class="profilbild">'. "<a href = 'account.php'><img src='https://mars.iuk.hdm-stuttgart.de/~lr090/StudiWolke/frontend/profilbilder/".$row["profilbild"]. "'height='80px'></a>";
+            }
+        }
+     }
     ?>
 		<div class="logo">
 			<a href="index.php"><img src="Logo StudiWolke.png"></a>
@@ -46,9 +51,6 @@ $pdo = new PDO('mysql:: host=mars.iuk.hdm-stuttgart.de; dbname=u-lr090', 'lr090'
 				<li><a href="hilfe.php">Support</a></li>
 			</ul>
 		</nav>
-		<div class="account">
-			<a href="account.php"><img src="<?php echo $benutzer['profilbild']; ?>" alt="Profilbild"></a>
-		</div>
 	</header>
 <main>
 <?php
@@ -170,7 +172,7 @@ $pdo = new PDO('mysql:: host=mars.iuk.hdm-stuttgart.de; dbname=u-lr090', 'lr090'
 echo '<ul id="ordner-liste">';
     foreach ($rows as $row) {
         echo '<li>';
-        echo '<h2><a href="in_ordner.php?id=' . $row['datei_id'] . '">' . $row['dateiname_original'] . '</a></h2>';
+        echo '<h2><a href="https://mars.iuk.hdm-stuttgart.de/~lr090/StudiWolke/frontend/dateien/"' . $row['dateiname_zufall'] . 'target ="blank" >'. $row['dateiname_original']. '</a></h2>';
         echo '<a href="delete_file_do.php=' . $row['datei_id'] . '">Löschen</a><br>';
         echo '</li>';
     }

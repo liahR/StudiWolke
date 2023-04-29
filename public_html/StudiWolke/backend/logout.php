@@ -24,7 +24,7 @@ session_destroy();
 Erfolgreich abgemeldet! Danke für deinen Besuch!
 
 <p>
-    <a href="login.html">Willst du dich wieder anmelden? Hier gehts zum Login!</a>
+    <a href="../frontend/public/login.html">Willst du dich wieder anmelden? Hier gehts zum Login!</a>
 </p>
 <footer>
     <hr>

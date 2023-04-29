@@ -64,7 +64,13 @@ h1 {
     color: #ffffff;
   }
 
- /*CSS Regeln Anzeigen des Profilbilds */
+  /* Ordner Icon */
+.ordner img {
+	height: 90px;
+  width: auto;
+}
+
+
 
 .profilbild-container {
   display: inline-block;

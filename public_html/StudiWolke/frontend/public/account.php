@@ -30,22 +30,26 @@
 	<h1>Hallo, <?php echo $benutzer['vorname']; ?>!</h1>
 	
 	<form action="../../backend/account_do.php" method="post" enctype="multipart/form-data">
+		
 		<label for="profilbild">Profilbild ändern:</label><br>
-		<input type="file" name="profilbild" id="profilbild"><br>
+		<div class="profilbild-container">
+  		<img src="<?php echo $benutzer['profilbild']; ?>" alt="Profilbild">
+  		<input type="file" name="profilbild" id="profilbild">
+		</div>
+	
+		<label for="vorname">Vorname ändern:</label><br>
+		<input type="text" name="vorname" id="vorname" value="<?php echo $benutzer['vorname']; ?>"><br>
 		
-		<label for="vorname">Vorname:</label><br>
-		<input type="text" name="vorname" id="vorname" placeholder="<?php echo $Benutzer['vorname']; ?>" value="<?php echo isset($_POST['vorname']) ? $_POST['vorname'] : ''; ?>"><br>
+		<label for="nachname">Nachname ändern:</label><br>
+		<input type="text" name="nachname" id="nachname" value="<?php echo $benutzer['nachname']; ?>"><br>
+
+		<label for="email">E-Mail ändern:</label><br>
+		<input type="email" name="email" id="email" value="<?php echo $benutzer['email']; ?>"><br>
+
+		<label for="nutzername">Nutzername ändern:</label><br>
+		<input type="text" name="nutzername" id="nutzername" value="<?php echo $benutzer['nutzername']; ?>"><br>
 		
-		<label for="nachname">Nachname:</label><br>
-		<input type="text" name="nachname" id="nachname" placeholder="<?php echo $Benutzer['nachname']; ?>" value="<?php echo isset($_POST['nachname']) ? $_POST['nachname'] : ''; ?>"><br>
-		
-		<label for="email">Email:</label><br>
-		<input type="email" name="email" id="email" placeholder="<?php echo $Benutzer['email']; ?>" value="<?php echo isset($_POST['email']) ? $_POST['email'] : ''; ?>"><br>
-		
-		<label for="nutzername">Nutzername:</label><br>
-		<input type="text" name="nutzername" id="nutzername" placeholder="<?php echo $Benutzer['nutzername']; ?>" value="<?php echo isset($_POST['nutzername']) ? $_POST['nutzername'] : ''; ?>"><br>
-		
-		<label for="passwort">Passwort:</label><br>
+		<label for="passwort">Passwort ändern:</label><br>
 		<input type="password" name="passwort" id="passwort"><br>
 		
 		<input type="submit" name="submit" value="Speichern">

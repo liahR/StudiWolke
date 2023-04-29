@@ -130,11 +130,11 @@ if ($statement->execute()) {
     echo '<ul id="ordner-liste">';
     foreach ($rows as $row) {
         echo '<li>';
-        echo '<div class="ordner">'
+        echo '<div class="ordner">';
         echo '<img src="cloud-ordner.png" alt="Ordner-Icon">';
         echo '<h2><a href="in_ordner.php?id=' . $row['ordner_id'] . '">' . $row['ordnername_original'] . '</a></h2>';
         echo '<a href="delete_ordner_do.php=' . $row['ordner_id'] . '">Löschen</a><br>';
-        echo '<div>'
+        echo '<div>';
         echo '</li>';
     }
     echo '</ul>';}

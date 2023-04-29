@@ -94,8 +94,10 @@
     </div> 
 
     <!-- Geteilte Dateien Ordner fix -->
+    <div class="ordner">
     <img src="cloud-ordner.png" alt="Ordner-Icon">
     <h2><a href="in_geteilte_Ordner.php"> Geteilte Dateien </a></h2>
+    <div>
 
 <?php        
 // SQL-Abfrage zum Abrufen der Ordner
@@ -128,9 +130,11 @@ if ($statement->execute()) {
     echo '<ul id="ordner-liste">';
     foreach ($rows as $row) {
         echo '<li>';
+        echo '<div class="ordner">'
         echo '<img src="cloud-ordner.png" alt="Ordner-Icon">';
         echo '<h2><a href="in_ordner.php?id=' . $row['ordner_id'] . '">' . $row['ordnername_original'] . '</a></h2>';
         echo '<a href="delete_ordner_do.php=' . $row['ordner_id'] . '">Löschen</a><br>';
+        echo '<div>'
         echo '</li>';
     }
     echo '</ul>';}

@@ -94,5 +94,5 @@ if (isset($_POST['submit'])) {
 
 // Erfolgsmeldung anzeigen
 $success_msg = 'Profil erfolgreich aktualisiert.';
-
+}
 ?>

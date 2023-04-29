@@ -22,6 +22,7 @@ $statement->bindParam(':erstelldatum', $erstelldatum);
 if($statement->execute())
 {
     echo "Ordner erstellt!";
+    header("Location: ../frontend/public/index.php")
 }
 
 // Wenn nicht, wird eine Info und eine Fehlermeldung ausgegeben.
@@ -29,6 +30,7 @@ else
 {
     echo "Fehler ist aufgetreten";
     echo $statement->errorInfo()[2];
+    header("Location: ../frontend/public/index.php")
 }
 
 ?>

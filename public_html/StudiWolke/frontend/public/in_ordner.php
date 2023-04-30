@@ -161,24 +161,23 @@ $pdo = new PDO('mysql:: host=mars.iuk.hdm-stuttgart.de; dbname=u-lr090', 'lr090'
 
 <!--Hole die Dateien des Ordners-->
 <?php
-    $statement = $pdo->prepare('SELECT * FROM dateien WHERE ordner_id = :ordner_id ORDER BY dateiname_original');
-    $statement->bindParam(':ordner_id', $ordner_id);
-    $statement->execute();
-    $dateien = $statement->fetchAll(PDO::FETCH_ASSOC);
-
-
-// dateien ausgeben die im Ordner sind  
-
-echo '<ul id="ordner-liste">';
-    foreach ($rows as $row) {
-        echo '<li>';
-        echo '<h2><a href="https://mars.iuk.hdm-stuttgart.de/~lr090/StudiWolke/frontend/dateien/"' . $row['dateiname_zufall'] . 'target ="blank" >'. $row['dateiname_original']. '</a></h2>';
-        echo '<a href="delete_file_do.php=' . $row['datei_id'] . '">Löschen</a><br>';
-        echo '</li>';
+    $state = $pdo->prepare('SELECT * FROM dateien WHERE ordner_id = :ordner_id');
+    $state->bindParam(':ordner_id', $_GET ["id"]);
+    if ($state->execute()){
+        while ($row = $state->fetch()){
+            if (!empty($row["dateiname_zufall"])) {
+                echo "<ul id='datei-liste'>";
+                    echo "<li>";
+                        echo "<a href='https://mars.iuk.hdm-stuttgart.de/~lr090/StudiWolke/frontend/dateien/".$row["dateiname_zufall"] . "' target ='blank' >". $row["dateiname_original"]. "</a><br>";
+                        echo "<a href='delete_file_do.php".$row["dateiname_zufall"] . "'>Löschen</a><br>";
+                    echo "</li>";
+                echo "</ul>";
+            }
+        }
     }
-    echo '</ul>';
 
 ?>
+
 </main>
 <footer>
     <hr>

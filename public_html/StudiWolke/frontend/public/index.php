@@ -1,10 +1,13 @@
 <?php
     session_start();
-    // Prüfen, ob Benutzer nicht eingeloggt ist
-    if (!isset($_SESSION['benutzer_id'])) {
-        header("Location: login.html");
-        exit;
-    };
+    // Prüfen ob Benutzer nicht eingeloggt ist + ordner id setzen 
+    if (!isset($_SESSION["benutzer_id"]))
+{
+    header("Location: login.html");
+}
+else {
+    $benutzer_id = $_SESSION["benutzer_id"];
+}
 
     $pdo = new PDO('mysql:: host=mars.iuk.hdm-stuttgart.de;dbname=u-lr090', 'lr090', 'eetho6Choh', array('charset' => 'utf8'));
 
@@ -101,10 +104,22 @@
 
 <?php        
 // SQL-Abfrage zum Abrufen der Ordner
-$statement = $pdo->prepare("SELECT ordner_id, ordnername_original FROM ordner");
+$statement = $pdo->prepare("SELECT * FROM ordner WHERE benutzer_id = :benutzer_id ORDER BY ordner_id");
+$statement->bindParam(':benutzer_id', $benutzer_id);
 
 if ($statement->execute()) {
-    $rows = $statement->fetchAll(PDO::FETCH_ASSOC);
+    while ($row = $statement -> fetch ()){
+        echo '<ul id="ordner-liste">';
+            echo '<li>';
+                echo '<div class="ordner">';
+                echo '<img src="cloud-ordner.png" alt="Ordner-Icon">';
+                echo '<h2><a href="in_ordner.php?id=' . $row['ordner_id'] . '">' . $row['ordnername_original'] . '</a></h2>';
+                echo '<a href="delete_ordner_do.php=' . $row['ordner_id'] . '">Löschen</a><br>';
+                echo '<div>';
+        echo '</li>';
+    echo '</ul>';
+    }}
+
 
     // Sortierungsfunktion
     function sortByName($a, $b)
@@ -117,6 +132,7 @@ if ($statement->execute()) {
         return $a['ordner_id'] - $b['ordner_id'];
     });
     ?>
+    
     <!-- Suchfeld -->
     <input type="text" id="search-input" oninput="searchFolders()" placeholder="Suche nach Dateien...">
 
@@ -125,20 +141,7 @@ if ($statement->execute()) {
     <!-- Button zum Sortieren nach Namen -->
     <button onclick="sortByName()">Nach Namen sortieren</button>
 
-    <!-- Liste der Ordner -->
-    <?php
-    echo '<ul id="ordner-liste">';
-    foreach ($rows as $row) {
-        echo '<li>';
-        echo '<div class="ordner">';
-        echo '<img src="cloud-ordner.png" alt="Ordner-Icon">';
-        echo '<h2><a href="in_ordner.php?id=' . $row['ordner_id'] . '">' . $row['ordnername_original'] . '</a></h2>';
-        echo '<a href="delete_ordner_do.php=' . $row['ordner_id'] . '">Löschen</a><br>';
-        echo '<div>';
-        echo '</li>';
-    }
-    echo '</ul>';}
-?>
+
   <!-- JavaScript-Code zum Sortieren und Suchen der Liste -->
         <script>
         function sortByName() {

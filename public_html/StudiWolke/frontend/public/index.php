@@ -15,7 +15,7 @@ else {
 
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="de">
 <head>
     <meta charset="utf-8"/>
     <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" id="favicon">
@@ -35,8 +35,13 @@ else {
      // SQL-Abfrage zum Abrufen des Profilbilds des Benutzers
      $stmt = $pdo->prepare("SELECT profilbild FROM benutzer WHERE benutzer_id=:benutzer_id");
      $stmt->bindValue(':benutzer_id', $_SESSION['benutzer_id']);
-     $stmt->execute();
-     $row = $stmt->fetch(PDO::FETCH_ASSOC);
+     if ($stmt->execute()) {
+        while ($row=$stmt->fetch()) {
+            if (!empty($row["profilbild"])) {
+                echo '<div class="profilbild">'. "<a href = 'account.php'><img src='https://mars.iuk.hdm-stuttgart.de/~lr090/StudiWolke/frontend/profilbilder/".$row["profilbild"]. "'height='80px'></a>";
+            }
+        }
+     }
     ?>
 		<div class="logo">
 			<a href="index.php"><img src="Logo StudiWolke.png"></a>
@@ -47,10 +52,7 @@ else {
 				<li><a href="hilfe.php">Support</a></li>
 			</ul>
 		</nav>
-		<div class="account">
-			<a href="account.php"><img src="<?php echo $benutzer['profilbild']; ?>" alt="Profilbild"></a>
-		</div>
-</header>
+	</header>
 <main>
     <?php  
 
@@ -99,8 +101,8 @@ else {
     <!-- Geteilte Dateien Ordner fix -->
     <div class="ordner">
     <img src="cloud-ordner.png" alt="Ordner-Icon">
-    <h2><a href="in_geteilte_Ordner.php"> Geteilte Dateien </a></h2>
-    <div>
+    <h2><a href="in_geteilte_dateien.php">Geteilte Dateien</a></h2>
+    </div>
 
 <?php        
 // SQL-Abfrage zum Abrufen der Ordner
@@ -120,17 +122,18 @@ if ($statement->execute()) {
     echo '</ul>';
     }}
 
-
-    // Sortierungsfunktion
+    // Was macht das braucht man glaub au net
+    // Sortierungsfunktion 
     function sortByName($a, $b)
     {
         return strcmp($a['ordnername_original'], $b['ordnername_original']);
     }
 
+    // Was soll das machen braucht man nicht
     // Standard-Sortierreihenfolge (nach ID)
     usort($rows, function ($a, $b) {
         return $a['ordner_id'] - $b['ordner_id'];
-    });
+    })
     ?>
     
     <!-- Suchfeld -->

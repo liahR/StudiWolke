@@ -14,7 +14,7 @@ $pdo = new PDO('mysql:: host=mars.iuk.hdm-stuttgart.de; dbname=u-lr090', 'lr090'
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="de">
 <head>
     <meta charset="utf-8"/>
     <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" id="favicon">

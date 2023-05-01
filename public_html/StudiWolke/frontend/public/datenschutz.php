@@ -1,23 +1,37 @@
+<?php
+    session_start();
+    // Prüfen ob Benutzer nicht eingeloggt ist + ordner id setzen 
+    if (!isset($_SESSION["benutzer_id"]))
+{
+    header("Location: login.html");
+}
+else {
+    $benutzer_id = $_SESSION["benutzer_id"];
+}
+
+    $pdo = new PDO('mysql:: host=mars.iuk.hdm-stuttgart.de;dbname=u-lr090', 'lr090', 'eetho6Choh', array('charset' => 'utf8'));
+
+?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="de">
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" type="text/css" href="allgemein.css">
     <title>Datenschutz</title>
 </head>
 <body>
-    <header>
+<header>
     <?php
-        // Verbindung zur Datenbank herstellen
-	$pdo = new PDO('mysql:: host=mars.iuk.hdm-stuttgart.de; dbname=u-lr090', 'lr090', 'eetho6Choh', array('charset'=>'utf8'));
-	if ($pdo->connect_error) {
-		die("Verbindung fehlgeschlagen: " . $pdo->connect_error);
-	}
      // SQL-Abfrage zum Abrufen des Profilbilds des Benutzers
      $stmt = $pdo->prepare("SELECT profilbild FROM benutzer WHERE benutzer_id=:benutzer_id");
      $stmt->bindValue(':benutzer_id', $_SESSION['benutzer_id']);
-     $stmt->execute();
-     $row = $stmt->fetch(PDO::FETCH_ASSOC);
+     if ($stmt->execute()) {
+        while ($row=$stmt->fetch()) {
+            if (!empty($row["profilbild"])) {
+                echo '<div class="profilbild">'. "<a href = 'account.php'><img src='https://mars.iuk.hdm-stuttgart.de/~lr090/StudiWolke/frontend/profilbilder/".$row["profilbild"]. "'height='80px'></a>";
+            }
+        }
+     }
     ?>
 		<div class="logo">
 			<a href="index.php"><img src="Logo StudiWolke.png"></a>
@@ -28,10 +42,7 @@
 				<li><a href="hilfe.php">Support</a></li>
 			</ul>
 		</nav>
-		<div class="account">
-			<a href="account.php"><img src="<?php echo $benutzer['profilbild']; ?>" alt="Profilbild"></a>
-		</div>
-	</header>
+</header>
 <main>    
 
 <!--Datenschutzerklärung erstellt mit kostenlosem Datenschutz-Generator.de von Dr. Thomas Schwenke-->

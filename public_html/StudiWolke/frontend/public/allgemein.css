@@ -1,0 +1,137 @@
+/* Favicon */
+#favicon {
+    width: 32px;
+    height: 32px;
+  }
+
+/* Allgemeine Stilvorgaben */
+
+/* Header-Elemente */
+header {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+  background: linear-gradient(to right, #fff, #FF69B4, #18A0FB);
+	color: #fff;
+	padding: 10px;
+}
+
+.logo img {
+	height: 70px;
+  width: auto;
+}
+
+nav ul {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	display: flex;
+}
+
+nav li {
+	margin: 0 10px;
+}
+
+nav a {
+	color: #fff;
+	text-decoration: none;
+}
+
+.account img {
+	height: 30px;
+	border-radius: 50%;
+}  
+
+/* Überschriften + Texte */
+
+h1 {
+    font-family: "Arial", Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    color: #18A0FB;
+  }
+
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  p {
+      font-family: "Arial";
+      color: #18A0FB;
+    }
+  
+  .button {
+    background-color: #18A0FB;
+    color: #ffffff;
+  }
+
+  /* Ordner Icon */
+.ordner img {
+	height: 90px;
+  width: auto;
+}
+
+
+
+.profilbild-container {
+  display: inline-block;
+  position: relative;
+}
+
+.profilbild-container img {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.profilbild-container input[type="file"] {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  cursor: pointer;
+}
+ /*CSS Regeln für die Support Seite */
+.faq {
+  margin-bottom: 20px;
+}
+.faq h3 {
+  margin: 0;
+  cursor: pointer;
+}
+.faq p {
+  display: none;
+}
+
+/* Footer-Elemente */
+footer {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+  background: linear-gradient(to right, #fff, #FF69B4, #18A0FB);
+	color: black;
+	padding: 10px;
+}
+
+.logo img {
+	height: 50px;
+  width: auto;
+}
+
+nav ul {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	display: flex;
+}
+
+nav li {
+	margin: 0 10px;
+}
+
+nav a {
+	color:black;
+	text-decoration:none;
+}

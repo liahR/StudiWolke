@@ -1,9 +1,23 @@
+<?php
+    session_start();
+    // Prüfen ob Benutzer nicht eingeloggt ist + ordner id setzen 
+    if (!isset($_SESSION["benutzer_id"]))
+{
+    header("Location: login.html");
+}
+else {
+    $benutzer_id = $_SESSION["benutzer_id"];
+}
+
+    $pdo = new PDO('mysql:: host=mars.iuk.hdm-stuttgart.de;dbname=u-lr090', 'lr090', 'eetho6Choh', array('charset' => 'utf8'));
+
+?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="de">
 <head>
     <meta charset="utf-8"/>
     <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" id="favicon">
-    <link rel="stylesheet" type="text/css" href="../src/allgemein.css">
+    <link rel="stylesheet" type="text/css" href="allgemein.css">
     <!-- Verknüpfen der CSS-Datei für den Dark-Mode -->
     <link rel="stylesheet" type="text/css" href="../src/darkmode.css">
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
@@ -14,14 +28,30 @@
 </head>
 <body>
 <header>
-<?php
-   include "header.php";
-   ?>
-</header> 
+    <?php
+     // SQL-Abfrage zum Abrufen des Profilbilds des Benutzers
+     $stmt = $pdo->prepare("SELECT profilbild FROM benutzer WHERE benutzer_id=:benutzer_id");
+     $stmt->bindValue(':benutzer_id', $_SESSION['benutzer_id']);
+     if ($stmt->execute()) {
+        while ($row=$stmt->fetch()) {
+            if (!empty($row["profilbild"])) {
+                echo '<div class="profilbild">'. "<a href = 'account.php'><img src='https://mars.iuk.hdm-stuttgart.de/~lr090/StudiWolke/frontend/profilbilder/".$row["profilbild"]. "'height='80px'></a>";
+            }
+        }
+     }
+    ?>
+		<div class="logo">
+			<a href="index.php"><img src="Logo StudiWolke.png"></a>
+		</div>
+		<nav>
+			<ul>
+				<li><a href="index.php">Start</a></li>
+				<li><a href="hilfe.php">Support</a></li>
+			</ul>
+		</nav>
+</header>
 <main>
 <?php
-session_start();
-$pdo = new PDO('mysql:: host=mars.iuk.hdm-stuttgart.de; dbname=u-lr090', 'lr090', 'eetho6Choh', array('charset'=>'utf8'));
 
 
 if (isset($_GET['benutzer_id'])) {
@@ -100,7 +130,23 @@ if ($statement->execute()) {
     ?> 
 ?>
 </main>
-<?php include("footer.php")?>
-
+<footer>
+    <hr>
+    <div class="logo">
+			<a href="index.php"><img src="Logo StudiWolke.png"></a>
+		</div>
+    <nav>
+        <ul>
+            <li><a href= "impressum.php">IMPRESSUM</a></li>
+            <li><a href= "datenschutz.php">DATENSCHUTZ</a></li>
+            <li><a href= "agbs.php">AGBs</a></li>
+            <li><a href="../../backend/logout.php">LOGOUT</a></li>
+    
+        </ul>
+    </nav>	
+    <hr>
+    <small>&copy; 2023 StudiWolke GmbH & Co. KG</small>
+    <hr>
+</footer>
 </body>
 </html>

@@ -15,8 +15,12 @@ else {
 <!DOCTYPE html>
 <html lang="de">
 <head>
-	<link rel="stylesheet" type="text/css" href="allgemein.css">
-	<title>Dein Konto</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="allgemein.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;700&display=swap" rel="stylesheet">
+    <title>Impressum</title>
 </head>
 <body>
 <header>
@@ -43,43 +47,33 @@ else {
 		</nav>
 </header>
 <main>
-	<?php
-	// SQL-Abfrage zum Abrufen der Benutzerdaten
-	$stmt = $pdo->prepare("SELECT * FROM benutzer WHERE benutzer_id=:benutzer_id");
-	$stmt->bindValue(':benutzer_id', $_SESSION['benutzer_id']);
-	$stmt->execute();
-	$benutzer = $stmt->fetch(PDO::FETCH_ASSOC);
-	// Verbindung zur Datenbank schließen
-	$pdo = null;
-	?>
-	<h1>Hallo, <?php echo $benutzer['vorname']; ?>!</h1>
-	
-	<form action="../../backend/account_do.php" method="post" enctype="multipart/form-data">
-		
-		<label for="profilbild">Profilbild ändern:</label><br>
-		<div class="profilbild-container">
-  		<img src="<?php echo $benutzer['profilbild']; ?>" alt="Profilbild">
-  		<input type="file" name="profilbild" id="profilbild">
-		</div>
-	
-		<label for="vorname">Vorname ändern:</label><br>
-		<input type="text" name="vorname" id="vorname" value="<?php echo $benutzer['vorname']; ?>"><br>
-		
-		<label for="nachname">Nachname ändern:</label><br>
-		<input type="text" name="nachname" id="nachname" value="<?php echo $benutzer['nachname']; ?>"><br>
+     <h1> Impressum</h1> 
 
-		<label for="email">E-Mail ändern:</label><br>
-		<input type="email" name="email" id="email" value="<?php echo $benutzer['email']; ?>"><br>
+ <!--Unsere Inhalte-->
 
-		<label for="nutzername">Nutzername ändern:</label><br>
-		<input type="text" name="nutzername" id="nutzername" value="<?php echo $benutzer['nutzername']; ?>"><br>
-		
-		<label for="passwort">Passwort ändern:</label><br>
-		<input type="password" name="passwort" placeholder="********" id="passwort"><br>
-		
-		<input type="submit" name="submit" value="Speichern">
-	</form>
-</main>	
+    <h2>StudiWolke GmbH & Co. KG </h2>
+    <p>  
+    <b>Vertretungsberechtigte Personen</b><br>
+    Geschäftsführer: Janna Schweigmann<br>
+    Kontaktdaten: Musterstraße 1, 12345 Stuttgart<br>
+    Telefon: 01234 567890<br>
+    E-Mail: janna.schweigmann@StudiWolke.de<br><br>
+
+    <b>Handelsregisternummer:</b> <br>
+    HRB 123456 Umsatzsteueridentifikationsnummer: DE 123456789<br>
+    Zuständige Aufsichtsbehörde: Landesanstalt für Medien NRW Zollhof 2<br>
+    40221 Düsseldorf<br><br>
+
+    <b>Verantwortlicher im Sinne des § 55 Abs. 2 RStV:</b><br>
+    Janna Schweigmann<br>
+    StudiWolke GmbH & Co. KG<br>
+    Königsstraße 1 12345 Stuttgart<br><br>
+
+    <b>Cookies:</b> Wir verwenden Cookies, um die Funktionalität unserer Website zu verbessern. Nähere Informationen finden Sie in unserer Datenschutzerklärung.<br><br>
+
+    <b>Hinweis:</b> StudiWolke GmbH & Co. KG ist eine GmbH & Co. KG mit Sitz in Stuttgart. Die GmbH ist Komplementärin der KG und als alleinige Gesellschafterin im Handelsregister eingetragen.<br></p>
+
+</main>
 <footer>
     <hr>
     <div class="logo">
@@ -87,7 +81,7 @@ else {
 		</div>
     <nav>
         <ul>
-			<li><a href= "impressum.php">IMPRESSUM</a></li>
+            <li><a href= "impressum.php">IMPRESSUM</a></li>
             <li><a href= "datenschutz.php">DATENSCHUTZ</a></li>
             <li><a href= "agbs.php">AGBs</a></li>
             <li><a href="../../backend/logout.php">LOGOUT</a></li>

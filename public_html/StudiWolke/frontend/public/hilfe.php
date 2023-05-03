@@ -1,20 +1,22 @@
+<?php
+    session_start();
+    // Prüfen ob Benutzer nicht eingeloggt ist + ordner id setzen 
+    if (!isset($_SESSION["benutzer_id"]))
+{
+    header("Location: login.html");
+}
+else {
+    $benutzer_id = $_SESSION["benutzer_id"];
+}
+
+    $pdo = new PDO('mysql:: host=mars.iuk.hdm-stuttgart.de;dbname=u-lr090', 'lr090', 'eetho6Choh', array('charset' => 'utf8'));
+
+?>
 <!DOCTYPE html>
-<html>
+<html lang="de">
 <head>
     <link rel="stylesheet" type="text/css" href="allgemein.css">	
     <title>Support</title>
-    <style>
-		.faq {
-			margin-bottom: 20px;
-		}
-		.faq h3 {
-			margin: 0;
-			cursor: pointer;
-		}
-		.faq p {
-			display: none;
-		}
-	</style>
 	<script>
 		function toggleAnswer(event) {
 			var answer = event.target.nextElementSibling;
@@ -27,11 +29,28 @@
 	</script>
 </head>
 <body>
-	
 <header>
-<?php
-   include "header.php";
-   ?>
+    <?php
+     // SQL-Abfrage zum Abrufen des Profilbilds des Benutzers
+     $stmt = $pdo->prepare("SELECT profilbild FROM benutzer WHERE benutzer_id=:benutzer_id");
+     $stmt->bindValue(':benutzer_id', $_SESSION['benutzer_id']);
+     if ($stmt->execute()) {
+        while ($row=$stmt->fetch()) {
+            if (!empty($row["profilbild"])) {
+                echo '<div class="profilbild">'. "<a href = 'account.php'><img src='https://mars.iuk.hdm-stuttgart.de/~lr090/StudiWolke/frontend/profilbilder/".$row["profilbild"]. "'height='80px'></a>";
+            }
+        }
+     }
+    ?>
+		<div class="logo">
+			<a href="index.php"><img src="Logo StudiWolke.png"></a>
+		</div>
+		<nav>
+			<ul>
+				<li><a href="index.php">Start</a></li>
+				<li><a href="hilfe.php">Support</a></li>
+			</ul>
+		</nav>
 </header>
 <main>
 
@@ -55,7 +74,7 @@
 	<!-- Formular zum Stellen von Fragen -->
 	<form method="post">
 		<label for="Frage">Stellen Sie Ihre Frage:</label><br>
-		<textarea name="Frage" id="Frage" rows="5" cols="40"></textarea><br>
+		<textarea name="frage" id="Frage" rows="5" cols="40"></textarea><br>
 		<input type="submit" name="submit" value="Frage stellen">
 	</form>	
 	<?php
@@ -74,15 +93,30 @@
 		$frage = $_POST['frage'];
 		$query = "INSERT INTO fragen (frage) VALUES ('{$frage}')";
 		if ($pdo->query($query) === TRUE) {
-			echo "<p>Vielen Dank, deine Frage wurde erfolgreich gespeichert.</p>";
+			echo "<p>Vielen Dank, deine Frage wurde erfolgreich gesendet.</p>";
 		} else {
-			echo "<p>Beim Speichern deiner Frage ist ein Fehler aufgetreten: " . $pdo->error . "</p>";
-		}
-		
-		// Verbindung zur Datenbank schließen
-		$pdo->close();
+			echo "<p>Beim Speichern deiner Frage ist ein Fehler aufgetreten :( Probiere es nochmal! " . $pdo->error . "</p>";
+		}	
 	}
 	?>
 </main>	
+<footer>
+    <hr>
+    <div class="logo">
+			<a href="index.php"><img src="Logo StudiWolke.png"></a>
+		</div>
+    <nav>
+        <ul>
+            <li><a href= "impressum.php">IMPRESSUM</a></li>
+            <li><a href= "datenschutz.php">DATENSCHUTZ</a></li>
+            <li><a href= "agbs.php">AGBs</a></li>
+            <li><a href="../../backend/logout.php">LOGOUT</a></li>
+    
+        </ul>
+    </nav>	
+    <hr>
+    <small>&copy; 2023 StudiWolke GmbH & Co. KG</small>
+    <hr>
+</footer>
 </body>
 </html>

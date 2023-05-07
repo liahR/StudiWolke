@@ -21,7 +21,7 @@ else {
 <body>
 <header>
     <?php
-     // SQL-Abfrage zum Abrufen des Profilbilds des Benutzers
+     // SQL-Abfrage zum Abrufen des Profilbilds des Benutzers DAS NUTZEN FÜR UNTEN 
      $stmt = $pdo->prepare("SELECT profilbild FROM benutzer WHERE benutzer_id=:benutzer_id");
      $stmt->bindValue(':benutzer_id', $_SESSION['benutzer_id']);
      if ($stmt->execute()) {
@@ -55,7 +55,7 @@ else {
 	<h1>Hallo, <?php echo $benutzer['vorname']; ?>!</h1>
 	
 	<form action="../../backend/account_do.php" method="post" enctype="multipart/form-data">
-		
+		<!-- schleife machen um profilbild aus datenbank zu holen -->
 		<label for="profilbild">Profilbild ändern:</label><br>
 		<div class="profilbild-container">
   		<img src="<?php echo $benutzer['profilbild']; ?>" alt="Profilbild">

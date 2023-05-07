@@ -105,7 +105,7 @@ else {
     </div>
 
 <?php        
-// SQL-Abfrage zum Abrufen der Ordner
+// SQL-Abfrage zum Abrufen der Ordner ID RAUS AUS LINK 
 $statement = $pdo->prepare("SELECT * FROM ordner WHERE benutzer_id = :benutzer_id ORDER BY ordner_id");
 $statement->bindParam(':benutzer_id', $benutzer_id);
 
@@ -115,11 +115,12 @@ if ($statement->execute()) {
             echo '<li>';
                 echo '<div class="ordner">';
                 echo '<img src="cloud-ordner.png" alt="Ordner-Icon">';
-                echo '<h2><a href="in_ordner.php?id=' . $row['ordner_id'] . '">' . $row['ordnername_original'] . '</a></h2>';
-                echo '<a href="delete_ordner_do.php=' . $row['ordner_id'] . '">Löschen</a><br>';
+                echo '<h2><a href="in_ordner.php">' . $row['ordnername_original'] . '</a></h2>';
+                echo '<a href="delete_ordner_do.php">Löschen</a><br>';
                 echo '<div>';
-        echo '</li>';
-    echo '</ul>';
+            echo '</li>';
+        echo '</ul>';
+        $_SESSION["ordner_id"] = $row["ordner_id"];
     }}
 
     // Was macht das braucht man glaub au net
@@ -129,11 +130,6 @@ if ($statement->execute()) {
         return strcmp($a['ordnername_original'], $b['ordnername_original']);
     }
 
-    // Was soll das machen braucht man nicht
-    // Standard-Sortierreihenfolge (nach ID)
-    usort($rows, function ($a, $b) {
-        return $a['ordner_id'] - $b['ordner_id'];
-    })
     ?>
     
     <!-- Suchfeld -->

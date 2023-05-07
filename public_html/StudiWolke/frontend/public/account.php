@@ -20,18 +20,6 @@ else {
 </head>
 <body>
 <header>
-    <?php
-     // SQL-Abfrage zum Abrufen des Profilbilds des Benutzers DAS NUTZEN FÜR UNTEN 
-     $stmt = $pdo->prepare("SELECT profilbild FROM benutzer WHERE benutzer_id=:benutzer_id");
-     $stmt->bindValue(':benutzer_id', $_SESSION['benutzer_id']);
-     if ($stmt->execute()) {
-        while ($row=$stmt->fetch()) {
-            if (!empty($row["profilbild"])) {
-                echo '<div class="profilbild">'. "<a href = 'account.php'><img src='https://mars.iuk.hdm-stuttgart.de/~lr090/StudiWolke/frontend/profilbilder/".$row["profilbild"]. "'height='80px'></a>";
-            }
-        }
-     }
-    ?>
 		<div class="logo">
 			<a href="index.php"><img src="Logo StudiWolke.png"></a>
 		</div>
@@ -47,38 +35,45 @@ else {
 	// SQL-Abfrage zum Abrufen der Benutzerdaten
 	$stmt = $pdo->prepare("SELECT * FROM benutzer WHERE benutzer_id=:benutzer_id");
 	$stmt->bindValue(':benutzer_id', $_SESSION['benutzer_id']);
-	$stmt->execute();
-	$benutzer = $stmt->fetch(PDO::FETCH_ASSOC);
-	// Verbindung zur Datenbank schließen
-	$pdo = null;
-	?>
-	<h1>Hallo, <?php echo $benutzer['vorname']; ?>!</h1>
+	if ($stmt->execute()) {
+		while ($row=$stmt ->fetch()) {
+			$vorname = $row['vorname'];
+			$nachname = $row['nachname'];
+			$email = $row['email'];
+			$nutzername = $row['nutzername'];
+			$profilbild = $row['profilbild'];
+		}
+	}
+	?>	
+
+	<h1>Hallo, <?php echo $vorname; ?>!</h1>
 	
 	<form action="../../backend/account_do.php" method="post" enctype="multipart/form-data">
 		<!-- schleife machen um profilbild aus datenbank zu holen -->
 		<label for="profilbild">Profilbild ändern:</label><br>
 		<div class="profilbild-container">
-  		<img src="<?php echo $benutzer['profilbild']; ?>" alt="Profilbild">
+  		<img src="<?php echo 'https://mars.iuk.hdm-stuttgart.de/~lr090/StudiWolke/frontend/profilbilder/'.$profilbild; ?> "height='80px'  alt="Profilbild">
   		<input type="file" name="profilbild" id="profilbild">
-		</div>
+		</div><br>
 	
 		<label for="vorname">Vorname ändern:</label><br>
-		<input type="text" name="vorname" id="vorname" value="<?php echo $benutzer['vorname']; ?>"><br>
+		<input type="text" name="vorname" id="vorname" value="<?php echo $vorname; ?>"><br>
 		
 		<label for="nachname">Nachname ändern:</label><br>
-		<input type="text" name="nachname" id="nachname" value="<?php echo $benutzer['nachname']; ?>"><br>
+		<input type="text" name="nachname" id="nachname" value="<?php echo $nachname; ?>"><br>
 
 		<label for="email">E-Mail ändern:</label><br>
-		<input type="email" name="email" id="email" value="<?php echo $benutzer['email']; ?>"><br>
+		<input type="email" name="email" id="email" value="<?php echo $email; ?>"><br>
 
 		<label for="nutzername">Nutzername ändern:</label><br>
-		<input type="text" name="nutzername" id="nutzername" value="<?php echo $benutzer['nutzername']; ?>"><br>
+		<input type="text" name="nutzername" id="nutzername" value="<?php echo $nutzername; ?>"><br>
 		
 		<label for="passwort">Passwort ändern:</label><br>
 		<input type="password" name="passwort" placeholder="********" id="passwort"><br>
 		
 		<input type="submit" name="submit" value="Speichern">
 	</form>
+
 </main>	
 <footer>
     <hr>

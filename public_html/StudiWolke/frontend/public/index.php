@@ -71,7 +71,7 @@ else {
     <button onclick="openCreateFolder()">Ordner erstellen</button>
 
     <div id="Folder" style="display:none;">
-        <form onsubmit="return RequiredCreateFolder()" id="CreateFolder" action="../../backend/create_ordner_do.php" method="post">
+        <form id="CreateFolder" action="../../backend/create_ordner_do.php" method="post">
             Ordner erstellen: <br>
             <input type="text" name="ordnername" placeholder="Ordnername" required>
             <input type="submit" value="Ordner erstellen" name="submit">
@@ -84,16 +84,6 @@ else {
         function closeCreateFolder () {
             document.getElementById("Folder").style.display ="none";
         } 
-        function RequiredCreateFolder() {
-            const ordnername = document.getElementByName("Ordnername").value;
-            if (ordnername =="") {
-                alert("Alle Felder ausfüllen");
-                return false;
-            } else {
-                closeForm();
-                return true;
-            }
-        }
 
     </script> 
     </div> 

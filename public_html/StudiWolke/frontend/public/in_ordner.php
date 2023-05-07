@@ -69,7 +69,7 @@ $pdo = new PDO('mysql:: host=mars.iuk.hdm-stuttgart.de; dbname=u-lr090', 'lr090'
     <button onclick="openFileShare()">Datei hochladen</button>
 
     <div id="Share" style="display:none;">
-        <form onsubmit="return RequiredFileShare()" id="UploadFile" action="../../backend/upload_file_do.php" method="post" enctype="multipart/form-data" >
+        <form id="UploadFile" action="../../backend/upload_file_do.php" method="post" enctype="multipart/form-data" >
             Datei auswählen: <br>
             <input type ="hidden" name= "ordner_id" value="<?php echo $_SESSION["ordner_id"]?> ">
             <input type="file" name="File" required><br>
@@ -85,17 +85,6 @@ $pdo = new PDO('mysql:: host=mars.iuk.hdm-stuttgart.de; dbname=u-lr090', 'lr090'
         }
         function closeFileShare () {
             document.getElementById("Share").style.display ="none";
-        }
-        function RequiredFileShare() {
-            const file = document.getElementByName("File").value;
-            const dateiname = document.getElementByName("Dateiname").value;
-            if (file =="" || dateiname =="") {
-                alert("Alle Felder ausfüllen");
-                return false;
-            } else {
-                closeForm();
-                return true;
-            }
         }
     </script> 
 
@@ -165,10 +154,12 @@ $pdo = new PDO('mysql:: host=mars.iuk.hdm-stuttgart.de; dbname=u-lr090', 'lr090'
     $state->bindParam(':ordner_id', $_SESSION ["ordner_id"]);
     if ($state->execute()){
         while ($row = $state->fetch()){
+            $datei_id = $row['datei_id'];
             if (!empty($row["dateiname_zufall"])) {
                 echo "<ul id='datei-liste'>";
                     echo "<li>";
                         echo "<a href='https://mars.iuk.hdm-stuttgart.de/~lr090/StudiWolke/frontend/dateien/".$row["dateiname_zufall"] . "' target ='blank' >". $row["dateiname_original"]. "</a><br>";
+                        echo "<button onclick='openTeilen()'>Teilen</button>";
                         echo "<a href='delete_file_do.php".$row["dateiname_zufall"] . "'>Löschen</a><br>";
                     echo "</li>";
                 echo "</ul>";
@@ -178,6 +169,26 @@ $pdo = new PDO('mysql:: host=mars.iuk.hdm-stuttgart.de; dbname=u-lr090', 'lr090'
 
 ?>
 
+<!--Teilen-->
+<div id="Teilen" style="display:none;">
+    <form id="UploadFile" action="../../backend/teilen_do.php" method="post" enctype="multipart/form-data" >
+        Datei auswählen: <br>
+        <input type ="hidden" name="datei_id" value="<?php echo $datei_id ?> ">
+        <input type="file" name="File" value="" required><br>
+        <input type="text" name="GeteiltePersonen" placeholder="Teilen mit" required>
+        <input type="submit" value="Teilen" name="submit">
+        <button type="button" onclick="closeTeilen()">Abbrechen</button>
+</form>
+</div> 
+
+<script>
+    function openTeilen () {
+        document.getElementById("Teilen").style.display ="block";
+    }
+    function closeTeilen () {
+        document.getElementById("Teilen").style.display ="none";
+    }
+</script>
 </main>
 <footer>
     <hr>

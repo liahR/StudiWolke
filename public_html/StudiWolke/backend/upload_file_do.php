@@ -90,7 +90,7 @@ $statement->bindParam(':aenderungsdatum', $aenderungsdatum);
 
 if($statement->execute())
 {
-    echo "Dein Post wurde erfolgreich der Startseite hinzugefügt";
+    header("Location: ../frontend/public/in_ordner.php");
 }
 else
 {
@@ -99,8 +99,5 @@ else
     echo $ordner_id;
 }
 ?>
-<p>
-    <a href="../frontend/public/index.php">Zurück zur Startseite</a>
-</p>
 </body>
 </html>

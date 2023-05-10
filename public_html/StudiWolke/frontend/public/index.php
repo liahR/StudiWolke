@@ -88,8 +88,8 @@ else {
     </div> 
 
     <!-- Geteilte Dateien Ordner fix -->
-    <div class="ordner">
-    <img src="cloud-ordner.png" alt="Ordner-Icon">
+    <div class="geteilte_ordner">
+    <img src="geteilte_dateien_ordner.png" alt=" Geteilte Ordner-Icon">
     <h2><a href="in_geteilt.php">Geteilte Dateien</a></h2>
     </div>
 
@@ -104,8 +104,10 @@ if ($statement->execute()) {
             echo '<li>';
                 echo '<div class="ordner">';
                 echo '<img src="cloud-ordner.png" alt="Ordner-Icon">';
+                echo '</div>'
                 echo '<h2><a href="in_ordner.php">' . $row['ordnername_original'] . '</a></h2>';
-                echo '<a href="delete_ordner_do.php">Löschen</a><br>';
+                echo '<div> class="papierkorb"'
+                echo '<img src="papierkorb.png" href="delete_ordner_do.php"><br>';
                 echo '<div>';
             echo '</li>';
         echo '</ul>';

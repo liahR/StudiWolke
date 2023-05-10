@@ -76,6 +76,14 @@ nav a {
   width: auto;
 }
 
+.geteilte_ordner img {
+  height: 90px;
+  width: auto;
+}
+.papierkorb {
+  height: 20px;
+  width: auto;
+}
 .profilbild-container {
   display: inline-block;
   position: relative;
@@ -110,7 +118,7 @@ footer {
 }
 
 .logo_footer {
-  display: block;
+  display: flex;
   margin: 0 auto;
   text-align: center;
 }

@@ -155,6 +155,8 @@ $pdo = new PDO('mysql:: host=mars.iuk.hdm-stuttgart.de; dbname=u-lr090', 'lr090'
     if ($state->execute()){
         while ($row = $state->fetch()){
             $datei_id = $row['datei_id'];
+            $dateiname_original = $row['dateiname_original'];
+            $pfad = "https://mars.iuk.hdm-stuttgart.de/~lr090/StudiWolke/frontend/dateien/".$row["dateiname_zufall"];
             if (!empty($row["dateiname_zufall"])) {
                 echo "<ul id='datei-liste'>";
                     echo "<li>";
@@ -174,8 +176,9 @@ $pdo = new PDO('mysql:: host=mars.iuk.hdm-stuttgart.de; dbname=u-lr090', 'lr090'
     <form id="UploadFile" action="../../backend/teilen_do.php" method="post" enctype="multipart/form-data" >
         Datei auswählen: <br>
         <input type ="hidden" name="datei_id" value="<?php echo $datei_id ?> ">
-        <input type="file" name="File" value="" required><br>
-        <input type="text" name="GeteiltePersonen" placeholder="Teilen mit" required>
+        <input type ="hidden" name="dateiname_original" value="<?php echo $dateiname_original ?>">
+        <input type="file" name="Pfad" value= "<?php echo $pfad ?>" required><br>
+        <input type="text" name="GeteiltePersonen" placeholder="Mit max.mustermann@muster.de" required>
         <input type="submit" value="Teilen" name="submit">
         <button type="button" onclick="closeTeilen()">Abbrechen</button>
 </form>

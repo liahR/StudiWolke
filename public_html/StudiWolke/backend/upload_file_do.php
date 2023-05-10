@@ -66,7 +66,7 @@ if (!move_uploaded_file($_FILES["File"]["tmp_name"], "/home/lr090/public_html/St
 //Pfad von der Datei
 $dateipfad = "/home/lr090/public_html/StudiWolke/frontend/dateien/".$string;
 
-//weitere Daten übergeben $benutzer_id, $filetype, $Erstelldatum, $Änderungsdatum
+//weitere Daten übergeben $ordner_id, $filetype, $Erstelldatum, $Änderungsdatum
 
 $ordner_id = htmlspecialchars ($_POST ["ordner_id"]);
 $dateiname_original=htmlspecialchars ($_POST ["Dateiname"]);

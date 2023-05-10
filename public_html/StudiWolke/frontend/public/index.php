@@ -104,7 +104,7 @@ if ($statement->execute()) {
             echo '<li>';
                 echo '<div class="ordner">';
                 echo '<img src="cloud-ordner.png" alt="Ordner-Icon">';
-                echo '</div>'
+                echo '</div>';
                 echo '<h2><a href="in_ordner.php">' . $row['ordnername_original'] . '</a></h2>';
                 echo '<div class="papierkorb">';
                 echo '<img src="papierkorb.png" href="delete_ordner_do.php"><br>';

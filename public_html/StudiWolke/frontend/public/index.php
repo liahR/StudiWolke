@@ -38,7 +38,7 @@ else {
      if ($stmt->execute()) {
         while ($row=$stmt->fetch()) {
             if (!empty($row["profilbild"])) {
-                echo '<div class="profilbild">'. "<a href = 'account.php'><img src='https://mars.iuk.hdm-stuttgart.de/~lr090/StudiWolke/frontend/profilbilder/".$row["profilbild"]. "'height='80px'></a>";
+                echo '<div class="profilbild-container">'. "<a href = 'account.php'><img src='https://mars.iuk.hdm-stuttgart.de/~lr090/StudiWolke/frontend/profilbilder/".$row["profilbild"]. "'height='80px'></a>";
             }
         }
      }

@@ -90,7 +90,7 @@ else {
     <!-- Geteilte Dateien Ordner fix -->
     <div class="ordner">
     <img src="cloud-ordner.png" alt="Ordner-Icon">
-    <h2><a href="in_geteilte_dateien.php">Geteilte Dateien</a></h2>
+    <h2><a href="in_geteilt.php">Geteilte Dateien</a></h2>
     </div>
 
 <?php        

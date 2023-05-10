@@ -106,15 +106,13 @@ if ($statement->execute()) {
                 echo '<img src="cloud-ordner.png" alt="Ordner-Icon">';
                 echo '</div>'
                 echo '<h2><a href="in_ordner.php">' . $row['ordnername_original'] . '</a></h2>';
-                echo '<div> class="papierkorb"';
+                echo '<div class="papierkorb">';
                 echo '<img src="papierkorb.png" href="delete_ordner_do.php"><br>';
-                echo '<div>';
+                echo '</div>';
             echo '</li>';
         echo '</ul>';
         $_SESSION["ordner_id"] = $row["ordner_id"];
     }}
-
-    // Was macht das braucht man glaub au net
     // Sortierungsfunktion 
     function sortByName($a, $b)
     {

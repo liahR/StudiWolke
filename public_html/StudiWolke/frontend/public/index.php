@@ -12,8 +12,6 @@ else {
     $pdo = new PDO('mysql:: host=mars.iuk.hdm-stuttgart.de;dbname=u-lr090', 'lr090', 'eetho6Choh', array('charset' => 'utf8'));
 
 ?>
-
-
 <!DOCTYPE html>
 <html lang="de">
 <head>
@@ -38,7 +36,7 @@ else {
      if ($stmt->execute()) {
         while ($row=$stmt->fetch()) {
             if (!empty($row["profilbild"])) {
-                echo '<div class="profilbild-container">'. "<a href = 'account.php'><img src='https://mars.iuk.hdm-stuttgart.de/~lr090/StudiWolke/frontend/profilbilder/".$row["profilbild"]. "'height='80px'></a>";
+                echo '<div class="profilbild">'. "<a href = 'account.php'><img src='https://mars.iuk.hdm-stuttgart.de/~lr090/StudiWolke/frontend/profilbilder/".$row["profilbild"]. "'height='80px'></a>";
             }
         }
      }
@@ -50,6 +48,7 @@ else {
 			<ul>
 				<li><a href="index.php">Start</a></li>
 				<li><a href="hilfe.php">Support</a></li>
+                <li><a href="../../backend/logout.php">LOGOUT</a></li>
 			</ul>
 		</nav>
 	</header>
@@ -169,20 +168,18 @@ if ($statement->execute()) {
     </main>
  <footer>
     <hr>
-    <div class="logo">
+    <div class="logo_footer">
 			<a href="index.php"><img src="Logo StudiWolke.png"></a>
 		</div>
     <nav>
-        <ul>
+        <ul class= "footer_links" >
         <li><a href= "impressum.php">IMPRESSUM</a></li>
             <li><a href= "datenschutz.php">DATENSCHUTZ</a></li>
-            <li><a href= "agbs.php">AGBs</a></li>
-            <li><a href="../../backend/logout.php">LOGOUT</a></li>
-    
+            <li><a href= "agbs.php">AGBs</a></li>    
         </ul>
     </nav>	
     <hr>
-    <small>&copy; 2023 StudiWolke GmbH & Co. KG</small>
+    <small class="footer_copyright">&copy; 2023 StudiWolke GmbH & Co. KG</small>
     <hr>
 </footer>
 </main>

@@ -5,7 +5,38 @@
   }
 
 /* Allgemeine Stilvorgaben */
+.logo {
+  position: fixed;
+  left: 0;
+  top: 0;
+}
+.logo img {
+	height: 70px;
+  width: auto;
+}
 
+/* Überschriften + Texte */
+@import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@800&family=Source+Sans+Pro:wght@300&display=swap');
+h1 {
+  font-family: 'Baloo 2', cursive;
+  color: #18A0FB;
+  }
+
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  p {
+      font-family: 'Source Sans Pro', sans-serif;
+     color: #18A0FB;
+    }
+  
+  .button {
+    background-color: #18A0FB;
+    color: #ffffff;
+  }
 /* Header-Elemente */
 header {
 	display: flex;
@@ -14,11 +45,6 @@ header {
   background: linear-gradient(to right, #fff, #FF69B4, #18A0FB);
 	color: #fff;
 	padding: 10px;
-}
-
-.logo img {
-	height: 70px;
-  width: auto;
 }
 
 nav ul {
@@ -42,35 +68,13 @@ nav a {
 	border-radius: 50%;
 }  
 
-/* Überschriften + Texte */
 
-h1 {
-    font-family: "Arial", Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-    color: #18A0FB;
-  }
-
-  h2,
-  h3,
-  h4,
-  h5,
-  h6,
-  p {
-      font-family: "Arial";
-      color: #18A0FB;
-    }
-  
-  .button {
-    background-color: #18A0FB;
-    color: #ffffff;
-  }
 
   /* Ordner Icon */
 .ordner img {
 	height: 90px;
   width: auto;
 }
-
-
 
 .profilbild-container {
   display: inline-block;
@@ -93,17 +97,7 @@ h1 {
   opacity: 0;
   cursor: pointer;
 }
- /*CSS Regeln für die Support Seite */
-.faq {
-  margin-bottom: 20px;
-}
-.faq h3 {
-  margin: 0;
-  cursor: pointer;
-}
-.faq p {
-  display: none;
-}
+
 
 /* Footer-Elemente */
 footer {
@@ -115,23 +109,47 @@ footer {
 	padding: 10px;
 }
 
-.logo img {
-	height: 50px;
+.logo_footer {
+  display: block;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.logo_footer img {
+	height: 70px;
   width: auto;
+  
+}
+/* Stilisiere die Fußzeilen-Links */
+.footer_links {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+  list-style: none;
+  padding: 0;
 }
 
-nav ul {
-	list-style: none;
-	margin: 0;
-	padding: 0;
-	display: flex;
+.footer_links li {
+  margin-right: 20px;
 }
 
-nav li {
-	margin: 0 10px;
+.footer_links li:last-child {
+  margin-right: 0;
 }
 
-nav a {
-	color:black;
-	text-decoration:none;
+.footer_links a {
+  color: #555;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.footer_links a:hover {
+  color: #000;
+}
+
+/* Positioniere das Copyright */
+.footer_copyright {
+  display: block;
+  margin: 20px auto 0;
+  text-align: center;
 }

@@ -1,0 +1,11 @@
+ /*CSS Regeln für die Support Seite */
+ .faq {
+    margin-bottom: 20px;
+  }
+  .faq h3 {
+    margin: 0;
+    cursor: pointer;
+  }
+  .faq p {
+    display: none;
+  }

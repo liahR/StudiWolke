@@ -1,6 +1,6 @@
 <?php
     session_start();
-    // Prüfen ob Benutzer nicht eingeloggt ist + ordner id setzen 
+    // Prüfen ob Benutzer nicht eingeloggt ist  
     if (!isset($_SESSION["benutzer_id"]))
 {
     header("Location: login.html");
@@ -148,7 +148,7 @@ $pdo = new PDO('mysql:: host=mars.iuk.hdm-stuttgart.de; dbname=u-lr090', 'lr090'
         </script>
 
 
-<!--Hole die Dateien des Ordners-->
+<!--Hole die Dateien des Ordners SACHE MIT DATEI_ID FÜR TEILEN VERSTEHEN-->
 <?php
     $datei_id = '';
     $dateiname_original = '';
@@ -164,19 +164,28 @@ $pdo = new PDO('mysql:: host=mars.iuk.hdm-stuttgart.de; dbname=u-lr090', 'lr090'
                 echo "<ul id='datei-liste'>";
                     echo "<li>";
                         echo "<a href='https://mars.iuk.hdm-stuttgart.de/~lr090/StudiWolke/frontend/dateien/".$row["dateiname_zufall"] . "' target ='blank' >". $row["dateiname_original"]. "</a><br>";
-                        echo "<button onclick='openTeilen()'>Teilen</button>";
+                        echo "<button onclick='openTeilen(".$datei_id.")'>Teilen</button>";
                         //Teilen forms
-                        echo "<div id='Teilen' style='display:none;'>";
-                        echo "<form id='UploadFile' action='../../backend/teilen_do.php' method='post' enctype='multipart/form-data' >";
+                        echo "<div id='Teilen-".$datei_id."' style='display:none;'>";
+                        echo "<form id='UploadFile-' action='../../backend/teilen_do.php' method='post' enctype='multipart/form-data' >";
                         echo "Datei auswählen: <br>";
                         echo "<input type ='hidden' name='datei_id' value=". $datei_id. ">";
                         echo "<input type ='hidden' name='dateiname_original' value=". $dateiname_original. ">";
                         echo "<input type='hidden' name='Pfad' value= ".$pfad. " required><br>";
                         echo "<input type='text' name='GeteiltePersonen' placeholder='Mit max.mustermann@muster.de' required>";
                         echo "<input type='submit' value='Teilen' name='submit'>";
-                        echo "<button type='button' onclick='closeTeilen()'>Abbrechen</button>";
+                        echo "<button type='button' onclick='closeTeilen(".$datei_id.")'>Abbrechen</button>";
                         echo "</form>";
                         echo "</div>"; 
+                        // Teilen-Script
+                        echo "<script>";
+                        echo "function openTeilen (datei_id) {";
+                        echo "document.getElementById('Teilen-' + datei_id).style.display ='block';";
+                        echo "}";
+                        echo "function closeTeilen (datei_id) {";
+                        echo "document.getElementById('Teilen-' + datei_id).style.display ='none';";
+                        echo "}";
+                        echo"</script>";
                         echo "<a href='delete_file_do.php".$row["dateiname_zufall"] . "'>Löschen</a><br>";
                     echo "</li>";
                 echo "</ul>";
@@ -188,14 +197,7 @@ $pdo = new PDO('mysql:: host=mars.iuk.hdm-stuttgart.de; dbname=u-lr090', 'lr090'
 
 
 
-<script>
-    function openTeilen () {
-        document.getElementById("Teilen").style.display ="block";
-    }
-    function closeTeilen () {
-        document.getElementById("Teilen").style.display ="none";
-    }
-</script>
+
 </main>
 <footer>
     <hr>

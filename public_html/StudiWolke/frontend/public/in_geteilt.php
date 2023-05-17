@@ -1,6 +1,6 @@
 <?php
     session_start();
-    // Prüfen ob Benutzer nicht eingeloggt ist + ordner id setzen 
+    // Prüfen ob Benutzer nicht eingeloggt ist 
     if (!isset($_SESSION["benutzer_id"]))
 {
     header("Location: login.html");
@@ -56,16 +56,30 @@ else {
 if (isset($_SESSION['benutzer_id'])) {
     $ordner_id = $_SESSION['benutzer_id'];
 
-    // Hole die freigegebenen Dateien
-    $statement = $pdo->prepare('SELECT dateiname_original, dateipfad FROM teilen WHERE benutzer_id = :benutzer_id ');
-    $statement->bindParam(':benutzer_id', $benutzer_id);
-    $statement->execute();
-    $teilen = $statement->fetchAll(PDO::FETCH_ASSOC);
-} else {
-    $_SESSION['error'] = 'Es ist ein Fehler aufgetreten. Bitte versuche es erneut.';
-    header('Location: index.php');
-    exit();
+    //Hole die geteilten Dateien  EMAIL muss irgendwo geholt werden
+        $state = $pdo->prepare('SELECT * FROM teilen WHERE email = :email');
+        $state->bindParam(':email', $_SESSION ["email"]);
+        if ($state->execute()){
+            while ($row = $state->fetch()){
+                $datei_id = $row['datei_id'];
+                $dateiname_original = $row['dateiname_original'];
+                $pfad = "https://mars.iuk.hdm-stuttgart.de/~lr090/StudiWolke/frontend/dateien/".$row["dateiname_zufall"];
+                if (!empty($row["dateiname_zufall"])) {
+                    echo "<ul id='datei-liste'>";
+                        echo "<li>";
+                            echo "<a href='https://mars.iuk.hdm-stuttgart.de/~lr090/StudiWolke/frontend/dateien/".$row["dateiname_zufall"] . "' target ='blank' >". $row["dateiname_original"]. "</a><br>";
+                            echo "<a href='delete_file_do.php".$row["dateiname_zufall"] . "'>Löschen</a><br>";
+                        echo "</li>";
+                    echo "</ul>";
+                }
+            }
+        }
 }
+
+
+
+
+
 if ($statement->execute()) {
     $rows = $statement->fetchAll(PDO::FETCH_ASSOC);
 

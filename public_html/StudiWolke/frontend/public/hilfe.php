@@ -72,33 +72,11 @@ else {
 		<p>Um Ihre Dateien zu verwalten, gehen Sie auf die Startseite und klicken Sie auf den jeweiligen Ordner. Hier können Sie Ihre Dateien anzeigen oder löschen.</p>
 	</div>
 	<!-- Formular zum Stellen von Fragen -->
-	<form method="post">
-		<label for="Frage">Stellen Sie Ihre Frage:</label><br>
-		<textarea name="frage" id="Frage" rows="5" cols="40"></textarea><br>
-		<input type="submit" name="submit" value="Frage stellen">
-	</form>	
-	<?php
-	// Prüfen, ob das Formular abgeschickt wurde
-	if (isset($_POST['submit'])) {
-		
-		// Verbindung zur Datenbank herstellen
-
-        $pdo=new PDO('mysql:: host=mars.iuk.hdm-stuttgart.de; dbname=u-lr090', 'lr090','eetho6Choh', array('charset'=>'utf8'));
-
-		if ($pdo->connect_error) {
-			die("Verbindung fehlgeschlagen, Frage kann gerade nicht gestellt werden: " . $pdo->connect_error);
-		}
-		
-		// Frage in die Datenbank einfügen
-		$frage = $_POST['frage'];
-		$query = "INSERT INTO fragen (frage) VALUES ('{$frage}')";
-		if ($pdo->query($query) === TRUE) {
-			echo "<p>Vielen Dank, deine Frage wurde erfolgreich gesendet.</p>";
-		} else {
-			echo "<p>Beim Speichern deiner Frage ist ein Fehler aufgetreten :( Probiere es nochmal! " . $pdo->error . "</p>";
-		}	
-	}
-	?>
+		<form action="../../backend/support_do.php" method="post" enctype="multipart/form-data">
+    	<label for="Frage">Stellen Sie Ihre Frage:</label><br>
+    	<textarea name="frage" id="Frage" rows="5" cols="40"></textarea><br>
+    	<input type="submit" name="submit" value="Frage stellen">
+		</form>
 </main>	
 <footer>
     <hr>

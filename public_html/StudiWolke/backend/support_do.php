@@ -10,7 +10,7 @@ if ($pdo->connect_error) {
 if (isset($_POST['submit'])) {
     // Frage in die Datenbank einfügen
     $frage = $_POST['frage'];
-    $query = "INSERT INTO Fragen (Frage) VALUES (:frage)";
+    $query = "INSERT INTO fragen (frage) VALUES (:frage)";
     $stmt = $pdo->prepare($query);
     $stmt->bindParam(':frage', $frage);
     

@@ -73,8 +73,8 @@ else {
 	</div>
 	<!-- Formular zum Stellen von Fragen -->
 		<form action="../../backend/support_do.php" method="post" enctype="multipart/form-data">
-    	<label for="Frage">Stellen Sie Ihre Frage:</label><br>
-    	<textarea name="frage" id="Frage" rows="5" cols="40"></textarea><br>
+    	<label for="frage">Stellen Sie Ihre Frage:</label><br>
+    	<textarea name="frage" id="fKrage" rows="5" cols="40"></textarea><br>
     	<input type="submit" name="submit" value="Frage stellen">
 		</form>
 </main>	

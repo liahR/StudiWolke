@@ -107,7 +107,7 @@ if ($statement->execute()) {
         echo '</div>';
         echo '<h2><a href="in_ordner.php">' . $row['ordnername_original'] . '</a></h2>';
         echo '<div class="papierkorb">';
-        echo '<a href="delete_ordner_do.php"><img src="papierkorb.png" alt="Papierkorb-Icon"></a><br>';
+        echo '<a href="../../backend/delete_ordner_do.php"><img src="papierkorb.png" alt="Papierkorb-Icon"></a><br>';
         echo '</div>';
         echo '</li>';
         echo '</ul>';

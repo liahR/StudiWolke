@@ -99,20 +99,21 @@ $statement = $pdo->prepare("SELECT * FROM ordner WHERE benutzer_id = :benutzer_i
 $statement->bindParam(':benutzer_id', $benutzer_id);
 
 if ($statement->execute()) {
-    while ($row = $statement -> fetch ()){
+    while ($row = $statement->fetch()) {
         echo '<ul id="ordner-liste">';
-            echo '<li>';
-                echo '<div class="ordner">';
-                echo '<img src="cloud-ordner.png" alt="Ordner-Icon">';
-                echo '</div>';
-                echo '<h2><a href="in_ordner.php">' . $row['ordnername_original'] . '</a></h2>';
-                echo '<div class="papierkorb">';
-                echo '<img src="papierkorb.png" href="delete_ordner_do.php"><br>';
-                echo '</div>';
-            echo '</li>';
+        echo '<li>';
+        echo '<div class="ordner">';
+        echo '<img src="cloud-ordner.png" alt="Ordner-Icon">';
+        echo '</div>';
+        echo '<h2><a href="in_ordner.php">' . $row['ordnername_original'] . '</a></h2>';
+        echo '<div class="papierkorb">';
+        echo '<a href="delete_ordner_do.php"><img src="papierkorb.png" alt="Papierkorb-Icon"></a><br>';
+        echo '</div>';
+        echo '</li>';
         echo '</ul>';
         $_SESSION["ordner_id"] = $row["ordner_id"];
-    }}
+    }
+}
     // Sortierungsfunktion 
     function sortByName($a, $b)
     {

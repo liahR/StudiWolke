@@ -150,6 +150,9 @@ $pdo = new PDO('mysql:: host=mars.iuk.hdm-stuttgart.de; dbname=u-lr090', 'lr090'
 
 <!--Hole die Dateien des Ordners-->
 <?php
+    $datei_id = '';
+    $dateiname_original = '';
+    $pfad = '';
     $state = $pdo->prepare('SELECT * FROM dateien WHERE ordner_id = :ordner_id');
     $state->bindParam(':ordner_id', $_SESSION ["ordner_id"]);
     if ($state->execute()){
@@ -162,6 +165,18 @@ $pdo = new PDO('mysql:: host=mars.iuk.hdm-stuttgart.de; dbname=u-lr090', 'lr090'
                     echo "<li>";
                         echo "<a href='https://mars.iuk.hdm-stuttgart.de/~lr090/StudiWolke/frontend/dateien/".$row["dateiname_zufall"] . "' target ='blank' >". $row["dateiname_original"]. "</a><br>";
                         echo "<button onclick='openTeilen()'>Teilen</button>";
+                        //Teilen forms
+                        echo "<div id='Teilen' style='display:none;'>";
+                        echo "<form id='UploadFile' action='../../backend/teilen_do.php' method='post' enctype='multipart/form-data' >";
+                        echo "Datei auswählen: <br>";
+                        echo "<input type ='hidden' name='datei_id' value=". $datei_id. ">";
+                        echo "<input type ='hidden' name='dateiname_original' value=". $dateiname_original. ">";
+                        echo "<input type='hidden' name='Pfad' value= ".$pfad. " required><br>";
+                        echo "<input type='text' name='GeteiltePersonen' placeholder='Mit max.mustermann@muster.de' required>";
+                        echo "<input type='submit' value='Teilen' name='submit'>";
+                        echo "<button type='button' onclick='closeTeilen()'>Abbrechen</button>";
+                        echo "</form>";
+                        echo "</div>"; 
                         echo "<a href='delete_file_do.php".$row["dateiname_zufall"] . "'>Löschen</a><br>";
                     echo "</li>";
                 echo "</ul>";
@@ -171,18 +186,7 @@ $pdo = new PDO('mysql:: host=mars.iuk.hdm-stuttgart.de; dbname=u-lr090', 'lr090'
 
 ?>
 
-<!--Teilen-->
-<div id="Teilen" style="display:none;">
-    <form id="UploadFile" action="../../backend/teilen_do.php" method="post" enctype="multipart/form-data" >
-        Datei auswählen: <br>
-        <input type ="hidden" name="datei_id" value="<?php echo $datei_id ?> ">
-        <input type ="hidden" name="dateiname_original" value="<?php echo $dateiname_original ?>">
-        <input type="file" name="Pfad" value= "<?php echo $pfad ?>" required><br>
-        <input type="text" name="GeteiltePersonen" placeholder="Mit max.mustermann@muster.de" required>
-        <input type="submit" value="Teilen" name="submit">
-        <button type="button" onclick="closeTeilen()">Abbrechen</button>
-</form>
-</div> 
+
 
 <script>
     function openTeilen () {

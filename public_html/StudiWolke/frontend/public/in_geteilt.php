@@ -53,12 +53,11 @@ else {
 <main>
 <?php
 
-Hallo 123
-if (isset($_GET['benutzer_id'])) {
-    $ordner_id = $_GET['benutzer_id'];
+if (isset($_SESSION['benutzer_id'])) {
+    $ordner_id = $_SESSION['benutzer_id'];
 
     // Hole die freigegebenen Dateien
-    $statement = $db->prepare('SELECT dateiname_original, dateipfad FROM teilen WHERE benutzer_id = :benutzer_id ');
+    $statement = $pdo->prepare('SELECT dateiname_original, dateipfad FROM teilen WHERE benutzer_id = :benutzer_id ');
     $statement->bindParam(':benutzer_id', $benutzer_id);
     $statement->execute();
     $teilen = $statement->fetchAll(PDO::FETCH_ASSOC);

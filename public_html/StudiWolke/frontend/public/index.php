@@ -7,6 +7,7 @@
 }
 else {
     $benutzer_id = $_SESSION["benutzer_id"];
+    $email = $_SESSION["email"];
 }
 
     $pdo = new PDO('mysql:: host=mars.iuk.hdm-stuttgart.de;dbname=u-lr090', 'lr090', 'eetho6Choh', array('charset' => 'utf8'));

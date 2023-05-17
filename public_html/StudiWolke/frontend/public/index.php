@@ -95,7 +95,7 @@ else {
     </div>
 
 <?php        
-// SQL-Abfrage zum Abrufen der Ordner ID RAUS AUS LINK 
+// SQL-Abfrage zum Abrufen der Ordner 
 $statement = $pdo->prepare("SELECT * FROM ordner WHERE benutzer_id = :benutzer_id ORDER BY ordner_id");
 $statement->bindParam(':benutzer_id', $benutzer_id);
 

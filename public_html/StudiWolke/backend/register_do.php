@@ -32,9 +32,10 @@ if(empty($_FILES["profilbild"]["name"])) {
     die("Auchtung! Leere Datei");
 }
 
-$type = pathinfo($_FILES ["profilbild"]["name"], PATHINFO_EXTENSION);
-if (strtolower($type) !="jpg") {
-    die ("nur .jpg erlaubt");
+$type = pathinfo($_FILES ["File"]["name"], PATHINFO_EXTENSION);
+$erlaubteaealer = array ("jpg", "jpeg", "png"); 
+if (!in_array(strtolower($type), $erlaubteaealer)) {
+    die ("Dateityp nicht erlaubt, nur jpg, jpeg, png");
 }
 
 if ($_FILES["profilbild"]["size"]>8000000){
@@ -48,7 +49,7 @@ for ($i=0; $i<20; $i++){
     $index=rand(0, strlen($s)-1);
     $string.=$s[$index];
 }
-$string.=".jpg";
+$string.=".".$type;
 
 if (!move_uploaded_file($_FILES["profilbild"]["tmp_name"], "/home/lr090/public_html/StudiWolke/frontend/profilbilder/".$string)){
     die ("Fehler bei der Übertragung");

@@ -23,8 +23,8 @@
 }
 
 .profilbild img {
-  width: 50px;
-  height: 50px;
+  width: 70px;
+  height: 70px;
   object-fit: cover;
   border-radius: 50%;
 }
@@ -32,11 +32,8 @@
 /* Überschriften + Texte */
 @import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@800&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@800&family=Source+Sans+Pro:wght@300&display=swap');
-h1 {
-  font-family: 'Baloo 2', cursive;
-  color: #18A0FB;
-  }
 
+  h1,
   h2,
   h3,
   h4,

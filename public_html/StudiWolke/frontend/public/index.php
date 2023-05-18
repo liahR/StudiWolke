@@ -107,8 +107,11 @@ if ($statement->execute()) {
         echo '</div>';
         echo '<h2><a href="in_ordner.php">' . $row['ordnername_original'] . '</a></h2>';
         echo '<div class="papierkorb">';
-        echo '<a href="../../backend/delete_ordner_do.php"><img src="papierkorb.png" alt="Papierkorb-Icon"></a><br>';
-        echo '</div>';
+        // Lösch-Buttons
+        echo '<form action="backend/delete_file_do.php" method="post">';
+        echo '<input type="hidden" name="datei_id" value='.$datei_id.'>';
+        echo '<button type="submit">Löschen</button>';
+        echo '</form>';
         echo '</li>';
         echo '</ul>';
         $_SESSION["ordner_id"] = $row["ordner_id"];

@@ -1,0 +1,30 @@
+/* CSS-Regeln Login */
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-image: url("login_wolken.jpg"); /* Pfad zum Hintergrundbild */
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+.login-container {
+    max-width: 400px;
+    padding: 20px;
+    border: 1px solid #18A0FB;
+    border-radius: 5px;
+    background-color: rgba(255, 145, 75, 0.5); /* Farbe FF914B mit 50% Transparenz */
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: opacity 0.3s ease-in-out;
+    opacity: 1;
+}
+
+.login-container.hide {
+    opacity: 0;
+    pointer-events: none;
+}

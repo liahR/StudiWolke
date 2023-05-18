@@ -13,7 +13,6 @@ $pdo = new PDO('mysql:: host=mars.iuk.hdm-stuttgart.de; dbname=u-lr090', 'lr090'
 
 
 
-//Ich brauch den Pfad von der Datei von Person A 
 
 //weitere Daten übergeben benutzer_id, datei_id, email von (GeteiltePerson), dateiname_original, dateipfad 
 $datei_id = htmlspecialchars ($_POST ["datei_id"]);

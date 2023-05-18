@@ -186,7 +186,11 @@ $pdo = new PDO('mysql:: host=mars.iuk.hdm-stuttgart.de; dbname=u-lr090', 'lr090'
                         echo "document.getElementById('Teilen-' + datei_id).style.display ='none';";
                         echo "}";
                         echo"</script>";
-                        echo "<a href='delete_file_do.php".$row["dateiname_zufall"] . "'>Löschen</a><br>";
+                        // Lösch-Buttons
+                        echo "<form action='../../backend/delete_file_do.php' method='post'>";
+                        echo "<input type='hidden' name='datei_id' value=".$datei_id.">";
+                        echo "<button type='submit'>Löschen</button>";
+                        echo "</form>";
                     echo "</li>";
                 echo "</ul>";
             }

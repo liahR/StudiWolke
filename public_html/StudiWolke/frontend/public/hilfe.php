@@ -72,10 +72,10 @@ else {
 		<p>Um Ihre Dateien zu verwalten, gehen Sie auf die Startseite und klicken Sie auf den jeweiligen Ordner. Hier können Sie Ihre Dateien anzeigen oder löschen.</p>
 	</div>
 	<!-- Formular zum Stellen von Fragen -->
-		<form action="../../backend/support_do.php" method="post" enctype="multipart/form-data">
+		<form action="../../backend/support_do.php" method="post">
     	<label for="frage">Stellen Sie Ihre Frage:</label><br>
-    	<textarea name="frage" id="fKrage" rows="5" cols="40"></textarea><br>
-    	<input type="submit" name="submit" value="Frage stellen">
+    	<textarea name="frage" id="frage" rows="8" cols="80" required></textarea><br>
+    	<button type="submit">Frage stellen</button>
 		</form>
 </main>	
 <footer>

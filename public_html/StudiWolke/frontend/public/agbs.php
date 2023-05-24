@@ -30,7 +30,7 @@ else {
      if ($stmt->execute()) {
         while ($row=$stmt->fetch()) {
             if (!empty($row["profilbild"])) {
-                echo '<div class="profilbild">'. "<a href = 'account.php'><img src='https://mars.iuk.hdm-stuttgart.de/~lr090/StudiWolke/frontend/profilbilder/".$row["profilbild"]. "'height='80px'></a>";
+                echo '<div class="profilbild"><a href="account.php"><img src="https://mars.iuk.hdm-stuttgart.de/~lr090/StudiWolke/frontend/profilbilder/' . $row["profilbild"] . '"></a></div>';
             }
         }
      }
@@ -44,7 +44,7 @@ else {
 				<li><a href="hilfe.php">Support</a></li>
 			</ul>
 		</nav>
-</header>
+	</header>
 	<body>
    <h1> Allgemeine Geschäftsbedingungen von StudiWolke </h1>
         <h2>Willkommen bei StudiWolke!</h2>

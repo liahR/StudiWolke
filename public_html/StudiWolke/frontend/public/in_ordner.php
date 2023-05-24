@@ -25,7 +25,7 @@ $pdo = new PDO('mysql:: host=mars.iuk.hdm-stuttgart.de; dbname=u-lr090', 'lr090'
     <meta name="theme-color" content="#000000"/>
     <!--keine Ahnung ob wir das brauchen, deswegen noch drin-->
     <link rel="manifest" href="%PUBLIC_URL%/manifest.json"/>
-    <title><?php echo $Ordner['Ordnername original']; ?></title>
+    <title>Im Ordner</title>
 </head>
 <body>
 
@@ -37,7 +37,7 @@ $pdo = new PDO('mysql:: host=mars.iuk.hdm-stuttgart.de; dbname=u-lr090', 'lr090'
      if ($stmt->execute()) {
         while ($row=$stmt->fetch()) {
             if (!empty($row["profilbild"])) {
-                echo '<div class="profilbild">'. "<a href = 'account.php'><img src='https://mars.iuk.hdm-stuttgart.de/~lr090/StudiWolke/frontend/profilbilder/".$row["profilbild"]. "'height='80px'></a>";
+                echo '<div class="profilbild"><a href="account.php"><img src="https://mars.iuk.hdm-stuttgart.de/~lr090/StudiWolke/frontend/profilbilder/' . $row["profilbild"] . '"></a></div>';
             }
         }
      }

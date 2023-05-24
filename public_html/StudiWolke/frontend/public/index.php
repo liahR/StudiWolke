@@ -48,7 +48,6 @@ else {
 			<ul>
 				<li><a href="index.php">Start</a></li>
 				<li><a href="hilfe.php">Support</a></li>
-                <li><a href="../../backend/logout.php">LOGOUT</a></li>
 			</ul>
 		</nav>
 	</header>
@@ -179,7 +178,8 @@ if ($statement->execute()) {
         <ul class= "footer_links" >
         <li><a href= "impressum.php">IMPRESSUM</a></li>
             <li><a href= "datenschutz.php">DATENSCHUTZ</a></li>
-            <li><a href= "agbs.php">AGBs</a></li>    
+            <li><a href= "agbs.php">AGBs</a></li>
+            <li><a href="../../backend/logout.php">LOGOUT</a></li>    
         </ul>
     </nav>	
     <hr>

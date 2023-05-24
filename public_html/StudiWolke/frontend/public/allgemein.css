@@ -79,8 +79,6 @@ nav a {
 	border-radius: 50%;
 }  
 
-
-
   /* Ordner Icon */
 .ordner img {
 	height: 90px;
@@ -88,7 +86,7 @@ nav a {
 }
 
 .geteilte_ordner img {
-  height: 90px;
+  height: 110px;
   width: auto;
 }
 .papierkorb {
@@ -171,4 +169,13 @@ footer {
   display: block;
   margin: 20px auto 0;
   text-align: center;
+}
+
+/* Icons */
+
+.logout_icons {
+  height: 70px;
+  width: auto;
+  margin: 20px auto 0;
+  text-align: right;
 }

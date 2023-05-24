@@ -172,7 +172,9 @@ else {
             <li><a href= "impressum.php">IMPRESSUM</a></li>
             <li><a href= "datenschutz.php">DATENSCHUTZ</a></li>
             <li><a href= "agbs.php">AGBs</a></li>
-            <li><a href="../../backend/logout.php">LOGOUT</a></li>
+            <div class="logout_icon">
+            <li><a href="../../backend/logout.php"><img src="logout_icon.png" alt="Logout" /> LOGOUT</a></li>
+            </div>
     
         </ul>
     </nav>	

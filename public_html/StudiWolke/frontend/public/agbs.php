@@ -46,7 +46,7 @@ else {
 		</nav>
 </header>
 	<body>
-   <h1> ALLGEMEINE GESCHÄFTSBEDINGUNGEN VON StudiWolke </h1>
+   <h1> Allgemeine Geschäftsbedingungen von StudiWolke </h1>
         <h2>Willkommen bei StudiWolke!</h2>
         <p><b>§ 1 Geltungsbereich und Anbieter</b>
         (1) Die Allgemeinen Geschäftsbedingungen (nachfolgend „AGB" genannt) regeln das Vertragsverhältnis zwischen Studenten GmbH (nachfolgend Anbieter) und Ihnen (nachfolgend Besteller), in ihrer zum Zeitpunkt des Vertragsabschlusses gültigen Fassung.<br>
@@ -55,7 +55,7 @@ else {
         Anspruch nehmen.<br>
         (3) Auf StudiWolke bieten wir Ihnen folgende Dienstleistungen an:
         Dokumente und Daten, Fotos, Filme und sogar Anwendungen müssen Studenten nicht länger nur auf der Festplatte mobiler Geräte oder des PCs zu Hause bearbeiten und speichern. Sie können auf entfernte Server ausgelagert und mit anderen Studenten geteilt werden - in der sogenannte StudiWolke.<br><br>
-        <b>§ 2 Zustandekommen des Vertrages<b><br>
+        <b>§ 2 Zustandekommen des Vertrages</b><br>
         (1) Verträge auf diesem Portal können ausschließlich in deutscher Sprache abgeschlossen werden.<br>
         (2) Der Besteller muss das 18. Lebensiahr vollendet haben.<br>
         (3) Der Zugang zur Nutzung des StudiWolke-Service setzt die Anmeldung voraus.<br>

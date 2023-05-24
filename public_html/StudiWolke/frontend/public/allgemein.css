@@ -6,7 +6,7 @@
 
 /* Allgemeine Stilvorgaben */
 .logo {
-  position: fixed;
+  position: static;
   left: 0;
   top: 0;
 }
@@ -16,7 +16,7 @@
 }
 
 .profilbild {
-  position: fixed;
+  position: static;
   display: inline-block;
   top: 5px;
   right: 20px;

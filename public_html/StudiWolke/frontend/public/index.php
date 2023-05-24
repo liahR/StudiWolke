@@ -180,8 +180,8 @@ if ($statement->execute()) {
             <li><a href= "datenschutz.php">DATENSCHUTZ</a></li>
             <li><a href= "agbs.php">AGBs</a></li>
             <div class="logout_icon">
-            <li><a href="../../backend/logout.php"><img src="logout_icon.png" alt="Logout" /> LOGOUT</a></li>
-            </div>    
+            <li><a href="../../backend/logout.php"><img src="logout_icon.png" alt="Logout" /></a></li>
+            </div> 
         </ul>
     </nav>	
     <hr>

@@ -12,6 +12,23 @@ $benutzer_id = $_SESSION["benutzer_id"];
 //Verbindung zur Datenbank
 $pdo = new PDO('mysql:: host=mars.iuk.hdm-stuttgart.de; dbname=u-lr090', 'lr090', 'eetho6Choh', array('charset' => 'utf8'));
 
+?>
+
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <link rel="stylesheet" type="text/css" href="allgemein.css">
+    <title>Dein Konto</title>
+</head>
+<body>
+<main>
+<header>
+    <div class="logo">
+			<img src="../frontend/public/Logo StudiWolke.png">
+    </div>
+</header>
+
+<?php
 //Daten holen
 $vorname=htmlspecialchars ($_POST ["vorname"]);
 $nachname=htmlspecialchars ($_POST ["nachname"]);
@@ -115,7 +132,12 @@ else
     echo $stmt->errorInfo()[2];
 }
 
-
-
-
 ?>
+
+</main>	
+<footer>
+    <small>&copy; 2023 StudiWolke GmbH & Co. KG</small>
+    <hr>
+</footer>
+</body>
+</html>

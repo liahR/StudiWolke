@@ -21,6 +21,12 @@ $pdo = new PDO('mysql:: host=mars.iuk.hdm-stuttgart.de; dbname=u-lr090', 'lr090'
     <link rel="stylesheet" type="text/css" href="meinstyle.css">
 </head>
 <body>
+<main>
+<header>
+    <div class="logo">
+			<img src="../frontend/public/Logo StudiWolke.png">
+    </div>
+</header>
 <?php
 
 if(empty($_FILES["File"])){
@@ -35,13 +41,13 @@ if(empty($_FILES["File"]["name"])) {
 $type = pathinfo($_FILES ["File"]["name"], PATHINFO_EXTENSION);
 $erlaubteaealer = array ("jpg", "jpeg", "png", "mp3", "mp4", "mov", "wav", "zip", "doc", "docx", "txt", "pdf", "ppt", "pptx", "xls", "xlsx", "gif"); 
 if (!in_array(strtolower($type), $erlaubteaealer)) {
-    die ("Dateityp nicht erlaubt, nur jpg, jpeg, png, mp3, mp4, mov, wav, zip, doc, docx, txt, pdf, ppt, pptx, xls, xlsx, gif");
+    die ("Dateityp nicht erlaubt, nur jpg, jpeg, png, mp3, mp4, mov, wav, zip, doc, docx, txt, pdf, ppt, pptx, xls, xlsx, gif. <a href='../frontend/public/in_ordner.php'>Erneut versuchen</a>");
 }
 
 
 //Dateigröße abfragen 
 if ($_FILES["File"]["size"]>5000000000){
-    die ("Datei ist zu groß");
+    die ("Datei ist zu groß. <a href='../frontend/public/in_ordner.php'>Erneut versuchen</a>");
 }
 
 //zufälliger Name generieren
@@ -61,7 +67,6 @@ if (!move_uploaded_file($_FILES["File"]["tmp_name"], "/home/lr090/public_html/St
     die ("Fehler bei der Übertragung");
 }
 
-// Links müssen absolut sein mit http.mars.iuk,...... MIME Type digga 
 
 //Pfad von der Datei
 $dateipfad = "/home/lr090/public_html/StudiWolke/frontend/dateien/".$string;
@@ -99,5 +104,10 @@ else
     echo $ordner_id;
 }
 ?>
+</main>	
+<footer>
+    <small>&copy; 2023 StudiWolke GmbH & Co. KG</small>
+    <hr>
+</footer>
 </body>
 </html>

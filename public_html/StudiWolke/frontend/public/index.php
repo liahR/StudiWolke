@@ -23,8 +23,6 @@ else {
     <link rel="stylesheet" type="text/css" href="../src/darkmode.css">
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <meta name="theme-color" content="#000000"/>
-    <!--keine Ahnung ob wir das brauchen, deswegen noch drin-->
-    <link rel="manifest" href="%PUBLIC_URL%/manifest.json"/>
     <title>Start</title>
 </head>
 <body>
@@ -92,7 +90,7 @@ else {
     <div class="geteilte_ordner">        
     <img src="geteilte_dateien_ordner.png" alt=" Geteilte Ordner-Icon">
     <h2><a href="in_geteilt.php">Geteilte Dateien</a></h2>
-    </div>
+    </div></div>
 
 <?php        
 // SQL-Abfrage zum Abrufen der Ordner 
@@ -116,7 +114,10 @@ if ($statement->execute()) {
         echo '</div>';
         $_SESSION["ordner_id"] = $row["ordner_id"];
     }
-} </div>
+} 
+?>
+</div>
+<?php
     // Sortierungsfunktion 
     function sortByName($a, $b)
     {

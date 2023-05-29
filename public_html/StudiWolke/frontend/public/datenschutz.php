@@ -16,6 +16,7 @@ else {
 <html lang="de">
 <head>
     <meta charset="UTF-8">
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" id="favicon">
     <link rel="stylesheet" type="text/css" href="allgemein.css">
     <title>Datenschutz</title>
 </head>

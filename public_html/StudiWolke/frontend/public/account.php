@@ -15,6 +15,7 @@ else {
 <!DOCTYPE html>
 <html lang="de">
 <head>
+	<link rel="shortcut icon" type="image/x-icon" href="favicon.ico" id="favicon">
 	<link rel="stylesheet" type="text/css" href="allgemein.css">
 	<title>Dein Konto</title>
 </head>

@@ -5,7 +5,22 @@ $pdo = new PDO('mysql:: host=mars.iuk.hdm-stuttgart.de;
 dbname=u-lr090', 'lr090', 'eetho6Choh',
     array('charset' => 'utf8'));
 
+?>
 
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <link rel="stylesheet" type="text/css" href="allgemein.css">
+    <title>Dein Konto</title>
+</head>
+<body>
+<main>
+<header>
+    <div class="logo">
+			<img src="../frontend/public/Logo StudiWolke.png">
+    </div>
+</header>
+<?php
 
 $nutzername=htmlspecialchars ($_POST ["nutzername"]);
 $passwort=$_POST ["passwort"];
@@ -33,4 +48,13 @@ else
 else {
     echo "Fehler";
 }
+
+?>
+</main>	
+<footer>
+    <small>&copy; 2023 StudiWolke GmbH & Co. KG</small>
+    <hr>
+</footer>
+</body>
+</html>
 

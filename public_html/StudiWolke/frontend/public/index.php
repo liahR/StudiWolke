@@ -172,7 +172,6 @@ if ($statement->execute()) {
 
     </main>
  <footer>
-    <hr>
     <div class="logo_footer">
 			<a href="index.php"><img src="Logo StudiWolke.png"></a>
 		</div>
@@ -186,9 +185,7 @@ if ($statement->execute()) {
     <div class="logout_icon">
         <a href="../../backend/logout.php"><img src="logout_icon.png" alt="Logout" /></a>
         </div>	
-    <hr>
-    <small class="footer_copyright">&copy; 2023 StudiWolke GmbH & Co. KG</small>
-    <hr>
+    <div class="footer_copyright"><br><br><br><br> &copy; 2023 StudiWolke GmbH & Co. KG</div>
 </footer>
 </main>
 

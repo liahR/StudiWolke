@@ -119,7 +119,12 @@ nav a {
 
 /* Footer-Elemente */
 footer {
-	display: flex;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+	width: 100%;
+  height: 100px; /* Höhe des Footers */
+  display: flex;
 	align-items: center;
 	justify-content: space-between;
   background: linear-gradient(to right, #fff, #FF69B4, #18A0FB);
@@ -166,14 +171,13 @@ footer {
 }
 
 /* Positioniere das Copyright */
-.footer_copyright {
-  display: block;
-  margin: 20px auto 0;
-  text-align: center;
+footer .footer_copyright {
+  margin: 30px auto auto 80px;
+  font-size: 80%;
+  color: lightgray;
 }
 
 /* Icons */
-
 .logout_icon a img{
   height: 50px;
   width: auto;

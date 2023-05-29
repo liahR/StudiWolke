@@ -13,7 +13,17 @@ body {
 
 header {
     background-color: white;
+    
 }
+.logo {
+    position: static;
+    left: 0;
+    top: 0;
+  }
+  .logo img {
+      height: 70px;
+    width: auto;
+  }
 
 .login-container {
     max-width: 400px;
@@ -49,7 +59,7 @@ header {
   .cloud-button:after {
     content: "";
     position: absolute;
-    background-color: #174e72;
+    background-color: white;
     border-radius: 50%;
     transform: scale(1);
     transition: transform 0.3s;

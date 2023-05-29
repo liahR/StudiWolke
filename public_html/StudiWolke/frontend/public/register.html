@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-    <link rel="stylesheet" type="text/css" href="allgemein.css">
+    <link rel="stylesheet" type="text/css" href="login.css">
     <meta charset="UTF-8">
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
@@ -15,7 +15,7 @@
         </div>
     </header>
 <main>
-    <fieldset>
+    <div class="login-container">
     <h1>Anmelden</h1>
     <form action ="../../backend/register_do.php" method ="post" enctype="multipart/form-data">
     
@@ -43,13 +43,12 @@
         Profilbild hochladen <br>
         <input type="file" name="profilbild" required>
     </p>
-    <button type="submit">Jetzt anmelden</button>
-    </fieldset>
+    <button class="cloud-button" type="submit">Jetzt anmelden</button>
 </main>
 <footer>
     <hr>
-    <div class="logo">
-			<a href="index.php"><img src="Logo StudiWolke.png"></a>
+    <div class="logo_footer">
+        <a href="index.php"><img src="Logo StudiWolke.png"></a>
 		</div>	
     <hr>
     <small>&copy; 2023 StudiWolke GmbH & Co. KG</small>

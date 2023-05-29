@@ -1,98 +1,121 @@
 <?php
 session_start();
-
-// Prüfen, ob Benutzer eingeloggt ist
-if(!isset($_SESSION['benutzer_id'])) {
-    // Benutzer ist nicht eingeloggt, Weiterleitung zur Login-Seite
-    header("Location: login.html");
-    exit();
+// Prüfen ob Benutzer nicht eingeloggt ist  
+if (!isset($_SESSION["benutzer_id"]))
+{
+header("Location: login.html");
+}
+else {
+$benutzer_id = $_SESSION["benutzer_id"];
 }
 
-// Verbindung zur Datenbank herstellen
-$pdo = new PDO('mysql:: host=mars.iuk.hdm-stuttgart.de; dbname=u-lr090', 'lr090', 'eetho6Choh', array('charset'=>'utf8'));
-if ($pdo->connect_error) {
-    die("Verbindung fehlgeschlagen: " . $pdo->connect_error);
+//Verbindung zur Datenbank
+$pdo = new PDO('mysql:: host=mars.iuk.hdm-stuttgart.de; dbname=u-lr090', 'lr090', 'eetho6Choh', array('charset' => 'utf8'));
+
+//Daten holen
+$vorname=htmlspecialchars ($_POST ["vorname"]);
+$nachname=htmlspecialchars ($_POST ["nachname"]);
+$email=htmlspecialchars ($_POST ["email"]);
+$nutzername=htmlspecialchars ($_POST ["nutzername"]);
+$passwort= $_POST ["passwort"];
+
+if (!empty($_POST ["passwort"])) {
+    // Passwort hashen
+    $hashp= password_hash("$passwort", PASSWORD_BCRYPT);
+
+    if(!isset($hashp) | !isset($benutzer_id))
+{
+    die("Formular-Fehler");
+
+    $stmt = $pdo->prepare("UPDATE benutzer SET passwort=:passwort WHERE benutzer_id=:benutzer_id");
+    $stmt->bindParam(":passwort", $hashp);
+    $stmt->bindParam(":benutzer_id", $benutzer_id);
+
+    if ($stmt->execute())
+    {
+        echo "Änderungen erfolgreich übernommen";
+    }
+    else
+    {
+        echo "Fehler aufgetreten";
+        echo $stmt->errorInfo()[2];
+    }
+}}
+
+
+if (!empty($_FILES['profilbild']['name'])) {
+    //erlaubter Typ
+    $type = pathinfo($_FILES ["profilbild"]["name"], PATHINFO_EXTENSION);
+    $erlaubteaealer = array ("jpg", "jpeg", "png"); 
+    if (!in_array(strtolower($type), $erlaubteaealer)) {
+        die ("Dateityp" .$type. "nicht erlaubt, nur jpg, jpeg, png. <a href='../frontend/public/account.php'>Erneut versuchen</a>");
+    }
+
+    if ($_FILES["profilbild"]["size"]>9000000){
+        die ("Datei ist zu groß. <a href='../frontend/public/account.php'>Erneut versuchen</a>");
+    }
+
+    //zufälliger Name
+    $s='1234567890ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+    $s.="abcdefghijklmnopqrstuvwxyz";
+    $string='';
+    for ($i=0; $i<20; $i++){
+        $index=rand(0, strlen($s)-1);
+        $string.=$s[$index];
+    }
+    $string.=".".$type;
+
+    if (!move_uploaded_file($_FILES["profilbild"]["tmp_name"], "/home/lr090/public_html/StudiWolke/frontend/profilbilder/".$string)){
+        die ("Fehler bei der Übertragung");
+    }
+
+    if(!isset($string) | !isset($benutzer_id))
+{
+    die("Formular-Fehler");
 }
 
-// SQL-Abfrage zum Abrufen der Benutzerdaten
-$stmt = $pdo->prepare("SELECT * FROM benutzer WHERE benutzer_id=:benutzer_id");
-$stmt->bindValue(':benutzer_id', $_SESSION['benutzer_id']);
-$stmt->execute();
-$benutzer = $stmt->fetch(PDO::FETCH_ASSOC);
+    $stmt = $pdo->prepare("UPDATE benutzer SET profilbild=:profilbild WHERE benutzer_id=:benutzer_id");
+    $stmt->bindParam(":profilbild", $string);
+    $stmt->bindParam(":benutzer_id", $benutzer_id);
 
-// Verarbeitung der Formulardaten
-if (isset($_POST['submit'])) {
-    $vorname = isset($_POST['vorname']) ? trim($_POST['vorname']) : '';
-    $nachname = isset($_POST['nachname']) ? trim($_POST['nachname']) : '';
-    $email = isset($_POST['email']) ? trim($_POST['email']) : '';
-    $nutzername = isset($_POST['nutzername']) ? trim($_POST['nutzername']) : '';
-    $passwort = isset($_POST['passwort']) ? trim($_POST['passwort']) : '';
+    if ($stmt->execute())
+    {
+        echo "Änderungen erfolgreich übernommen";
+    }
+    else
+    {
+        echo "Fehler aufgetreten";
+        echo $stmt->errorInfo()[2];
+    }
+}
+
+
+
+
+if(!isset($vorname) | !isset($nachname) | !isset($email) | !isset($nutzername) | !isset($benutzer_id))
+{
+    die("Formular-Fehler");
+}
+
+
+$stmt = $pdo->prepare("UPDATE benutzer SET vorname=:vorname, nachname=:nachname, email=:email, nutzername=:nutzername WHERE benutzer_id=:benutzer_id");
+$stmt->bindParam(':vorname', $vorname);
+$stmt->bindParam(':nachname', $nachname);
+$stmt->bindParam(':email', $email);
+$stmt->bindParam(':nutzername', $nutzername);
+$stmt->bindParam(":benutzer_id", $benutzer_id);
     
-    // Überprüfen, ob ein Profilbild hochgeladen wurde
-    if(isset($_FILES['profilbild']) && $_FILES['profilbild']['error'] === 0) {
-        // Pfad zum temporären Upload-Verzeichnis
-        $tmp_path = $_FILES['profilbild']['tmp_name'];
-        // Pfad zum Zielverzeichnis (in diesem Beispiel der Ordner "uploads" im selben Verzeichnis wie die PHP-Datei)
-        $target_path = dirname(__FILE__) . '/uploads/' . basename($_FILES['profilbild']['name']);
-        // Datei in Zielverzeichnis verschieben
-        if(move_uploaded_file($tmp_path, $target_path)) {
-            // Datei erfolgreich hochgeladen, Pfad in Datenbank speichern
-            $stmt = $pdo->prepare("UPDATE benutzer SET profilbild=:profilbild WHERE benutzer_id=:benutzer_id");
-            $stmt->bindParam(':profilbild', $target_path);
-            $stmt->bindParam(':benutzer_id', $_SESSION['benutzer_id']);
-            $stmt->execute();
-            $benutzer['profilbild'] = $target_path;
-        } else {
-            // Fehler beim Hochladen der Datei
-            $error_msg = 'Fehler beim Hochladen des Profilbilds.';
-        }
-    }
-    
-    // Überprüfen, ob Vorname geändert wurde
-    if(!empty($vorname) && $vorname !== $benutzer['vorname']) {
-        $stmt = $pdo->prepare("UPDATE benutzer SET vorname=:vorname WHERE benutzer_id=:benutzer_id");
-        $stmt->bindParam(':vorname', $vorname);
-        $stmt->bindParam(':benutzer_id', $_SESSION['benutzer_id']);
-        $stmt->execute();
-        $benutzer['vorname'] = $vorname;
-    }
-    // Überprüfen, ob Nachname geändert wurde
-    if(!empty($nachname) && $nachname !== $benutzer['nachname']) {
-        $stmt = $pdo->prepare("UPDATE benutzer SET nachname=:nachname WHERE benutzer_id=:benutzer_id");
-        $stmt->bindParam(':nachname', $nachname);
-        $stmt->bindParam(':benutzer_id', $_SESSION['benutzer_id']);
-        $stmt->execute();
-        $benutzer['nachname'] = $nachname;
-    }
-
-    // Überprüfen, ob E-Mail-Adresse geändert wurde
-    if(!empty($email) && $email !== $benutzer['email']) {
-        $stmt = $pdo->prepare("UPDATE benutzer SET email=:email WHERE benutzer_id=:benutzer_id");
-        $stmt->bindParam(':email', $email);
-        $stmt->bindParam(':benutzer_id', $_SESSION['benutzer_id']);
-        $stmt->execute();
-        $benutzer['email'] = $email;
-    }
-
-    // Überprüfen, ob Nutzername geändert wurde
-    if(!empty($nutzername) && $nutzername !== $benutzer['nutzername']) {
-        $stmt = $pdo->prepare("UPDATE benutzer SET nutzername=:nutzername WHERE benutzer_id=:benutzer_id");
-        $stmt->bindParam(':nutzername', $nutzername);
-        $stmt->bindParam(':benutzer_id', $_SESSION['benutzer_id']);
-        $stmt->execute();
-        $benutzer['nutzername'] = $nutzername;
-    }
-
-    // Überprüfen, ob Passwort geändert wurde
-    if(!empty($passwort)) {
-        $passwort_hash = password_hash($passwort, PASSWORD_DEFAULT);
-        $stmt = $pdo->prepare("UPDATE benutzer SET passwort=:passwort WHERE benutzer_id=:benutzer_id");
-        $stmt->bindParam(':passwort', $passwort_hash);
-        $stmt->bindParam(':benutzer_id', $_SESSION['benutzer_id']);
-        $stmt->execute();
-    }
-
-// Erfolgsmeldung anzeigen
-header("Location: ../frontend/public/account.php");
+if ($stmt->execute())
+{
+    header("Location: ../frontend/public/account.php");
 }
+else
+{
+    echo "Fehler aufgetreten";
+    echo $stmt->errorInfo()[2];
+}
+
+
+
+
 ?>

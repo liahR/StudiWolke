@@ -163,25 +163,21 @@ else {
         (4) Wir behalten uns das Recht vor, Änderungen an unserer Webseite, Regelwerken, Bedingungen einschließlich dieser AGB jederzeit vorzunehmen. Auf Ihre Bestellung finden jeweils die Verkaufsbedingungen, Vertragsbedingungen und AGB Anwendung, die zu dem Zeitpunkt Ihrer Bestellung in Kraft sind, es sei denn eine Änderung an diesen Bedingungen ist gesetzlich oder auf behördliche Anordnung erforderlich (in diesem Fall finden sie auch auf Bestellungen Anwendung, die Sie zuvor getätigt haben). Falls eine Regelung in diesen Verkaufsbedingungen unwirksam, nichtig oder aus irgendeinem Grund undurchsetzbar ist, gilt diese Regelung als trennbar und beeinflusst die Gültigkeit und Durchsetzbarkeit der verbleibenden Regelungen nicht.<br>
         (5) Die Unwirksamkeit einer Bestimmung berührt die Wirksamkeit der anderen Bestimmungen aus dem Vertrag nicht. Sollte dieser Fall eintreten, soll die Bestimmung nach Sinn und Zweck durch eine andere rechtlich zulässige Bestimmung ersetzt werden, die dem Sinn und Zweck der unwirksamen Bestimmung entspricht.<br>
     </p>
-	<footer>
-    <hr>
-    <div class="logo">
+    <footer>
+    <div class="logo_footer">
 			<a href="index.php"><img src="Logo StudiWolke.png"></a>
 		</div>
     <nav>
-        <ul>
-            <li><a href= "impressum.php">IMPRESSUM</a></li>
+        <ul class= "footer_links" >
+        <li><a href= "impressum.php">IMPRESSUM</a></li>
             <li><a href= "datenschutz.php">DATENSCHUTZ</a></li>
-            <li><a href= "agbs.php">AGBs</a></li>
-            <div class="logout_icon">
-            <li><a href="../../backend/logout.php"><img src="logout_icon.png" alt="Logout" /></a></li>
-            </div>
-    
+            <li><a href= "agbs.php">AGBs</a></li>  
         </ul>
-    </nav>	
-    <hr>
-    <small>&copy; 2023 StudiWolke GmbH & Co. KG</small>
-    <hr>
+    </nav>
+    <div class="logout_icon">
+        <a href="../../backend/logout.php"><img src="logout_icon.png" alt="Logout" /></a>
+        </div>	
+    <div class="footer_copyright"><br><br><br><br> &copy; 2023 StudiWolke GmbH & Co. KG</div>
 </footer>    
 </body>
 </html>

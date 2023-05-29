@@ -180,12 +180,12 @@ if ($statement->execute()) {
         <ul class= "footer_links" >
         <li><a href= "impressum.php">IMPRESSUM</a></li>
             <li><a href= "datenschutz.php">DATENSCHUTZ</a></li>
-            <li><a href= "agbs.php">AGBs</a></li>
-            <div class="logout_icon">
-            <li><a href="../../backend/logout.php"><img src="logout_icon.png" alt="Logout" /></a></li>
-            </div> 
+            <li><a href= "agbs.php">AGBs</a></li>  
         </ul>
-    </nav>	
+    </nav>
+    <div class="logout_icon">
+        <a href="../../backend/logout.php"><img src="logout_icon.png" alt="Logout" /></a>
+        </div>	
     <hr>
     <small class="footer_copyright">&copy; 2023 StudiWolke GmbH & Co. KG</small>
     <hr>

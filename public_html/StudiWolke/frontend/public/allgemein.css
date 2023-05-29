@@ -174,9 +174,8 @@ footer {
 
 /* Icons */
 
-.footer_links .logout_icon {
-  height: 70px;
+.logout_icon a img{
+  height: 50px;
   width: auto;
-  margin: 20px auto 0;
-  text-align: right;
+  padding-left: 20px;
 }

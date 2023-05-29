@@ -18,6 +18,7 @@ else {
     <meta charset="utf-8"/>
     <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" id="favicon">
     <link rel="stylesheet" type="text/css" href="allgemein.css">
+    <link rel="stylesheet" type="text/css" href="ansicht.css">
     <!-- Verknüpfen der CSS-Datei für den Dark-Mode -->
     <link rel="stylesheet" type="text/css" href="../src/darkmode.css">
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
@@ -85,9 +86,10 @@ else {
 
     </script> 
     </div> 
-
-    <!-- Geteilte Dateien Ordner fix -->
-    <div class="geteilte_ordner">
+<div class="Ordner-Struktur">
+    <!-- Geteilte Dateien Ordner (fix) -->
+    <div class="item">
+    <div class="geteilte_ordner">        
     <img src="geteilte_dateien_ordner.png" alt=" Geteilte Ordner-Icon">
     <h2><a href="in_geteilt.php">Geteilte Dateien</a></h2>
     </div>
@@ -99,23 +101,22 @@ $statement->bindParam(':benutzer_id', $benutzer_id);
 
 if ($statement->execute()) {
     while ($row = $statement->fetch()) {
+        echo '<div class="item">';
         echo '<ul id="ordner-liste">';
         echo '<li>';
         echo '<div class="ordner">';
         echo '<img src="cloud-ordner.png" alt="Ordner-Icon">';
         echo '</div>';
         echo '<h2><a href="in_ordner.php">' . $row['ordnername_original'] . '</a></h2>';
-        echo '<div class="papierkorb">';
-        // Lösch-Buttons
-        echo '<form action="backend/delete_file_do.php" method="post">';
         echo '<input type="hidden" name="datei_id" value='.$datei_id.'>';
         echo '<button type="submit">Löschen</button>';
         echo '</form>';
         echo '</li>';
         echo '</ul>';
+        echo '</div>';
         $_SESSION["ordner_id"] = $row["ordner_id"];
     }
-}
+} </div>
     // Sortierungsfunktion 
     function sortByName($a, $b)
     {

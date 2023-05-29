@@ -14,3 +14,12 @@
     height: 45px;
     width: auto;   
 }
+
+.Ordner-Struktur{
+    display: flex;
+}
+
+.item {
+    flex: 1;
+    margin: 10px;
+}

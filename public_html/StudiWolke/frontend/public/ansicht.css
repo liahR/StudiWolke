@@ -1,0 +1,16 @@
+#geteilte_datei-liste {
+    list-style: none;
+    border-style: solid;
+
+}
+
+#geteilte_datei-liste a {
+    text-decoration: none;
+    color:black;
+
+}
+
+#geteilte_datei-liste img {
+    height: 45px;
+    width: auto;   
+}

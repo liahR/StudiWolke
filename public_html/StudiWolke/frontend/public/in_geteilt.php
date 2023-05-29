@@ -18,6 +18,7 @@ else {
     <meta charset="utf-8"/>
     <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" id="favicon">
     <link rel="stylesheet" type="text/css" href="allgemein.css">
+    <link rel="stylesheet" type="text/css" href="ansicht.css">
     <!-- Verknüpfen der CSS-Datei für den Dark-Mode -->
     <link rel="stylesheet" type="text/css" href="../src/darkmode.css">
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
@@ -35,7 +36,7 @@ else {
      if ($stmt->execute()) {
         while ($row=$stmt->fetch()) {
             if (!empty($row["profilbild"])) {
-                echo '<div class="profilbild">'. "<a href = 'account.php'><img src='https://mars.iuk.hdm-stuttgart.de/~lr090/StudiWolke/frontend/profilbilder/".$row["profilbild"]. "'height='80px'></a>";
+                echo '<div class="profilbild"><a href = "account.php"><img src="https://mars.iuk.hdm-stuttgart.de/~lr090/StudiWolke/frontend/profilbilder/' . $row["profilbild"] . '"></a></div>';
             }
         }
      }
@@ -71,7 +72,7 @@ if ($row = $statement->fetch()){
                     echo "<ul id='geteilte_datei-liste'>";
                         echo "<li>";
                             echo "<a href=".$row["dateipfad"] . "' target ='blank' >". $row["dateiname_original"]. "</a><br>";
-                            echo "<a href='delete_file_do.php".$row["dateiname_zufall"] . "'>Löschen</a><br>";
+                            echo "<a href='delete_file_do.php".$row["dateiname_zufall"] . "'><img src='papierkorb.png' alt='Papierkorb'/></a><br>";
                         echo "</li>";
                     echo "</ul>";
                 }

@@ -116,7 +116,7 @@ if ($statement->execute()) {
         echo '</div>';
         $_SESSION["ordner_id"] = $row["ordner_id"];
     }
-} </div>
+} 
     // Sortierungsfunktion 
     function sortByName($a, $b)
     {

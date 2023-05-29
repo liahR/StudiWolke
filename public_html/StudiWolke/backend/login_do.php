@@ -11,9 +11,6 @@ $nutzername=htmlspecialchars ($_POST ["nutzername"]);
 $passwort=$_POST ["passwort"];
 
 
-//kann das echo nicht raus????????
-echo $nutzername.$passwort;
-
 $statement = $pdo->prepare ('SELECT * FROM benutzer WHERE nutzername=:nutzername');
 $statement->bindParam(':nutzername',$nutzername);
 

@@ -49,12 +49,19 @@ else {
 	<h1>Hallo, <?php echo $vorname; ?>!</h1>
 	
 	<form action="../../backend/account_do.php" method="post" enctype="multipart/form-data">
-		<!-- schleife machen um profilbild aus datenbank zu holen -->
 		<label for="profilbild">Profilbild ändern:</label><br>
-		<div class="profilbild-container">
-  		<img src="<?php echo 'https://mars.iuk.hdm-stuttgart.de/~lr090/StudiWolke/frontend/profilbilder/'.$profilbild; ?> "height='80px'  alt="Profilbild">
+		<?php // SQL-Abfrage zum Abrufen des Profilbilds des Benutzers
+     	$stmt = $pdo->prepare("SELECT profilbild FROM benutzer WHERE benutzer_id=:benutzer_id");
+     	$stmt->bindValue(':benutzer_id', $_SESSION['benutzer_id']);
+     	if ($stmt->execute()) {
+        	while ($row=$stmt->fetch()) {
+            	if (!empty($row["profilbild"])) {
+                	echo '<div class="profilbild"><img src="https://mars.iuk.hdm-stuttgart.de/~lr090/StudiWolke/frontend/profilbilder/' . $row["profilbild"] . '"></a></div>';
+            	}
+        	}
+     	} ?><br>
   		<input type="file" name="profilbild" id="profilbild">
-		</div><br>
+		<br>
 	
 		<label for="vorname">Vorname ändern:</label><br>
 		<input type="text" name="vorname" id="vorname" value="<?php echo $vorname; ?>"><br>

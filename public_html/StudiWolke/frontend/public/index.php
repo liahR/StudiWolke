@@ -99,7 +99,7 @@ else {
 <div class="Ordner-Struktur">
     <!-- Geteilte Dateien Ordner (fix) -->
     <div class="geteilte_ordner">        
-    <img src="geteilte_dateien_ordner.png" alt=" Geteilte Ordner-Icon">
+    <img src="geteilte-ordner.png" alt=" Geteilte Dateien Ordner-Icon">
     <h2><a href="in_geteilt.php">Geteilte Dateien</a></h2>
     </div>
 

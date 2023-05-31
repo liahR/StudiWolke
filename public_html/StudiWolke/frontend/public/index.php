@@ -100,9 +100,12 @@ else {
     </div> <br>
 <div class="Ordner-Struktur">
     <!-- Geteilte Dateien Ordner (fix) -->
-    <div class="geteilte_ordner">        
+    
+    <div class="geteilte_ordner"><br>        
     <img src="geteilte-ordner.png" alt=" Geteilte Dateien Ordner-Icon">
-    <h2><a href="in_geteilt.php">Geteilte Dateien</a></h2>
+    <form action="in_geteilt.php" method="post">
+    <h2><button type="submit">Geteilte Dateien</button></h2>
+    </form>
     </div>
 
 <?php        

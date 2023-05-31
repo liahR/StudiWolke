@@ -123,7 +123,7 @@ if ($statement->execute()) {
         echo '</form>';
         // Lösch-Buttons
         echo "<form action='../../backend/delete_ordner_do.php' method='post'>";
-        echo "<input type='hidden' name='datei_id' value=".$ordner_id.">";
+        echo "<input type='hidden' name='ordner_id' value=".$ordner_id.">";
         echo "<div class='papierkorb'>";
         echo "<button type='submit'><img src='papierkorb.png' alt='Papierkorb'></button>";
         echo '</div>';

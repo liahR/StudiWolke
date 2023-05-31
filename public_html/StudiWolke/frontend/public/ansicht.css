@@ -34,7 +34,9 @@
     border-radius: 5px;
     font-size: 15px;
     padding: 5px;
+    cursor: pointer;
 }
+
 
 /*in ordner*/
 #datei-liste li {
@@ -73,6 +75,7 @@
     color: white;
     border-color: #18A0FB;
     border-radius: 5px;
+    cursor: pointer;
   } 
 
   .button:hover {

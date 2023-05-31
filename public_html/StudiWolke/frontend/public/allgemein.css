@@ -5,8 +5,18 @@
   }
 
 /* Allgemeine Stilvorgaben */
+
+html {
+  margin: 5px;
+  padding: 10px;
+  height: 100%;
+}
+
 body {
-  background-color: linear-gradient(to bottom, #ffffff, #18A0FB);
+  background: rgb(191,191,232);
+  background: radial-gradient(circle, #91ccf3  0%, rgba(241,241,241,1) 100%);
+  min-height: 100%;
+  position: relative;
 }
 
 .logo {
@@ -106,16 +116,17 @@ header {
 
 /* Footer-Elemente */
 footer {
-  position: relative;
-	bottom: 0px;
-  left: 0px;
+  position: absolute;
+	bottom: 0;
   width: 100%;
+  height: 80px;
   display: flex;
 	align-items: center;
 	justify-content: space-between;
   background: rgb(164, 220, 255);
 	color: white;
 	padding: 10px;
+  
 }
 
 .footer a:hover {

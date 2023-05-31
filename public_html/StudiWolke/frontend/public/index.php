@@ -100,9 +100,12 @@ else {
     </div> <br>
 <div class="Ordner-Struktur">
     <!-- Geteilte Dateien Ordner (fix) -->
-    <div class="geteilte_ordner">        
+    
+    <div class="geteilte_ordner"><br>        
     <img src="geteilte-ordner.png" alt=" Geteilte Dateien Ordner-Icon">
-    <h2><a href="in_geteilt.php">Geteilte Dateien</a></h2>
+    <form action="in_geteilt.php" method="post">
+    <h2><button class="ordnernamen" type="submit">Geteilte Dateien</button></h2>
+    </form>
     </div>
 
 <?php        
@@ -121,7 +124,7 @@ if ($statement->execute()) {
         //Button für in ordner
         echo '<form action="in_ordner.php" method="post">';
         echo '<input type="hidden" name="ordner_id" value="' . $row['ordner_id'] . '">';
-        echo '<h2><button type="submit">' . $row['ordnername_original'] . '</button></h2>';
+        echo '<h2><button class="ordnernamen" type="submit">' . $row['ordnername_original'] . '</button></h2>';
         echo '</form>';
         // Lösch-Buttons
         echo "<form action='../../backend/delete_ordner_do.php' method='post'>";

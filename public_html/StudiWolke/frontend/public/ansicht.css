@@ -28,6 +28,12 @@
 
 }
 
+/*in ordner*/
+#datei-liste li {
+    list-style: none;
+}
+
+
 /*papierkorb*/
 
 .papierkorb img {

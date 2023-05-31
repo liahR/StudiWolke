@@ -77,7 +77,7 @@ else {
     <!-- Vornamen ausgeben um zu willkommen -->
     <h1><?php echo $row['vorname']; ?> 's Wolke! </h1>
 
-
+    <!-- Ordner erstellen -->
     <div id="Folder" style="display:none;">
         <form id="CreateFolder" action="../../backend/create_ordner_do.php" method="post">
             Ordner erstellen: <br>

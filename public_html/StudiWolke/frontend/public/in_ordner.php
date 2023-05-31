@@ -106,64 +106,7 @@ $pdo = new PDO('mysql:: host=mars.iuk.hdm-stuttgart.de; dbname=u-lr090', 'lr090'
         }
     </script> 
 
-<?php
-    //neues If für Sortieren
-    if ($statement->execute()) {
-        $rows = $statement->fetchAll(PDO::FETCH_ASSOC);
-    }
-
-    // Sortierungsfunktion
-    function sortByName($a, $b)
-    {
-        return strcmp($a['dateiname_original'], $b['dateiname_original']);
-    }
-
-    // Standard-Sortierreihenfolge (nach ID)
-    usort($rows, function ($a, $b) {
-        return $a['datei_id'] - $b['datei_id'];
-    });
-
-    // Button zum Sortieren nach Namen
-    echo '<button onclick="sortByName()">Nach Namen sortieren</button>';
-
-    // Suchfeld
-    echo '<input type="text" id="search-input" oninput="searchFolders()" placeholder="Suche nach Dateien...">';
-
-?>
-
-    <!-- JavaScript-Code zum Sortieren und Suchen der Liste -->
-    <script>
-        function sortByName() {
-        var list = document.getElementById("ordner-liste");
-        var items = list.getElementsByTagName("li");
-        var arr = Array.prototype.slice.call(items);
-
-        arr.sort(function(a, b) {
-        var aName = a.getElementsByTagName("h2")[0].textContent;
-        var bName = b.getElementsByTagName("h2")[0].textContent;
-        return aName.localeCompare(bName);
-        });
-        for (var i = 0; i < arr.length; i++) {
-        list.appendChild(arr[i]);
-        }
-        }
-
-        function searchFolders() {
-        var input = document.getElementById("search-input");
-        var filter = input.value.toUpperCase()
-        var list = document.getElementById("ordner-liste");
-        var items = list.getElementsByTagName("li");
-             for (var i = 0; i < items.length; i++) {
-        var name = items[i].getElementsByTagName("h2")[0].textContent;
-
-        if (name.toUpperCase().indexOf(filter) > -1) {
-            items[i].style.display = "";
-        } else {
-            items[i].style.display = "none";
-        }
-        }
-        }
-        </script>
+   
 
 
 <!--Hole die Dateien des Ordners SACHE MIT DATEI_ID FÜR TEILEN VERSTEHEN-->

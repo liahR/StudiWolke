@@ -141,31 +141,7 @@ if ($statement->execute()) {
 } 
 ?>
 </div>
-    
-    <!-- Suchfeld -->
-    <input type="text" id="search-input" oninput="searchFolders()" placeholder="Suche nach Dateien...">
-    <br>    
 
-
-  <!-- JavaScript-Code zum Sortieren und Suchen der Liste -->
-        <script>
-
-        function searchFolders() {
-        var input = document.getElementById("search-input");
-        var filter = input.value.toUpperCase()
-        var list = document.getElementById("ordner-liste");
-        var items = list.getElementsByTagName("li");
-             for (var i = 0; i < items.length; i++) {
-        var name = items[i].getElementsByTagName("button")[0].textContent;
-
-        if (name.toUpperCase().indexOf(filter) > -1) {
-            items[i].style.display = "block";
-        } else {
-            items[i].style.display = "none";
-        }
-        }
-        }
-        </script>
 
 
     </main>

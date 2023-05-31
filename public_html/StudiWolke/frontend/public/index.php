@@ -106,7 +106,6 @@ $statement->bindParam(':benutzer_id', $benutzer_id);
 if ($statement->execute()) {
     while ($row = $statement->fetch()) {
         $ordner_id = $row['ordner_id'];
-        echo '<div class="item">';
         echo '<ul id="ordner-liste">';
         echo '<li>';
         echo '<div class="ordner">';
@@ -116,11 +115,12 @@ if ($statement->execute()) {
         // Lösch-Buttons
         echo "<form action='../../backend/delete_ordner_do.php' method='post'>";
         echo "<input type='hidden' name='datei_id' value=".$ordner_id.">";
+        echo "<div class=papierkorb>";
         echo "<button type='submit'><img src='papierkorb.png' alt='Papierkorb'></button>";
+        echo '</div>';
         echo "</form>";
         echo '</li>';
         echo '</ul>';
-        echo '</div>';
         $_SESSION["ordner_id"] = $row["ordner_id"];
     }
 } 

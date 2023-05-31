@@ -147,7 +147,7 @@ footer .footer_copyright {
 }
 
 .ordner_erstellen_icon img,
-.datei_erstellen_icon,
+.datei_erstellen_icon img,
 .support_icon img {
   height: 70px;
   width: 70px;
@@ -158,15 +158,11 @@ footer .footer_copyright {
 .support_icon a {
   display: flex;
   align-items: center;
-  border-color: #18A0FB ;
-  border: 0,5px;
 }
 
 .ordner_erstellen_icon button,
 .datei_erstellen_icon {
   background: none;
-  border-color: #18A0FB ;
-  border: 0,5px;
   padding: 0;
   cursor: pointer;
   

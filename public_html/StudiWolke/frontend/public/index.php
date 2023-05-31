@@ -113,7 +113,11 @@ if ($statement->execute()) {
         echo '<div class="ordner">';
         echo '<img src="cloud-ordner.png" alt="Ordner-Icon">';
         echo '</div>';
-        echo '<h2><a href="in_ordner.php">' . $row['ordnername_original'] . '</a></h2>';
+        //Button für in ordner
+        echo '<form action="in_ordner.php" method="post">';
+        echo '<input type="hidden" name="ordner_id" value="' . $row['ordner_id'] . '">';
+        echo '<h2><button type="submit">' . $row['ordnername_original'] . '</button></h2>';
+        echo '</form>';
         // Lösch-Buttons
         echo "<form action='../../backend/delete_ordner_do.php' method='post'>";
         echo "<input type='hidden' name='datei_id' value=".$ordner_id.">";
@@ -123,7 +127,6 @@ if ($statement->execute()) {
         echo "</form>";
         echo '</li>';
         echo '</ul>';
-        $_SESSION["ordner_id"] = $row["ordner_id"];
     }
 } 
 ?>

@@ -28,38 +28,41 @@ else {
 <body>
 
 <header>
-    <?php
-     // SQL-Abfrage zum Abrufen des Profilbilds des Benutzers
-     $stmt = $pdo->prepare("SELECT profilbild FROM benutzer WHERE benutzer_id=:benutzer_id");
-     $stmt->bindValue(':benutzer_id', $_SESSION['benutzer_id']);
-     if ($stmt->execute()) {
-        while ($row=$stmt->fetch()) {
+  <div class="logo">
+    <a href="index.php"><img src="Logo StudiWolke.png"></a>
+  </div>
+  <nav>
+    <ul>
+      <li>
+        <div class="support_icon">
+          <a href="hilfe.php">
+            <img src="support_icon.png" alt="Support Icon">
+            <span style="display: none;">Support</span>
+          </a>
+        </div>
+        <div class="ordner_erstellen_icon">
+          <button onclick="openCreateFolder()"><img src="ordner_erstellen_icon.png" alt="Ordner Erstellen Icon"></button>
+          <span style="display: none;">Ordner erstellen</span>
+        </div>
+      </li>
+      <li class="profilbild">
+        <?php
+        // SQL-Abfrage zum Abrufen des Profilbilds des Benutzers
+        $stmt = $pdo->prepare("SELECT profilbild FROM benutzer WHERE benutzer_id=:benutzer_id");
+        $stmt->bindValue(':benutzer_id', $_SESSION['benutzer_id']);
+        if ($stmt->execute()) {
+          while ($row = $stmt->fetch()) {
             if (!empty($row["profilbild"])) {
-                echo '<div class="profilbild"><a href="account.php"><img src="https://mars.iuk.hdm-stuttgart.de/~lr090/StudiWolke/frontend/profilbilder/' . $row["profilbild"] . '"></a></div>';
+              echo '<a href="account.php"><img src="https://mars.iuk.hdm-stuttgart.de/~lr090/StudiWolke/frontend/profilbilder/' . $row["profilbild"] . '"></a>';
             }
+          }
         }
-     }
-    ?>
-		<div class="logo">
-			<a href="index.php"><img src="Logo StudiWolke.png"></a>
-		</div>
-		<nav>
-			<ul>
-				<li>
-                    <div class="ordner_erstellen_icon">
-                    <button onclick="openCreateFolder()"><img src="ordner_erstellen_icon.png" alt="Ordner Erstellen Icon"></button>
-                    <span style="display: none;">Ordner erstellen</span>
-                    </div>
-                    <div class="support_icon">
-                    <a href="hilfe.php">
-                    <img src="support_icon.png" alt="Support Icon">
-                    <span style="display: none;">Support</span>
-                    </a>
-                    </div>
-                </li>
-			</ul>
-		</nav>
-	</header>
+        ?>
+      </li>
+    </ul>
+  </nav>
+</header>
+
 <main>
     <?php  
 

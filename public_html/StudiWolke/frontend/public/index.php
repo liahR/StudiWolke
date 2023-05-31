@@ -97,11 +97,10 @@ else {
     </div> 
 <div class="Ordner-Struktur">
     <!-- Geteilte Dateien Ordner (fix) -->
-    <div class="item">
     <div class="geteilte_ordner">        
     <img src="geteilte_dateien_ordner.png" alt=" Geteilte Ordner-Icon">
     <h2><a href="in_geteilt.php">Geteilte Dateien</a></h2>
-    </div></div>
+    </div>
 
 <?php        
 // SQL-Abfrage zum Abrufen der Ordner 

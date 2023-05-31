@@ -6,7 +6,7 @@
 
 /* Allgemeine Stilvorgaben */
 .body {
-  background: linear-gradient(to bottom, #ffffff, #18A0FB);
+  background-color: linear-gradient(to bottom, #ffffff, #18A0FB);
 }
 
 .logo {

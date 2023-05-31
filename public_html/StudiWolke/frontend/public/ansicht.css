@@ -23,7 +23,7 @@
 
 /* index */
 
-#ordner-liste {
+#ordner-liste li {
     list-style: none;
 
 }
@@ -40,4 +40,10 @@
     border: none;
     padding: 0;
     cursor: pointer;
+  }
+
+  /* Ordner erstellen forms ding */
+ .popup-feld{
+    border: 1px;
+    border-style: solid;
   }

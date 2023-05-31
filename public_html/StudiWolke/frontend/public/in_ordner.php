@@ -73,7 +73,7 @@ $pdo = new PDO('mysql:: host=mars.iuk.hdm-stuttgart.de; dbname=u-lr090', 'lr090'
             Datei auswählen: <br>
             <input type ="hidden" name= "ordner_id" value="<?php echo $_POST['ordner_id']?> ">
             <input type="file" name="File" required><br>
-            <input type="text" name="Dateiname" placeholder="Dateiname" required>
+            <input type="text" name="Dateiname" placeholder="Dateiname" required><br>
             <input type="submit" value="Datei hochladen" name="submit">
             <button type="button" onclick="closeFileShare()">Abbrechen</button>
     </form>
@@ -168,7 +168,7 @@ $pdo = new PDO('mysql:: host=mars.iuk.hdm-stuttgart.de; dbname=u-lr090', 'lr090'
                         //Teilen forms
                         echo "<div id='Teilen-".$datei_id."' style='display:none;'>";
                         echo "<form id='UploadFile-' action='../../backend/teilen_do.php' method='post' enctype='multipart/form-data' >";
-                        echo "Datei auswählen: <br>";
+                        echo "Datei teilen mit:";
                         echo "<input type ='hidden' name='datei_id' value=". $datei_id. ">";
                         echo "<input type ='hidden' name='dateiname_original' value=". $dateiname_original. ">";
                         echo "<input type='hidden' name='Pfad' value= ".$pfad. " required><br>";

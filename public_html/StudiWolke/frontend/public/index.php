@@ -32,19 +32,7 @@ else {
     <a href="index.php"><img src="Logo StudiWolke.png"></a>
   </div>
   <nav>
-    <ul>
-      <li>
-        <div class="support_icon">
-          <a href="hilfe.php">
-            <img src="support_icon.png" alt="Support Icon">
-            <span style="display: none;">Support</span>
-          </a>
-        </div>
-        <div class="ordner_erstellen_icon">
-          <button onclick="openCreateFolder()"><img src="ordner_erstellen_icon.png" alt="Ordner Erstellen Icon"></button>
-          <span style="display: none;">Ordner erstellen</span>
-        </div>
-      </li>
+    <ul><br>
       <li class="profilbild">
         <?php
         // SQL-Abfrage zum Abrufen des Profilbilds des Benutzers
@@ -59,6 +47,19 @@ else {
         }
         ?>
       </li>
+      <li>
+        <div class="support_icon">
+          <a href="hilfe.php">
+            <img src="support_icon.png" alt="Support Icon">
+            <span style="display: none;">Support</span>
+          </a><br>
+        </div>
+        <div class="ordner_erstellen_icon">
+          <button onclick="openCreateFolder()"><img src="ordner_erstellen_icon.png" alt="Ordner Erstellen Icon"></button>
+          <span style="display: none;">Ordner erstellen</span>
+        </div>
+      </li>
+      
     </ul>
   </nav>
 </header>

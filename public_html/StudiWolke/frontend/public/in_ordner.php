@@ -56,8 +56,10 @@ $pdo = new PDO('mysql:: host=mars.iuk.hdm-stuttgart.de; dbname=u-lr090', 'lr090'
           <a href="hilfe.php">
             <img src="support_icon.png" alt="Support Icon">
             <span style="display: none;">Support</span>
-          </a><br>
-        </div>
+          </a>
+          </div>
+        </li>   
+        <li>    
         <div class="datei_erstellen_icon">
           <button onclick="openFileShare()"><img src="erstellen_icon.png" alt="Datei hochladen"></button>
           <span style="display: none;">Datei hochladen</span>

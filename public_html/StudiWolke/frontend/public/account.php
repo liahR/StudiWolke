@@ -48,6 +48,8 @@ else {
             <img src="support_icon.png" alt="Support Icon">
             <span style="display: none;">Support</span>
           </a>
+	</div>
+	</li>
     </ul>
   </nav>
   </div>

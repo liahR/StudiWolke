@@ -24,28 +24,38 @@ else {
 </head>
 <body>
 <header>
-    <?php
-     // SQL-Abfrage zum Abrufen des Profilbilds des Benutzers
-     $stmt = $pdo->prepare("SELECT profilbild FROM benutzer WHERE benutzer_id=:benutzer_id");
-     $stmt->bindValue(':benutzer_id', $_SESSION['benutzer_id']);
-     if ($stmt->execute()) {
-        while ($row=$stmt->fetch()) {
+  <div class="logo">
+    <a href="index.php"><img src="Logo StudiWolke.png"></a>
+  </div>
+  <div class="header-navigation"><
+  <nav>
+    <ul><br><br><br><br><br><br><br><br>
+      <li class="profilbild">
+        <?php
+        // SQL-Abfrage zum Abrufen des Profilbilds des Benutzers
+        $stmt = $pdo->prepare("SELECT profilbild FROM benutzer WHERE benutzer_id=:benutzer_id");
+        $stmt->bindValue(':benutzer_id', $_SESSION['benutzer_id']);
+        if ($stmt->execute()) {
+          while ($row = $stmt->fetch()) {
             if (!empty($row["profilbild"])) {
-                echo '<div class="profilbild"><a href="account.php"><img src="https://mars.iuk.hdm-stuttgart.de/~lr090/StudiWolke/frontend/profilbilder/' . $row["profilbild"] . '"></a></div>';
+              echo '<a href="account.php"><img src="https://mars.iuk.hdm-stuttgart.de/~lr090/StudiWolke/frontend/profilbilder/' . $row["profilbild"] . '"></a>';
             }
+          }
         }
-     }
-    ?>
-		<div class="logo">
-			<a href="index.php"><img src="Logo StudiWolke.png"></a>
-		</div>
-		<nav>
-			<ul>
-				<li><a href="index.php">Start</a></li>
-				<li><a href="hilfe.php">Support</a></li>
-			</ul>
-		</nav>
-	</header>
+        ?>
+      </li>
+      <li>
+        <div class="support_icon">
+          <a href="hilfe.php">
+            <img src="support_icon.png" alt="Support Icon">
+            <span style="display: none;">Support</span>
+          </a>
+	</div>
+	</li>
+    </ul>
+  </nav>
+  </div>
+</header>
 	<body>
    <h1> Allgemeine Geschäftsbedingungen von StudiWolke </h1>
         <h2>Willkommen bei StudiWolke!</h2>

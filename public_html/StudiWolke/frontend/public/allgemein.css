@@ -144,8 +144,10 @@ footer .footer_copyright {
 
 .ordner_erstellen_icon img,
 .support_icon img {
-  height: 30px;
-  width: auto;
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  background-color: rgb(164, 220, 255);
 }
 
 .support_icon a {

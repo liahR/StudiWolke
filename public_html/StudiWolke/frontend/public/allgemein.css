@@ -52,14 +52,11 @@
   }
 /* Header-Elemente */
 header {
-  position: fixed;
-  left: 0;
-  top: 0;
+  position: static;
   width: 100%;
-  height: 100px; /* Höhe des Headers */
   align-items: center;
   justify-content: space-between;
-  background: linear-gradient(to bottom, #18A0FB, rgb(216, 237, 255));
+  background: linear-gradient(to bottom, #18a0fbad, rgb(216, 237, 255));
   color: #fff;
   padding: 10px;
 }
@@ -125,11 +122,8 @@ nav a {
 
 /* Footer-Elemente */
 footer {
-  position: fixed;
-  left: 0;
-  bottom: 0;
-	width: 100%;
-  height: 100px; /* Höhe des Footers */
+  position: static;
+	width: 100%; 
   display: flex;
 	align-items: center;
 	justify-content: space-between;

@@ -35,7 +35,6 @@ body {
   object-fit: cover;
   border-radius: 50%;
 }
-
 /* Überschriften + Texte */
 
   h1,
@@ -68,15 +67,18 @@ header {
   padding: 10px;
 }
 
+
 nav ul {
   list-style: none;
   margin: 0;
   padding: 0;
   display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 nav li {
-  margin: 0 10px;
+  margin: 10px 0;
 }
 
 nav a {
@@ -144,8 +146,8 @@ footer .footer_copyright {
 
 .ordner_erstellen_icon img,
 .support_icon img {
-  height: 50px;
-  width: 50px;
+  height: 70px;
+  width: 70px;
   border-radius: 50%;
   background-color: rgb(164, 220, 255);
 }

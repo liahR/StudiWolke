@@ -141,40 +141,14 @@ if ($statement->execute()) {
 } 
 ?>
 </div>
-<?php
-    // Sortierungsfunktion 
-    function sortByName($a, $b)
-    {
-        return strcmp($a['ordnername_original'], $b['ordnername_original']);
-    }
-
-    ?>
     
     <!-- Suchfeld -->
     <input type="text" id="search-input" oninput="searchFolders()" placeholder="Suche nach Dateien...">
-    <br>
-
-    <!-- Button zum Sortieren nach Namen -->
-    <button onclick="sortByName()">Nach Namen sortieren</button>
-    
+    <br>    
 
 
   <!-- JavaScript-Code zum Sortieren und Suchen der Liste -->
         <script>
-        function sortByName() {
-        var list = document.getElementById("ordner-liste");
-        var items = list.getElementsByTagName("li");
-        var arr = Array.prototype.slice.call(items);
-
-        arr.sort(function(a, b) {
-        var aName = a.getElementsByTagName("h2")[0].textContent;
-        var bName = b.getElementsByTagName("h2")[0].textContent;
-        return aName.localeCompare(bName);
-        });
-        for (var i = 0; i < arr.length; i++) {
-        list.appendChild(arr[i]);
-        }
-        }
 
         function searchFolders() {
         var input = document.getElementById("search-input");
@@ -182,10 +156,10 @@ if ($statement->execute()) {
         var list = document.getElementById("ordner-liste");
         var items = list.getElementsByTagName("li");
              for (var i = 0; i < items.length; i++) {
-        var name = items[i].getElementsByTagName("h2")[0].textContent;
+        var name = items[i].getElementsByTagName("button")[0].textContent;
 
         if (name.toUpperCase().indexOf(filter) > -1) {
-            items[i].style.display = "";
+            items[i].style.display = "block";
         } else {
             items[i].style.display = "none";
         }

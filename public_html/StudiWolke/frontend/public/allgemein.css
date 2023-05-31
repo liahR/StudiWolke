@@ -181,3 +181,8 @@ footer .footer_copyright {
   width: auto;
   padding-left: 20px;
 }
+
+.support_icon a img{
+  height: 50px;
+  width: auto;
+}

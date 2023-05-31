@@ -31,8 +31,9 @@ else {
   <div class="logo">
     <a href="index.php"><img src="Logo StudiWolke.png"></a>
   </div>
+  <div class="header-navigation"><
   <nav>
-    <ul><br>
+    <ul><br><br><br><br>
       <li class="profilbild">
         <?php
         // SQL-Abfrage zum Abrufen des Profilbilds des Benutzers
@@ -62,6 +63,7 @@ else {
       
     </ul>
   </nav>
+  </div>
 </header>
 
 <main>

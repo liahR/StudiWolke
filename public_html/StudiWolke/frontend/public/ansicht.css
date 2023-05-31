@@ -1,3 +1,4 @@
+/* in geteilte Dateien */
 #geteilte_datei-liste {
     list-style: none;
     border-style: solid;
@@ -19,7 +20,10 @@
     display: flex;
 }
 
-.item {
-    flex: 1;
-    margin: 10px;
+
+/* index */
+
+#ordner-liste {
+    list-style: none;
+
 }

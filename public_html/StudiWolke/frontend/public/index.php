@@ -45,8 +45,12 @@ else {
 		</div>
 		<nav>
 			<ul>
-				<li><a href="index.php">Start</a></li>
-				<li><a href="hilfe.php">Support</a></li>
+				<li>
+                    <a href="hilfe.php">
+                    <img src="support_icon.png" alt="Support Icon">
+                    <span style="display: none;">Support</span>
+                    </a>
+                </li>
 			</ul>
 		</nav>
 	</header>

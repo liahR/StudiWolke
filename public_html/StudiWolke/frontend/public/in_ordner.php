@@ -19,6 +19,7 @@ $pdo = new PDO('mysql:: host=mars.iuk.hdm-stuttgart.de; dbname=u-lr090', 'lr090'
     <meta charset="utf-8"/>
     <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" id="favicon">
     <link rel="stylesheet" type="text/css" href="allgemein.css">
+    <link rel="stylesheet" type="text/css" href="ansicht.css">
     <!-- Verknüpfen der CSS-Datei für den Dark-Mode -->
     <link rel="stylesheet" type="text/css" href="../src/darkmode.css">
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
@@ -69,13 +70,13 @@ $pdo = new PDO('mysql:: host=mars.iuk.hdm-stuttgart.de; dbname=u-lr090', 'lr090'
     <button onclick="openFileShare()">Datei hochladen</button>
 
     <div id="Share" style="display:none;">
-        <form id="UploadFile" action="../../backend/upload_file_do.php" method="post" enctype="multipart/form-data" >
-            Datei auswählen: <br>
+        <form id="UploadFile" class="popup-feld" action="../../backend/upload_file_do.php" method="post" enctype="multipart/form-data" >
+            Datei auswählen: <br><br>
             <input type ="hidden" name= "ordner_id" value="<?php echo $_POST['ordner_id']?> ">
-            <input type="file" name="File" required><br>
-            <input type="text" name="Dateiname" placeholder="Dateiname" required><br>
-            <input type="submit" value="Datei hochladen" name="submit">
-            <button type="button" onclick="closeFileShare()">Abbrechen</button>
+            <input type="file" name="File" required><br><br>
+            <input type="text" name="Dateiname" placeholder="Dateiname" required><br><br>
+            <input class="button" type="submit" value="Datei hochladen" name="submit">
+            <button class="button" type="button" onclick="closeFileShare()">Abbrechen</button>
     </form>
     </div> 
 
@@ -167,14 +168,14 @@ $pdo = new PDO('mysql:: host=mars.iuk.hdm-stuttgart.de; dbname=u-lr090', 'lr090'
                         echo "<button onclick='openTeilen(".$datei_id.")'>Teilen</button>";
                         //Teilen forms
                         echo "<div id='Teilen-".$datei_id."' style='display:none;'>";
-                        echo "<form id='UploadFile-' action='../../backend/teilen_do.php' method='post' enctype='multipart/form-data' >";
+                        echo "<form id='UploadFile-' class='popup-feld' action='../../backend/teilen_do.php' method='post' enctype='multipart/form-data' >";
                         echo "Datei teilen mit:";
                         echo "<input type ='hidden' name='datei_id' value=". $datei_id. ">";
                         echo "<input type ='hidden' name='dateiname_original' value=". $dateiname_original. ">";
                         echo "<input type='hidden' name='Pfad' value= ".$pfad. " required><br>";
-                        echo "<input type='text' name='GeteiltePersonen' placeholder='Mit max.mustermann@muster.de' required>";
-                        echo "<input type='submit' value='Teilen' name='submit'>";
-                        echo "<button type='button' onclick='closeTeilen(".$datei_id.")'>Abbrechen</button>";
+                        echo "<input type='text' name='GeteiltePersonen' placeholder='Mit max.mustermann@muster.de' required><br><br>";
+                        echo "<input class='button' type='submit' value='Teilen' name='submit'>";
+                        echo "<button class='button' type='button' onclick='closeTeilen(".$datei_id.")'>Abbrechen</button>";
                         echo "</form>";
                         echo "</div>"; 
                         // Teilen-Script

@@ -119,12 +119,12 @@ body {
 }
 
 .image-container {
-  display: flex;
+  display:flex;
   justify-content: center;
   margin: 20px 0;
 }
 
 .image-container img {
-  max-width: 100%;
+  width: 100%;
   height: auto;
 }

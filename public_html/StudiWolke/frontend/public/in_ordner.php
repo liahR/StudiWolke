@@ -189,7 +189,7 @@ $pdo = new PDO('mysql:: host=mars.iuk.hdm-stuttgart.de; dbname=u-lr090', 'lr090'
                         // Lösch-Buttons
                         echo "<form action='../../backend/delete_file_do.php' method='post'>";
                         echo "<input type='hidden' name='datei_id' value=".$datei_id.">";
-                        echo "<button type='submit'>Löschen</button>";
+                        echo "<button type='submit'><img src='papierkorb.png' alt='Papierkorb'></button>";
                         echo "</form>";
                     echo "</li>";
                 echo "</ul>";

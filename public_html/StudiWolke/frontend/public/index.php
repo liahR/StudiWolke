@@ -46,6 +46,10 @@ else {
 		<nav>
 			<ul>
 				<li>
+                    <div class="ordner_erstellen_icon">
+                    <button onclick="openCreateFolder()"><img src="ordner_erstellen_icon.png" alt="Ordner Erstellen Icon"></button>
+                    <span style="display: none;">Ordner erstellen</span>
+                    </div>
                     <div class="support_icon">
                     <a href="hilfe.php">
                     <img src="support_icon.png" alt="Support Icon">
@@ -70,8 +74,6 @@ else {
     <!-- Vornamen ausgeben um zu willkommen -->
     <h1><?php echo $row['vorname']; ?> 's Wolke! </h1>
 
-    <!-- Ordner erstellen -->
-    <button onclick="openCreateFolder()">Ordner erstellen</button>
 
     <div id="Folder" style="display:none;">
         <form id="CreateFolder" action="../../backend/create_ordner_do.php" method="post">

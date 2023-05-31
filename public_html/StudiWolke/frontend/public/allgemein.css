@@ -5,6 +5,9 @@
   }
 
 /* Allgemeine Stilvorgaben */
+.body{
+  background-color:  rgb(216, 237, 255);
+}
 .logo {
   position: static;
   left: 0;
@@ -49,13 +52,18 @@
   }
 /* Header-Elemente */
 header {
-	display: flex;
-	align-items: center;
-	justify-content: space-between;
-  background: linear-gradient(to right, #fff, #FF69B4, #18A0FB);
-	color: #fff;
-	padding: 10px;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100px; /* Höhe des Headers */
+  align-items: center;
+  justify-content: space-between;
+  background: linear-gradient(to bottom, #18A0FB, rgb(216, 237, 255));
+  color: #fff;
+  padding: 10px;
 }
+
 
 nav ul {
 	list-style: none;
@@ -126,7 +134,7 @@ footer {
 	align-items: center;
 	justify-content: space-between;
   background: linear-gradient(to right, #fff, #FF69B4, #18A0FB);
-	color: black;
+	color: white;
 	padding: 10px;
 }
 
@@ -183,6 +191,11 @@ footer .footer_copyright {
 }
 
 .support_icon a img{
+  height: 50px;
+  width: auto;
+}
+
+.ordner_erstellen_icon{
   height: 50px;
   width: auto;
 }

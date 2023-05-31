@@ -1,103 +1,79 @@
 /* CSS-Regeln Login */
 body {
-    position: relative;
-    margin-bottom: 100px; /* Höhe des Footers */
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-    background-image: url("cloud_hintergrund.jpg"); /* Pfad zum Hintergrundbild */
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
+  position: relative;
+  margin-bottom: 100px; /* Höhe des Footers */
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-image: url("cloud_hintergrund.jpg"); /* Pfad zum Hintergrundbild */
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 }
+
 .logo {
-    position: static;
-    left: 0;
-    top: 0;
-  }
-  .logo img {
-      height: 70px;
-    width: auto;
-  }
+  position: static;
+  left: 0;
+  top: 0;
+}
+
+.logo img {
+  height: 70px;
+  width: auto;
+}
 
 .login-container {
-    max-width: 400px;
-    padding: 20px;
-    border: 3px solid #18A0FB;
-    border-radius: 5px;
-    background-color: rgba(250, 250, 250, 0.699); /*Weißer Kasten, etwas transparent*/
-    position: relative;
-    margin: 50px auto;
-    transition: opacity 0.3s ease-in-out;
-    opacity: 1;
+  max-width: 400px;
+  padding: 20px;
+  border: 3px solid #18A0FB;
+  border-radius: 5px;
+  background-color: rgba(250, 250, 250, 0.699); /*Weißer Kasten, etwas transparent*/
+  position: relative;
+  margin: 50px auto;
+  transition: opacity 0.3s ease-in-out;
+  opacity: 1;
 
-    -webkit-box-shadow: 14px 15px 40px 5px rgba(24,160,251,1);
-    -moz-box-shadow: 14px 15px 40px 5px rgba(24,160,251,1);
-    box-shadow: 14px 15px 40px 5px rgba(24,160,251,1);
+  -webkit-box-shadow: 14px 15px 40px 5px rgba(24,160,251,1);
+  -moz-box-shadow: 14px 15px 40px 5px rgba(24,160,251,1);
+  box-shadow: 14px 15px 40px 5px rgba(24,160,251,1);
 }
 
 .login-container.hide {
-    opacity: 0;
-    pointer-events: none;
+  opacity: 0;
+  pointer-events: none;
 }
 
 .cloud-button {
-    background-color: rgba(250, 250, 250, 0.699);
-    border: none;
-    color: #18A0FB;
-    padding: 10px 20px;
-    border-radius: 50px;
-    position: relative;
-    overflow: hidden;
-    transition: background-color 0.3s;
-  }
-  
-  .cloud-button:before,
-  .cloud-button:after {
-    content: "";
-    position: absolute;
-    background-color: rgba(250, 250, 250, 0.699);
-    border-radius: 50%;
-    transform: scale(1);
-    transition: transform 0.3s;
-  }
-  
-  .cloud-button:before {
-    width: 100px;
-    height: 100px;
-    top: -50px;
-    left: -30px;
-  }
-  
-  .cloud-button:after {
-    width: 120px;
-    height: 120px;
-    top: -70px;
-    right: -30px;
-  }
-  
-  .cloud-button:hover {
-    color: #174e72;
-  }
-  
-  .cloud-button:hover:before,
-  .cloud-button:hover:after {
-    transform: scale(1.2);
-  }
+  background-color: #18A0FB;
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 50px;
+  position: relative;
+  overflow: hidden;
+}
+.cloud-button:hover {
+  color: #174e72;
+}
 
-  .footer {
-    position: fixed;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    height: 100px; /* Höhe des Footers */
-    background-color: white;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 20px;
-    color: #18A0FB;
-    text-align: center;
+.cloud-button:hover:before,
+.cloud-button:hover:after {
+  transform: scale(1.2);
+}
+
+.footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100px; /* Höhe des Footers */
+  background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  color: #18A0FB;
+  text-align: center;
 }
 
 .logo_footer {
@@ -106,37 +82,49 @@ body {
 }
 
 .logo_footer img {
-	height: 70px;
-    width: auto;
+  height: 70px;
+  width: auto;
 }
 
 .central-box {
-    width: 100%;
-    text-align: center;
-    margin-top: 20px;
-  }
-  
-  .central-box h2 {
-    font-size: 24px;
-    color: #18A0FB;
-  }
+  width: 100%;
+  text-align: center;
+  margin-top: 20px;
+}
+
+.central-box h2 {
+  font-size: 24px;
+  color: #18A0FB;
+}
+
 .benefits-container {
-    display: flex;
-    justify-content: space-between;
-  }
-  
-  .benefit-box {
-    max-width: 300px;
-    padding: 20px;
-    border: 3px solid #18A0FB;
-    border-radius: 5px;
-    background-color: white;
-    box-shadow: 14px 15px 40px 5px rgba(24, 160, 251, 1);
-    text-align: center;
-  }
-  
-  .benefit-box p {
-    color: #18A0FB;
-    font-size: 20px;
-    margin-bottom: 10px;
-  }
+  display: flex;
+  justify-content: space-between;
+}
+
+.benefit-box {
+  max-width: 300px;
+  padding: 20px;
+  border: 3px solid #18A0FB;
+  border-radius: 5px;
+  background-color: white;
+  box-shadow: 14px 15px 40px 5px rgba(24, 160, 251, 1);
+  text-align: center;
+}
+
+.benefit-box p {
+  color: #18A0FB;
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.image-container {
+  display: flex;
+  justify-content: center;
+  margin: 20px 0;
+}
+
+.image-container img {
+  max-width: 100%;
+  height: auto;
+}

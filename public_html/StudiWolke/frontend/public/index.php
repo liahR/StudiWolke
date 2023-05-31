@@ -103,6 +103,7 @@ $statement->bindParam(':benutzer_id', $benutzer_id);
 
 if ($statement->execute()) {
     while ($row = $statement->fetch()) {
+        $ordner_id = $row['ordner_id'];
         echo '<div class="item">';
         echo '<ul id="ordner-liste">';
         echo '<li>';
@@ -110,9 +111,11 @@ if ($statement->execute()) {
         echo '<img src="cloud-ordner.png" alt="Ordner-Icon">';
         echo '</div>';
         echo '<h2><a href="in_ordner.php">' . $row['ordnername_original'] . '</a></h2>';
-        echo '<input type="hidden" name="datei_id" value='.$datei_id.'>';
-        echo '<button type="submit">Löschen</button>';
-        echo '</form>';
+        // Lösch-Buttons
+        echo "<form action='../../backend/delete_ordner_do.php' method='post'>";
+        echo "<input type='hidden' name='datei_id' value=".$ordner_id.">";
+        echo "<button type='submit'><img src='papierkorb.png' alt='Papierkorb'></button>";
+        echo "</form>";
         echo '</li>';
         echo '</ul>';
         echo '</div>';

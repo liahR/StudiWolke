@@ -55,6 +55,8 @@ else {
             <span style="display: none;">Support</span>
           </a><br>
         </div>
+      </li>
+      <li>
         <div class="ordner_erstellen_icon">
           <button onclick="openCreateFolder()"><img src="ordner_erstellen_icon.png" alt="Ordner Erstellen Icon"></button>
           <span style="display: none;">Ordner erstellen</span>

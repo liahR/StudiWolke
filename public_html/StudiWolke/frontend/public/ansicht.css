@@ -42,7 +42,7 @@
     cursor: pointer;
   }
 
-  /* Ordner erstellen forms ding */
+  /* Ordner erstellen, teilen und dateien hochladen forms ding */
  .popup-feld{
     display: inline-block;
     text-align: center;
@@ -64,3 +64,4 @@
   .button:hover {
     background-color: #0c8fe6; 
   }
+

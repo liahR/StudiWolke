@@ -44,6 +44,19 @@
 
   /* Ordner erstellen forms ding */
  .popup-feld{
+    display: inline-block;
+    text-align: center;
+    padding: 10px;
     border: 1px;
     border-style: solid;
+    border-color:  rgb(164, 220, 255);
+    border-radius: 20px;
+    box-shadow: 0 0 10px rgb(164, 220, 255);
   }
+
+  .button {
+    background-color: #18A0FB;
+    color: white;
+    border-color: #18A0FB;
+    border-radius: 5px;
+  } 

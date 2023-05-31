@@ -82,8 +82,8 @@ else {
         <form id="CreateFolder" class="popup-feld" action="../../backend/create_ordner_do.php" method="post">
             Ordner erstellen: <br>
             <input type="text" name="ordnername" placeholder="Ordnername" required><br>
-            <input type="submit" value="Ordner erstellen" name="submit">
-            <button type="button" onclick="closeCreateFolder()">Abbrechen</button>
+            <input class="button" type="submit" value="Ordner erstellen" name="submit">
+            <button class="button" type="button" onclick="closeCreateFolder()">Abbrechen</button>
         </form>
     <script>
         function openCreateFolder () {

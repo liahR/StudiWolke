@@ -98,7 +98,7 @@ nav a {
 }
 
 .geteilte_ordner img {
-  height: 130px;
+  height: 90px;
   width: auto;
 }
 
@@ -128,7 +128,6 @@ footer {
 .logo_footer img {
 	height: 70px;
   width: auto;
-<<<<<<< Updated upstream
 }
 
 /* Positioniere das Copyright */
@@ -165,7 +164,6 @@ footer .footer_copyright {
   border: none;
   padding: 0;
   cursor: pointer;
-=======
   
 }
 /* Stilisiere die Fußzeilen-Links */
@@ -209,5 +207,4 @@ footer .footer_copyright {
   display: flex;
   margin: 0 auto;
   text-align: center;
->>>>>>> Stashed changes
 }

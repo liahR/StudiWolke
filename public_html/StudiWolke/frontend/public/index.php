@@ -82,7 +82,7 @@ else {
     <div id="Folder"  style="display:none;">
         <form id="CreateFolder" class="popup-feld" action="../../backend/create_ordner_do.php" method="post">
             Ordner erstellen: <br>
-            <input type="text" name="ordnername" placeholder="Ordnername" required><br>
+            <input type="text" name="ordnername" placeholder="Ordnername" required><br><br>
             <input class="button" type="submit" value="Ordner erstellen" name="submit">
             <button class="button" type="button" onclick="closeCreateFolder()">Abbrechen</button>
         </form>
@@ -95,7 +95,7 @@ else {
         } 
 
     </script> 
-    </div> 
+    </div> <br>
 <div class="Ordner-Struktur">
     <!-- Geteilte Dateien Ordner (fix) -->
     <div class="geteilte_ordner">        
@@ -199,20 +199,10 @@ if ($statement->execute()) {
             <li><a href= "agbs.php">AGBs</a></li>  
         </ul>
     </nav>
-<<<<<<< Updated upstream
     <div class="logout_icon">
         <a href="../../backend/logout.php"><img src="logout_icon.png" alt="Logout" /></a>
         </div>	
     <div class="footer_copyright"><br><br><br><br> &copy; 2023 StudiWolke GmbH & Co. KG</div>
-=======
-        <div class="logout_icon">
-        <a href="../../backend/logout.php"><img src="logout_icon.png" alt="Logout" /></a>
-        </div>	
-    <br>
-    <hr>
-    <small class="footer_copyright">&copy; 2023 StudiWolke GmbH & Co. KG</small>
-    <hr>
->>>>>>> Stashed changes
 </footer>
 </main>
 

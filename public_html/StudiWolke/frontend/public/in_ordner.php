@@ -57,7 +57,7 @@ $pdo = new PDO('mysql:: host=mars.iuk.hdm-stuttgart.de; dbname=u-lr090', 'lr090'
 
     // Hole den Ordnernamen
     $statement = $pdo->prepare('SELECT ordnername_original FROM ordner WHERE ordner_id = :ordner_id');
-    $statement->bindParam(':ordner_id', $_SESSION ["ordner_id"]);
+    $statement->bindParam(':ordner_id', $_POST['ordner_id']);
     $statement->execute();
     $ordner = $statement->fetch(PDO::FETCH_ASSOC);
 ?>
@@ -71,7 +71,7 @@ $pdo = new PDO('mysql:: host=mars.iuk.hdm-stuttgart.de; dbname=u-lr090', 'lr090'
     <div id="Share" style="display:none;">
         <form id="UploadFile" action="../../backend/upload_file_do.php" method="post" enctype="multipart/form-data" >
             Datei auswählen: <br>
-            <input type ="hidden" name= "ordner_id" value="<?php echo $_SESSION["ordner_id"]?> ">
+            <input type ="hidden" name= "ordner_id" value="<?php echo $_POST['ordner_id']?> ">
             <input type="file" name="File" required><br>
             <input type="text" name="Dateiname" placeholder="Dateiname" required>
             <input type="submit" value="Datei hochladen" name="submit">
@@ -154,7 +154,7 @@ $pdo = new PDO('mysql:: host=mars.iuk.hdm-stuttgart.de; dbname=u-lr090', 'lr090'
     $dateiname_original = '';
     $pfad = '';
     $state = $pdo->prepare('SELECT * FROM dateien WHERE ordner_id = :ordner_id');
-    $state->bindParam(':ordner_id', $_SESSION ["ordner_id"]);
+    $state->bindParam(':ordner_id', $_POST['ordner_id']);
     if ($state->execute()){
         while ($row = $state->fetch()){
             $datei_id = $row['datei_id'];

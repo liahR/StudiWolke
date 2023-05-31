@@ -33,7 +33,7 @@ else {
   </div>
   <div class="header-navigation"><
   <nav>
-    <ul><br><br><br><br>
+    <ul><br><br><br><br><br><br><br><br>
       <li class="profilbild">
         <?php
         // SQL-Abfrage zum Abrufen des Profilbilds des Benutzers

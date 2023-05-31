@@ -106,7 +106,7 @@ else {
     <div class="geteilte_ordner"><br>        
     <img src="geteilte-ordner.png" alt=" Geteilte Dateien Ordner-Icon">
     <form action="in_geteilt.php" method="post">
-    <h2><button class="ordnernamen" type="submit">Geteilte Dateien</button></h2>
+    <button class="ordnernamen" type="submit">Geteilte Dateien</button>
     </form>
     </div>
 
@@ -126,7 +126,7 @@ if ($statement->execute()) {
         //Button für in ordner
         echo '<form action="in_ordner.php" method="post">';
         echo '<input type="hidden" name="ordner_id" value="' . $row['ordner_id'] . '">';
-        echo '<h2><button class="ordnernamen" type="submit">' . $row['ordnername_original'] . '</button></h2>';
+        echo '<button class="ordnernamen" type="submit">' . $row['ordnername_original'] . '</button>';
         echo '</form>';
         // Lösch-Buttons
         echo "<form action='../../backend/delete_ordner_do.php' method='post'>";
@@ -141,57 +141,7 @@ if ($statement->execute()) {
 } 
 ?>
 </div>
-<?php
-    // Sortierungsfunktion 
-    function sortByName($a, $b)
-    {
-        return strcmp($a['ordnername_original'], $b['ordnername_original']);
-    }
 
-    ?>
-    
-    <!-- Suchfeld -->
-    <input type="text" id="search-input" oninput="searchFolders()" placeholder="Suche nach Dateien...">
-    <br>
-
-    <!-- Button zum Sortieren nach Namen -->
-    <button onclick="sortByName()">Nach Namen sortieren</button>
-    
-
-
-  <!-- JavaScript-Code zum Sortieren und Suchen der Liste -->
-        <script>
-        function sortByName() {
-        var list = document.getElementById("ordner-liste");
-        var items = list.getElementsByTagName("li");
-        var arr = Array.prototype.slice.call(items);
-
-        arr.sort(function(a, b) {
-        var aName = a.getElementsByTagName("h2")[0].textContent;
-        var bName = b.getElementsByTagName("h2")[0].textContent;
-        return aName.localeCompare(bName);
-        });
-        for (var i = 0; i < arr.length; i++) {
-        list.appendChild(arr[i]);
-        }
-        }
-
-        function searchFolders() {
-        var input = document.getElementById("search-input");
-        var filter = input.value.toUpperCase()
-        var list = document.getElementById("ordner-liste");
-        var items = list.getElementsByTagName("li");
-             for (var i = 0; i < items.length; i++) {
-        var name = items[i].getElementsByTagName("h2")[0].textContent;
-
-        if (name.toUpperCase().indexOf(filter) > -1) {
-            items[i].style.display = "";
-        } else {
-            items[i].style.display = "none";
-        }
-        }
-        }
-        </script>
 
 
     </main>

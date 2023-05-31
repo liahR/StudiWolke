@@ -28,6 +28,14 @@
 
 }
 
+.ordnernamen {
+    background: rgb(194, 230, 252);
+    border: none;
+    border-radius: 5px;
+    font-size: 15px;
+    padding: 5px;
+}
+
 /*in ordner*/
 #datei-liste li {
     list-style: none;

@@ -76,7 +76,7 @@ if ($row = $statement->fetch()){
                             // Lösch-Buttons
                             echo "<form action='../../backend/delete_geteilt_do.php' method='post'>";
                             echo "<input type='hidden' name='teilen_id' value=".$teilen_id.">";
-                            echo "<button type='submit'>Löschen</button>";
+                            echo "<button type='submit'><img src='papierkorb.png' alt='Papierkorb'></button>";
                             echo "</form>";
                         echo "</li>";
                     echo "</ul>";

@@ -107,22 +107,20 @@ else {
 <br>
 </main>	
 <footer>
-    <hr>
-    <div class="logo">
+    <div class="logo_footer">
 			<a href="index.php"><img src="Logo StudiWolke.png"></a>
 		</div>
     <nav>
-        <ul>
-			<li><a href= "impressum.php">IMPRESSUM</a></li>
+        <ul class= "footer_links" >
+        <li><a href= "impressum.php">IMPRESSUM</a></li>
             <li><a href= "datenschutz.php">DATENSCHUTZ</a></li>
-            <li><a href= "agbs.php">AGBs</a></li>
-            <li><a href="../../backend/logout.php">LOGOUT</a></li>
-    
+            <li><a href= "agbs.php">AGBs</a></li>  
         </ul>
-    </nav>	
-    <hr>
-    <small>&copy; 2023 StudiWolke GmbH & Co. KG</small>
-    <hr>
+    </nav>
+    <div class="logout_icon">
+        <a href="../../backend/logout.php"><img src="logout_icon.png" alt="Logout" /></a>
+        </div>	
+    <div class="footer_copyright"><br><br><br><br> &copy; 2023 StudiWolke GmbH & Co. KG</div>
 </footer>
 </body>
 </html>

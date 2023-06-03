@@ -104,11 +104,13 @@ else {
     <!-- Geteilte Dateien Ordner (fix) -->
     
     <div class="geteilte_ordner"><br>        
-    <img src="geteilte-ordner.png" alt=" Geteilte Dateien Ordner-Icon">
+    
     <form action="in_geteilt.php" method="post">
-    <button class="ordnernamen" type="submit">Geteilte Dateien</button>
+    <button class="in_ordner_gehen" type="submit"><img src="geteilte-ordner.png" alt=" Geteilte Dateien Ordner-Icon"></button>
+    <h3>Geteilte Dateien</h3>
     </form>
     </div>
+    
 
 <?php        
 // SQL-Abfrage zum Abrufen der Ordner 
@@ -121,13 +123,12 @@ if ($statement->execute()) {
         echo '<ul id="ordner-liste">';
         echo '<li>';
         echo '<div class="ordner">';
-        echo '<img src="cloud-ordner.png" alt="Ordner-Icon">';
-        echo '</div>';
-        //Button für in ordner
         echo '<form action="in_ordner.php" method="post">';
         echo '<input type="hidden" name="ordner_id" value="' . $row['ordner_id'] . '">';
-        echo '<button class="ordnernamen" type="submit">' . $row['ordnername_original'] . '</button>';
-        echo '</form>';
+        echo '<button class="in_ordner_gehen" type="submit"> <img src="cloud-ordner.png" alt="Ordner-Icon"></button>';
+        echo '</form>'; 
+        echo '</div>';
+        echo '<h3>'.$row['ordnername_original'].'</h3>';
         // Lösch-Buttons
         echo "<form action='../../backend/delete_ordner_do.php' method='post'>";
         echo "<input type='hidden' name='ordner_id' value=".$ordner_id.">";
@@ -161,7 +162,6 @@ if ($statement->execute()) {
         </div>	
     <div class="footer_copyright"><br><br><br><br> &copy; 2023 StudiWolke GmbH & Co. KG</div>
 </footer>
-</main>
 
 </body>
 </html>

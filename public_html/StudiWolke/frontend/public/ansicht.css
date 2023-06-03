@@ -1,13 +1,6 @@
 /* in geteilte Dateien */
 #geteilte_datei-liste {
     list-style: none;
-    border-style: solid;
-
-}
-
-#geteilte_datei-liste a {
-    text-decoration: none;
-    color:black;
 
 }
 
@@ -16,20 +9,24 @@
     width: auto;   
 }
 
-.Ordner-Struktur{
-    display: flex;
+.datei-Struktur{
+  display: flex;
 }
 
 
 /* index */
+
+.Ordner-Struktur{
+    display: flex;
+}
 
 #ordner-liste li {
     list-style: none;
 
 }
 
-.ordnernamen {
-    background: rgb(194, 230, 252);
+.in_ordner_gehen {
+    background: none;
     border: none;
     border-radius: 5px;
     font-size: 15px;
@@ -41,6 +38,10 @@
 /*in ordner*/
 #datei-liste li {
     list-style: none;
+}
+
+.datei-Struktur{
+  display: flex;
 }
 
 

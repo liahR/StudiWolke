@@ -78,7 +78,6 @@ $dateiname_original=htmlspecialchars ($_POST ["Dateiname"]);
 $erstelldatum = date("Y-m-d");
 $aenderungsdatum = $erstelldatum;
 
-echo "Das ist die ID vom Ordner". $ordner_id;
 
 //in DB einfügen 
 $statement = $pdo->prepare("INSERT INTO dateien (benutzer_id, ordner_id, dateipfad, dateiname_original, dateiname_zufall, dateityp, erstelldatum, 

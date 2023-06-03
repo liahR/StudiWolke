@@ -62,6 +62,7 @@ else {
   </div>
 </header>
 <main>
+<div class="datei-Struktur">
 <?php
 //Email holen 
 $statement = $pdo->prepare ('SELECT * FROM benutzer WHERE benutzer_id=:benutzer_id');
@@ -102,6 +103,7 @@ if ($row = $statement->fetch()){
 //Sortieren und Suchen einfügen 
 
 ?>
+</div>
 
 </main>
 <footer>

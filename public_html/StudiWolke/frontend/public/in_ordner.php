@@ -110,6 +110,7 @@ $pdo = new PDO('mysql:: host=mars.iuk.hdm-stuttgart.de; dbname=u-lr090', 'lr090'
 
 
 <!--Hole die Dateien des Ordners SACHE MIT DATEI_ID FÜR TEILEN VERSTEHEN-->
+<div class="datei-Struktur">
 <?php
     $datei_id = '';
     $dateiname_original = '';
@@ -124,7 +125,7 @@ $pdo = new PDO('mysql:: host=mars.iuk.hdm-stuttgart.de; dbname=u-lr090', 'lr090'
             if (!empty($row["dateiname_zufall"])) {
                 echo "<ul id='datei-liste'>";
                     echo "<li>";
-                        echo "<a href='https://mars.iuk.hdm-stuttgart.de/~lr090/StudiWolke/frontend/dateien/".$row["dateiname_zufall"] . "' target ='blank' >". $row["dateiname_original"]. "</a><br>";
+                        echo "<a href='https://mars.iuk.hdm-stuttgart.de/~lr090/StudiWolke/frontend/dateien/".$row["dateiname_zufall"] . "' target ='blank' >". $row["dateiname_original"]. "</a><br><br>";
                         echo "<button onclick='openTeilen(".$datei_id.")'>Teilen</button>";
                         //Teilen forms
                         echo "<div id='Teilen-".$datei_id."' style='display:none;'>";
@@ -161,6 +162,7 @@ $pdo = new PDO('mysql:: host=mars.iuk.hdm-stuttgart.de; dbname=u-lr090', 'lr090'
     }
 
 ?>
+</div>
 
 
 

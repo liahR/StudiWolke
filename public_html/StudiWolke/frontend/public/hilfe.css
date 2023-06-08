@@ -1,11 +1,29 @@
  /*CSS Regeln für die Support Seite */
- .faq {
-    margin-bottom: 20px;
-  }
-  .faq h3 {
-    margin: 0;
-    cursor: pointer;
-  }
-  .faq p {
-    display: none;
-  }
+.faq {
+  display: inline-block;
+  text-align: center;
+  padding: 10px;
+  border: 1px solid rgb(164, 220, 255);
+  border-radius: 20px;
+  box-shadow: 0 0 10px rgb(164, 220, 255);
+  margin-bottom: 20px;
+}
+
+.faq h3 {
+  margin: 0;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.faq p {
+  display: none;
+}
+
+.toggle_icon {
+  width: 20px;
+  height: 20px;
+  background-image: url('toggle_icon.png');
+  background-size: cover;
+}

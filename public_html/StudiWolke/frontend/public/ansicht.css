@@ -4,11 +4,6 @@
 
 }
 
-#geteilte_datei-liste img {
-    height: 45px;
-    width: auto;   
-}
-
 .datei-Struktur{
   display: flex;
 }

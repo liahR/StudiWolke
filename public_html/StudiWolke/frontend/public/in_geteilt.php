@@ -62,6 +62,7 @@ else {
   </div>
 </header>
 <main>
+<h1> Geteilte Dateien </h1>
 <div class="datei-Struktur">
 <?php
 //Email holen 

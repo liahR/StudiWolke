@@ -182,8 +182,13 @@ footer .footer_copyright {
 }
 
 #datei-liste a img {
-  height: 70px;
+  height: 100px;
   width: auto;
+}
+
+#geteilte_datei-liste a img {
+  height: 100px;
+  width: auto;   
 }
 
 /* Stilisiere die Fußzeilen-Links */

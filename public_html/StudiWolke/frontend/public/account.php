@@ -72,6 +72,9 @@ else {
 
 	<h1>Hallo, <?php echo $vorname; ?>!</h1>
 	
+
+
+
 	<form action="../../backend/account_do.php" method="post" enctype="multipart/form-data">
 		<label for="profilbild">Profilbild ändern:</label><br>
 		<?php // SQL-Abfrage zum Abrufen des Profilbilds des Benutzers
@@ -104,7 +107,7 @@ else {
 		
 		<input type="submit" name="submit" value="Speichern">
 	</form>
-<br>
+<br><br>
 </main>	
 <footer>
     <div class="logo_footer">

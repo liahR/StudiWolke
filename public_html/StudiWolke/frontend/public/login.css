@@ -53,12 +53,9 @@ body {
   overflow: hidden;
 }
 .cloud-button:hover {
-  color: #174e72;
-}
-
-.cloud-button:hover:before,
-.cloud-button:hover:after {
-  transform: scale(1.2);
+  border-color: #174e72 ;
+  background-color: white;
+  color: #18A0FB;
 }
 
 .footer {

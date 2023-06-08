@@ -10,16 +10,24 @@ dbname=u-lr090', 'lr090', 'eetho6Choh',
 <!DOCTYPE html>
 <html lang="de">
 <head>
+    <meta charset="utf-8"/>
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" id="favicon">
     <link rel="stylesheet" type="text/css" href="allgemein.css">
-    <title>Dein Konto</title>
+    <link rel="stylesheet" type="text/css" href="ansicht.css">
+    <!-- Verknüpfen der CSS-Datei für den Dark-Mode -->
+    <link rel="stylesheet" type="text/css" href="../src/darkmode.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta name="theme-color" content="#000000"/>
+    <title>Start</title>
 </head>
 <body>
-<main>
+
 <header>
-    <div class="logo">
-			<img src="../frontend/public/Logo StudiWolke.png">
-    </div>
+  <div class="logo">
+    <img src="../frontend/public/Logo StudiWolke.png">
+  </div>
 </header>
+<main>
 <?php
 
 $nutzername=htmlspecialchars ($_POST ["nutzername"]);
@@ -50,11 +58,14 @@ else {
 }
 
 ?>
-</main>	
-<footer>
-    <small>&copy; 2023 StudiWolke GmbH & Co. KG</small>
-    <hr>
+</main>
+ <footer>
+    <div class="logo_footer">
+        <a href="../frontend/public/index.php"><img src="../frontend/public/Logo StudiWolke.png"></a>
+		</div>
+    <div class="footer_copyright"><br><br><br><br> &copy; 2023 StudiWolke GmbH & Co. KG</div>
 </footer>
+
 </body>
 </html>
 

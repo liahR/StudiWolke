@@ -32,7 +32,7 @@ $statement->bindParam(':dateipfad', $dateipfad);
 
 if($statement->execute())
 {
-    header("Location: ../frontend/public/in_ordner.php");
+    header("Location: ../frontend/public/index.php");
 }
 else
 {

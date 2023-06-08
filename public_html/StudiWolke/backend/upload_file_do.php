@@ -17,8 +17,7 @@ $pdo = new PDO('mysql:: host=mars.iuk.hdm-stuttgart.de; dbname=u-lr090', 'lr090'
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>post_do</title>
-    <link rel="stylesheet" type="text/css" href="meinstyle.css">
+    <title>upload_do</title>
 </head>
 <body>
 <main>
@@ -94,7 +93,7 @@ $statement->bindParam(':aenderungsdatum', $aenderungsdatum);
 
 if($statement->execute())
 {
-    header("Location: ../frontend/public/in_ordner.php");
+    header("Location: ../frontend/public/index.php");
 }
 else
 {

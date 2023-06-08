@@ -29,14 +29,15 @@ $pdo = new PDO('mysql:: host=mars.iuk.hdm-stuttgart.de; dbname=u-lr090', 'lr090'
     <title>Im Ordner</title>
 </head>
 <body>
-
+<div class="grid-container">
 <header>
+<div class ="grid-header">
   <div class="logo">
     <a href="index.php"><img src="Logo StudiWolke.png"></a>
   </div>
-  <div class="header-navigation"><
+  <div class="header-navigation">
   <nav>
-    <ul><br><br><br><br><br><br><br><br>
+    <ul>
       <li class="profilbild">
         <?php
         // SQL-Abfrage zum Abrufen des Profilbilds des Benutzers
@@ -69,8 +70,10 @@ $pdo = new PDO('mysql:: host=mars.iuk.hdm-stuttgart.de; dbname=u-lr090', 'lr090'
     </ul>
   </nav>
   </div>
+</div>
 </header>
 <main>
+<div class="grid-main">
 <?php
 
     // Hole den Ordnernamen
@@ -169,9 +172,10 @@ $pdo = new PDO('mysql:: host=mars.iuk.hdm-stuttgart.de; dbname=u-lr090', 'lr090'
 
 
 
-
+</div>
 </main>
 <footer>
+<div class="grid-footer">
     <div class="logo_footer">
 			<a href="index.php"><img src="Logo StudiWolke.png"></a>
 		</div>
@@ -186,6 +190,8 @@ $pdo = new PDO('mysql:: host=mars.iuk.hdm-stuttgart.de; dbname=u-lr090', 'lr090'
         <a href="../../backend/logout.php"><img src="logout_icon.png" alt="Logout" /></a>
         </div>	
     <div class="footer_copyright"><br><br><br><br> &copy; 2023 StudiWolke GmbH & Co. KG</div>
+</div>
+</div>
 </footer>
 </body>
 </html>

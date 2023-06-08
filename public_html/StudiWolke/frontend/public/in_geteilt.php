@@ -83,7 +83,8 @@ if ($row = $statement->fetch()){
                 if (!empty($row["dateipfad"])) {
                     echo "<ul id='geteilte_datei-liste'>";
                         echo "<li>";
-                            echo "<a href=".$row["dateipfad"] . " target ='blank' >". $row["dateiname_original"]. "</a><br>";
+                            echo "<a href=".$row["dateipfad"] . " target ='blank' ><img src='document_icon.png' alt='Datei-Icon'></a><br>";
+                            echo "<h2>". $row["dateiname_original"]. "</h2>";
                             // Lösch-Buttons
                             echo "<form action='../../backend/delete_geteilt_do.php' method='post'>";
                             echo "<input type='hidden' name='teilen_id' value=".$teilen_id.">";

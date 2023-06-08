@@ -125,8 +125,11 @@ $pdo = new PDO('mysql:: host=mars.iuk.hdm-stuttgart.de; dbname=u-lr090', 'lr090'
             if (!empty($row["dateiname_zufall"])) {
                 echo "<ul id='datei-liste'>";
                     echo "<li>";
-                        echo "<a href='https://mars.iuk.hdm-stuttgart.de/~lr090/StudiWolke/frontend/dateien/".$row["dateiname_zufall"] . "' target ='blank' >". $row["dateiname_original"]. "</a><br><br>";
-                        echo "<button onclick='openTeilen(".$datei_id.")'>Teilen</button>";
+                        echo "<a href='https://mars.iuk.hdm-stuttgart.de/~lr090/StudiWolke/frontend/dateien/".$row["dateiname_zufall"] . "' target ='blank' ><img src='document_icon.png' alt='Datei-Icon'></a><br><br>"; 
+                        echo "<h2>".$row["dateiname_original"]."</h2>";
+                        echo "<div class='teilen_icon'>";
+                        echo "<button onclick='openTeilen(".$datei_id.")'><img src='teilen_icon.png' alt ='teilen_icon'></button>";
+                        echo "</div>";
                         //Teilen forms
                         echo "<div id='Teilen-".$datei_id."' style='display:none;'>";
                         echo "<form id='UploadFile-' class='popup-feld' action='../../backend/teilen_do.php' method='post' enctype='multipart/form-data' >";

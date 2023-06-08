@@ -13,6 +13,16 @@
   display: flex;
 }
 
+#geteilte_datei-liste {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+#geteilte_datei-liste h2 {
+  font-size: 18px;
+}
 
 /* index */
 
@@ -66,6 +76,22 @@
   display: flex;
 }
 
+#datei-liste {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+#datei-liste h2 {
+  font-size: 18px;
+}
+
+/*Teilen*/
+.teilen_icon button img{
+  height: 50px;
+  width: auto;
+}
 
 /*papierkorb*/
 

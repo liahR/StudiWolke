@@ -172,13 +172,20 @@ footer .footer_copyright {
 }
 
 .ordner_erstellen_icon button,
-.datei_erstellen_icon button {
+.datei_erstellen_icon button,
+.teilen_icon button {
   background: none;
   border: none;
   padding: 0;
   cursor: pointer;
   
 }
+
+#datei-liste a img {
+  height: 70px;
+  width: auto;
+}
+
 /* Stilisiere die Fußzeilen-Links */
 .footer_links {
   display: flex;

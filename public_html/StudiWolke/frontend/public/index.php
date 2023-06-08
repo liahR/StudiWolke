@@ -33,7 +33,7 @@ else {
   </div>
   <div class="header-navigation"><
   <nav>
-    <ul><br><br><br><br><br><br><br><br>
+    <ul><br><br><br><br><br><br><br>
       <li class="profilbild">
         <?php
         // SQL-Abfrage zum Abrufen des Profilbilds des Benutzers
@@ -107,8 +107,8 @@ else {
     
     <form action="in_geteilt.php" method="post">
     <button class="in_ordner_gehen" type="submit"><img src="geteilte-ordner.png" alt=" Geteilte Dateien Ordner-Icon"></button>
-    <h3>Geteilte Dateien</h3>
     </form>
+    <h2>Geteilte Dateien</h2>
     </div>
     
 
@@ -127,8 +127,8 @@ if ($statement->execute()) {
         echo '<input type="hidden" name="ordner_id" value="' . $row['ordner_id'] . '">';
         echo '<button class="in_ordner_gehen" type="submit"> <img src="cloud-ordner.png" alt="Ordner-Icon"></button>';
         echo '</form>'; 
-        echo '</div>';
-        echo '<h3>'.$row['ordnername_original'].'</h3>';
+        echo '<h2>'.$row['ordnername_original'].'</h2>';
+        echo "<button id='umbenennen' onclick='umbenennen'>umbenennen</button>";        
         // Lösch-Buttons
         echo "<form action='../../backend/delete_ordner_do.php' method='post'>";
         echo "<input type='hidden' name='ordner_id' value=".$ordner_id.">";
@@ -136,6 +136,7 @@ if ($statement->execute()) {
         echo "<button type='submit'><img src='papierkorb.png' alt='Papierkorb'></button>";
         echo '</div>';
         echo "</form>";
+        echo '</div>';
         echo '</li>';
         echo '</ul>';
     }

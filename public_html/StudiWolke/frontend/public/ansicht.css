@@ -34,6 +34,28 @@
     cursor: pointer;
 }
 
+.geteilte_ordner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.geteilte_ordner h2 { 
+  font-size: 18px;
+}
+
+.ordner {
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.ordner h2 {
+  font-size: 18px;
+}
+
 
 /*in ordner*/
 #datei-liste li {

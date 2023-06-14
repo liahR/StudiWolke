@@ -18,6 +18,7 @@ else {
 	<link rel="shortcut icon" type="image/x-icon" href="favicon.ico" id="favicon">
 	<link rel="stylesheet" type="text/css" href="account.css">
 	<link rel="stylesheet" type="text/css" href="allgemein.css">
+  <link rel="stylesheet" type="text/css" href="ansicht.css">
 	<title>Dein Konto</title>
 </head>
 <body>

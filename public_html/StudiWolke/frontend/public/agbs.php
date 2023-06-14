@@ -19,6 +19,7 @@ else {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" id="favicon">
     <link rel="stylesheet" type="text/css" href="allgemein.css">
+    <link rel="stylesheet" type="text/css" href="ansicht.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AGB's</title>
 </head>

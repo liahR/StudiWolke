@@ -60,6 +60,35 @@ else {
 </header>
 </div>
 <div class="grid-navi">
+<!-- Geteilte Dateien Ordner (fix) für Navigation -->
+<div class="Ordner-Struktur-Navi">   
+    <div class="geteilte_ordner-navi">       
+    
+    <form action="in_geteilt.php" method="post">
+    <button class="in_ordner_gehen" type="submit">Geteilte Dateien</button>
+    </form>
+    </div>
+<?php        
+// SQL-Abfrage zum Abrufen der Ordner in Navigation
+$statement = $pdo->prepare("SELECT * FROM ordner WHERE benutzer_id = :benutzer_id ORDER BY ordner_id");
+$statement->bindParam(':benutzer_id', $benutzer_id);
+
+if ($statement->execute()) {
+    while ($row = $statement->fetch()) {
+        $ordner_id = $row['ordner_id'];
+        echo '<ul id="ordner-liste-navi">';
+        echo '<li>';
+        echo '<div class="ordner-navi">';
+        echo '<form action="in_ordner.php" method="post">';
+        echo '<input type="hidden" name="ordner_id" value="' . $row['ordner_id'] . '">';
+        echo '<button class="in_ordner_gehen-navi" type="submit">'.$row['ordnername_original'].'</button>';
+        echo '</form>';       
+        echo '</div>';
+        echo '</li>';
+        echo '</ul>';
+    }
+} 
+?>
 </div>
 <div class="grid-main">
 <main>

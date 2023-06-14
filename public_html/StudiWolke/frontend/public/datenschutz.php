@@ -21,13 +21,15 @@ else {
     <title>Datenschutz</title>
 </head>
 <body>
+<div class="grid-container">
+<div class ="grid-header">
 <header>
   <div class="logo">
     <a href="index.php"><img src="Logo StudiWolke.png"></a>
   </div>
-  <div class="header-navigation"><
+  <div class="header-navigation">
   <nav>
-    <ul><br><br><br><br><br><br><br><br>
+    <ul>
       <li class="profilbild">
         <?php
         // SQL-Abfrage zum Abrufen des Profilbilds des Benutzers
@@ -54,6 +56,39 @@ else {
   </nav>
   </div>
 </header>
+</div>
+<div class="grid-navi">
+<!-- Geteilte Dateien Ordner (fix) für Navigation -->
+<div class="Ordner-Struktur-Navi">   
+    <div class="geteilte_ordner-navi">       
+    
+    <form action="in_geteilt.php" method="post">
+    <button class="in_ordner_gehen" type="submit">Geteilte Dateien</button>
+    </form>
+    </div>
+<?php        
+// SQL-Abfrage zum Abrufen der Ordner in Navigation
+$statement = $pdo->prepare("SELECT * FROM ordner WHERE benutzer_id = :benutzer_id ORDER BY ordner_id");
+$statement->bindParam(':benutzer_id', $benutzer_id);
+
+if ($statement->execute()) {
+    while ($row = $statement->fetch()) {
+        $ordner_id = $row['ordner_id'];
+        echo '<ul id="ordner-liste-navi">';
+        echo '<li>';
+        echo '<div class="ordner-navi">';
+        echo '<form action="in_ordner.php" method="post">';
+        echo '<input type="hidden" name="ordner_id" value="' . $row['ordner_id'] . '">';
+        echo '<button class="in_ordner_gehen-navi" type="submit">'.$row['ordnername_original'].'</button>';
+        echo '</form>';       
+        echo '</div>';
+        echo '</li>';
+        echo '</ul>';
+    }
+} 
+?>
+</div>
+<div class="grid-main">
 <main>    
 
 <!--Datenschutzerklärung erstellt mit kostenlosem Datenschutz-Generator.de von Dr. Thomas Schwenke-->
@@ -194,10 +229,9 @@ Sofern wir in dieser Datenschutzerklärung Adressen und Kontaktinformationen von
     </ul>
 
 </main>
+</div>
+<div class="grid-footer">	
 <footer>
-    <div class="logo_footer">
-			<a href="index.php"><img src="Logo StudiWolke.png"></a>
-		</div>
     <nav>
         <ul class= "footer_links" >
         <li><a href= "impressum.php">IMPRESSUM</a></li>
@@ -210,5 +244,7 @@ Sofern wir in dieser Datenschutzerklärung Adressen und Kontaktinformationen von
         </div>	
     <div class="footer_copyright"><br> &copy; 2023 StudiWolke GmbH & Co. KG</div>
 </footer>
+</div>
+</div> 
 </body>
 </html>

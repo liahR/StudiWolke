@@ -90,7 +90,14 @@
   cursor: pointer;
 }
 
+.geteilte_ordner-navi {
+  padding-left: 18px;
+}
 
+.Ordner-Struktur-Navi {
+  align-items: left;
+  text-align: left;
+}
 
 /*Teilen*/
 .teilen_icon button img{

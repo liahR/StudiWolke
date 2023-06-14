@@ -77,7 +77,7 @@ $pdo = new PDO('mysql:: host=mars.iuk.hdm-stuttgart.de; dbname=u-lr090', 'lr090'
 <div class="grid-navi">
 <!-- Geteilte Dateien Ordner (fix) für Navigation -->
 <div class="Ordner-Struktur-Navi">   
-    <div class="geteilte_ordner-navi"><br>        
+    <div class="geteilte_ordner-navi">       
     
     <form action="in_geteilt.php" method="post">
     <button class="in_ordner_gehen" type="submit">Geteilte Dateien</button>

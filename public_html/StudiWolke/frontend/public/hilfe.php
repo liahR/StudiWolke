@@ -76,23 +76,24 @@ else {
 	<!-- Häufig gestellte Fragen -->
     <h2>Häufig gestellte Fragen:</h2>
 	<div class="faq">
-  <h3 onclick="toggleAnswer(event)">
+     <h3>
             Wie kann ich mich in das Cloudsystem einloggen?
-            <img src="toggle_icon.png">        </h3>		
+            <img src="toggle_icon.png" onclick="toggleAnswer(event)"></h3>		
         <p>Um sich in das Cloudsystem einzuloggen, gehen Sie auf die Startseite und klicken Sie auf den "Anmelden"-Button. Geben Sie dann Ihre Anmeldedaten ein und klicken Sie auf "Einloggen".</p>
 	</div>
 	
 	<div class="faq">
-		<h3 onclick="toggleAnswer(event)">
+		<h3>
           Wie kann ich Dateien hochladen?
-          <img src="toggle_icon.png">    </h3>
+          <img src="toggle_icon.png" onclick="toggleAnswer(event)">
+    </h3>
 		<p>Um Dateien hochzuladen, klicken Sie auf den "Dateien hochladen"-Button auf der Startseite. Wählen Sie dann die Datei aus, die Sie hochladen möchten, und klicken Sie auf "Hochladen".</p>
 	</div>
 	
 	<div class="faq">
-		<h3 onclick="toggleAnswer(event)">
+		<h3>
       Wie kann ich meine Dateien verwalten?
-      <img src="toggle_icon.png">
+      <img src="toggle_icon.png" onclick="toggleAnswer(event)">
     </h3>
 		<p>Um Ihre Dateien zu verwalten, gehen Sie auf die Startseite und klicken Sie auf den jeweiligen Ordner. Hier können Sie Ihre Dateien anzeigen oder löschen.</p>
 	</div>

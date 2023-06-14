@@ -78,27 +78,26 @@ else {
 	<div class="faq">
   <h3 onclick="toggleAnswer(event)">
             Wie kann ich mich in das Cloudsystem einloggen?
-            <span class="toggle_icon"></span>
-        </h3>		
+            <img src="toggle_icon.png">        </h3>		
         <p>Um sich in das Cloudsystem einzuloggen, gehen Sie auf die Startseite und klicken Sie auf den "Anmelden"-Button. Geben Sie dann Ihre Anmeldedaten ein und klicken Sie auf "Einloggen".</p>
 	</div>
 	
 	<div class="faq">
 		<h3 onclick="toggleAnswer(event)">
           Wie kann ich Dateien hochladen?
-          <span class="toggle_icon"></span>
-    </h3>
+          <img src="toggle_icon.png">    </h3>
 		<p>Um Dateien hochzuladen, klicken Sie auf den "Dateien hochladen"-Button auf der Startseite. Wählen Sie dann die Datei aus, die Sie hochladen möchten, und klicken Sie auf "Hochladen".</p>
 	</div>
 	
 	<div class="faq">
 		<h3 onclick="toggleAnswer(event)">
       Wie kann ich meine Dateien verwalten?
-      <span class="toggle_icon"></span>
+      <img src="toggle_icon.png">
     </h3>
 		<p>Um Ihre Dateien zu verwalten, gehen Sie auf die Startseite und klicken Sie auf den jeweiligen Ordner. Hier können Sie Ihre Dateien anzeigen oder löschen.</p>
 	</div>
 	<!-- Formular zum Stellen von Fragen -->
+<<<<<<< HEAD
 		<form action="../../backend/support_do.php" method="post">
     	<label for="frage">Stellen Sie Ihre Frage:</label><br>
     	<textarea name="frage" id="frage" rows="8" cols="80" required></textarea><br>
@@ -107,6 +106,15 @@ else {
 </main>
 </div>
 <div class="grid-footer">	
+=======
+
+	<form action="../../backend/support_do.php" method="post" class="support-form">
+  <label for="frage">Stellen Sie Ihre Frage:</label><br>
+  <textarea name="frage" id="frage" rows="8" cols="80" required></textarea><br>
+  <button type="submit">Frage stellen</button>
+</form>
+</main>	
+>>>>>>> 1ea156716dcef5743b00815ab45a8e85d47ceb0e
 <footer>
     <div class="logo_footer">
 			<a href="index.php"><img src="Logo StudiWolke.png"></a>

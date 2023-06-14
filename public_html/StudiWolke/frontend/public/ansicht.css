@@ -82,6 +82,21 @@
   font-size: 18px;
 }
 
+#ordner-liste-navi li {
+  list-style: none;
+
+}
+
+.in_ordner_gehen-navi {
+  background: none;
+  border: none;
+  border-radius: 5px;
+  font-size: 15px;
+  padding: 5px;
+  cursor: pointer;
+}
+
+
 /*Teilen*/
 .teilen_icon button img{
   height: 50px;

@@ -26,14 +26,15 @@ else {
     <title>Start</title>
 </head>
 <body>
-
+<div class="grid-container">
+<div class ="grid-header">
 <header>
   <div class="logo">
     <a href="index.php"><img src="Logo StudiWolke.png"></a>
   </div>
-  <div class="header-navigation"><
+  <div class="header-navigation">
   <nav>
-    <ul><br><br><br><br><br><br><br>
+    <ul>
       <li class="profilbild">
         <?php
         // SQL-Abfrage zum Abrufen des Profilbilds des Benutzers
@@ -67,7 +68,10 @@ else {
   </nav>
   </div>
 </header>
-
+</div>
+<div class="grid-navi">
+</div>
+<div class="grid-main">
 <main>
     <?php  
 
@@ -146,11 +150,10 @@ if ($statement->execute()) {
 
 
 
-    </main>
+</main>
+</div>
+<div class="grid-footer">
  <footer>
-    <div class="logo_footer">
-			<a href="index.php"><img src="Logo StudiWolke.png"></a>
-		</div>
     <nav>
         <ul class= "footer_links" >
         <li><a href= "impressum.php">IMPRESSUM</a></li>
@@ -163,6 +166,7 @@ if ($statement->execute()) {
         </div>	
     <div class="footer_copyright"><br><br><br><br> &copy; 2023 StudiWolke GmbH & Co. KG</div>
 </footer>
-
+</div>
+</div>
 </body>
 </html>

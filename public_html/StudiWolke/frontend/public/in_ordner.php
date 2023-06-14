@@ -30,8 +30,9 @@ $pdo = new PDO('mysql:: host=mars.iuk.hdm-stuttgart.de; dbname=u-lr090', 'lr090'
 </head>
 <body>
 <div class="grid-container">
-<header>
 <div class ="grid-header">
+<header>
+
   <div class="logo">
     <a href="index.php"><img src="Logo StudiWolke.png"></a>
   </div>
@@ -70,10 +71,35 @@ $pdo = new PDO('mysql:: host=mars.iuk.hdm-stuttgart.de; dbname=u-lr090', 'lr090'
     </ul>
   </nav>
   </div>
-</div>
+
 </header>
-<main>
+</div>
+<div class="grid-navi">
+<?php        
+// SQL-Abfrage zum Abrufen der Ordner in Navigation
+$statement = $pdo->prepare("SELECT * FROM ordner WHERE benutzer_id = :benutzer_id ORDER BY ordner_id");
+$statement->bindParam(':benutzer_id', $benutzer_id);
+
+if ($statement->execute()) {
+    while ($row = $statement->fetch()) {
+        $ordner_id = $row['ordner_id'];
+        echo '<ul id="ordner-liste-navi">';
+        echo '<li>';
+        echo '<div class="ordner-navi">';
+        echo '<form action="in_ordner.php" method="post">';
+        echo '<input type="hidden" name="ordner_id" value="' . $row['ordner_id'] . '">';
+        echo '<button class="in_ordner_gehen-navi" type="submit">'.$row['ordnername_original'].'</button>';
+        echo '</form>';       
+        echo '</div>';
+        echo '</li>';
+        echo '</ul>';
+    }
+} 
+?>
+</div>
 <div class="grid-main">
+<main>
+
 <?php
 
     // Hole den Ordnernamen
@@ -172,13 +198,11 @@ $pdo = new PDO('mysql:: host=mars.iuk.hdm-stuttgart.de; dbname=u-lr090', 'lr090'
 
 
 
-</div>
+
 </main>
-<footer>
+</div>
 <div class="grid-footer">
-    <div class="logo_footer">
-			<a href="index.php"><img src="Logo StudiWolke.png"></a>
-		</div>
+<footer>
     <nav>
         <ul class= "footer_links" >
         <li><a href= "impressum.php">IMPRESSUM</a></li>
@@ -191,7 +215,9 @@ $pdo = new PDO('mysql:: host=mars.iuk.hdm-stuttgart.de; dbname=u-lr090', 'lr090'
         </div>	
     <div class="footer_copyright"><br><br><br><br> &copy; 2023 StudiWolke GmbH & Co. KG</div>
 </div>
-</div>
+
 </footer>
+</div>
+</div>
 </body>
 </html>

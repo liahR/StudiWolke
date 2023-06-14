@@ -23,13 +23,15 @@ else {
     <title>AGB's</title>
 </head>
 <body>
+<div class="grid-container">
+<div class ="grid-header">
 <header>
   <div class="logo">
     <a href="index.php"><img src="Logo StudiWolke.png"></a>
   </div>
-  <div class="header-navigation"><
+  <div class="header-navigation">
   <nav>
-    <ul><br><br><br><br><br><br><br><br>
+    <ul>
       <li class="profilbild">
         <?php
         // SQL-Abfrage zum Abrufen des Profilbilds des Benutzers
@@ -56,7 +58,11 @@ else {
   </nav>
   </div>
 </header>
-	<body>
+</div>
+<div class="grid-navi">
+</div>
+<div class="grid-main">
+<main>
    <h1> Allgemeine Geschäftsbedingungen von StudiWolke </h1>
         <h2>Willkommen bei StudiWolke!</h2>
         <p><b>§ 1 Geltungsbereich und Anbieter</b>
@@ -173,10 +179,10 @@ else {
         (4) Wir behalten uns das Recht vor, Änderungen an unserer Webseite, Regelwerken, Bedingungen einschließlich dieser AGB jederzeit vorzunehmen. Auf Ihre Bestellung finden jeweils die Verkaufsbedingungen, Vertragsbedingungen und AGB Anwendung, die zu dem Zeitpunkt Ihrer Bestellung in Kraft sind, es sei denn eine Änderung an diesen Bedingungen ist gesetzlich oder auf behördliche Anordnung erforderlich (in diesem Fall finden sie auch auf Bestellungen Anwendung, die Sie zuvor getätigt haben). Falls eine Regelung in diesen Verkaufsbedingungen unwirksam, nichtig oder aus irgendeinem Grund undurchsetzbar ist, gilt diese Regelung als trennbar und beeinflusst die Gültigkeit und Durchsetzbarkeit der verbleibenden Regelungen nicht.<br>
         (5) Die Unwirksamkeit einer Bestimmung berührt die Wirksamkeit der anderen Bestimmungen aus dem Vertrag nicht. Sollte dieser Fall eintreten, soll die Bestimmung nach Sinn und Zweck durch eine andere rechtlich zulässige Bestimmung ersetzt werden, die dem Sinn und Zweck der unwirksamen Bestimmung entspricht.<br>
     </p>
+</main>
+</div>
+<div class="grid-footer">	
     <footer>
-    <div class="logo_footer">
-			<a href="index.php"><img src="Logo StudiWolke.png"></a>
-		</div>
     <nav>
         <ul class= "footer_links" >
         <li><a href= "impressum.php">IMPRESSUM</a></li>
@@ -188,6 +194,8 @@ else {
         <a href="../../backend/logout.php"><img src="logout_icon.png" alt="Logout" /></a>
         </div>	
     <div class="footer_copyright"><br><br><br><br> &copy; 2023 StudiWolke GmbH & Co. KG</div>
-</footer>    
+</footer> 
+</div>
+</div>   
 </body>
 </html>

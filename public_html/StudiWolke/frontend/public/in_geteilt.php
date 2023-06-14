@@ -28,13 +28,15 @@ else {
     <title> Geteilte Dateien</title>
 </head>
 <body>
+<div class="grid-container">
+<div class ="grid-header">
 <header>
   <div class="logo">
     <a href="index.php"><img src="Logo StudiWolke.png"></a>
   </div>
-  <div class="header-navigation"><
+  <div class="header-navigation">
   <nav>
-    <ul><br><br><br><br><br><br><br><br>
+    <ul>
       <li class="profilbild">
         <?php
         // SQL-Abfrage zum Abrufen des Profilbilds des Benutzers
@@ -61,6 +63,31 @@ else {
   </nav>
   </div>
 </header>
+</div>
+<div class="grid-navi">
+<?php        
+// SQL-Abfrage zum Abrufen der Ordner in Navigation
+$statement = $pdo->prepare("SELECT * FROM ordner WHERE benutzer_id = :benutzer_id ORDER BY ordner_id");
+$statement->bindParam(':benutzer_id', $benutzer_id);
+
+if ($statement->execute()) {
+    while ($row = $statement->fetch()) {
+        $ordner_id = $row['ordner_id'];
+        echo '<ul id="ordner-liste-navi">';
+        echo '<li>';
+        echo '<div class="ordner-navi">';
+        echo '<form action="in_ordner.php" method="post">';
+        echo '<input type="hidden" name="ordner_id" value="' . $row['ordner_id'] . '">';
+        echo '<button class="in_ordner_gehen-navi" type="submit">'.$row['ordnername_original'].'</button>';
+        echo '</form>';       
+        echo '</div>';
+        echo '</li>';
+        echo '</ul>';
+    }
+} 
+?>
+</div>
+<div class="grid-main">
 <main>
 <h1> Geteilte Dateien </h1>
 <div class="datei-Struktur">
@@ -108,10 +135,9 @@ if ($row = $statement->fetch()){
 </div>
 
 </main>
+</div>
+<div class="grid-footer">
 <footer>
-    <div class="logo_footer">
-			<a href="index.php"><img src="Logo StudiWolke.png"></a>
-		</div>
     <nav>
         <ul class= "footer_links" >
         <li><a href= "impressum.php">IMPRESSUM</a></li>
@@ -124,5 +150,7 @@ if ($row = $statement->fetch()){
         </div>	
     <div class="footer_copyright"><br><br><br><br> &copy; 2023 StudiWolke GmbH & Co. KG</div>
 </footer>
+</div>
+</div>
 </body>
 </html>

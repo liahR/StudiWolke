@@ -97,25 +97,15 @@ else {
 		<p>Um Ihre Dateien zu verwalten, gehen Sie auf die Startseite und klicken Sie auf den jeweiligen Ordner. Hier können Sie Ihre Dateien anzeigen oder löschen.</p>
 	</div>
 	<!-- Formular zum Stellen von Fragen -->
-		<form action="../../backend/support_do.php" method="post">
-    	<label for="frage">Stellen Sie Ihre Frage:</label><br>
-    	<textarea name="frage" id="frage" rows="8" cols="80" required></textarea><br>
-    	<button type="submit">Frage stellen</button>
-		</form>
-</main>
-</div>
-<div class="grid-footer">	
-
 	<form action="../../backend/support_do.php" method="post" class="support-form">
   <label for="frage">Stellen Sie Ihre Frage:</label><br>
   <textarea name="frage" id="frage" rows="8" cols="80" required></textarea><br>
   <button type="submit">Frage stellen</button>
 </form>
-</main>	
+</main>
+</div>
+<div class="grid-footer">		
 <footer>
-    <div class="logo_footer">
-			<a href="index.php"><img src="Logo StudiWolke.png"></a>
-		</div>
     <nav>
         <ul class= "footer_links" >
         <li><a href= "impressum.php">IMPRESSUM</a></li>

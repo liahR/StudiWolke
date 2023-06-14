@@ -97,7 +97,6 @@ else {
 		<p>Um Ihre Dateien zu verwalten, gehen Sie auf die Startseite und klicken Sie auf den jeweiligen Ordner. Hier können Sie Ihre Dateien anzeigen oder löschen.</p>
 	</div>
 	<!-- Formular zum Stellen von Fragen -->
-<<<<<<< HEAD
 		<form action="../../backend/support_do.php" method="post">
     	<label for="frage">Stellen Sie Ihre Frage:</label><br>
     	<textarea name="frage" id="frage" rows="8" cols="80" required></textarea><br>
@@ -106,7 +105,6 @@ else {
 </main>
 </div>
 <div class="grid-footer">	
-=======
 
 	<form action="../../backend/support_do.php" method="post" class="support-form">
   <label for="frage">Stellen Sie Ihre Frage:</label><br>
@@ -114,7 +112,6 @@ else {
   <button type="submit">Frage stellen</button>
 </form>
 </main>	
->>>>>>> 1ea156716dcef5743b00815ab45a8e85d47ceb0e
 <footer>
     <div class="logo_footer">
 			<a href="index.php"><img src="Logo StudiWolke.png"></a>

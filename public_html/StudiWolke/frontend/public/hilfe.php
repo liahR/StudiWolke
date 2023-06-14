@@ -100,7 +100,7 @@ else {
 	</div>
 	<!-- Formular zum Stellen von Fragen -->
 	<form action="../../backend/support_do.php" method="post">
-  <label for="frage">Stellen Sie Ihre Frage:</label><br>
+  <label for="frage">Stelle uns deine Frage hier!</label><br>
   <textarea name="frage" id="frage" rows="7" cols="80" required class="support-form"></textarea><br>
   <button type="submit">Frage stellen</button>
 </form>

@@ -91,6 +91,7 @@ if ($statement->execute()) {
 } 
 ?>
 </div>
+</div>
 <div class="grid-main">
 <main>
      <h1> Impressum</h1> 

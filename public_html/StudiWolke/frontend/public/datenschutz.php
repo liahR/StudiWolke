@@ -88,6 +88,7 @@ if ($statement->execute()) {
 } 
 ?>
 </div>
+</div>
 <div class="grid-main">
 <main>    
 

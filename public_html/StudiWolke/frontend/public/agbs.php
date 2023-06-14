@@ -90,6 +90,7 @@ if ($statement->execute()) {
 } 
 ?>
 </div>
+</div>
 <div class="grid-main">
 <main>
    <h1> Allgemeine Geschäftsbedingungen von StudiWolke </h1>

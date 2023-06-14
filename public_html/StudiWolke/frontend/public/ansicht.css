@@ -67,10 +67,6 @@
     list-style: none;
 }
 
-.datei-Struktur{
-  display: flex;
-}
-
 #datei-liste {
   display: flex;
   flex-direction: column;
@@ -90,11 +86,10 @@
 .in_ordner_gehen-navi {
   background: none;
   border: none;
-  border-radius: 5px;
   font-size: 15px;
-  padding: 5px;
   cursor: pointer;
 }
+
 
 
 /*Teilen*/

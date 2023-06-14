@@ -75,6 +75,14 @@ $pdo = new PDO('mysql:: host=mars.iuk.hdm-stuttgart.de; dbname=u-lr090', 'lr090'
 </header>
 </div>
 <div class="grid-navi">
+<!-- Geteilte Dateien Ordner (fix) für Navigation -->
+<div class="Ordner-Struktur-Navi">   
+    <div class="geteilte_ordner-navi"><br>        
+    
+    <form action="in_geteilt.php" method="post">
+    <button class="in_ordner_gehen" type="submit">Geteilte Dateien</button>
+    </form>
+    </div>
 <?php        
 // SQL-Abfrage zum Abrufen der Ordner in Navigation
 $statement = $pdo->prepare("SELECT * FROM ordner WHERE benutzer_id = :benutzer_id ORDER BY ordner_id");
@@ -96,6 +104,7 @@ if ($statement->execute()) {
     }
 } 
 ?>
+</div>
 </div>
 <div class="grid-main">
 <main>

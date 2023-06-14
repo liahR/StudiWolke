@@ -37,6 +37,31 @@ body {
   -moz-box-shadow: 14px 15px 40px 5px rgba(24,160,251,1);
   box-shadow: 14px 15px 40px 5px rgba(24,160,251,1);
 }
+.login-container form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.login-container form p {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.login-container form input[type="text"],
+.login-container form input[type="password"] {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.login-container form button {
+  width: 100%;
+}
+
+.login-container form a {
+  text-align: center;
+}
 
 .login-container.hide {
   opacity: 0;
@@ -83,17 +108,6 @@ body {
   width: auto;
 }
 
-.central-box {
-  width: 100%;
-  text-align: center;
-  margin-top: 20px;
-}
-
-.central-box h2 {
-  font-size: 24px;
-  color: #18A0FB;
-}
-
 .benefits-container {
   display: flex;
   justify-content: space-between;
@@ -115,13 +129,3 @@ body {
   margin-bottom: 10px;
 }
 
-.image-container {
-  display:flex;
-  justify-content: center;
-  margin: 20px 0;
-}
-
-.image-container img {
-  width: 100%;
-  height: auto;
-}

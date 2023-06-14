@@ -131,8 +131,7 @@ if ($statement->execute()) {
         echo '<input type="hidden" name="ordner_id" value="' . $row['ordner_id'] . '">';
         echo '<button class="in_ordner_gehen" type="submit"> <img src="cloud-ordner.png" alt="Ordner-Icon"></button>';
         echo '</form>'; 
-        echo '<h2>'.$row['ordnername_original'].'</h2>';
-        echo "<button id='umbenennen' onclick='umbenennen'>umbenennen</button>";        
+        echo '<h2>'.$row['ordnername_original'].'</h2>';      
         // Lösch-Buttons
         echo "<form action='../../backend/delete_ordner_do.php' method='post'>";
         echo "<input type='hidden' name='ordner_id' value=".$ordner_id.">";

@@ -99,9 +99,9 @@ else {
 		<p>Um Ihre Dateien zu verwalten, gehen Sie auf die Startseite und klicken Sie auf den jeweiligen Ordner. Hier können Sie Ihre Dateien anzeigen oder löschen.</p>
 	</div>
 	<!-- Formular zum Stellen von Fragen -->
-	<form action="../../backend/support_do.php" method="post" class="support-form">
+	<form action="../../backend/support_do.php" method="post">
   <label for="frage">Stellen Sie Ihre Frage:</label><br>
-  <textarea name="frage" id="frage" rows="7" cols="80" required></textarea><br>
+  <textarea name="frage" id="frage" rows="7" cols="80" required class="support-form"></textarea><br>
   <button type="submit">Frage stellen</button>
 </form>
 </main>

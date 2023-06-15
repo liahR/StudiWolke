@@ -193,10 +193,6 @@ footer .footer_copyright {
   margin-right: 20px;
 }
 
-.footer_links li:last-child {
-  margin-right: 0;
-}
-
 .footer_links a {
   color: #555;
   text-decoration: none;
@@ -212,10 +208,14 @@ footer .footer_copyright {
 .footer_copyright {
   display: block;
   text-align: center;
+  color: #555;
+
+}
+.footer_copyright :hover {
+  color: #000;
 }
 
 /* Icons */
-
 .logout_icon a img {
   height: 40px;
   width: auto;

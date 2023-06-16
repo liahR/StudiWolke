@@ -80,12 +80,14 @@ body {
   grid-row: 1;
   grid-column: 1 / span 1;
   border: 1px solid black;
+
 }
 
 .grid-main {
   grid-row: 1;
   grid-column: 2 /span 1;
   border: 1px solid black;
+  padding-left: 10px;
 }
 
 .grid-footer {
@@ -98,11 +100,15 @@ body {
 
 .header-navigation nav ul {
   list-style: none;
-  
+  display: flex;
+  flex-direction: row-reverse;
 }
 
 .header-navigation nav li {
-  margin: 10px 0;
+  margin-left: 10px;
+  margin-right: 10px;
+  display: flex;
+  align-items: end;
 }
 
 .header-navigation nav a {
@@ -110,10 +116,12 @@ body {
   text-decoration: none;
 }
 
+
 .account img {
 	height: 30px;
 	border-radius: 50%;
-}  
+} 
+
 
   /* Ordner Icon */
 .ordner img {

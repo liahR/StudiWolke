@@ -28,9 +28,6 @@ else {
 <div class="grid-container">
 <div class ="grid-header">
 <header>
-  <div class="logo">
-    <a href="index.php"><img src="Logo StudiWolke.png"></a>
-  </div>
   <div class="header-navigation">
   <nav>
     <ul>
@@ -62,6 +59,9 @@ else {
 </header>
 </div>
 <div class="grid-navi">
+  <div class="logo">
+      <a href="index.php"><img src="Logo StudiWolke.png"></a>
+  </div>
 <!-- Geteilte Dateien Ordner (fix) für Navigation -->
 <div class="Ordner-Struktur-Navi">   
     <div class="geteilte_ordner-navi">       

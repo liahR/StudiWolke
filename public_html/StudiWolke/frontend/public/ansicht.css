@@ -79,8 +79,17 @@
 }
 
 #ordner-liste-navi li {
+  margin-right: 5px;
   list-style: none;
+  border: 1px solid #a3d8fc;
+  width: auto;
+  height: auto;
+  padding: 0;
+  margin: 0;
+}
 
+#ordner-liste-navi li:hover {
+  background-color: #b6e1fd;
 }
 
 .in_ordner_gehen-navi {
@@ -91,12 +100,17 @@
 }
 
 .geteilte_ordner-navi {
-  padding-left: 40px;
+  border: 1px solid #a3d8fc;
+  width: auto;
 }
 
-.Ordner-Struktur-Navi {
-  align-items: left;
-  text-align: left;
+.geteilte_ordner-navi:hover {
+  background-color: #b6e1fd;
+}
+
+.Ordner-Struktur-Navi ul {
+  padding: 0;
+  margin: 0;
 }
 
 /*Teilen*/

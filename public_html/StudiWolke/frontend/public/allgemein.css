@@ -73,27 +73,24 @@ body {
 .grid-header {
   grid-row: 1;
   grid-column: 3 / span 1;
-  border: 1px solid black;
 }
 
 .grid-navi {
   grid-row: 1;
   grid-column: 1 / span 1;
-  border: 1px solid black;
-
 }
 
 .grid-main {
   grid-row: 1;
   grid-column: 2 /span 1;
-  border: 1px solid black;
   padding-left: 10px;
+  border-right: 1px solid #555;
+  border-left: 1px solid #555;
 }
 
 .grid-footer {
   grid-row: 2;
   grid-column: 1 /span 3;
-  border: 1px solid black;
   display: flex;
   justify-content: center;
   align-items: flex-end;
@@ -197,13 +194,9 @@ body {
 /* Positioniere das Copyright */
 footer .footer_copyright {
   margin-bottom: 5px;
-  padding-left: 40px;
   color: #555;
   font-size: 80%;
-}
-
-footer .footer_copyright :hover {
-  color: #000;
+  text-align: center;
 }
 
 /* Icons */

@@ -162,8 +162,7 @@ if ($statement->execute()) {
             if (!empty($row["dateiname_zufall"])) {
                 echo "<ul id='datei-liste'>";
                     echo "<li>";
-                        echo "<a href='https://mars.iuk.hdm-stuttgart.de/~lr090/StudiWolke/frontend/dateien/".$row["dateiname_zufall"] . "' target ='blank' ><img src='document_icon.png' alt='Datei-Icon'></a><br><br>"; 
-                        echo "<h2>".$row["dateiname_original"]."</h2>";
+                        echo "<a href='https://mars.iuk.hdm-stuttgart.de/~lr090/StudiWolke/frontend/dateien/".$row["dateiname_zufall"] . "' target ='blank' ><img src='document_icon.png' alt='Datei-Icon'><h2>".$row["dateiname_original"]."</h2></a><br><br>"; 
                         echo "<div class='teilen_icon'>";
                         echo "<button onclick='openTeilen(".$datei_id.")'><img src='teilen_icon.png' alt ='teilen_icon'></button>";
                         echo "</div>";

@@ -200,9 +200,17 @@ body {
   width: auto;
 }
 
+#datei-liste a {
+  text-decoration: none;
+}
+
 #geteilte_datei-liste a img {
   height: 100px;
   width: auto;   
+}
+
+#geteilte_datei-liste a {
+  text-decoration: none;
 }
 
 /* Stilisiere die Fußzeilen-Links */

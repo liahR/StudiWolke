@@ -12,8 +12,8 @@ dbname=u-lr090', 'lr090', 'eetho6Choh',
 <head>
     <meta charset="utf-8"/>
     <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" id="favicon">
-    <link rel="stylesheet" type="text/css" href="allgemein.css">
-    <link rel="stylesheet" type="text/css" href="ansicht.css">
+    <link rel="stylesheet" type="text/css" href="../frontend/public/allgemein.css">
+    <link rel="stylesheet" type="text/css" href="../frontend/public/ansicht.css">
     <!-- Verknüpfen der CSS-Datei für den Dark-Mode -->
     <link rel="stylesheet" type="text/css" href="../src/darkmode.css">
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
@@ -60,9 +60,6 @@ else {
 ?>
 </main>
  <footer>
-    <div class="logo_footer">
-        <a href="../frontend/public/index.php"><img src="../frontend/public/Logo StudiWolke.png"></a>
-		</div>
     <div class="footer_copyright"><br><br><br><br> &copy; 2023 StudiWolke GmbH & Co. KG</div>
 </footer>
 

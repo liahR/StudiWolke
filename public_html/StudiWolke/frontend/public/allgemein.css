@@ -90,8 +90,8 @@ body {
   grid-row: 1;
   grid-column: 2 /span 1;
   padding-left: 10px;
-  border-right: 1px solid #555;
-  border-left: 1px solid #555;
+  border-right: 1px solid #18A0FB;
+  border-left: 1px solid #18A0FB;
 }
 
 .grid-footer {

@@ -15,8 +15,9 @@ body {
 }
 
 .logo {
-  display: flex;
-  align-items: center;
+  padding-left: 40px;
+  margin-top: 8px;
+  margin-bottom: 10px;
 }
 
 .logo img {
@@ -91,14 +92,15 @@ body {
   grid-column: 2 /span 1;
   border: 1px solid black;
   padding-left: 10px;
-  display:flex;
-  flex-wrap: wrap;
 }
 
 .grid-footer {
   grid-row: 2;
   grid-column: 1 /span 3;
   border: 1px solid black;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
 }
 
 /* Header-Elemente */
@@ -137,19 +139,6 @@ body {
 .geteilte_ordner img {
   height: 90px;
   width: auto;
-}
-
-/* Footer-Elemente */
-
-.footer a:hover {
-  color: #18A0FB;
-}
-
-/* Positioniere das Copyright */
-footer .footer_copyright {
-  margin: 30px auto auto 80px;
-  font-size: 80%;
-  color: lightgray;
 }
 
 /* Icons */
@@ -209,8 +198,7 @@ footer .footer_copyright {
 .footer_links a {
   color: #555;
   text-decoration: none;
-  font-weight: bold;
-  
+  font-weight: bold; 
 }
 
 .footer_links a:hover {
@@ -218,13 +206,14 @@ footer .footer_copyright {
 }
 
 /* Positioniere das Copyright */
-.footer_copyright {
-  display: block;
-  text-align: center;
+footer .footer_copyright {
+  margin-bottom: 5px;
+  padding-left: 40px;
   color: #555;
-
+  font-size: 80%;
 }
-.footer_copyright :hover {
+
+footer .footer_copyright :hover {
   color: #000;
 }
 
@@ -232,7 +221,5 @@ footer .footer_copyright {
 .logout_icon a img {
   height: 40px;
   width: auto;
-  display: flex;
   margin: 0 auto;
-  text-align: center;
 }

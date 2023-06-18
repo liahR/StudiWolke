@@ -128,12 +128,12 @@ a hover{
 .benefits-container {
   display: flex;
   padding-left: 20px;
+  padding-right: 20px;
   justify-content: space-between;
 }
 
 .benefit-box {
   max-width: 300px;
-  padding: 20px;
   border: 1px solid #18A0FB;
   border-radius: 5px;
   text-align: center;

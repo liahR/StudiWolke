@@ -5,9 +5,6 @@
   }
 
 /* Allgemeine Stilvorgaben */
-
-
-
 body {
   background: rgb(191,191,232);
   background: radial-gradient(circle, #b6e1fd  0%, rgb(255, 255, 255) 100%);
@@ -15,7 +12,6 @@ body {
 }
 
 .logo {
-  padding-left: 40px;
   margin-top: 8px;
   margin-bottom: 10px;
 }
@@ -123,14 +119,7 @@ body {
   text-decoration: none;
 }
 
-
-.account img {
-	height: 30px;
-	border-radius: 50%;
-} 
-
-
-  /* Ordner Icon */
+/* Ordner Icon */
 .ordner img {
 	height: 90px;
   width: auto;
@@ -223,3 +212,139 @@ footer .footer_copyright :hover {
   width: auto;
   margin: 0 auto;
 }
+/* Responsive Design für iPad-Größe */
+@media only screen and (max-width: 1024px) {
+
+  
+
+/* Responsive Design für mobile Handy-Größe */
+@media only screen and (max-width: 900px) {
+  .logo {
+    padding-left: 5px;
+    margin-top: 5px;
+  }
+  
+  .logo img {
+    height: 50px;
+    width: auto;
+  }
+  
+  .profilbild {
+    display: flex;
+    align-items: center;
+  }
+  .profilbild a {
+    display: flex;
+    align-items: center;
+    color: #fff;
+    text-decoration: none;
+  }
+  .profilbild img {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    border-radius: 50%;
+    border-color: #18A0FB ;
+    border: 0,5px;
+  }
+  /* Überschriften + Texte */
+  
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    p,
+    ul,
+    li,
+    b,
+    a {
+        font-family: 'Source Sans Pro', sans-serif;
+       color: black;
+      }
+    
+  .grid-container {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    grid-template-rows: auto auto;
+    grid-gap: 5px;
+    min-height: 100vh;
+    min-width: 80vw;
+  }
+  
+  .grid-header {
+    grid-row: 1;
+    grid-column: 2 / span 1;
+  }
+  
+  .grid-main {
+    grid-row: 1;
+    grid-column: 1 /span 1;
+    border: 1px solid black;
+    padding-left: 10px;
+  }
+  
+  .grid-footer {
+    grid-row: 2;
+    grid-column: 1 /span 2;
+    border: 1px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+  }
+  
+  /* Header-Elemente */
+  
+  .header-navigation nav ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .header-navigation nav li {
+    margin-left: 5px;
+    margin-right: 5px;
+    display: flex;
+    align-items: end;
+  }
+  
+  .header-navigation nav a {
+    color: #fff;
+    text-decoration: none;
+  }
+  
+  /* Ordner Icon */
+  .ordner img {
+    height: 70px;
+    width: auto;
+  }
+  
+  .geteilte_ordner img {
+    height: 70px;
+    width: auto;
+  }
+  
+  .ordner_erstellen_icon img,
+  .datei_erstellen_icon img,
+  .support_icon img {
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    background-color: rgb(164, 220, 255);
+  }
+  
+  
+  /* Stilisiere die Fußzeilen-Links */
+  .footer_links {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    list-style: none;
+  }
+  
+  .footer_links li {
+    margin-right: 20px;
+    font-size: 14px;
+  }

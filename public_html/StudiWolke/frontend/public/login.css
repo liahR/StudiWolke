@@ -10,6 +10,10 @@ body {
   background-repeat: no-repeat;
   background-attachment: fixed;
 }
+h1,
+h2,
+p,
+a,
 
 .logo {
   position: static;
@@ -109,6 +113,7 @@ body {
 }
 
 .benefits-container {
+  background-color: white; /* Hintergrundfarbe auf Weiß setzen */
   display: flex;
   justify-content: space-between;
 }
@@ -118,14 +123,4 @@ body {
   padding: 20px;
   border: 3px solid #18A0FB;
   border-radius: 5px;
-  background-color: white;
-  box-shadow: 14px 15px 40px 5px rgba(24, 160, 251, 1);
-  text-align: center;
-}
-
-.benefit-box p {
-  color: #18A0FB;
-  font-size: 20px;
-  margin-bottom: 10px;
-}
-
+  box-shadow

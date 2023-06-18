@@ -51,6 +51,9 @@ body {
   h5,
   h6,
   p,
+  ul,
+  li,
+  b,
   a {
       font-family: 'Source Sans Pro', sans-serif;
      color: #18A0FB;

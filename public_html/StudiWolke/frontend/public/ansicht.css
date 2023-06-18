@@ -164,7 +164,7 @@
     flex-direction: row;
   }
 
-  #datei-liste {
+  #datei-liste{
     display: flex;
     flex-wrap: wrap;  
     flex-direction: row;

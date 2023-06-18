@@ -13,7 +13,13 @@ body {
 h1,
 h2,
 p,
-a,
+a {
+  color: black
+}
+
+a hover{
+  color: #18A0FB
+}
 
 .logo {
   position: static;
@@ -123,4 +129,12 @@ a,
   padding: 20px;
   border: 3px solid #18A0FB;
   border-radius: 5px;
-  box-shadow
+  box-shadow: 14px 15px 40px 5px rgba(24, 160, 251, 1);
+  text-align: center;
+}
+
+.benefit-box p {
+  color: #18A0FB;
+  font-size: 20px;
+  margin-bottom: 10px;
+}

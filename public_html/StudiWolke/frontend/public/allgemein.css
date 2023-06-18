@@ -21,6 +21,10 @@ body {
   width: auto;
 }
 
+.logo-footer{
+  display: none;
+}
+
 .profilbild {
   display: flex;
   align-items: center;
@@ -212,17 +216,7 @@ footer .footer_copyright {
 
 /* Responsive Design für mobile Handy-Größe */
 @media only screen and (max-width: 900px) {
-  .logo {
-    padding-left: 5px;
-    margin-top: 5px;
-  }
-  
-  .logo img {
-    height: 50px;
-    width: auto;
-  }
-  
-  .profilbild {
+    .profilbild {
     display: flex;
     align-items: center;
   }
@@ -330,6 +324,17 @@ footer .footer_copyright {
   /* Logo ausblenden */
   .logo {
   display: none
+}
+
+/*Logo dafür im Footer anzeigen lassen*/
+.logo-footer {
+  padding-left: 5px;
+  margin-bottom: 5px;
+}
+
+.logo-footer img {
+  height: 50px;
+  width: auto;
 }
   
   /* Stilisiere die Fußzeilen-Links */

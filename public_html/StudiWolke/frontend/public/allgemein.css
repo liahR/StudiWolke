@@ -290,8 +290,7 @@ footer .footer_copyright {
   }
   
   .header-navigation nav li {
-    margin-left: 5px;
-    margin-right: 5px;
+    margin-bottom: 5px;
     display: flex;
     align-items: end;
   }

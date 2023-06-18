@@ -34,18 +34,22 @@
             </p>
         </form>
     </div>
+    
      <script>
         // JavaScript, um den Login-Container beim Scrollen auszublenden
+        // JavaScript, um den Login-Container beim Scrollen auszublenden (nur für Bildschirmgrößen größer als iPad)
+        if (window.matchMedia("(min-width: 1024px)").matches) {
         window.addEventListener('scroll', function() {
-            var loginContainer = document.querySelector('.login-container');
-            var scrollPosition = window.pageYOffset || document.documentElement.scrollTop;
-            
-            if (scrollPosition > 100) { // Anpassen der Schwelle, ab der der Container ausgeblendet werden soll
-                loginContainer.classList.add('hide');
-            } else {
-                loginContainer.classList.remove('hide');
-            }
-        });
+        var loginContainer = document.querySelector('.login-container');
+        var scrollPosition = window.pageYOffset || document.documentElement.scrollTop;
+
+        if (scrollPosition > 100) { // Anpassen der Schwelle, ab der der Container ausgeblendet werden soll
+            loginContainer.classList.add('hide');
+        } else {
+            loginContainer.classList.remove('hide');
+        }
+    });
+}
     </script>
 
     <br><br><br>    

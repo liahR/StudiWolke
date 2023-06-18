@@ -76,6 +76,7 @@
 }
 #datei-liste h2 {
   font-size: 18px;
+  padding: 5px;
 }
 
 #ordner-liste-navi li {
@@ -164,12 +165,10 @@
     flex-direction: row;
   }
 
-  #datei-liste {
+  #datei-liste li { 
     display: flex;
-    flex-wrap: wrap;  
     flex-direction: row;
-    align-items: center;
-    text-align: center;
+    margin: 5px;
   }
   .Ordner-Struktur-Navi {
     display: none;

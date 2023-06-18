@@ -139,7 +139,7 @@ a hover{
   text-align: center;
 }
 
-.benefit-box{
+.benefit-box :hover{
   box-shadow: 4px 4px 10px rgba(24, 160, 251, 0.5);
 }
 

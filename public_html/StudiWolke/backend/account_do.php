@@ -17,7 +17,7 @@ $pdo = new PDO('mysql:: host=mars.iuk.hdm-stuttgart.de; dbname=u-lr090', 'lr090'
 <!DOCTYPE html>
 <html lang="de">
 <head>
-    <link rel="stylesheet" type="text/css" href="allgemein.css">
+    <link rel="stylesheet" type="text/css" href="../frontend/public/allgemein.css">
     <title>Dein Konto</title>
 </head>
 <body>

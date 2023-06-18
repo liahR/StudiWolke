@@ -145,6 +145,9 @@ if ($statement->execute()) {
 <footer>
     <nav>
         <ul class= "footer_links" >
+        <li><div class="logo-footer">
+            <a href="index.php"><img src="Logo StudiWolke.png"></a>
+            </div></li>
         <li><a href= "impressum.php">IMPRESSUM</a></li>
             <li><a href= "datenschutz.php">DATENSCHUTZ</a></li>
             <li><a href= "agbs.php">AGBs</a></li>  

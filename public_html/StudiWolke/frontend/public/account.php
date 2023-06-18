@@ -112,7 +112,7 @@ if ($statement->execute()) {
 
 
 
-	<form action="../../backend/account_do.php" method="post" enctype="multipart/form-data">
+	<form class="account" action="../../backend/account_do.php" method="post" enctype="multipart/form-data">
 		<label for="profilbild">Profilbild ändern:</label><br>
 		<?php // SQL-Abfrage zum Abrufen des Profilbilds des Benutzers
      	$stmt = $pdo->prepare("SELECT profilbild FROM benutzer WHERE benutzer_id=:benutzer_id");

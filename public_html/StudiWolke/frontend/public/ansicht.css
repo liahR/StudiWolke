@@ -162,13 +162,14 @@
     display:flex;
     flex-direction: row;
   }
-  
+
   .Ordner-Struktur-Navi {
     display: none;
   }
 
   #datei-liste h2,
-  .ordner h2 {
+  .ordner h2,
+  .geteilt_ordner h2 {
       font-size: 14px;
     }
  /*Teilen*/

@@ -268,14 +268,12 @@ footer .footer_copyright {
   .grid-main {
     grid-row: 1;
     grid-column: 1 /span 1;
-    border: 1px solid black;
     padding-left: 10px;
   }
   
   .grid-footer {
     grid-row: 2;
     grid-column: 1 /span 2;
-    border: 1px solid black;
     display: flex;
     justify-content: center;
     align-items: flex-end;

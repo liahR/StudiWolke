@@ -79,8 +79,17 @@
 }
 
 #ordner-liste-navi li {
+  margin-right: 5px;
+  margin-bottom: 0px;
   list-style: none;
+  background-color:#18A0FB;
+  border: 1px solid black;
+  width: auto;
+  
+}
 
+#ordner-liste-navi li:hover {
+  background-color: #0c8fe6;
 }
 
 .in_ordner_gehen-navi {
@@ -91,12 +100,16 @@
 }
 
 .geteilte_ordner-navi {
+  margin-right: 5px;
   padding-left: 40px;
+  background-color:#18A0FB;
+  border: 1px solid black;
+  width: auto;
 }
 
-.Ordner-Struktur-Navi {
-  align-items: left;
-  text-align: left;
+.grid-navi .Ordner-Struktur-Navi {
+  padding: 0;
+  margin: 0;
 }
 
 /*Teilen*/

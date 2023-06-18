@@ -208,13 +208,9 @@ body {
 /* Positioniere das Copyright */
 footer .footer_copyright {
   margin-bottom: 5px;
-  padding-left: 40px;
   color: #555;
   font-size: 80%;
-}
-
-footer .footer_copyright :hover {
-  color: #000;
+  text-align: center;
 }
 
 /* Icons */

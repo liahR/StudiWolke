@@ -43,6 +43,14 @@ body {
   border-color: #18A0FB ;
   border: 0,5px;
 }
+
+.profilbild img:hover {
+    height: 70px;
+    width: 70px;
+    box-shadow: 14px 15px 40px 5px rgba(24, 160, 251, 1);
+    border-radius: 50%;
+  }
+  
 /* Überschriften + Texte */
   h1,
   h2,
@@ -148,6 +156,29 @@ body {
   border-radius: 50%;
   background-color: rgb(164, 220, 255);
 }
+
+.ordner_erstellen_icon img:hover {
+  height: 70px;
+  width: 70px;
+  box-shadow: 14px 15px 40px 5px rgba(24, 160, 251, 1);
+  border-radius: 50%;
+}
+
+.datei_erstellen_icon img:hover {
+  height: 70px;
+  width: 70px;
+  box-shadow: 14px 15px 40px 5px rgba(24, 160, 251, 1);
+  border-radius: 50%;
+}
+
+.support_icon img:hover {
+  height: 70px;
+  width: 70px;
+  box-shadow: 14px 15px 40px 5px rgba(24, 160, 251, 1);
+  border-radius: 50%;
+}
+
+
 
 .support_icon a {
   display: flex;

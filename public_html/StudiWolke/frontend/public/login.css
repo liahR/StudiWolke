@@ -120,6 +120,7 @@ a hover{
 
 .benefits-container {
   background-color: white; /* Hintergrundfarbe auf Weiß setzen */
+  margin: 0px;
   display: flex;
   justify-content: space-between;
 }

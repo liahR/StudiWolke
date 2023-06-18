@@ -129,12 +129,20 @@ if ($statement->execute()) {
     </h3>
 		<p>Um Ihre Dateien zu verwalten, gehen Sie auf die Startseite und klicken Sie auf den jeweiligen Ordner. Hier können Sie Ihre Dateien anzeigen oder löschen.</p>
 	</div>
-	<!-- Formular zum Stellen von Fragen -->
+	<!-- Formular zum Stellen von Fragen 
 	<form action="../../backend/support_do.php" method="post">
   <label for="frage">Stelle uns deine Frage hier!</label><br>
   <textarea name="frage" id="frage" rows="7" cols="80" required class="support-form"></textarea><br>
   <button type="submit">Frage stellen</button>
+</form><br>-->
+<form action="../../backend/hilfe_do.php" method="post">
+  Gebe deine Email ein:<br>
+  <input type="email" name="email" required><br>
+  Stelle deine Frage:<br>
+  <textarea name="frage" id="frage" rows="7" cols="80" required></textarea><br>
+  <button type="submit">Frage stellen</button>
 </form>
+
 </main>
 </div>
 <div class="grid-footer">		

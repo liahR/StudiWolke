@@ -140,7 +140,7 @@ a hover{
   text-align: center;
 }
 
-.benefits-container :hover{
+.benefit-box:hover {
   box-shadow: 14px 15px 40px 5px rgba(24, 160, 251, 1);
 }
 

@@ -170,6 +170,13 @@
     flex-direction: row;
     margin: 5px;
   }
+
+  .geteilte_ordner{
+    display: flex;
+    flex-direction: row;
+    padding-left: 40px;
+  }
+
   .Ordner-Struktur-Navi {
     display: none;
   }

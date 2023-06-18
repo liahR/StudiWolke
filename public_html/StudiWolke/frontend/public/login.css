@@ -118,10 +118,16 @@ a hover{
   width: auto;
 }
 
-.benefits-container {
+.Überzeugung{
   background-color: white; /* Hintergrundfarbe auf Weiß setzen */
   margin: 0px;
+  flex-direction: column;
+  text-align: center;
+
+}
+.benefits-container {
   display: flex;
+  justify-content: space-between;
 }
 
 .benefit-box {

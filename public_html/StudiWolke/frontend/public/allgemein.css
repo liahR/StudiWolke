@@ -67,7 +67,7 @@ body {
 
 .grid-container {
   display: grid;
-  grid-template-columns: 1fr 3fr 1fr;
+  grid-template-columns: 0,3fr 3fr 1fr;
   grid-template-rows: auto auto;
   grid-gap: 5px;
   min-height: 100vh;

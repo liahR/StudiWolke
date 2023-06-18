@@ -218,7 +218,7 @@ footer .footer_copyright {
   
 
 /* Responsive Design für mobile Handy-Größe */
-@media only screen and (max-width: 900px) {
+@media only screen and (max-width: 750px) {
     .profilbild {
     display: flex;
     align-items: center;

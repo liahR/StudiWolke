@@ -151,7 +151,7 @@ a hover{
 }
 
 /* Responsive Design für mobile Handy-Größe */
-@media only screen and (max-width: 900px) {
+@media only screen and (max-width: 750px) {
   .benefits-container {
     display: flex;
     flex-direction: column;

@@ -136,8 +136,11 @@ a hover{
   padding: 20px;
   border: 1px solid #18A0FB;
   border-radius: 5px;
-  box-shadow: 4px 4px 10px rgba(24, 160, 251, 0.5);
   text-align: center;
+}
+
+.benefit-box{
+  box-shadow: 4px 4px 10px rgba(24, 160, 251, 0.5);
 }
 
 .benefit-box p {

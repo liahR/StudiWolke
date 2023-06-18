@@ -9,6 +9,7 @@ session_destroy();
 <html lang="de">
 <head>
     <link rel="stylesheet" type="text/css" href="../frontend/public/allgemein.css">
+    <link rel="stylesheet" type="text/css" href="../frontend/public/ansicht.css">
     <meta charset="UTF-8">
     <title>Logout</title>
 </head>

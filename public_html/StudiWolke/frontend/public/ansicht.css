@@ -118,7 +118,7 @@
   width: auto;
 }
 
-/*papierkorb*/
+/*apierkorb*/
 
 .papierkorb img {
     height: 50px;
@@ -158,6 +158,11 @@
 
 /* Responsive Design für mobile Handy-Größe */
 @media only screen and (max-width: 900px) {
+  .ordner {
+    display:flex;
+    flex-direction: row;
+  }
+  
   .Ordner-Struktur-Navi {
     display: none;
   }

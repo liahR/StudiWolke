@@ -17,12 +17,25 @@ else {
 <head>
     <meta charset="utf-8"/>
     <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" id="favicon">
-    <link rel="stylesheet" type="text/css" href="allgemein.css">
+    <link rel="stylesheet" type="text/css" href="allgemein.css" id="hell_css">
     <link rel="stylesheet" type="text/css" href="ansicht.css">
-    <!-- Verknüpfen der CSS-Datei für den Dark-Mode -->
-    <link rel="stylesheet" type="text/css" href="../src/darkmode.css">
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <meta name="theme-color" content="#000000"/>
+    <script>
+  // Funktion zum Umschalten des Dark Modes
+  function toggleDarkMode() {
+    var themeStyle = document.getElementById('hell_css');
+    if (themeStyle.getAttribute('href') === 'allgemein.css') {
+      themeStyle.href = 'darkmode.css';
+    } else {
+      themeStyle.href = 'allgemein.css';
+    }
+  }
+  // Ereignislistener für den Button
+  var darkModeToggle = document.getElementById('dark-mode-toggle');
+  darkModeToggle.addEventListener('click', toggleDarkMode);
+</script>
+
     <title>Start</title>
 </head>
 <body>
@@ -179,6 +192,7 @@ if ($statement->execute()) {
 
 
 </main>
+<button id="dark-mode-toggle">Dark Mode</button>
 </div>
 <div class="grid-footer">
  <footer>

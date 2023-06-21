@@ -38,10 +38,14 @@ $pdo = new PDO('mysql:: host=mars.iuk.hdm-stuttgart.de; dbname=u-lr090', 'lr090'
       <li class="profilbild">
         <?php
         // SQL-Abfrage zum Abrufen des Profilbilds des Benutzers
-        $stmt = $pdo->prepare("SELECT profilbild FROM benutzer WHERE benutzer_id=:benutzer_id");
+        $vorname = '';
+        $nachname = '';
+        $stmt = $pdo->prepare("SELECT * FROM benutzer WHERE benutzer_id=:benutzer_id");
         $stmt->bindValue(':benutzer_id', $_SESSION['benutzer_id']);
         if ($stmt->execute()) {
           while ($row = $stmt->fetch()) {
+            $vorname = $row['vorname'];
+            $nachname = $row['nachname'];
             if (!empty($row["profilbild"])) {
               echo '<a href="account.php"><img src="https://mars.iuk.hdm-stuttgart.de/~lr090/StudiWolke/frontend/profilbilder/' . $row["profilbild"] . '"></a>';
             }
@@ -170,6 +174,8 @@ if ($statement->execute()) {
                         echo "<div id='Teilen-".$datei_id."' style='display:none;'>";
                         echo "<form id='UploadFile-' class='popup-feld' action='../../backend/teilen_do.php' method='post' enctype='multipart/form-data' >";
                         echo "Datei teilen mit:";
+                        echo "<input type ='hidden' name='vorname' value=". $vorname. ">";
+                        echo "<input type ='hidden' name='nachname' value=". $nachname. ">";
                         echo "<input type ='hidden' name='datei_id' value=". $datei_id. ">";
                         echo "<input type ='hidden' name='dateiname_original' value=". $dateiname_original. ">";
                         echo "<input type='hidden' name='Pfad' value= ".$pfad. " required><br>";

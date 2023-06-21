@@ -19,6 +19,8 @@ $datei_id = htmlspecialchars ($_POST ["datei_id"]);
 $email=htmlspecialchars ($_POST ["GeteiltePersonen"]);
 $dateiname_original=htmlspecialchars ($_POST ["dateiname_original"]);
 $dateipfad=htmlspecialchars ($_POST ["Pfad"]);
+$vorname=htmlspecialchars ($_POST ["vorname"]);
+$nachname=htmlspecialchars ($_POST ["nachname"]);
 
 //in DB einfügen 
 $statement = $pdo->prepare("INSERT INTO teilen (benutzer_id, datei_id, email, dateiname_original, dateipfad) VALUES (:benutzer_id, :datei_id, :email, :dateiname_original, :dateipfad)");
@@ -31,12 +33,13 @@ $statement->bindParam(':dateipfad', $dateipfad);
 
 
 //für mail
-$text = "Mit dir wurde eine Datei geteilt, schau sie dir jetzt auf StudiWolke an.";
+$name = $vorname." ". $nachname ." ";
+$text = $name. "hat eine Datei mit dir geteilt, schau sie dir jetzt auf StudiWolke an.";
 $betreff = "Geteilte Datei";
 
 if($statement->execute())
 {
-    if (mail($email, $betreff, $text. "https://mars.iuk.hdm-stuttgart.de/~lr090/StudiWolke/frontend/public/index.php")) {
+    if (mail($email, $betreff, $text)) {
         header("Location: ../frontend/public/index.php");
     } else {
         echo "Die Email konnte nicht versand werden";

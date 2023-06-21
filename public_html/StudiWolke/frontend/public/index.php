@@ -22,20 +22,21 @@ else {
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <meta name="theme-color" content="#000000"/>
     <script>
-  // Funktion zum Umschalten des Dark Modes
-  function toggleDarkMode() {
-    var themeStyle = document.getElementById('hell_css');
-    if (themeStyle.getAttribute('href') === 'allgemein.css') {
-      themeStyle.href = 'darkmode.css';
-    } else {
-      themeStyle.href = 'allgemein.css';
-    }
-  }
-  // Ereignislistener für den Button
-  var darkModeToggle = document.getElementById('dark-mode-toggle');
-  darkModeToggle.addEventListener('click', toggleDarkMode);
-</script>
-
+        // Funktion zum Umschalten des Dark Modes
+        function toggleDarkMode() {
+            var themeStyle = document.getElementById('hell_css');
+            if (themeStyle.getAttribute('href') === 'allgemein.css') {
+                themeStyle.href = 'darkmode.css';
+            } else {
+                themeStyle.href = 'allgemein.css';
+            }
+        }
+        // Ereignislistener für den Button
+        document.addEventListener('DOMContentLoaded', function() {
+            var darkModeToggle = document.getElementById('dark-mode-toggle');
+            darkModeToggle.addEventListener('click', toggleDarkMode);
+        });
+    </script>
     <title>Start</title>
 </head>
 <body>

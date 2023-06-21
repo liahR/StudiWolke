@@ -30,11 +30,18 @@ $statement->bindParam(':dateiname_original', $dateiname_original);
 $statement->bindParam(':dateipfad', $dateipfad);
 
 
+//für mail
+$text = "Mit dir wurde eine Datei geteilt, schau sie dir jetzt auf StudiWolke an.";
+$betreff = "Geteilte Datei";
+
 if($statement->execute())
 {
-    header("Location: ../frontend/public/index.php");
-}
-else
+    if (mail($email, $betreff, $text. "https://mars.iuk.hdm-stuttgart.de/~lr090/StudiWolke/frontend/public/index.php")) {
+        header("Location: ../frontend/public/index.php");
+    } else {
+        echo "Die Email konnte nicht versand werden";
+        }}
+else 
 {
     $errorInfo = $statement->errorInfo();
     echo "Fehler bei der Ausführung aufgetreten". $errorInfo[2];

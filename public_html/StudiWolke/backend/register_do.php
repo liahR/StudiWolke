@@ -34,13 +34,13 @@ if(empty($_FILES["profilbild"]["name"])) {
     die("Auchtung! Leere Datei");
 }
 
-$type = pathinfo($_FILES ["File"]["name"], PATHINFO_EXTENSION);
+$type = pathinfo($_FILES ["profilbild"]["name"], PATHINFO_EXTENSION);
 $erlaubteaealer = array ("jpg", "jpeg", "png"); 
 if (!in_array(strtolower($type), $erlaubteaealer)) {
     die ("Dateityp nicht erlaubt, nur jpg, jpeg, png. <a href='../frontend/public/register.html'>Erneut versuchen</a>");
 }
 
-if ($_FILES["profilbild"]["size"]>8000000){
+if ($_FILES["profilbild"]["size"]>9000000){
     die ("Datei ist zu groß. <a href='../frontend/public/register.html'>Erneut versuchen</a>");
 }
 

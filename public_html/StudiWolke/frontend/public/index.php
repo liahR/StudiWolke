@@ -16,7 +16,7 @@ if ($_SESSION['darkmode']) {
   $themeStyle = 'darkmode.css';
 } else {
   $themeStyle = 'allgemein.css';
-}
+}}
 
     $pdo = new PDO('mysql:: host=mars.iuk.hdm-stuttgart.de;dbname=u-lr090', 'lr090', 'eetho6Choh', array('charset' => 'utf8'));
 

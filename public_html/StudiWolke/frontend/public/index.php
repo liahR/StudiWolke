@@ -159,7 +159,7 @@ if ($statement->execute()) {
     </script> 
     </div> <br>
 <div class="Ordner-Struktur">
-    <!-- Geteilte Dateien Ordner (fix) -->
+<!-- Geteilte Dateien Ordner (fix) -->
     
     <div class="geteilte_ordner"><br>        
     

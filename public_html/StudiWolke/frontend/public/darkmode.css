@@ -6,8 +6,7 @@
 
 /* Allgemeine Stilvorgaben */
 body {
-background: radial-gradient(circle, #b6e1fd  0%, rgb(0, 0, 0) 100%);
-
+background: black;
 }
 
 .logo {
@@ -22,6 +21,10 @@ width: auto;
 
 .logo-footer{
 display: none;
+}
+
+.Ordner-Struktur-Navi {
+  color: white;
 }
 
 .profilbild {
@@ -96,8 +99,8 @@ grid-column: 1 / span 1;
 grid-row: 1;
 grid-column: 2 /span 1;
 padding-left: 10px;
-border-right: 1px solid #18A0FB;
-border-left: 1px solid #18A0FB;
+border-right: 1px solid white;
+border-left: 1px solid white;
 }
 
 .grid-footer {

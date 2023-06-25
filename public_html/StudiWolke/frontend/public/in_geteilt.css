@@ -1,0 +1,18 @@
+/* in geteilte Dateien */
+.datei-Struktur{
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
+  #geteilte_datei-liste {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    list-style: none;
+  }
+  
+  #geteilte_datei-liste h2 {
+    font-size: 18px;
+  }
+  

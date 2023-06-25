@@ -1,6 +1,6 @@
 <?php
 session_start();
-// Prüfen ob Benutzer nicht eingeloggt ist  
+// Prüfen ob Benutzer eingeloggt ist, sonst Weiterleitung zum Login  
 if (!isset($_SESSION["benutzer_id"]))
 {
 header("Location: login.html");

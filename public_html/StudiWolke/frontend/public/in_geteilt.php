@@ -19,6 +19,7 @@ else {
     <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" id="favicon">
     <link rel="stylesheet" type="text/css" href="allgemein.css">
     <link rel="stylesheet" type="text/css" href="ansicht.css">
+    <link rel="stylesheet" type="text/css" href="in_geteilt.css">
     <!-- Verknüpfen der CSS-Datei für den Dark-Mode -->
     <link rel="stylesheet" type="text/css" href="../src/darkmode.css">
     <meta name="viewport" content="width=device-width, initial-scale=1"/>

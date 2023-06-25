@@ -1,4 +1,4 @@
-/* Favicon */
+/* Favicon Größe*/
 #favicon {
     width: 32px;
     height: 32px;
@@ -24,6 +24,7 @@ body {
   display: none;
 }
 
+/* Profilbild Anzeige oben rechts Style */
 .profilbild {
   display: flex;
   align-items: center;
@@ -68,11 +69,13 @@ body {
     text-align: center;
   }
   
-  .button {
+.button {
     background-color: #18A0FB;
     color: #ffffff;
   }
 
+
+/* CSS Grid */
 .grid-container {
   display: grid;
   grid-template-columns: 1fr 3fr 1fr;
@@ -139,11 +142,30 @@ body {
   width: auto;
 }
 
-/* Icons */
+/* Icon Styles */
 .logout_icon a img{
   height: 50px;
   width: auto;
   padding-left: 20px;
+}
+
+/*Teilen*/
+.teilen_icon button img{
+  height: 50px;
+  width: auto;
+}
+
+/*Papierkorb*/
+.papierkorb img {
+  height: 50px;
+  width: auto;
+}
+
+.papierkorb button {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
 }
 
 .ordner_erstellen_icon img,
@@ -175,8 +197,6 @@ body {
   box-shadow: 14px 15px 40px 5px rgba(24, 160, 251, 1);
   border-radius: 50%;
 }
-
-
 
 .support_icon a {
   display: flex;
@@ -211,7 +231,7 @@ body {
   text-decoration: none;
 }
 
-/* Stilisiere die Fußzeilen-Links */
+/* Style Fußzeilen-Links */
 .footer_links {
   display: flex;
   justify-content: center;
@@ -242,12 +262,6 @@ footer .footer_copyright {
   text-align: center;
 }
 
-/* Icons */
-.logout_icon a img {
-  height: 40px;
-  width: auto;
-  margin: 0 auto;
-}
 /* Responsive Design für iPad-Größe */
 @media only screen and (max-width: 1024px) {
 }
@@ -274,7 +288,7 @@ footer .footer_copyright {
     border-color: #18A0FB ; /* drüber schauen*/
     border: 0,5px;
   }
-  /* Überschriften + Texte */
+  /* Überschriften + Texte responsive */
   
     h1,
     h2,
@@ -290,7 +304,8 @@ footer .footer_copyright {
         font-family: 'Source Sans Pro', sans-serif;
        color: black;
       }
-    
+   
+  /* CSS Grid responsive */    
   .grid-container {
     display: grid;
     grid-template-columns: 2fr 1fr;
@@ -320,8 +335,7 @@ footer .footer_copyright {
     align-items: flex-end;
   }
   
-  /* Header-Elemente */
-  
+  /* Header-Elemente responsive */
   .header-navigation nav ul {
     list-style: none;
     display: flex;
@@ -339,7 +353,7 @@ footer .footer_copyright {
     text-decoration: none;
   }
   
-  /* Ordner Icon */
+/* Ordner Icon responsive */
   .ordner img {
     height: 70px;
     width: auto;
@@ -359,12 +373,23 @@ footer .footer_copyright {
     background-color: rgb(164, 220, 255);
   }
   
-  /* Logo ausblenden */
+ /*Teilen responsive*/
+ .teilen_icon button img{
+  height: 40px;
+  width: auto;
+}
+/*Papierkorb responsive*/
+.papierkorb img {
+    height: 40px;
+    width: auto;
+  }
+  
+/* Logo ausblenden bei responsive */
   .logo {
   display: none
 }
 
-/*Logo dafür im Footer anzeigen lassen*/
+/*Logo dafür im Footer anzeigen lassen bei responsive*/
 .logo-footer {
   display: block;
   padding-left: 5px;
@@ -377,7 +402,7 @@ footer .footer_copyright {
   width: auto;
 }
   
-  /* Stilisiere die Fußzeilen-Links */
+/* Style Fußzeilen-Links responsive */
   .footer_links {
     display: flex;
     justify-content: center;

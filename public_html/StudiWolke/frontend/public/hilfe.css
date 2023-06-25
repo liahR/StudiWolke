@@ -23,6 +23,7 @@
 
 .faq p {
   display: none;
+  text-align: left;
 }
 
 .faq img {

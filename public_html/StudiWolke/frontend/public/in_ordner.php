@@ -20,12 +20,7 @@ $pdo = new PDO('mysql:: host=mars.iuk.hdm-stuttgart.de; dbname=u-lr090', 'lr090'
     <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" id="favicon">
     <link rel="stylesheet" type="text/css" href="allgemein.css">
     <link rel="stylesheet" type="text/css" href="ansicht.css">
-    <!-- Verknüpfen der CSS-Datei für den Dark-Mode -->
-    <link rel="stylesheet" type="text/css" href="../src/darkmode.css">
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
-    <meta name="theme-color" content="#000000"/>
-    <!--keine Ahnung ob wir das brauchen, deswegen noch drin-->
-    <link rel="manifest" href="%PUBLIC_URL%/manifest.json"/>
     <title>Im Ordner</title>
 </head>
 <body>
@@ -125,8 +120,6 @@ if ($statement->execute()) {
     <h1><?php echo $ordner['ordnername_original']; ?></h1>
 
     <!--Upload File Button anzeigen mit ausführung -->
-    
-
     <div id="Share" style="display:none;">
         <form id="UploadFile" class="popup-feld" action="../../backend/upload_file_do.php" method="post" enctype="multipart/form-data" >
             Datei auswählen: <br><br>
@@ -150,7 +143,7 @@ if ($statement->execute()) {
    
 
 
-<!--Hole die Dateien des Ordners SACHE MIT DATEI_ID FÜR TEILEN VERSTEHEN-->
+<!--Hole die Dateien des Ordners-->
 <div class="datei-Struktur">
 <?php
     $datei_id = '';

@@ -9,15 +9,6 @@ else {
     $benutzer_id = $_SESSION["benutzer_id"];
 };
 
-// Überprüfen, ob der Dark-Mode-Status in der Session vorhanden ist
-if (!isset($_SESSION['darkmode'])) {
-
-if ($_SESSION['darkmode']) {
-  $themeStyle = 'darkmode.css';
-} else {
-  $themeStyle = 'allgemein.css';
-}};
-
     $pdo = new PDO('mysql:: host=mars.iuk.hdm-stuttgart.de;dbname=u-lr090', 'lr090', 'eetho6Choh', array('charset' => 'utf8'));
 
 ?>
@@ -29,23 +20,6 @@ if ($_SESSION['darkmode']) {
     <link rel="stylesheet" type="text/css" href="allgemein.css" id="hell_css">
     <link rel="stylesheet" type="text/css" href="ansicht.css">
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
-    <script>
-        // Funktion zum Umschalten des Dark Modes
-        function toggleDarkMode() {
-            var themeStyle = document.getElementById('hell_css');
-            if (themeStyle.getAttribute('href') === 'allgemein.css') {
-                themeStyle.href = 'darkmode.css';
-                $_SESSION["darkmode"];
-            } else {
-                themeStyle.href = 'allgemein.css';
-            }
-        };
-        // Ereignislistener für den Button
-        document.addEventListener('DOMContentLoaded', function() {
-            var darkModeToggle = document.getElementById('dark-mode-toggle');
-            darkModeToggle.addEventListener('click', toggleDarkMode);
-        });
-    </script>
     <title>Start</title>
 </head>
 <body>
@@ -202,7 +176,6 @@ if ($statement->execute()) {
 
 
 </main>
-<button id="dark-mode-toggle">Dark Mode</button>
 </div>
 <div class="grid-footer">
  <footer>

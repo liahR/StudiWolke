@@ -91,6 +91,11 @@
   padding: 5px;
 }
 
+.datei-Struktur{
+  display: flex;
+  flex-wrap: wrap;
+}
+
 /* Ordner erstellen, teilen und dateien hochladen Formular */
  .popup-feld{
     display: inline-block;

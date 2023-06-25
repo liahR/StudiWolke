@@ -14,9 +14,7 @@ $pdo = new PDO('mysql:: host=mars.iuk.hdm-stuttgart.de; dbname=u-lr090', 'lr090'
 <html lang="de">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="../frontend/public/allgemein.css">
     <link rel="stylesheet" type="text/css" href="../frontend/public/ansicht.css">
     <title>upload_do</title>
@@ -62,7 +60,6 @@ for ($i=0; $i<20; $i++){
 }
 $string.=".".$type;
 
-//stimmt Pfad???
 //auf Server schieben
 if (!move_uploaded_file($_FILES["File"]["tmp_name"], "/home/lr090/public_html/StudiWolke/frontend/dateien/".$string)){
     die ("Fehler bei der Übertragung");

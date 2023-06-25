@@ -23,7 +23,7 @@ width: auto;
 display: none;
 }
 
-.Ordner-Struktur-Navi {
+.in_ordner_gehen-navi {
   color: white;
 }
 
@@ -76,6 +76,7 @@ h1 {
   color: #000000;
 }
 
+/*CSS Grid*/
 .grid-container {
 display: grid;
 grid-template-columns: 1fr 3fr 1fr;
@@ -179,7 +180,18 @@ box-shadow: 14px 15px 40px 5px rgba(24, 160, 251, 1);
 border-radius: 50%;
 }
 
+/*Papierkorb*/
+.papierkorb img {
+  height: 50px;
+  width: auto;
+}
 
+.papierkorb button {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
 
 .support_icon a {
 display: flex;

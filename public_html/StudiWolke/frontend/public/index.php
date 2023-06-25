@@ -7,7 +7,7 @@
 }
 else {
     $benutzer_id = $_SESSION["benutzer_id"];
-}
+};
 
 // Überprüfen, ob der Dark-Mode-Status in der Session vorhanden ist
 if (!isset($_SESSION['darkmode'])) {
@@ -16,7 +16,7 @@ if ($_SESSION['darkmode']) {
   $themeStyle = 'darkmode.css';
 } else {
   $themeStyle = 'allgemein.css';
-}}
+}};
 
     $pdo = new PDO('mysql:: host=mars.iuk.hdm-stuttgart.de;dbname=u-lr090', 'lr090', 'eetho6Choh', array('charset' => 'utf8'));
 
@@ -40,7 +40,7 @@ if ($_SESSION['darkmode']) {
             } else {
                 themeStyle.href = 'allgemein.css';
             }
-        }
+        };
         // Ereignislistener für den Button
         document.addEventListener('DOMContentLoaded', function() {
             var darkModeToggle = document.getElementById('dark-mode-toggle');

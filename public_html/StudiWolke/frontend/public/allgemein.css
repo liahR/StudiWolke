@@ -112,7 +112,6 @@ body {
 }
 
 /* Header-Elemente */
-
 .header-navigation nav ul {
   list-style: none;
   display: flex;
@@ -142,7 +141,7 @@ body {
   width: auto;
 }
 
-/* Icon Styles */
+/* Logout Icon */
 .logout_icon a img{
   height: 50px;
   width: auto;
@@ -168,6 +167,7 @@ body {
   cursor: pointer;
 }
 
+/* Icon für Navi rechts*/
 .ordner_erstellen_icon img,
 .datei_erstellen_icon img,
 .support_icon img {
@@ -198,11 +198,6 @@ body {
   border-radius: 50%;
 }
 
-.support_icon a {
-  display: flex;
-  align-items: center;
-}
-
 .ordner_erstellen_icon button,
 .datei_erstellen_icon button,
 .teilen_icon button {
@@ -210,9 +205,15 @@ body {
   border: none;
   padding: 0;
   cursor: pointer;
-  
 }
 
+/* Support Icon */
+.support_icon a {
+  display: flex;
+  align-items: center;
+}
+
+/* Datei Style */
 #datei-liste a img {
   height: 100px;
   width: auto;
@@ -222,6 +223,7 @@ body {
   text-decoration: none;
 }
 
+/* Geteilte Dateien Style */
 #geteilte_datei-liste a img {
   height: 100px;
   width: auto;   
@@ -353,7 +355,7 @@ footer .footer_copyright {
     text-decoration: none;
   }
   
-/* Ordner Icon responsive */
+/* Icons responsive */
   .ordner img {
     height: 70px;
     width: auto;
@@ -373,7 +375,7 @@ footer .footer_copyright {
     background-color: rgb(164, 220, 255);
   }
   
- /*Teilen responsive*/
+/*Teilen responsive*/
  .teilen_icon button img{
   height: 40px;
   width: auto;

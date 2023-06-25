@@ -20,12 +20,7 @@ else {
     <link rel="stylesheet" type="text/css" href="allgemein.css">
     <link rel="stylesheet" type="text/css" href="ansicht.css">
     <link rel="stylesheet" type="text/css" href="in_geteilt.css">
-    <!-- Verknüpfen der CSS-Datei für den Dark-Mode -->
-    <link rel="stylesheet" type="text/css" href="../src/darkmode.css">
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
-    <meta name="theme-color" content="#000000"/>
-    <!--keine Ahnung ob wir das brauchen, deswegen noch drin-->
-    <link rel="manifest" href="%PUBLIC_URL%/manifest.json"/>
     <title> Geteilte Dateien</title>
 </head>
 <body>
@@ -112,7 +107,7 @@ if ($row = $statement->fetch()){
     }}
 
 
-    //Hole die geteilten Dateien  EMAIL muss irgendwo geholt werden
+    //Hole die geteilten Dateien 
         $state = $pdo->prepare('SELECT * FROM teilen WHERE email = :email');
         $state->bindParam(':email', $email);
         if ($state->execute()){
@@ -135,10 +130,6 @@ if ($row = $statement->fetch()){
             }
         }
 
-
-
-
-//Sortieren und Suchen einfügen 
 
 ?>
 </div>

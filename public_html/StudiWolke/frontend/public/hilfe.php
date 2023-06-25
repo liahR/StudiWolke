@@ -15,10 +15,12 @@ else {
 <!DOCTYPE html>
 <html lang="de">
 <head>
-<link rel="shortcut icon" type="image/x-icon" href="favicon.ico" id="favicon">
+    <meta charset="UTF-8">
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" id="favicon">
     <link rel="stylesheet" type="text/css" href="allgemein.css">
     <link rel="stylesheet" type="text/css" href="ansicht.css">	
     <link rel="stylesheet" type="text/css" href="hilfe.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Support</title>
 	<script>
 		function toggleAnswer(event) {
@@ -109,9 +111,9 @@ if ($statement->execute()) {
     <h2>Häufig gestellte Fragen:</h2>
 	<div class="faq">
      <h3 onclick="toggleAnswer(event)">
-            Wie kann ich mich in das Cloudsystem einloggen?
+            Wie kann ich meinen Namen ändern?
             <img src="toggle_icon.png"></h3>		
-        <p>Um sich in das Cloudsystem einzuloggen, gehen Sie auf die Startseite und klicken Sie auf den "Anmelden"-Button. Geben Sie dann Ihre Anmeldedaten ein und klicken Sie auf "Einloggen".</p>
+        <p>Um deinen Namen zu ändern navigiere in den Account Bereich über dein Profilbild. Hier kannst du alle Stammdaten ändern.</p>
 	</div>
 	
 	<div class="faq">
@@ -119,7 +121,7 @@ if ($statement->execute()) {
           Wie kann ich Dateien hochladen?
           <img src="toggle_icon.png">
     </h3>
-		<p>Um Dateien hochzuladen, klicken Sie auf den "Dateien hochladen"-Button auf der Startseite. Wählen Sie dann die Datei aus, die Sie hochladen möchten, und klicken Sie auf "Hochladen".</p>
+		<p>Um Dateien hochzuladen, klicken Sie auf den "Dateien hochladen"-Button in dem jeweiligen Ordner. Wählen Sie dann die Datei aus, die Sie hochladen möchten, und klicken Sie auf "Hochladen".</p>
 	</div>
 	
 	<div class="faq">
@@ -127,14 +129,14 @@ if ($statement->execute()) {
       Wie kann ich meine Dateien verwalten?
       <img src="toggle_icon.png">
     </h3>
-		<p>Um Ihre Dateien zu verwalten, gehen Sie auf die Startseite und klicken Sie auf den jeweiligen Ordner. Hier können Sie Ihre Dateien anzeigen oder löschen.</p>
+		<p>Um Ihre Dateien zu verwalten, gehen Sie auf die Startseite und klicken Sie auf den jeweiligen Ordner. Hier können Sie Ihre Dateien anzeigen, teilen oder löschen.</p>
 	</div>
 	<!-- Formular zum Stellen von Fragen -->
 <br>
 <form action="../../backend/hilfe_do.php" method="post">
-  Gebe deine Email ein:<br>
+  <p>Gebe deine Email ein:</p>
   <input type="email" name="email" required class="support-form"><br>
-  Stelle deine Frage:<br>
+  <p>Stelle deine Frage:</p>
   <textarea name="frage" id="frage" rows="7" cols="80" required class="support-form"></textarea><br>
   <button class="button" type="submit">Frage stellen</button>
 </form>

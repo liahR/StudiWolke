@@ -9,7 +9,7 @@
   margin-bottom: 20px;
 }
 
-faq:hover {
+.faq:hover {
   box-shadow: 14px 15px 40px 5px rgba(24, 160, 251, 1);
 }
 
@@ -41,7 +41,6 @@ faq:hover {
   width: 80%;
   padding: 10px;
   margin-bottom: 10px;
-  resize: vertical;
 }
 
 .button {

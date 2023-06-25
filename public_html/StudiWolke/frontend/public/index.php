@@ -29,7 +29,6 @@ if ($_SESSION['darkmode']) {
     <link rel="stylesheet" type="text/css" href="allgemein.css" id="hell_css">
     <link rel="stylesheet" type="text/css" href="ansicht.css">
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
-    <meta name="theme-color" content="#000000"/>
     <script>
         // Funktion zum Umschalten des Dark Modes
         function toggleDarkMode() {

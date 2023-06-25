@@ -15,10 +15,12 @@ else {
 <!DOCTYPE html>
 <html lang="de">
 <head>
+  <meta charset="UTF-8">
 	<link rel="shortcut icon" type="image/x-icon" href="favicon.ico" id="favicon">
 	<link rel="stylesheet" type="text/css" href="account.css">
 	<link rel="stylesheet" type="text/css" href="allgemein.css">
   <link rel="stylesheet" type="text/css" href="ansicht.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Dein Konto</title>
 </head>
 <body>

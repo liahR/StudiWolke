@@ -1,4 +1,4 @@
- /*CSS Regeln für die Support Seite */
+/*Faq Bereich stylen */
 .faq {
   display: inline-block;
   text-align: center;
@@ -7,6 +7,10 @@
   border-radius: 20px;
   box-shadow: 0 0 10px rgb(164, 220, 255);
   margin-bottom: 20px;
+}
+
+faq:hover {
+  box-shadow: 14px 15px 40px 5px rgba(24, 160, 251, 1);
 }
 
 .faq h3 {
@@ -25,6 +29,8 @@
   height: 20px;
   width: 20px;
 }
+
+/*Fragen Formular stylen*/
 .support-form {
   display: inline-block;
   padding: 10px;

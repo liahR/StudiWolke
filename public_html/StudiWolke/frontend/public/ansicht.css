@@ -1,27 +1,4 @@
-/* in geteilte Dateien */
-#geteilte_datei-liste {
-    list-style: none;
-
-}
-
-.datei-Struktur{
-  display: flex;
-  flex-wrap: wrap;
-}
-
-#geteilte_datei-liste {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-}
-
-#geteilte_datei-liste h2 {
-  font-size: 18px;
-}
-
 /* Index */
-
 .Ordner-Struktur{
   display: flex;
   flex-wrap: wrap;}
@@ -114,27 +91,7 @@
   margin: 0;
 }
 
-/*Teilen*/
-.teilen_icon button img{
-  height: 50px;
-  width: auto;
-}
-
-/*apierkorb*/
-
-.papierkorb img {
-    height: 50px;
-    width: auto;
-  }
-
-.papierkorb button {
-    background: none;
-    border: none;
-    padding: 0;
-    cursor: pointer;
-  }
-
-  /* Ordner erstellen, teilen und dateien hochladen forms Ding */
+/* Ordner erstellen, teilen und dateien hochladen Formular */
  .popup-feld{
     display: inline-block;
     text-align: center;
@@ -163,11 +120,7 @@
   
   .geteilte_ordner-navi {
     color: black;
-  }
-  }
-
-
-  
+  }}
 
 /* Responsive Design für mobile Handy-Größe */
 @media only screen and (max-width: 750px) {
@@ -196,14 +149,4 @@
   .ordner h2,
   .geteilte_ordner h2 {
       font-size: 14px;
-    }
- /*Teilen*/
-.teilen_icon button img{
-  height: 40px;
-  width: auto;
-}
-/*Papierkorb*/
-.papierkorb img {
-    height: 40px;
-    width: auto;
-  }}
+    }}

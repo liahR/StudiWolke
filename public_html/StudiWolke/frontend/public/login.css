@@ -1,4 +1,4 @@
-/* CSS-Regeln Login */
+/* Allgemeine Stilvorgaben*/
 body {
   position: relative;
   margin-bottom: 100px; /* Höhe des Footers */
@@ -21,6 +21,7 @@ a hover{
   color: #18A0FB
 }
 
+/* Logo */
 .logo {
   position: static;
   left: 0;
@@ -31,7 +32,8 @@ a hover{
   height: 70px;
   width: auto;
 }
-
+ 
+/* Login Formular*/
 .login-container {
   max-width: 400px;
   padding: 20px;
@@ -42,11 +44,9 @@ a hover{
   margin: 50px auto;
   transition: opacity 0.3s ease-in-out;
   opacity: 1;
-
-  -webkit-box-shadow: 14px 15px 40px 5px rgba(24,160,251,1);
-  -moz-box-shadow: 14px 15px 40px 5px rgba(24,160,251,1);
   box-shadow: 14px 15px 40px 5px rgba(24,160,251,1);
 }
+
 .login-container form {
   display: flex;
   flex-direction: column;
@@ -93,6 +93,7 @@ a hover{
   color: #18A0FB;
 }
 
+/* Footer stlye*/
 .footer {
   position: fixed;
   left: 0;
@@ -118,6 +119,7 @@ a hover{
   width: auto;
 }
 
+/* Vorteile Abschnitt Stil*/
 .Überzeugung{
   background-color: white; /* Hintergrundfarbe auf Weiß setzen */
   margin: 0px;

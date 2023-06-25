@@ -150,7 +150,7 @@ if ($statement->execute()) {
    
 
 
-<!--Hole die Dateien des Ordners SACHE MIT DATEI_ID FÜR TEILEN VERSTEHEN-->
+<!--Hole die Dateien des Ordners-->
 <div class="datei-Struktur">
 <?php
     $datei_id = '';
